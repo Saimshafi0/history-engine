@@ -1,0 +1,1475 @@
+{
+ "title": "The Richest Man on the Titanic Had $2,440 in His Pocket. It Didn't Save Him.",
+ "description": "John Jacob Astor IV was the richest passenger on the Titanic, worth around 87 million dollars in 1912. On the night the ship sank, he asked for one thing his fortune could not buy. This is the true story of the Astor fortune, the scandal that put him on the Titanic, and what was found in his pockets a week later.",
+ "tags": [
+  "Titanic",
+  "John Jacob Astor",
+  "Titanic richest passenger",
+  "Titanic documentary",
+  "history documentary",
+  "Astor family",
+  "Gilded Age",
+  "RMS Titanic true story"
+ ],
+ "voice": "bm_lewis",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "RICHEST MAN\nON TITANIC"
+ },
+ "shorts": [
+  {
+   "from_scene": 0,
+   "to_scene": 1,
+   "hook": "The richest man on the Titanic",
+   "title": "The richest man on the Titanic #shorts"
+  },
+  {
+   "from_scene": 18,
+   "to_scene": 19,
+   "hook": "He asked one question. Then stepped back.",
+   "title": "What Astor did when the Titanic sank #shorts"
+  },
+  {
+   "from_scene": 22,
+   "to_scene": 23,
+   "hook": "What they found in his pockets",
+   "title": "What was in Astor's pockets #shorts"
+  },
+  {
+   "from_scene": 26,
+   "to_scene": 26,
+   "hook": "The Titanic changed the law forever",
+   "title": "How the Titanic changed the law #shorts"
+  }
+ ],
+ "scenes": [
+  {
+   "chapter": "The richest man on board",
+   "date": "April 15, 1912",
+   "say": "At about two in the morning on April 15, 1912, the richest man on the Titanic stood on the deck of a sinking ship. He was worth around eighty seven million dollars. And he was about to discover the one thing all of that money could not buy.",
+   "pops": [
+    {
+     "text": "$87 MILLION",
+     "label": "in 1912",
+     "on": "eighty"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "RMS Titanic 3",
+      "Titanic Southampton 1912"
+     ],
+     "ai": "the RMS Titanic at sea in 1912, oil painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "John Jacob Astor IV",
+      "John Jacob Astor IV portrait"
+     ],
+     "ai": "an elegant Edwardian gentleman with a moustache, 1910 portrait",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic sinking painting",
+      "Untergang der Titanic"
+     ],
+     "ai": "the Titanic sinking at night, stern rising",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "$87 million.",
+      "And it couldn't buy",
+      "one thing."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "A week later, when his body was pulled from the North Atlantic, they found over two thousand dollars in cash in his pockets, a diamond ring, and a gold watch. The money was still there. Its owner wasn't.",
+   "pops": [
+    {
+     "text": "$2,440",
+     "label": "found in his pockets",
+     "on": "two"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "CS Mackay-Bennett",
+      "Mackay-Bennett ship"
+     ],
+     "ai": "a small cable ship on a grey North Atlantic sea, 1912",
+     "zoom": "right"
+    },
+    {
+     "type": "stat",
+     "number": 2440,
+     "prefix": "$",
+     "label": "In cash, found on his body",
+     "note": "Plus British pounds, a diamond ring and a gold watch (Halifax recovery records)"
+    },
+    {
+     "type": "image",
+     "search": [
+      "gold pocket watch antique",
+      "antique gold pocket watch"
+     ],
+     "ai": "an antique gold pocket watch on dark velvet",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "His name was John Jacob Astor the Fourth. But the strangest part of this story isn't how he died. It's how a family of fur traders became so rich that one of them could build the most famous hotel in New York. To understand that, we have to go back more than a hundred years, to a poor German immigrant and a business built on animal fur.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "The true story of",
+     "text": "Titanic's Richest Man",
+     "sub": "John Jacob Astor IV, 1864 – 1912"
+    },
+    {
+     "type": "image",
+     "search": [
+      "John Jacob Astor 1763 portrait",
+      "John Jacob Astor Gilbert Stuart"
+     ],
+     "ai": "an 18th century portrait of a stern merchant",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "chapter": "An American fortune",
+   "date": "1784",
+   "say": "His great grandfather, also named John Jacob Astor, arrived in America from Germany in the 1780s with almost nothing. He started trading beaver furs with Native American trappers, and within a few decades, he controlled one of the biggest fur businesses on the continent.",
+   "pops": [
+    {
+     "text": "JOHN JACOB ASTOR",
+     "label": "the great-grandfather",
+     "on": "great"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -20,
+      35,
+      25,
+      60
+     ],
+     "to": [
+      -100,
+      25,
+      10,
+      60
+     ],
+     "route": [
+      [
+       8.5,
+       49.3
+      ],
+      [
+       0,
+       47
+      ],
+      [
+       -20,
+       45
+      ],
+      [
+       -50,
+       42
+      ],
+      [
+       -74.0,
+       40.7
+      ]
+     ],
+     "route_start": 0.5,
+     "points": [
+      {
+       "name": "Germany",
+       "at": [
+        8.5,
+        49.3
+       ],
+       "at_time": 0.3,
+       "side": "top"
+      },
+      {
+       "name": "New York",
+       "at": [
+        -74.0,
+        40.7
+       ],
+       "at_time": 3.5,
+       "side": "left"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Atlantic Ocean",
+       "at": [
+        -40,
+        38
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "beaver fur trade painting",
+      "fur trader painting 19th century"
+     ],
+     "ai": "fur traders with beaver pelts in a North American forest, painting",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "American Fur Company",
+      "fur trading post painting"
+     ],
+     "ai": "a wooden fur trading post by a river, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "beaver pelts",
+      "beaver fur pelts"
+     ],
+     "ai": "stacks of beaver pelts",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "But his smartest move had nothing to do with fur. He took his profits and bought land on a small, muddy island called Manhattan. Farms, fields, swamps. Land that nobody thought was worth much.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "His smartest move",
+      "wasn't fur."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Manhattan 1800 map",
+      "Manhattan farms 1800"
+     ],
+     "ai": "an old map of Manhattan island with farms around 1800",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "New York 1800s painting",
+      "Manhattan early 19th century painting"
+     ],
+     "ai": "early 1800s New York with farms and small houses",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "say": "Then New York exploded. The farms became streets, the streets became blocks, and the Astors became landlords of the fastest growing city in the world. When he died in 1848, the first John Jacob Astor was the richest man in America.",
+   "pops": [
+    {
+     "text": "RICHEST IN AMERICA",
+     "label": "1848",
+     "on": "richest"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Broadway New York 1850s",
+      "New York 1850 street"
+     ],
+     "ai": "a busy New York street in the 1850s",
+     "zoom": "left"
+    },
+    {
+     "type": "year",
+     "from": 1784,
+     "to": 1848,
+     "label": "He dies the richest man in America"
+    },
+    {
+     "type": "image",
+     "search": [
+      "New York 1890s skyline",
+      "Lower Manhattan 1890s"
+     ],
+     "ai": "a crowded 1890s Manhattan skyline",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "chapter": "Colonel Astor",
+   "date": "1864",
+   "say": "His great grandson, John Jacob Astor the Fourth, was born in 1864 into one of the richest families on Earth. He went to Harvard. He didn't need a job. But he was restless.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Ferncliff Rhinebeck Astor",
+      "Rhinebeck New York"
+     ],
+     "ai": "a grand country mansion on the Hudson River, 1860s",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Harvard University 1880s",
+      "Harvard Yard 19th century"
+     ],
+     "ai": "Harvard University buildings in the 1880s",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "John Jacob Astor IV young",
+      "John Jacob Astor IV 1890s"
+     ],
+     "ai": "a young wealthy man in Victorian clothes",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "He wrote a science fiction novel about life in the year 2000. He tinkered with inventions. And in 1898, when the Spanish American War began, he paid to equip an entire artillery unit and went to Cuba himself as an officer. From then on, people called him Colonel Astor.",
+   "pops": [
+    {
+     "text": "COLONEL ASTOR",
+     "label": "1898",
+     "on": "Colonel"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "A Journey in Other Worlds Astor",
+      "A Journey in Other Worlds 1894"
+     ],
+     "ai": "the cover of an 1890s science fiction novel",
+     "zoom": "in"
+    },
+    {
+     "type": "year",
+     "from": 1864,
+     "to": 1898,
+     "label": "The Spanish-American War"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Spanish American War artillery",
+      "Spanish American War 1898 Cuba"
+     ],
+     "ai": "American soldiers with cannons in Cuba, 1898",
+     "zoom": "right"
+    },
+    {
+     "type": "map",
+     "view": [
+      -90,
+      15,
+      -65,
+      32
+     ],
+     "points": [
+      {
+       "name": "Cuba",
+       "at": [
+        -77.8,
+        21.5
+       ],
+       "at_time": 0.3,
+       "side": "bottom"
+      },
+      {
+       "name": "Florida",
+       "at": [
+        -81.5,
+        28
+       ],
+       "at_time": 0.8,
+       "side": "right"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The hotel king",
+   "date": "1897",
+   "say": "But his real talent was the family business. Property. In 1897, he opened the Astoria Hotel right next to his cousin's Waldorf. Together they became the Waldorf Astoria, the most famous hotel in the world. Then he built the St. Regis. Then the Knickerbocker. And here is the twist. The Waldorf next door had been built by his own cousin, William Waldorf Astor, reportedly to spite Astor's mother during a bitter family feud. The two halves of the most famous hotel in America began as a fight between relatives.",
+   "pops": [
+    {
+     "text": "WALDORF-ASTORIA",
+     "label": "1897",
+     "on": "Waldorf"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Waldorf-Astoria 1900",
+      "Waldorf Astoria Fifth Avenue 1899"
+     ],
+     "ai": "the original Waldorf-Astoria hotel on Fifth Avenue around 1900",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "St. Regis Hotel New York 1904",
+      "St Regis New York 1905"
+     ],
+     "ai": "a grand Beaux-Arts hotel in New York, 1905",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Knickerbocker Hotel 1906",
+      "Knickerbocker Hotel New York"
+     ],
+     "ai": "a red brick luxury hotel in Times Square, 1906",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Fifth Avenue New York 1905",
+      "Fifth Avenue 1900s"
+     ],
+     "ai": "Fifth Avenue New York with horse carriages, 1905",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A hotel born",
+      "from a family feud."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "By 1912, Colonel Astor was worth around eighty seven million dollars. Adjusted for inflation, that is roughly three billion dollars today. And he was about to make the decision that would change everything.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 87,
+     "prefix": "$",
+     "suffix": " MILLION",
+     "label": "Astor's estimated fortune in 1912"
+    },
+    {
+     "type": "stat",
+     "number": 3,
+     "prefix": "≈ $",
+     "suffix": " BILLION",
+     "label": "The same money today, adjusted for inflation",
+     "note": "Rough estimate using US consumer prices"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "And then",
+      "came the scandal."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The scandal",
+   "date": "1911",
+   "say": "In 1909, Astor divorced his first wife. That alone shocked New York society. Then, in 1911, at the age of forty seven, he married Madeleine Force. She was eighteen years old. Younger than his own son.",
+   "pops": [
+    {
+     "text": "SHE WAS 18",
+     "label": "he was 47",
+     "on": "eighteen"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Ava Lowle Willing Astor",
+      "Ava Willing Astor"
+     ],
+     "ai": "an elegant Edwardian society woman portrait",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Madeleine Astor",
+      "Madeleine Talmage Force"
+     ],
+     "ai": "a young Edwardian woman in a white dress, 1911 portrait",
+     "zoom": "in"
+    },
+    {
+     "type": "bars",
+     "title": "Their ages in 1911",
+     "bars": [
+      [
+       "John Jacob Astor",
+       47
+      ],
+      [
+       "Madeleine Force",
+       18
+      ]
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "New York newspaper 1911",
+      "New York Times 1911 front page"
+     ],
+     "ai": "old 1911 newspaper front pages",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "say": "The newspapers went wild. Society turned its back on them. So the newlyweds did what rich people do when they want the gossip to die down. They left the country, for a long honeymoon in Egypt and Europe.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Gibson Girl gossip 1910",
+      "Edwardian society ball"
+     ],
+     "ai": "whispering high society guests at an Edwardian ball",
+     "zoom": "left"
+    },
+    {
+     "type": "map",
+     "from": [
+      -80,
+      20,
+      40,
+      55
+     ],
+     "to": [
+      -10,
+      22,
+      38,
+      52
+     ],
+     "route": [
+      [
+       -74.0,
+       40.7
+      ],
+      [
+       -30,
+       40
+      ],
+      [
+       -5.5,
+       36
+      ],
+      [
+       12,
+       37
+      ],
+      [
+       31.2,
+       30.0
+      ]
+     ],
+     "route_start": 0.5,
+     "points": [
+      {
+       "name": "New York",
+       "at": [
+        -74.0,
+        40.7
+       ],
+       "at_time": 0.2,
+       "side": "left"
+      },
+      {
+       "name": "Egypt",
+       "at": [
+        31.2,
+        30.0
+       ],
+       "at_time": 3.0,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Giza pyramids 1910 photograph",
+      "Pyramids of Giza 1900s"
+     ],
+     "ai": "the pyramids of Giza in an old 1910 photograph",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Paris 1910 photograph",
+      "Paris Belle Epoque street"
+     ],
+     "ai": "a Paris street in 1910",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "By early 1912, Madeleine was pregnant. They wanted their child born in America. So they booked passage home on the newest, biggest, most luxurious ship in the world. Astor worried that the gossip would follow them home. He had no idea what was really waiting for them in the North Atlantic.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "She was pregnant.",
+      "They wanted to go home."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "RMS Titanic 3",
+      "Titanic leaving Belfast"
+     ],
+     "ai": "the Titanic at a harbour in 1912",
+     "zoom": "up"
+    }
+   ]
+  },
+  {
+   "chapter": "Boarding the Titanic",
+   "date": "April 10, 1912",
+   "say": "On April 10, 1912, the Astors boarded the Titanic at Cherbourg, in France. They brought a valet, a maid, a private nurse, and their Airedale dog, Kitty. They took a suite on C Deck, among the most expensive rooms on the ship. Their ticket cost about two hundred and twenty five pounds. A sailor on the same ship would have needed years to earn that much.",
+   "pops": [
+    {
+     "text": "KITTY",
+     "label": "their Airedale dog",
+     "on": "Kitty."
+    }
+   ],
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      -12,
+      47,
+      3,
+      54
+     ],
+     "route": [
+      [
+       -1.4,
+       50.9
+      ],
+      [
+       -1.62,
+       49.65
+      ],
+      [
+       -8.3,
+       51.85
+      ]
+     ],
+     "route_start": 0.3,
+     "route_end": 3.0,
+     "points": [
+      {
+       "name": "Southampton",
+       "at": [
+        -1.4,
+        50.9
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      },
+      {
+       "name": "Cherbourg",
+       "note": "the Astors board",
+       "at": [
+        -1.62,
+        49.65
+       ],
+       "at_time": 1.0,
+       "side": "right"
+      },
+      {
+       "name": "Queenstown",
+       "at": [
+        -8.3,
+        51.85
+       ],
+       "at_time": 2.4,
+       "side": "left"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Cherbourg harbour 1912",
+      "Nomadic tender Cherbourg"
+     ],
+     "ai": "a small tender boat in Cherbourg harbour, 1912",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Airedale Terrier",
+      "Airedale terrier dog"
+     ],
+     "ai": "an Airedale terrier dog",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic first class suite",
+      "Olympic first class stateroom"
+     ],
+     "ai": "a luxurious Edwardian ship cabin with wood panels",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 225,
+     "prefix": "£",
+     "label": "The Astors' ticket in 1912",
+     "note": "Encyclopedia Titanica lists £224 10s 6d"
+    }
+   ]
+  },
+  {
+   "say": "The Titanic was a floating palace. A grand staircase under a glass dome. A gym, a swimming pool, a Turkish bath. Her owners called her practically unsinkable. But she carried only twenty lifeboats, with room for about half of the people on board.",
+   "pops": [
+    {
+     "text": "20 LIFEBOATS",
+     "label": "for ~2,200 people",
+     "on": "twenty"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Titanic grand staircase",
+      "Olympic grand staircase"
+     ],
+     "ai": "a grand wooden staircase under a glass dome on a ship",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic gymnasium",
+      "Olympic gymnasium 1911"
+     ],
+     "ai": "an Edwardian ship gymnasium",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic first class lounge",
+      "Olympic lounge 1911"
+     ],
+     "ai": "an elegant ship lounge with chandeliers",
+     "zoom": "left"
+    },
+    {
+     "type": "bars",
+     "title": "On board vs. lifeboat seats",
+     "bars": [
+      [
+       "People on board",
+       2224
+      ],
+      [
+       "Lifeboat seats",
+       1178
+      ]
+     ],
+     "note": "Approximate figures"
+    }
+   ]
+  },
+  {
+   "chapter": "The iceberg",
+   "date": "April 14, 1912",
+   "say": "On the night of April 14, the sea was flat and black. At eleven forty, the lookout saw an iceberg dead ahead. The ship turned, but not fast enough. The ice scraped along the side of the hull, opening the front compartments to the sea.",
+   "pops": [
+    {
+     "text": "11:40 PM",
+     "label": "iceberg",
+     "on": "eleven"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -75,
+      35,
+      -5,
+      56
+     ],
+     "to": [
+      -60,
+      36,
+      -38,
+      48
+     ],
+     "route": [
+      [
+       -8.3,
+       51.85
+      ],
+      [
+       -30,
+       46
+      ],
+      [
+       -49.95,
+       41.73
+      ]
+     ],
+     "route_start": 0.3,
+     "route_end": 3.5,
+     "points": [
+      {
+       "name": "Titanic sinks here",
+       "at": [
+        -49.95,
+        41.73
+       ],
+       "at_time": 3.6,
+       "side": "bottom",
+       "color": "#d64834"
+      },
+      {
+       "name": "New York",
+       "at": [
+        -74.0,
+        40.7
+       ],
+       "at_time": 1.0,
+       "side": "left"
+      }
+     ],
+     "labels": [
+      {
+       "text": "North Atlantic",
+       "at": [
+        -35,
+        50
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic iceberg 1912 photograph",
+      "iceberg Titanic suspected"
+     ],
+     "ai": "a dark iceberg in a calm night sea",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic crow's nest",
+      "Titanic lookout"
+     ],
+     "ai": "the lookout nest on the mast of an old ship at night",
+     "zoom": "up"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Not fast enough."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "At first, almost nobody believed it was serious. Astor reportedly joked that they were safer on the Titanic than in a small lifeboat. But by one in the morning, the bow was clearly sinking. Some of the first lifeboats left half empty, because passengers refused to climb down into the cold and the dark.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Titanic first class passengers deck",
+      "Titanic boat deck"
+     ],
+     "ai": "calm first class passengers on a ship deck at night, 1912",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "11:40 PM ...",
+      "1:00 AM.",
+      "The bow is sinking."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic sinking painting",
+      "Untergang der Titanic"
+     ],
+     "ai": "the Titanic tilting forward at night",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "say": "Some of the richest men in America were on that ship. Benjamin Guggenheim changed into his evening clothes and said they would go down like gentlemen. Isidor Straus, a co-owner of Macy's, refused to take a seat ahead of other men. His wife Ida refused to leave him.",
+   "pops": [
+    {
+     "text": "ISIDOR & IDA STRAUS",
+     "label": "co-owner of Macy's",
+     "on": "Isidor"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Benjamin Guggenheim",
+      "Benjamin Guggenheim portrait"
+     ],
+     "ai": "a wealthy man in a tuxedo, 1910 portrait",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Isidor Straus",
+      "Isidor and Ida Straus"
+     ],
+     "ai": "an elderly couple in Edwardian clothes",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Macy's Herald Square 1910",
+      "Macy's 1908"
+     ],
+     "ai": "the Macy's department store in New York, 1910",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "chapter": "Lifeboat 4",
+   "date": "April 15, 1912",
+   "say": "At around one forty five, Astor helped Madeleine through a window on the enclosed deck into lifeboat number four. He asked the officer in charge, Charles Lightoller, if he could join her. She was, he said, in a delicate condition.",
+   "pops": [
+    {
+     "text": "LIFEBOAT 4",
+     "label": "about 1:45 AM",
+     "on": "four."
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Titanic lifeboat 1912",
+      "Titanic lifeboat Carpathia"
+     ],
+     "ai": "a wooden lifeboat being lowered from a big ship at night",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Charles Lightoller",
+      "Charles Herbert Lightoller"
+     ],
+     "ai": "a British ship officer in uniform, 1912",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Madeleine Astor",
+      "Madeleine Talmage Force"
+     ],
+     "ai": "a young pregnant woman in a coat on a ship deck at night",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "say": "Lightoller told him no. No men until all the women were loaded. And here is the moment that matters. The richest man on the ship did not argue. He didn't offer money. He stepped back, and asked only one thing. Which boat is this? So he could find his wife later.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "He didn't argue.",
+      "He didn't offer money."
+     ],
+     "hit": true
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He asked one thing:",
+      "\"Which boat is this?\""
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic lifeboat 1912",
+      "Titanic lifeboat Carpathia"
+     ],
+     "ai": "a lifeboat rowing away from a sinking ship",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "Lifeboat four was lowered at one fifty five. About twenty five minutes later, at two twenty in the morning, the Titanic broke apart and slipped under the ocean. More than fifteen hundred people died. John Jacob Astor was one of them.",
+   "pops": [
+    {
+     "text": "2:20 AM",
+     "label": "Titanic sinks",
+     "on": "two"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "1:55 AM: lifeboat 4 is lowered.",
+      "2:20 AM: the Titanic is gone."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Titanic sinking painting",
+      "Willy Stöwer Titanic"
+     ],
+     "ai": "the Titanic breaking in two at night",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 1500,
+     "prefix": "MORE THAN ",
+     "label": "People died when the Titanic sank"
+    }
+   ]
+  },
+  {
+   "say": "At around four in the morning, a ship called the Carpathia arrived and began pulling survivors out of the lifeboats. About seven hundred people were saved. Madeleine Astor was one of them. For days, she hoped her husband had been picked up by another ship. But here's the problem. There was no other ship.",
+   "pops": [
+    {
+     "text": "CARPATHIA",
+     "label": "the rescue ship",
+     "on": "Carpathia"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Carpathia Titanic lifeboat",
+      "Titanic lifeboat approaching Carpathia"
+     ],
+     "ai": "a lifeboat full of survivors approaching a rescue ship at dawn",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "RMS Carpathia",
+      "Carpathia ship 1912"
+     ],
+     "ai": "a steamship on a calm sea at dawn, 1912",
+     "zoom": "right"
+    },
+    {
+     "type": "stat",
+     "number": 700,
+     "prefix": "ABOUT ",
+     "suffix": " SAVED",
+     "label": "Survivors picked up by the Carpathia"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "There was no",
+      "other ship."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "What they found",
+   "date": "April 22, 1912",
+   "say": "A week later, a cable ship called the Mackay Bennett was sent from Halifax, Canada, to recover the bodies. On April 22, they pulled up body number one hundred and twenty four. Light hair. A moustache. Initials stitched into the jacket. J. J. A. In total, the crew of that one ship pulled more than three hundred bodies from the water.",
+   "pops": [
+    {
+     "text": "BODY No. 124",
+     "label": "April 22, 1912",
+     "on": "hundred"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      -70,
+      38,
+      -45,
+      50
+     ],
+     "route": [
+      [
+       -63.57,
+       44.65
+      ],
+      [
+       -49.95,
+       41.73
+      ]
+     ],
+     "route_start": 0.3,
+     "route_end": 2.6,
+     "points": [
+      {
+       "name": "Halifax",
+       "at": [
+        -63.57,
+        44.65
+       ],
+       "at_time": 0.2,
+       "side": "left"
+      },
+      {
+       "name": "Wreck site",
+       "at": [
+        -49.95,
+        41.73
+       ],
+       "at_time": 2.4,
+       "side": "bottom",
+       "color": "#d64834"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "CS Mackay-Bennett",
+      "Mackay-Bennett ship"
+     ],
+     "ai": "a small black cable ship at sea",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "J. J. A."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "In his pockets they found two thousand four hundred and forty dollars in cash, two hundred and twenty five British pounds, a diamond ring, gold and diamond cufflinks, and a gold pocket watch. Enough money to buy a house in 1912. None of it had helped.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 2440,
+     "prefix": "$",
+     "label": "American cash in his pockets",
+     "note": "Plus £225, from the Halifax recovery record"
+    },
+    {
+     "type": "image",
+     "search": [
+      "1912 US banknotes",
+      "large size US currency 1910"
+     ],
+     "ai": "old large US dollar bills from 1912",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "antique diamond ring",
+      "Edwardian diamond ring"
+     ],
+     "ai": "an antique diamond ring",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "gold pocket watch antique",
+      "antique gold pocket watch"
+     ],
+     "ai": "an antique gold pocket watch",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "None of it",
+      "had helped."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "After",
+   "date": "August 1912",
+   "say": "Madeleine survived. Four months later, she gave birth to a son and named him John Jacob Astor, after the father he would never meet. Most of the Astor fortune went to his older son, Vincent. Madeleine received a trust fund, with a famous condition. She would keep its income only as long as she never remarried. In 1916, she married again. And the income stopped.",
+   "pops": [
+    {
+     "text": "\"NEVER REMARRY\"",
+     "label": "the condition",
+     "on": "never"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Madeleine Astor 1912",
+      "Madeleine Astor son"
+     ],
+     "ai": "a young mother with a baby, 1912 photograph",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 4,
+     "suffix": " MONTHS LATER",
+     "label": "Madeleine gives birth to his son, John Jacob Astor VI"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Vincent Astor",
+      "Vincent Astor 1912"
+     ],
+     "ai": "a serious young man in a suit, 1912",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The money came",
+      "with a condition."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "1916:",
+      "she remarried.",
+      "The money stopped."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "In 2024, more than a century later, the gold watch found on his body was sold at auction in England. It went for one point four six million dollars. The richest man on the Titanic was worth more as a story than his watch ever was as gold.",
+   "pops": [
+    {
+     "text": "$1.46 MILLION",
+     "label": "auction, 2024",
+     "on": "one"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1912,
+     "to": 2024,
+     "label": "His watch goes to auction"
+    },
+    {
+     "type": "image",
+     "search": [
+      "gold pocket watch antique",
+      "antique gold pocket watch"
+     ],
+     "ai": "an antique gold pocket watch under a spotlight",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 1.46,
+     "decimals": 2,
+     "prefix": "$",
+     "suffix": " MILLION",
+     "label": "Paid for Astor's gold watch in 2024",
+     "note": "Henry Aldridge & Son auction"
+    }
+   ]
+  },
+  {
+   "date": "1914",
+   "say": "And here is the final twist. The Titanic didn't only change the Astor family. It changed the law. In 1914, the world's maritime nations agreed on a new safety convention. Ships would need lifeboat space for every single person on board. A seat for everyone. Rich or poor.",
+   "pops": [
+    {
+     "text": "A SEAT FOR EVERYONE",
+     "label": "1914 safety convention",
+     "on": "seat"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1912,
+     "to": 1914,
+     "label": "The world changes the rules at sea"
+    },
+    {
+     "type": "image",
+     "search": [
+      "lifeboats ship 1914",
+      "ocean liner lifeboats"
+     ],
+     "ai": "rows of lifeboats on the deck of an ocean liner",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "SOLAS 1914 conference London",
+      "International Conference on Safety of Life at Sea 1913"
+     ],
+     "ai": "diplomats signing a treaty in London, 1913",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A seat for everyone.",
+      "Rich or poor."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "What it teaches",
+   "date": "Today",
+   "say": "So what does the richest man on the Titanic teach us about money? First, money buys comfort, not time. Second, the rules on the deck applied to everyone, no matter what was in their pockets. And third, the Astor fortune itself was built on patience. Land bought cheap, and held for decades.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "What it teaches",
+     "text": "3 Lessons",
+     "sub": "from the richest man on the Titanic"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "1.",
+      "Money buys comfort.",
+      "Not time."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "2.",
+      "On that deck,",
+      "the rules were the same for all."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "3.",
+      "Real fortunes are built",
+      "on patience."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "The wreck was only found in 1985, almost four kilometres below the surface. And somewhere inside it is the suite where the richest man on board spent his last nights. If you want more true stories about the world's richest people, and what their money couldn't save, subscribe to Midnight Archive. The next file opens soon.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Titanic wreck bow",
+      "Titanic wreck 2004"
+     ],
+     "ai": "the Titanic wreck at the bottom of the ocean",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "John Jacob Astor IV",
+      "John Jacob Astor IV portrait"
+     ],
+     "ai": "an Edwardian gentleman portrait",
+     "zoom": "out"
+    },
+    {
+     "type": "title",
+     "text": "John Jacob Astor IV",
+     "sub": "1864 – 1912 · Subscribe to Midnight Archive"
+    }
+   ],
+   "date": "1985"
+  }
+ ]
+}
