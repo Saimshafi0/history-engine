@@ -1,0 +1,56 @@
+name: Make video
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: Script file in the scripts folder, e.g. mansa_musa.json
+        required: true
+      preview:
+        description: "yes = quick small preview, no = full video + 4 Shorts"
+        required: false
+        default: "no"
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      SCRIPT: ${{ inputs.script }}
+      PREVIEW: ${{ inputs.preview }}
+    steps:
+      - name: Get the engine
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Saved voice model and pictures
+        uses: actions/cache@v4
+        with:
+          path: |
+            models
+            images-cache
+            cache/voice
+          key: engine-${{ github.run_id }}
+          restore-keys: engine-
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          mkdir -p images images-cache
+          cp -n images-cache/* images/ 2>/dev/null || true
+      - name: Make video
+        run: |
+          if [ "$PREVIEW" = "yes" ]; then python -u engine.py "scripts/$SCRIPT" --preview; else python -u engine.py "scripts/$SCRIPT"; fi
+      - name: Make shorts
+        if: ${{ inputs.preview != 'yes' }}
+        run: python -u engine.py --shorts "output/${SCRIPT%.json}" 4
+      - name: Pack
+        if: ${{ always() }}
+        run: |
+          rm -f output/*/narration.wav output/*/shorts/*.wav
+          cp -n images/* images-cache/ 2>/dev/null || true
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: result
+          path: output/
+          retention-days: 7
