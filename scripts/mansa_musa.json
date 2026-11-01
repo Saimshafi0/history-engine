@@ -1,0 +1,2172 @@
+{
+ "title": "How Mansa Musa Became the Richest Man in History (And Lost It All)",
+ "description": "In 1324 a king from West Africa travelled to Mecca with so much gold that he crashed its price in Cairo for twelve years. This is the story of Mansa Musa: where his wealth came from, what he did with it, and how his empire fell apart within a century of his death.",
+ "tags": [
+  "Mansa Musa",
+  "Mali Empire",
+  "richest man in history",
+  "history documentary",
+  "Timbuktu",
+  "African history",
+  "history of money",
+  "inflation"
+ ],
+ "voice": "bm_daniel",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "HE CRASHED\nGOLD"
+ },
+ "shorts": [
+  {
+   "from_scene": 0,
+   "to_scene": 2,
+   "hook": "He crashed the price of gold",
+   "title": "The king who crashed gold #shorts"
+  },
+  {
+   "from_scene": 7,
+   "to_scene": 8,
+   "hook": "This king sailed into the ocean and never came back",
+   "title": "The king who sailed into the Atlantic #shorts"
+  },
+  {
+   "from_scene": 17,
+   "to_scene": 19,
+   "hook": "One tourist caused inflation in a whole city",
+   "title": "One man broke a city's money #shorts"
+  },
+  {
+   "from_scene": 20,
+   "to_scene": 21,
+   "hook": "The richest man on Earth went broke",
+   "title": "The richest man ever ran out of money #shorts"
+  }
+ ],
+ "scenes": [
+  {
+   "chapter": "The richest man ever",
+   "date": "1324",
+   "say": "In the year 1324, a king walked out of West Africa with so much gold that when he passed through Cairo, the price of gold crashed. For twelve years, one of the richest cities in the world could not recover.",
+   "pops": [
+    {
+     "text": "GOLD PRICE: CRASHED",
+     "on": "crashed"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Catalan Atlas Mansa Musa",
+      "Mansa Musa Catalan Atlas detail"
+     ],
+     "ai": "a medieval African king on a golden throne holding a gold nugget",
+     "zoom": "in",
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Léon Belly Pilgrims going to Mecca",
+      "caravan desert painting 19th century"
+     ],
+     "ai": "a huge camel caravan crossing the Sahara desert at sunset",
+     "zoom": "right"
+    },
+    {
+     "type": "map",
+     "from": [
+      -25,
+      -5,
+      50,
+      40
+     ],
+     "to": [
+      -14,
+      9,
+      36,
+      33
+     ],
+     "route": [
+      [
+       -8.4,
+       11.4
+      ],
+      [
+       -7.0,
+       17.3
+      ],
+      [
+       0.2,
+       27.9
+      ],
+      [
+       12.0,
+       28.5
+      ],
+      [
+       25.0,
+       29.5
+      ],
+      [
+       31.24,
+       30.04
+      ]
+     ],
+     "route_start": 0.3,
+     "route_end": 4.0,
+     "points": [
+      {
+       "name": "Mali",
+       "at": [
+        -8.4,
+        11.4
+       ],
+       "at_time": 0.2,
+       "side": "bottom"
+      },
+      {
+       "name": "Cairo",
+       "at": [
+        31.24,
+        30.04
+       ],
+       "at_time": 3.5,
+       "side": "top"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Sahara Desert",
+       "at": [
+        8,
+        22
+       ]
+      },
+      {
+       "text": "Mediterranean Sea",
+       "at": [
+        18,
+        35
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "David Roberts Cairo",
+      "Cairo 19th century painting"
+     ],
+     "ai": "medieval Cairo city with minarets and a busy market",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Fatimid gold dinar",
+      "medieval gold dinar coin"
+     ],
+     "ai": "ancient gold coins scattered on dark wood",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "Today, the internet calls him the richest man who ever lived. Some websites put his fortune at $400 billion in today's money. Historians say even that number is a guess, because there was simply nobody to compare him to.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "gold nugget",
+      "native gold nugget"
+     ],
+     "ai": "a large gold nugget on black velvet",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 400,
+     "prefix": "$",
+     "suffix": " BILLION",
+     "label": "What some websites claim he would be worth today",
+     "note": "A modern estimate, not a historical record"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The real number?",
+      "Nobody can calculate it."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Catalan Atlas 1375",
+      "Atlas Catalan Cresques"
+     ],
+     "ai": "an old medieval world map with gold leaf",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "say": "His name was Mansa Musa. And this is the story of how he became so rich, what he did with all that gold, and how, within a hundred years of his death, almost everything he built was gone.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "The story of",
+     "text": "Mansa Musa",
+     "sub": "How the richest man in history was made, and how his empire fell"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Great Mosque of Djenné",
+      "Djenne mosque"
+     ],
+     "ai": "a giant mud brick mosque in Mali",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Timbuktu ruins old photograph",
+      "Timbuktu 1905"
+     ],
+     "ai": "an old ruined desert city at dusk",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "chapter": "An empire built on gold",
+   "date": "1235",
+   "say": "To understand Mansa Musa, we have to go back eight hundred years, to the upper Niger River. Here, in around 1235, a prince named Sundiata Keita defeated his rivals and founded a new state. The Mali Empire.",
+   "pops": [
+    {
+     "text": "SUNDIATA KEITA",
+     "label": "Founder of Mali",
+     "on": "Sundiata"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -60,
+      -40,
+      80,
+      60
+     ],
+     "to": [
+      -19,
+      5,
+      6,
+      22
+     ],
+     "labels": [
+      {
+       "text": "Africa",
+       "at": [
+        18,
+        5
+       ],
+       "size": 60
+      },
+      {
+       "text": "Atlantic Ocean",
+       "at": [
+        -30,
+        10
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Niger River Mali",
+      "Niger river Bamako"
+     ],
+     "ai": "the wide Niger River in Mali at sunrise with wooden boats",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "griot kora",
+      "Mandinka griot"
+     ],
+     "ai": "a West African griot playing a kora, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "map",
+     "view": [
+      -14,
+      7,
+      -2,
+      16
+     ],
+     "points": [
+      {
+       "name": "Niani",
+       "note": "early capital (site debated)",
+       "at": [
+        -8.4,
+        11.4
+       ],
+       "at_time": 0.4
+      }
+     ],
+     "labels": [
+      {
+       "text": "Niger River",
+       "at": [
+        -6.5,
+        13.6
+       ],
+       "size": 28
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Mali sat on top of something the whole world wanted. In the river valleys of Bambuk and Bure, people dug gold out of the ground year after year. For centuries, this region supplied a huge share of the gold used in North Africa, the Middle East and Europe.",
+   "pops": [
+    {
+     "text": "GOLD",
+     "label": "Bambuk & Bure",
+     "on": "gold"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "gold panning Africa",
+      "orpaillage"
+     ],
+     "ai": "people panning for gold in a West African river, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "map",
+     "view": [
+      -17,
+      7,
+      0,
+      18
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         -12.3,
+         15.0
+        ],
+        [
+         -10.6,
+         14.9
+        ],
+        [
+         -10.2,
+         13.2
+        ],
+        [
+         -11.4,
+         12.2
+        ],
+        [
+         -12.6,
+         13.2
+        ]
+       ],
+       "label": "Bambuk gold",
+       "color": "#f2c14e",
+       "alpha": 0.6
+      },
+      {
+       "points": [
+        [
+         -9.9,
+         12.7
+        ],
+        [
+         -8.4,
+         12.6
+        ],
+        [
+         -8.2,
+         11.2
+        ],
+        [
+         -9.6,
+         10.9
+        ],
+        [
+         -10.2,
+         11.8
+        ]
+       ],
+       "label": "Bure gold",
+       "color": "#f2c14e",
+       "alpha": 0.6
+      }
+     ],
+     "highlight_at": 0.3
+    },
+    {
+     "type": "image",
+     "search": [
+      "gold dust",
+      "placer gold"
+     ],
+     "ai": "a pile of gold dust in a wooden bowl",
+     "zoom": "out"
+    },
+    {
+     "type": "map",
+     "from": [
+      -17,
+      7,
+      0,
+      18
+     ],
+     "to": [
+      -25,
+      0,
+      45,
+      50
+     ],
+     "route": [
+      [
+       -10,
+       12.5
+      ],
+      [
+       -6,
+       20
+      ],
+      [
+       0,
+       30
+      ],
+      [
+       10,
+       36.5
+      ]
+     ],
+     "route_start": 0.3,
+     "route_end": 3.0,
+     "labels": [
+      {
+       "text": "Europe",
+       "at": [
+        10,
+        47
+       ],
+       "size": 40
+      },
+      {
+       "text": "Middle East",
+       "at": [
+        38,
+        30
+       ],
+       "size": 34
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "medieval gold coin Europe florin",
+      "Florentine florin"
+     ],
+     "ai": "medieval European gold coins",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "But in the desert, gold had a strange rival. Salt. Far to the north, at Taghaza, slabs of salt were cut out of the ground and carried south on camels. In the hot south, people needed salt to survive. In the north, traders wanted gold. Mali stood right in the middle, and it taxed both.",
+   "pops": [
+    {
+     "text": "SALT = GOLD",
+     "on": "Salt."
+    }
+   ],
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Gold had a rival.",
+      "Salt."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "salt slabs Taoudenni",
+      "Azalai salt caravan"
+     ],
+     "ai": "slabs of rock salt loaded on camels in the Sahara",
+     "zoom": "right"
+    },
+    {
+     "type": "map",
+     "view": [
+      -16,
+      8,
+      6,
+      27
+     ],
+     "route": [
+      [
+       -4.97,
+       23.6
+      ],
+      [
+       -5.6,
+       20.5
+      ],
+      [
+       -7.0,
+       17.3
+      ],
+      [
+       -8.0,
+       14.5
+      ],
+      [
+       -8.4,
+       11.4
+      ]
+     ],
+     "route_color": "#f5f0e6",
+     "route_start": 0.3,
+     "route_end": 3.2,
+     "points": [
+      {
+       "name": "Taghaza",
+       "note": "salt mines",
+       "at": [
+        -4.97,
+        23.6
+       ],
+       "at_time": 0.2
+      },
+      {
+       "name": "Walata",
+       "note": "trading town",
+       "at": [
+        -7.0,
+        17.3
+       ],
+       "at_time": 1.6
+      }
+     ],
+     "labels": [
+      {
+       "text": "Sahara",
+       "at": [
+        -1,
+        21
+       ]
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Tuareg camel caravan Sahara",
+      "camel caravan Sahara"
+     ],
+     "ai": "a line of camels in the Sahara at sunset",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "market Mali Mopti",
+      "Mopti market"
+     ],
+     "ai": "a busy medieval West African market with traders",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Bambuk gold",
+      "gold nuggets Mali"
+     ],
+     "ai": "gold and salt being traded on a table, painting",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "This was the real secret of Mali's wealth. It wasn't only the gold mines. It was control of the trade.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Gold from the south.",
+      "Salt from the north.",
+      "Mali taxed both."
+     ]
+    },
+    {
+     "type": "map",
+     "view": [
+      -20,
+      5,
+      10,
+      30
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         -17.2,
+         14.7
+        ],
+        [
+         -11.5,
+         17.2
+        ],
+        [
+         -5.5,
+         18.6
+        ],
+        [
+         0.5,
+         17.4
+        ],
+        [
+         1.0,
+         14.6
+        ],
+        [
+         -3.5,
+         11.5
+        ],
+        [
+         -8.8,
+         9.0
+        ],
+        [
+         -13.0,
+         10.8
+        ],
+        [
+         -16.8,
+         12.5
+        ]
+       ],
+       "label": "Mali",
+       "label_at": [
+        -8,
+        14
+       ]
+      }
+     ],
+     "highlight_at": 0.2
+    }
+   ]
+  },
+  {
+   "chapter": "The king who sailed away",
+   "date": "1311",
+   "say": "Before Mansa Musa, Mali was ruled by a king known as Abu Bakr the Second. According to a story Musa himself later told in Cairo, this king became obsessed with one question. What lies at the other end of the ocean?",
+   "pops": [
+    {
+     "text": "ABU BAKR II",
+     "label": "King of Mali",
+     "on": "Abu Bakr"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Atlantic Ocean waves storm",
+      "ocean waves painting Aivazovsky"
+     ],
+     "ai": "a stormy endless ocean, oil painting",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "pirogue Senegal",
+      "pirogues Saint-Louis"
+     ],
+     "ai": "long wooden West African boats on a beach",
+     "zoom": "in"
+    },
+    {
+     "type": "map",
+     "from": [
+      -20,
+      6,
+      -4,
+      20
+     ],
+     "to": [
+      -42,
+      -2,
+      -6,
+      26
+     ],
+     "points": [
+      {
+       "name": "Atlantic coast",
+       "at": [
+        -16.9,
+        14.6
+       ],
+       "at_time": 0.2,
+       "side": "top"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Atlantic Ocean",
+       "at": [
+        -30,
+        18
+       ],
+       "kind": "sea",
+       "size": 44
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "What lies at the other end",
+      "of the ocean?"
+     ]
+    }
+   ]
+  },
+  {
+   "say": "He sent out two hundred ships. Only one came back. So he prepared two thousand more, took command himself, and sailed west into the Atlantic. He never returned. Many historians treat this story with caution. But one part of it is certain. The throne passed to his deputy. Musa.",
+   "pops": [
+    {
+     "text": "200 SHIPS",
+     "on": "two hundred"
+    },
+    {
+     "text": "ONLY 1 RETURNED",
+     "on": "Only one"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Aivazovsky ships sea",
+      "sailing ships painting storm"
+     ],
+     "ai": "a fleet of wooden boats sailing into a stormy ocean",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 2000,
+     "suffix": " SHIPS",
+     "label": "The second fleet, led by the king himself",
+     "note": "From the account Mansa Musa gave in Cairo, recorded by al-Umari"
+    },
+    {
+     "type": "map",
+     "view": [
+      -45,
+      -5,
+      -5,
+      25
+     ],
+     "route": [
+      [
+       -17.2,
+       14.6
+      ],
+      [
+       -26,
+       14
+      ],
+      [
+       -36,
+       12.5
+      ],
+      [
+       -48,
+       11
+      ]
+     ],
+     "route_color": "#7fb3e0",
+     "route_start": 0.2,
+     "route_end": 3.2,
+     "labels": [
+      {
+       "text": "Atlantic Ocean",
+       "at": [
+        -30,
+        20
+       ],
+       "kind": "sea",
+       "size": 44
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He never returned."
+     ],
+     "hit": true
+    },
+    {
+     "type": "quote",
+     "text": "Historians treat this story with caution. No proof of the voyage has ever been found.",
+     "by": "What we actually know"
+    },
+    {
+     "type": "title",
+     "kicker": "The new king",
+     "text": "Musa",
+     "sub": "Abu Bakr's deputy"
+    }
+   ]
+  },
+  {
+   "chapter": "The king of kings",
+   "date": "1312",
+   "say": "Around 1312, Musa became Mansa, a title that means king of kings. He took over an empire that was already rich. And he made it bigger.",
+   "pops": [
+    {
+     "text": "MANSA = KING OF KINGS",
+     "on": "Mansa,"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1235,
+     "to": 1312,
+     "label": "Mansa Musa becomes king"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Catalan Atlas Mansa Musa",
+      "Mansa Musa Catalan Atlas detail"
+     ],
+     "ai": "a medieval African king with a golden crown",
+     "zoom": "in",
+     "focus": [
+      0.5,
+      0.4
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Sahel landscape Mali",
+      "savanna Mali"
+     ],
+     "ai": "the dry savanna of West Africa at golden hour",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "say": "Under his rule, Mali stretched from the Atlantic coast all the way to the city of Gao, on the great bend of the Niger River. That is a distance of around two thousand kilometres. Timbuktu, Gao and Walata were caravan cities full of merchants, scholars and gold.",
+   "pops": [
+    {
+     "text": "≈ 2,000 KM",
+     "label": "coast to Gao",
+     "on": "two thousand"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -19,
+      4,
+      6,
+      22
+     ],
+     "to": [
+      -19,
+      6,
+      4,
+      21
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         -17.2,
+         14.7
+        ],
+        [
+         -16.5,
+         16.4
+        ],
+        [
+         -14.5,
+         16.8
+        ],
+        [
+         -11.5,
+         17.2
+        ],
+        [
+         -8.5,
+         18.0
+        ],
+        [
+         -5.5,
+         18.6
+        ],
+        [
+         -2.5,
+         18.2
+        ],
+        [
+         0.5,
+         17.4
+        ],
+        [
+         1.8,
+         16.0
+        ],
+        [
+         1.0,
+         14.6
+        ],
+        [
+         -1.0,
+         13.0
+        ],
+        [
+         -3.5,
+         11.5
+        ],
+        [
+         -6.0,
+         10.0
+        ],
+        [
+         -8.8,
+         9.0
+        ],
+        [
+         -11.0,
+         9.5
+        ],
+        [
+         -13.0,
+         10.8
+        ],
+        [
+         -15.0,
+         11.8
+        ],
+        [
+         -16.8,
+         12.5
+        ]
+       ],
+       "label": "Mali Empire",
+       "label_at": [
+        -9.0,
+        13.3
+       ]
+      }
+     ],
+     "highlight_at": 0.3
+    },
+    {
+     "type": "map",
+     "view": [
+      -19,
+      6,
+      4,
+      21
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         -17.2,
+         14.7
+        ],
+        [
+         -16.5,
+         16.4
+        ],
+        [
+         -14.5,
+         16.8
+        ],
+        [
+         -11.5,
+         17.2
+        ],
+        [
+         -8.5,
+         18.0
+        ],
+        [
+         -5.5,
+         18.6
+        ],
+        [
+         -2.5,
+         18.2
+        ],
+        [
+         0.5,
+         17.4
+        ],
+        [
+         1.8,
+         16.0
+        ],
+        [
+         1.0,
+         14.6
+        ],
+        [
+         -1.0,
+         13.0
+        ],
+        [
+         -3.5,
+         11.5
+        ],
+        [
+         -6.0,
+         10.0
+        ],
+        [
+         -8.8,
+         9.0
+        ],
+        [
+         -11.0,
+         9.5
+        ],
+        [
+         -13.0,
+         10.8
+        ],
+        [
+         -15.0,
+         11.8
+        ],
+        [
+         -16.8,
+         12.5
+        ]
+       ]
+      }
+     ],
+     "highlight_at": 0,
+     "route": [
+      [
+       -17.0,
+       14.0
+      ],
+      [
+       -8,
+       15.5
+      ],
+      [
+       -0.04,
+       16.27
+      ]
+     ],
+     "route_color": "#f5f0e6",
+     "route_start": 0.2,
+     "route_end": 2.6,
+     "points": [
+      {
+       "name": "Gao",
+       "at": [
+        -0.04,
+        16.27
+       ],
+       "at_time": 2.4,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Timbuktu Sankore mosque",
+      "Sankore Mosque"
+     ],
+     "ai": "a mud brick mosque in Timbuktu",
+     "zoom": "up"
+    },
+    {
+     "type": "map",
+     "view": [
+      -10,
+      13,
+      3,
+      20
+     ],
+     "points": [
+      {
+       "name": "Timbuktu",
+       "at": [
+        -3.0,
+        16.77
+       ],
+       "at_time": 0.2,
+       "side": "top"
+      },
+      {
+       "name": "Gao",
+       "at": [
+        -0.04,
+        16.27
+       ],
+       "at_time": 0.6,
+       "side": "right"
+      },
+      {
+       "name": "Walata",
+       "at": [
+        -7.0,
+        17.3
+       ],
+       "at_time": 1.0,
+       "side": "top"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Timbuktu manuscripts",
+      "Timbuktu manuscript"
+     ],
+     "ai": "old Arabic manuscripts in Timbuktu",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "chapter": "The journey to Mecca",
+   "date": "1324",
+   "say": "Then, in 1324, Mansa Musa decided to do what every Muslim hopes to do once in their life. He set off on the Hajj, the pilgrimage to Mecca. And he did not travel quietly.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "1324",
+     "text": "The Journey",
+     "sub": "From Mali to Mecca"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Mecca 1880 photograph",
+      "Kaaba 19th century photograph"
+     ],
+     "ai": "a historic view of Mecca, 19th century painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Léon Belly Pilgrims going to Mecca",
+      "pilgrims going to Mecca painting"
+     ],
+     "ai": "a pilgrim caravan crossing the desert, painting",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "say": "Chroniclers described a caravan of around 60,000 people. Soldiers, officials, servants and merchants, many of them dressed in silk.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 60000,
+     "suffix": " PEOPLE",
+     "label": "The size of his caravan, according to chroniclers",
+     "note": "Medieval numbers, probably exaggerated"
+    },
+    {
+     "type": "image",
+     "search": [
+      "caravan painting orientalist",
+      "Gérôme caravan"
+     ],
+     "ai": "a huge medieval caravan with soldiers and camels in silk",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "camels desert caravan Sahara",
+      "camel train"
+     ],
+     "ai": "hundreds of camels in a desert line",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "Later accounts say that up to a hundred camels each carried around three hundred pounds of gold. Even if those numbers are exaggerated, everyone who saw the caravan agreed on one thing. It was carrying more gold than they had ever seen.",
+   "pops": [
+    {
+     "text": "100 CAMELS",
+     "on": "a hundred"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "dromedary camel Sahara",
+      "camel portrait desert"
+     ],
+     "ai": "a camel carrying heavy bags in the desert",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 300,
+     "suffix": " LB",
+     "label": "Of gold on each camel, according to later accounts",
+     "note": "Up to 100 camels"
+    },
+    {
+     "type": "stat",
+     "number": 30000,
+     "suffix": " LB",
+     "label": "Of gold in total, if those accounts are right",
+     "note": "About 13.6 tonnes"
+    },
+    {
+     "type": "image",
+     "search": [
+      "gold bars",
+      "gold bullion"
+     ],
+     "ai": "stacks of gold bars glowing in a dark room",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "From Niani, the caravan moved north to Walata, then into the Sahara, through the oases of Tuat, and then east, across thousands of kilometres of desert, towards Egypt. The journey took months.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -14,
+      7,
+      10,
+      30
+     ],
+     "to": [
+      -14,
+      6,
+      36,
+      34
+     ],
+     "route": [
+      [
+       -8.4,
+       11.4
+      ],
+      [
+       -7.0,
+       17.3
+      ],
+      [
+       -3.0,
+       22.0
+      ],
+      [
+       0.2,
+       27.9
+      ],
+      [
+       6.0,
+       29.2
+      ],
+      [
+       12.0,
+       28.5
+      ],
+      [
+       19.0,
+       29.0
+      ],
+      [
+       25.5,
+       29.2
+      ],
+      [
+       31.24,
+       30.04
+      ]
+     ],
+     "route_start": 0.3,
+     "points": [
+      {
+       "name": "Niani",
+       "at": [
+        -8.4,
+        11.4
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      },
+      {
+       "name": "Walata",
+       "at": [
+        -7.0,
+        17.3
+       ],
+       "at_time": 1.6,
+       "side": "left"
+      },
+      {
+       "name": "Tuat",
+       "note": "desert oases",
+       "at": [
+        0.2,
+        27.9
+       ],
+       "at_time": 4.0,
+       "side": "top"
+      },
+      {
+       "name": "Cairo",
+       "at": [
+        31.24,
+        30.04
+       ],
+       "at_time": 8.0,
+       "side": "top"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Sahara Desert",
+       "at": [
+        10,
+        22
+       ]
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Sahara dunes",
+      "Erg Chebbi dunes"
+     ],
+     "ai": "endless golden dunes of the Sahara",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "oasis Sahara palm",
+      "Timimoun oasis"
+     ],
+     "ai": "a palm oasis in the Sahara desert",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "date": "July 1324",
+   "say": "In July 1324, the caravan reached Cairo, then one of the largest and richest cities in the world. Cairo had never seen anything like it.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      18,
+      16,
+      46,
+      38
+     ],
+     "to": [
+      25,
+      18,
+      44,
+      33
+     ],
+     "points": [
+      {
+       "name": "Cairo",
+       "at": [
+        31.24,
+        30.04
+       ],
+       "at_time": 0.4,
+       "side": "right"
+      },
+      {
+       "name": "Mecca",
+       "note": "his destination",
+       "at": [
+        39.83,
+        21.42
+       ],
+       "at_time": 1.4,
+       "side": "left"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Egypt",
+       "at": [
+        29,
+        26
+       ]
+      },
+      {
+       "text": "Red Sea",
+       "at": [
+        37.5,
+        21.5
+       ],
+       "kind": "sea",
+       "size": 28
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "David Roberts Cairo",
+      "Cairo lithograph Roberts"
+     ],
+     "ai": "medieval Cairo skyline with minarets at sunset",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Cairo citadel painting",
+      "Citadel of Cairo 19th century"
+     ],
+     "ai": "the citadel of Cairo, oil painting",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "chapter": "The man who crashed gold",
+   "say": "Mansa Musa gave gold to almost everyone he met. Officials, princes, even the poor in the streets. Merchants charged him inflated prices, and he paid without arguing. A writer named al-Umari, who lived in Cairo a few years later, recorded what happened next.",
+   "pops": [
+    {
+     "text": "AL-UMARI",
+     "label": "Historian in Cairo",
+     "on": "al-Umari,"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Cairo bazaar painting",
+      "John Frederick Lewis bazaar"
+     ],
+     "ai": "a crowded Cairo bazaar with merchants, oil painting",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Mamluk gold dinar",
+      "Mamluk coin"
+     ],
+     "ai": "medieval Islamic gold coins",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Cairo street painting 19th century",
+      "Cairo street scene painting"
+     ],
+     "ai": "poor people in an old Cairo street receiving gold",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Arabic manuscript medieval",
+      "Islamic manuscript page"
+     ],
+     "ai": "an old Arabic manuscript with ink and pen",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Gold was at a high price in Egypt until they came in that year. From that time its value fell, and it has stayed cheap. This has been the state of affairs for about twelve years.",
+   "visuals": [
+    {
+     "type": "quote",
+     "text": "Gold was at a high price in Egypt until they came in that year... from that time its value fell... This has been the state of affairs for about twelve years.",
+     "by": "al-Umari, writing in Cairo in the 1330s"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Mamluk silver dirham",
+      "silver dirham coin"
+     ],
+     "ai": "silver medieval coins",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "In numbers, before his visit, one mithqal of gold, about four grams, was worth at least twenty five silver dirhams. Afterwards, it was worth twenty two or less. One man, on one trip, had changed the value of money in an entire city.",
+   "pops": [
+    {
+     "text": "1 MITHQAL ≈ 4 GRAMS",
+     "on": "mithqal"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "gold dinar Egypt",
+      "Fatimid dinar"
+     ],
+     "ai": "a single gold coin on a dark table",
+     "zoom": "in"
+    },
+    {
+     "type": "bars",
+     "title": "One mithqal of gold in Cairo, in silver dirhams",
+     "bars": [
+      [
+       "Before 1324",
+       25
+      ],
+      [
+       "After 1324",
+       22
+      ]
+     ],
+     "note": "Source: al-Umari"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "One man.",
+      "One trip.",
+      "A whole city's money changed."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "This is one of the earliest recorded cases of a single person changing the value of money in a whole economy. When there is suddenly much more of something, each piece of it is worth less. Today economists call it inflation. Cairo learned about it from one king.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "gold coins pile",
+      "hoard gold coins"
+     ],
+     "ai": "a mountain of gold coins",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "More gold in the city.",
+      "Each coin buys less.",
+      "That is inflation."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Catalan Atlas Mansa Musa",
+      "Mansa Musa Catalan Atlas detail"
+     ],
+     "ai": "a medieval African king with gold",
+     "zoom": "in",
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "Broke on the way home",
+   "date": "1325",
+   "say": "And here is the twist. On his way home, Mansa Musa had given away so much that he ran out. According to writers in Cairo, he had to borrow money from Egyptian merchants at very high interest. The richest man on Earth, in debt.",
+   "pops": [
+    {
+     "text": "IN DEBT",
+     "on": "debt."
+    }
+   ],
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "The twist."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "empty treasure chest",
+      "old wooden chest"
+     ],
+     "ai": "an empty wooden treasure chest",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "merchant painting Cairo",
+      "Arab merchant painting"
+     ],
+     "ai": "a Cairo merchant counting coins, oil painting",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The richest man on Earth...",
+      "...borrowed money to get home."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "1327",
+   "say": "But he didn't return with nothing. He brought back scholars, architects and books. One of them, an Andalusian poet and architect named Abu Ishaq al-Sahili, is linked to the great Djinguereber Mosque in Timbuktu, built around 1327. It still stands today, almost seven hundred years later.",
+   "pops": [
+    {
+     "text": "ABU ISHAQ AL-SAHILI",
+     "label": "Architect from Andalusia",
+     "on": "Abu Ishaq"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Timbuktu manuscripts",
+      "Timbuktu manuscript"
+     ],
+     "ai": "scholars reading old books in a desert library",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Alhambra Granada",
+      "Alhambra courtyard"
+     ],
+     "ai": "Andalusian palace architecture with arches",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Djinguereber Mosque",
+      "Djinguereber Timbuktu"
+     ],
+     "ai": "a large mud brick mosque in Timbuktu",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Djinguereber mosque Timbuktu minaret",
+      "Timbuktu mosque"
+     ],
+     "ai": "a mud minaret against a blue sky",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 700,
+     "suffix": " YEARS",
+     "label": "And it is still standing",
+     "note": "Djinguereber Mosque, Timbuktu (UNESCO World Heritage)"
+    }
+   ]
+  },
+  {
+   "say": "Timbuktu became one of the great centres of learning in the Islamic world. Scholars came from across North Africa. Manuscripts were copied, sold and collected, and many of them survive to this day.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -10,
+      12,
+      4,
+      21
+     ],
+     "to": [
+      -5.5,
+      15.2,
+      -0.5,
+      18.2
+     ],
+     "points": [
+      {
+       "name": "Timbuktu",
+       "note": "city of scholars",
+       "at": [
+        -3.0,
+        16.77
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Timbuktu manuscript astronomy",
+      "Timbuktu manuscripts library"
+     ],
+     "ai": "pages of an ancient manuscript with astronomy diagrams",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Sankore University",
+      "Sankore Mosque Timbuktu"
+     ],
+     "ai": "an old desert university courtyard",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "date": "1375",
+   "say": "His journey also put Mali on the map. Literally. In 1375, a map known as the Catalan Atlas, made on the Spanish island of Majorca, showed a king seated on a throne in West Africa, holding a golden nugget. The text next to him called him the richest and noblest king in all the land. Europe now knew where the gold came from.",
+   "pops": [
+    {
+     "text": "CATALAN ATLAS",
+     "label": "Majorca, 1375",
+     "on": "Catalan Atlas,"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "He put Mali on the map.",
+      "Literally."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Catalan Atlas 1375",
+      "Atlas Catalan Cresques"
+     ],
+     "ai": "a medieval world map with gold details",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Catalan Atlas Mansa Musa",
+      "Mansa Musa Catalan Atlas detail"
+     ],
+     "ai": "a medieval king holding a gold nugget, map illustration",
+     "zoom": "in",
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "type": "quote",
+     "text": "So abundant is the gold which is found in his country that he is the richest and most noble king in all the land.",
+     "by": "Catalan Atlas, 1375"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Palma de Mallorca cathedral",
+      "Majorca medieval"
+     ],
+     "ai": "medieval Majorca harbour",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "chapter": "The fall",
+   "date": "1337",
+   "say": "Mansa Musa died around 1337. And this is where the story turns.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1327,
+     "to": 1337,
+     "label": "Mansa Musa dies"
+    },
+    {
+     "type": "title",
+     "kicker": "After Musa",
+     "text": "The Fall",
+     "sub": "1337 to 1600",
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "His son Maghan ruled only for a few years. After him came weak kings, rivals and civil wars over the throne, and the provinces on the edges began to break away. In 1433, Tuareg nomads took Timbuktu. In 1468, the rising Songhai Empire under Sunni Ali captured it. And by around 1600, the great Mali Empire had shrunk back to a small kingdom, close to where it began.",
+   "pops": [
+    {
+     "text": "SUNNI ALI",
+     "label": "Songhai Empire",
+     "on": "Sunni Ali"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Mali Empire ruins",
+      "Niani ruins"
+     ],
+     "ai": "ruins of an old African palace in the savanna",
+     "zoom": "in"
+    },
+    {
+     "type": "timeline",
+     "events": [
+      [
+       1337,
+       "Mansa Musa dies"
+      ],
+      [
+       1360,
+       "Fights over the throne"
+      ],
+      [
+       1433,
+       "Tuaregs take Timbuktu"
+      ],
+      [
+       1468,
+       "Songhai captures Timbuktu"
+      ],
+      [
+       1600,
+       "Mali shrinks to its heartland"
+      ]
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Tuareg warrior 19th century",
+      "Tuareg camel rider"
+     ],
+     "ai": "Tuareg riders on camels in blue robes, painting",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Tomb of Askia Gao",
+      "Askia tomb"
+     ],
+     "ai": "a pyramid shaped mud tomb in Gao",
+     "zoom": "up"
+    },
+    {
+     "type": "map",
+     "view": [
+      -19,
+      6,
+      8,
+      23
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         -10,
+         16.5
+        ],
+        [
+         -6,
+         19.5
+        ],
+        [
+         -2,
+         20
+        ],
+        [
+         2,
+         19
+        ],
+        [
+         5,
+         17
+        ],
+        [
+         6,
+         14
+        ],
+        [
+         4,
+         12
+        ],
+        [
+         1,
+         11.5
+        ],
+        [
+         -2,
+         12.5
+        ],
+        [
+         -5,
+         13.5
+        ],
+        [
+         -8,
+         14.5
+        ],
+        [
+         -10,
+         15.5
+        ]
+       ],
+       "label": "Songhai",
+       "color": "#d64834",
+       "label_at": [
+        -0.5,
+        15.8
+       ],
+       "alpha": 0.4
+      },
+      {
+       "points": [
+        [
+         -10.5,
+         13.5
+        ],
+        [
+         -7.5,
+         13.8
+        ],
+        [
+         -6.5,
+         12
+        ],
+        [
+         -7.5,
+         10.5
+        ],
+        [
+         -9.5,
+         10.2
+        ],
+        [
+         -11,
+         11.5
+        ],
+        [
+         -11,
+         13
+        ]
+       ],
+       "label": "Mali",
+       "label_at": [
+        -8.9,
+        12.0
+       ]
+      }
+     ],
+     "highlight_at": 0.3,
+     "date": "1500"
+    }
+   ]
+  },
+  {
+   "date": "1500",
+   "say": "Gold made Mali famous. But gold alone could not hold it together. Its wealth depended on controlling the trade routes, and once Mali lost the cities on those routes, the money simply flowed to someone else.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "gold nugget",
+      "native gold"
+     ],
+     "ai": "a gold nugget slowly fading in darkness",
+     "zoom": "out"
+    },
+    {
+     "type": "map",
+     "view": [
+      -16,
+      8,
+      6,
+      27
+     ],
+     "route": [
+      [
+       -4.97,
+       23.6
+      ],
+      [
+       -3.0,
+       16.77
+      ],
+      [
+       -0.04,
+       16.27
+      ]
+     ],
+     "route_color": "#d64834",
+     "route_start": 0.3,
+     "route_end": 2.6,
+     "points": [
+      {
+       "name": "Timbuktu",
+       "at": [
+        -3.0,
+        16.77
+       ],
+       "at_time": 0.4,
+       "side": "left",
+       "color": "#d64834"
+      },
+      {
+       "name": "Gao",
+       "at": [
+        -0.04,
+        16.27
+       ],
+       "at_time": 0.8,
+       "side": "right",
+       "color": "#d64834"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Lose the trade routes...",
+      "...lose the money."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "What it teaches about money",
+   "date": "Today",
+   "say": "So what can Mansa Musa teach us about money today? Three things. First, wealth that depends on one person rarely outlives him. Second, controlling the trade can matter more than owning the resource. And third, if you flood any market with something, even gold, you make it worth less.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "What it teaches",
+     "text": "3 Lessons",
+     "sub": "about money, from the richest man in history"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "1.",
+      "Wealth tied to one person",
+      "rarely outlives him."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "2.",
+      "Controlling the trade",
+      "beats owning the resource."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "3.",
+      "Flood a market,",
+      "and you make it worth less."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Seven hundred years later, we still remember him as the richest man who ever lived. Not because anyone counted his gold, but because of what that gold did to the world around him. If you want more stories about the richest people in history, how they made their money and how they lost it, subscribe. The next story is coming soon.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Catalan Atlas Mansa Musa",
+      "Mansa Musa Catalan Atlas detail"
+     ],
+     "ai": "a medieval African king on a golden throne",
+     "zoom": "out",
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Great Mosque of Djenné",
+      "Djenne mosque"
+     ],
+     "ai": "a mud mosque at sunset",
+     "zoom": "in"
+    },
+    {
+     "type": "title",
+     "text": "Mansa Musa",
+     "sub": "c. 1280 – c. 1337 · Subscribe for the next story"
+    }
+   ]
+  }
+ ]
+}
