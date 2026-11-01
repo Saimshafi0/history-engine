@@ -1,0 +1,1504 @@
+{
+ "title": "Pablo Escobar Had So Much Cash, Rats Were Eating It",
+ "description": "Pablo Escobar made so much money that his family wrote off ten percent of it every year to rats, water and rot. This is the story of how a tombstone thief from Medellin built one of the biggest criminal fortunes in history, why all that cash became his biggest problem, and how it all ended on a rooftop in 1993.",
+ "tags": [
+  "Pablo Escobar",
+  "Medellin Cartel",
+  "Escobar money",
+  "history documentary",
+  "true crime documentary",
+  "Narcos true story",
+  "Forbes billionaires",
+  "cocaine hippos"
+ ],
+ "voice": "am_liam",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "RATS ATE\nHIS MONEY"
+ },
+ "shorts": [
+  {
+   "from_scene": 0,
+   "to_scene": 1,
+   "hook": "His cash was so huge rats ate it",
+   "title": "Rats ate Pablo Escobar's money #shorts"
+  },
+  {
+   "from_scene": 13,
+   "to_scene": 14,
+   "hook": "He spent $2,500 a month on rubber bands",
+   "title": "Escobar's rubber band problem #shorts"
+  },
+  {
+   "from_scene": 21,
+   "to_scene": 23,
+   "hook": "He built his own prison. Then walked out.",
+   "title": "The prison Escobar built for himself #shorts"
+  },
+  {
+   "from_scene": 28,
+   "to_scene": 29,
+   "hook": "30 years later, his hippos are still a problem",
+   "title": "Pablo Escobar's hippos #shorts"
+  }
+ ],
+ "scenes": [
+  {
+   "chapter": "Too much money",
+   "date": "1989",
+   "say": "At the height of his power, Pablo Escobar had a problem most people will never have. He had so much cash that he couldn't spend it, couldn't bank it, and couldn't even protect it. Every year, his family simply wrote off ten percent of it. Rats ate it. Water rotted it. Some of it was buried and never found again.",
+   "pops": [
+    {
+     "text": "10% WRITTEN OFF",
+     "label": "every year",
+     "on": "ten percent"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Pablo Escobar mug shot 1976",
+      "Pablo Escobar 1976"
+     ],
+     "ai": "a 1970s police mugshot style portrait of a young Colombian man",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "stacks of US dollar bills",
+      "seized cash DEA"
+     ],
+     "ai": "huge stacks of hundred dollar bills in a dark room",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Too much cash",
+      "to spend.",
+      "Too much to hide."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "brown rat",
+      "Rattus norvegicus"
+     ],
+     "ai": "a rat in a dark storage room",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "water damaged banknotes",
+      "damaged dollar bills"
+     ],
+     "ai": "rotting wet dollar bills",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "buried treasure barrel",
+      "old barrel buried"
+     ],
+     "ai": "a plastic barrel half buried in jungle soil",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "That isn't a legend from a TV show. It comes from his own brother, the man who kept the cartel's books. And it tells you something strange about money. When you have too much of it, and none of it is clean, it stops being an advantage and becomes a problem.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "old accounting ledger book",
+      "ledger book handwritten"
+     ],
+     "ai": "an old handwritten accounting ledger with numbers",
+     "zoom": "right"
+    },
+    {
+     "type": "quote",
+     "text": "The rats would eat it in storage, or it would be damaged by water, or lost.",
+     "by": "Roberto Escobar, Pablo's brother and the cartel's accountant"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Too much money",
+      "becomes a problem."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "This is the story of how a small-time thief from Medellin became one of the richest criminals in history, how he spent his money, and how it all ended on a rooftop, the day after his forty fourth birthday.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "The rise and fall of",
+     "text": "Pablo Escobar",
+     "sub": "The money, the empire, the end"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Medellin Colombia panorama",
+      "Medellin skyline"
+     ],
+     "ai": "the city of Medellin in a mountain valley at dusk",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Medellin rooftops",
+      "Medellin Los Olivos"
+     ],
+     "ai": "red tiled rooftops in a Colombian city",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "chapter": "The tombstone thief",
+   "date": "1949",
+   "say": "Pablo Emilio Escobar Gaviria was born on December first, 1949, in Rionegro, a small town in the green mountains of Colombia. His father was a farmer. His mother was a schoolteacher. The family was not rich, and young Pablo decided early that he would be.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -130,
+      -30,
+      -30,
+      50
+     ],
+     "to": [
+      -80,
+      1,
+      -70,
+      11
+     ],
+     "points": [
+      {
+       "name": "Colombia",
+       "at": [
+        -74.3,
+        4.6
+       ],
+       "at_time": 1.2,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "United States",
+       "at": [
+        -98,
+        39
+       ],
+       "size": 34
+      },
+      {
+       "text": "Pacific Ocean",
+       "at": [
+        -110,
+        10
+       ],
+       "kind": "sea"
+      },
+      {
+       "text": "Caribbean Sea",
+       "at": [
+        -75,
+        14.5
+       ],
+       "kind": "sea",
+       "size": 26
+      }
+     ]
+    },
+    {
+     "type": "map",
+     "view": [
+      -77.5,
+      4.5,
+      -73.5,
+      7.8
+     ],
+     "points": [
+      {
+       "name": "Rionegro",
+       "note": "born here, 1949",
+       "at": [
+        -75.37,
+        6.15
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      },
+      {
+       "name": "Medellin",
+       "at": [
+        -75.57,
+        6.25
+       ],
+       "at_time": 1.0,
+       "side": "left"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Rionegro Antioquia",
+      "Antioquia mountains"
+     ],
+     "ai": "green Andes mountains with small farms in Colombia",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Colombian countryside 1950s",
+      "Antioquia farm"
+     ],
+     "ai": "a poor farm house in the Colombian mountains, 1950s",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "As a teenager in Medellin, he started small. He sold fake diplomas. He smuggled stereo equipment. And according to many accounts, he stole tombstones from cemeteries, sanded off the names, and sold them again.",
+   "pops": [
+    {
+     "text": "STOLEN TOMBSTONES",
+     "label": "resold",
+     "on": "tombstones"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Medellin 1960s",
+      "Medellin old photograph"
+     ],
+     "ai": "an old street in Medellin in the 1960s",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "old diploma certificate",
+      "vintage diploma"
+     ],
+     "ai": "an old fake diploma on a desk",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "old cemetery tombstones Colombia",
+      "cemetery Medellin"
+     ],
+     "ai": "old gravestones in a Latin American cemetery",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He stole tombstones.",
+      "And sold them again."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "By the early 1970s he had moved on to stealing cars. In 1974 he was arrested for car theft. It was a small crime. But Colombia was about to become the center of a much bigger business.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Renault 4 Colombia",
+      "1970s car Colombia"
+     ],
+     "ai": "a 1970s car on a Colombian street",
+     "zoom": "right"
+    },
+    {
+     "type": "year",
+     "from": 1949,
+     "to": 1974,
+     "label": "First arrest: car theft"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Pablo Escobar mug shot 1976",
+      "Pablo Escobar 1976"
+     ],
+     "ai": "a black and white police mugshot of a young man",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "chapter": "The business",
+   "date": "1976",
+   "say": "In the 1970s, cocaine went from a rare drug to a booming market in the United States. The leaves were grown in Peru and Bolivia. The product was processed in Colombian jungle labs. And the customers were thousands of kilometres north.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -82,
+      -20,
+      -60,
+      10
+     ],
+     "to": [
+      -100,
+      -20,
+      -60,
+      35
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         -81,
+         -3.5
+        ],
+        [
+         -75,
+         -0.2
+        ],
+        [
+         -70,
+         -4
+        ],
+        [
+         -69,
+         -11
+        ],
+        [
+         -70.5,
+         -18
+        ],
+        [
+         -75,
+         -15
+        ],
+        [
+         -79,
+         -8
+        ]
+       ],
+       "label": "Peru",
+       "color": "#7fb35f",
+       "alpha": 0.35
+      },
+      {
+       "points": [
+        [
+         -69.5,
+         -11
+        ],
+        [
+         -65,
+         -10
+        ],
+        [
+         -58.5,
+         -16
+        ],
+        [
+         -62,
+         -22
+        ],
+        [
+         -68,
+         -22.5
+        ],
+        [
+         -69.5,
+         -17
+        ]
+       ],
+       "label": "Bolivia",
+       "color": "#7fb35f",
+       "alpha": 0.35
+      }
+     ],
+     "route": [
+      [
+       -72,
+       -12
+      ],
+      [
+       -74.5,
+       0
+      ],
+      [
+       -75.6,
+       6.2
+      ],
+      [
+       -80.2,
+       25.8
+      ]
+     ],
+     "route_start": 1.5,
+     "highlight_at": 0.3,
+     "points": [
+      {
+       "name": "Medellin",
+       "at": [
+        -75.57,
+        6.25
+       ],
+       "at_time": 2.5,
+       "side": "left"
+      },
+      {
+       "name": "Miami",
+       "at": [
+        -80.19,
+        25.76
+       ],
+       "at_time": 5.0,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "coca plantation Bolivia",
+      "coca leaves Peru"
+     ],
+     "ai": "green coca leaves drying in the sun",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Colombian jungle aerial",
+      "Amazon rainforest Colombia aerial"
+     ],
+     "ai": "thick jungle seen from above with a small clearing",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "Escobar understood something the old smugglers didn't. The real money wasn't in growing it. It was in controlling the route. In the mid seventies, he and a group of partners built what the world would later call the Medellin Cartel.",
+   "pops": [
+    {
+     "text": "MEDELLIN CARTEL",
+     "label": "mid-1970s",
+     "on": "Medellin Cartel."
+    }
+   ],
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Don't own the farm.",
+      "Own the route."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Cessna light aircraft 1970s",
+      "small propeller airplane"
+     ],
+     "ai": "a small propeller plane on a dirt airstrip",
+     "zoom": "right"
+    },
+    {
+     "type": "map",
+     "view": [
+      -85,
+      4,
+      -72,
+      28
+     ],
+     "route": [
+      [
+       -75.57,
+       6.25
+      ],
+      [
+       -76.82,
+       24.6
+      ],
+      [
+       -80.19,
+       25.76
+      ]
+     ],
+     "route_start": 0.3,
+     "route_end": 3.0,
+     "points": [
+      {
+       "name": "Medellin",
+       "at": [
+        -75.57,
+        6.25
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      },
+      {
+       "name": "Norman's Cay",
+       "note": "island airstrip, Bahamas",
+       "at": [
+        -76.82,
+        24.6
+       ],
+       "at_time": 1.6,
+       "side": "right"
+      },
+      {
+       "name": "Miami",
+       "at": [
+        -80.19,
+        25.76
+       ],
+       "at_time": 2.8,
+       "side": "left"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Miami 1980s skyline",
+      "Miami 1985"
+     ],
+     "ai": "the Miami skyline in the 1980s at sunset",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Small planes flew from hidden airstrips to islands in the Bahamas, and from there into Florida. By the mid eighties, American officials were saying the cartel controlled as much as eighty percent of the cocaine coming into the United States. Historians still argue about that number. But nobody argues about the money.",
+   "pops": [
+    {
+     "text": "UP TO 80%",
+     "label": "US officials' estimate",
+     "on": "eighty percent"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Bahamas island aerial",
+      "Exuma cays aerial"
+     ],
+     "ai": "a small tropical island with a runway, aerial view",
+     "zoom": "out"
+    },
+    {
+     "type": "stat",
+     "number": 80,
+     "prefix": "UP TO ",
+     "suffix": "%",
+     "label": "Of the cocaine entering the US, according to US officials in the 1980s",
+     "note": "An official estimate, still debated by historians"
+    },
+    {
+     "type": "image",
+     "search": [
+      "US Customs 1980s Florida",
+      "Coast Guard 1980s"
+     ],
+     "ai": "a US Coast Guard boat on the sea, 1980s",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "stacks of US dollar bills",
+      "seized cash DEA"
+     ],
+     "ai": "piles of cash on a table",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "chapter": "Billionaire",
+   "date": "1987",
+   "say": "In 1987, Forbes magazine did something it had never done before. It put a drug trafficker on its list of the world's billionaires. Escobar's fortune was estimated at around two billion dollars. Two years later, the estimate was three billion.",
+   "pops": [
+    {
+     "text": "FORBES LIST",
+     "label": "billionaires, 1987",
+     "on": "Forbes"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1976,
+     "to": 1987,
+     "label": "On the billionaires list"
+    },
+    {
+     "type": "bars",
+     "title": "Escobar's estimated fortune (US dollars)",
+     "bars": [
+      [
+       "1987",
+       2
+      ],
+      [
+       "1989",
+       3
+      ]
+     ],
+     "unit": "B",
+     "note": "Forbes estimates, as reported at the time"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Wall Street 1987",
+      "New York Stock Exchange 1980s"
+     ],
+     "ai": "1980s New York business district",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A drug trafficker.",
+      "On the billionaires list."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "You may have seen bigger numbers online. Thirty billion. Even fifty billion. Those figures are not from Forbes. They were added years later. The real number was never audited, because the money never touched a real bank.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 30,
+     "prefix": "$",
+     "suffix": " BILLION?",
+     "label": "A number that spread online years later",
+     "note": "Not a Forbes figure"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The real number?",
+      "Nobody ever counted it."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Escobar spent like a man who knew it might all end tomorrow. He built a huge ranch called Hacienda Napoles. Over the entrance gate, he mounted a small airplane. And inside, he built his own private zoo.",
+   "pops": [
+    {
+     "text": "HACIENDA NAPOLES",
+     "label": "his private estate",
+     "on": "Hacienda"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      -76.8,
+      4.8,
+      -73.6,
+      7.2
+     ],
+     "points": [
+      {
+       "name": "Medellin",
+       "at": [
+        -75.57,
+        6.25
+       ],
+       "at_time": 0.2,
+       "side": "left"
+      },
+      {
+       "name": "Hacienda Napoles",
+       "note": "his ranch and zoo",
+       "at": [
+        -74.73,
+        5.89
+       ],
+       "at_time": 0.8,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hacienda Napoles entrance airplane",
+      "Hacienda Napoles gate"
+     ],
+     "ai": "a ranch entrance gate with a small airplane mounted on top",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hacienda Napoles",
+      "Parque Tematico Hacienda Napoles"
+     ],
+     "ai": "a large tropical ranch with green hills",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "giraffe zoo",
+      "zebra herd"
+     ],
+     "ai": "giraffes and zebras in a tropical ranch",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Giraffes. Zebras. Elephants. And four hippos, flown in from abroad. Remember the hippos. They come back at the end of this story.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "hippopotamus Colombia",
+      "hippopotamus Hacienda Napoles"
+     ],
+     "ai": "a hippopotamus in a muddy tropical lake",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 4,
+     "suffix": " HIPPOS",
+     "label": "Flown in for his private zoo in the 1980s"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Remember the hippos."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The cash problem",
+   "say": "But here is the strange part. Most of that money was paper. Hundred dollar bills, fifty dollar bills, twenty dollar bills, flown back from America in bricks.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "hundred dollar bill",
+      "100 US dollar banknote"
+     ],
+     "ai": "close up of old hundred dollar bills",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "stacks of US dollar bills",
+      "bundles of cash"
+     ],
+     "ai": "bricks of cash wrapped in plastic",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Billions.",
+      "In paper."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "According to his brother Roberto, the cartel spent about two thousand five hundred dollars a month just on rubber bands, to hold the stacks of bills together. Counting the money by hand took too long, so they simply weighed it.",
+   "pops": [
+    {
+     "text": "$2,500 / MONTH",
+     "label": "on rubber bands",
+     "on": "two thousand"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "rubber bands",
+      "rubber band ball"
+     ],
+     "ai": "a pile of rubber bands on a table",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 2500,
+     "prefix": "$",
+     "suffix": " A MONTH",
+     "label": "Spent on rubber bands, according to Roberto Escobar"
+    },
+    {
+     "type": "image",
+     "search": [
+      "money counting machine",
+      "banknote counter"
+     ],
+     "ai": "an old money counting machine with cash",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "weighing scale vintage",
+      "platform scale"
+     ],
+     "ai": "an industrial weighing scale with cash on it",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "The cash was hidden everywhere. In walls, under floors, in farmhouses, in barrels buried in fields. And because it couldn't go into a bank, a part of it slowly disappeared. About ten percent a year, his brother said, lost to rats, to damp, or to places nobody could remember.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "old farmhouse Colombia",
+      "finca Antioquia"
+     ],
+     "ai": "an old farmhouse in the Colombian countryside",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "hidden wall compartment",
+      "secret compartment wall"
+     ],
+     "ai": "cash hidden inside a broken wall",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "blue plastic barrel",
+      "plastic drum barrel"
+     ],
+     "ai": "a blue barrel buried in a field",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "brown rat",
+      "rat closeup"
+     ],
+     "ai": "a rat chewing paper",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 10,
+     "suffix": "% A YEAR",
+     "label": "Of the stored cash lost, according to Roberto Escobar",
+     "note": "Rats, damp, and money that was never found again"
+    }
+   ]
+  },
+  {
+   "say": "Think about what that means. Ten percent a year is a loss most companies would never survive. For Escobar, it was just the cost of doing business. That is how much money was coming in.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Losing 10% a year...",
+      "...and not caring."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "stacks of US dollar bills",
+      "seized cash DEA"
+     ],
+     "ai": "an enormous pile of cash in a warehouse",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "chapter": "Power",
+   "date": "1982",
+   "say": "Money wasn't enough. Escobar wanted respect. He built football fields and paid for housing in the poor neighborhoods of Medellin, and many people there saw him as a hero. In 1982, he was even elected as an alternate member of Colombia's Congress.",
+   "pops": [
+    {
+     "text": "CONGRESS",
+     "label": "elected alternate, 1982",
+     "on": "Congress."
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Barrio Pablo Escobar Medellin",
+      "Medellin comuna houses"
+     ],
+     "ai": "colorful small houses on a hillside in Medellin",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "football pitch Medellin",
+      "soccer field Colombia"
+     ],
+     "ai": "a dusty neighborhood soccer field in Colombia",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Capitolio Nacional Bogota",
+      "Congress of Colombia building"
+     ],
+     "ai": "the Colombian national capitol building in Bogota",
+     "zoom": "in"
+    },
+    {
+     "type": "map",
+     "view": [
+      -77.5,
+      3,
+      -72,
+      8
+     ],
+     "points": [
+      {
+       "name": "Medellin",
+       "at": [
+        -75.57,
+        6.25
+       ],
+       "at_time": 0.2,
+       "side": "left"
+      },
+      {
+       "name": "Bogota",
+       "note": "Congress",
+       "at": [
+        -74.07,
+        4.71
+       ],
+       "at_time": 0.8,
+       "side": "right"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "It didn't last. Colombia's justice minister, Rodrigo Lara Bonilla, exposed where Escobar's money came from, and Escobar was forced out of politics. In 1984, the minister was assassinated. It was the beginning of a war between Escobar and the Colombian state.",
+   "pops": [
+    {
+     "text": "RODRIGO LARA BONILLA",
+     "label": "Justice Minister",
+     "on": "Rodrigo"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Rodrigo Lara Bonilla",
+      "Lara Bonilla"
+     ],
+     "ai": "a 1980s Colombian politician at a podium",
+     "zoom": "in"
+    },
+    {
+     "type": "year",
+     "from": 1982,
+     "to": 1984,
+     "label": "The justice minister is assassinated"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A war",
+      "against the state."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The war",
+   "date": "1989",
+   "say": "His greatest fear was extradition. Being sent to an American prison, where his money and his men could not reach him. His group used a slogan: better a grave in Colombia than a prison cell in the United States.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "US federal courthouse",
+      "federal prison United States"
+     ],
+     "ai": "an American federal prison with high walls",
+     "zoom": "right"
+    },
+    {
+     "type": "quote",
+     "text": "Better a grave in Colombia than a prison cell in the United States.",
+     "by": "Slogan of 'Los Extraditables', Escobar's group"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Bogota 1980s",
+      "Bogota 1989"
+     ],
+     "ai": "a tense Bogota street in the late 1980s",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Cartel leaders even offered to pay off Colombia's foreign debt, around ten billion dollars at the time, in exchange for protection from extradition. The government refused. And the violence got worse. In November 1989, a bomb planted on an Avianca passenger jet killed more than one hundred people.",
+   "pops": [
+    {
+     "text": "≈ $10 BILLION",
+     "label": "Colombia's debt",
+     "on": "ten billion"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 10,
+     "prefix": "$",
+     "suffix": " BILLION",
+     "label": "Colombia's foreign debt they offered to pay",
+     "note": "Reported at the time; the offer came with demands"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The government said no."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Avianca Boeing 727",
+      "Boeing 727 Avianca 1980s"
+     ],
+     "ai": "a 1980s passenger jet on a runway",
+     "zoom": "right"
+    },
+    {
+     "type": "stat",
+     "number": 100,
+     "prefix": "MORE THAN ",
+     "label": "People killed on Avianca Flight 203, 1989"
+    }
+   ]
+  },
+  {
+   "chapter": "The prison he built",
+   "date": "1991",
+   "say": "Then, in 1991, Colombia changed its constitution and banned extradition. That same day, Escobar surrendered. But he didn't go to a normal prison. He went to La Catedral, a prison he was allowed to build himself, on a hill overlooking Medellin.",
+   "pops": [
+    {
+     "text": "LA CATEDRAL",
+     "label": "his own prison",
+     "on": "Catedral,"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1989,
+     "to": 1991,
+     "label": "Escobar surrenders"
+    },
+    {
+     "type": "image",
+     "search": [
+      "La Catedral prison Envigado",
+      "La Catedral Escobar prison"
+     ],
+     "ai": "a prison complex on a green mountain above a city",
+     "zoom": "up"
+    },
+    {
+     "type": "map",
+     "view": [
+      -75.75,
+      6.05,
+      -75.4,
+      6.35
+     ],
+     "points": [
+      {
+       "name": "Medellin",
+       "at": [
+        -75.57,
+        6.25
+       ],
+       "at_time": 0.2,
+       "side": "left"
+      },
+      {
+       "name": "La Catedral",
+       "note": "his prison",
+       "at": [
+        -75.56,
+        6.13
+       ],
+       "at_time": 0.8,
+       "side": "right"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "The guards were reportedly chosen with his approval. Inside, there were comfortable rooms, a football pitch and a view of the city. He kept running his business from behind its walls.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "La Catedral ruins Envigado",
+      "La Catedral monastery Envigado"
+     ],
+     "ai": "the ruins of a mountain prison with a city view",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A prison",
+      "he designed himself."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Medellin view from mountain",
+      "Medellin valley night"
+     ],
+     "ai": "Medellin at night seen from a mountain",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "In July 1992, when the government tried to move him to a real prison, Escobar walked out. He escaped. And this time, everyone was hunting him.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1991,
+     "to": 1992,
+     "label": "Escobar escapes"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Colombian National Police 1990s",
+      "Policia Nacional Colombia"
+     ],
+     "ai": "Colombian police officers in the early 1990s",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He walked out."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The hunt",
+   "date": "1993",
+   "say": "A special police unit called the Search Bloc tracked him, with help from the United States. His rivals formed a group called Los Pepes to destroy his network. One by one, his men, his money and his hiding places disappeared.",
+   "pops": [
+    {
+     "text": "SEARCH BLOC",
+     "label": "special police unit",
+     "on": "Search"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "radio direction finding antenna",
+      "radio triangulation"
+     ],
+     "ai": "1990s radio tracking equipment in a van",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Colombian police helicopter",
+      "UH-1 helicopter Colombia"
+     ],
+     "ai": "a police helicopter over a city",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Medellin streets 1990s",
+      "Medellin Los Olivos neighborhood"
+     ],
+     "ai": "a quiet Medellin street with houses",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "say": "He was running out of the one thing his money could never buy. Time. Some stories say that while hiding in the mountains, he burned around two million dollars in cash just to keep his daughter warm. That story comes from his son, and nobody can prove it.",
+   "pops": [
+    {
+     "text": "$2 MILLION BURNED?",
+     "label": "his son's story",
+     "on": "two million"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "campfire night",
+      "fire burning in fireplace"
+     ],
+     "ai": "a small fire burning at night in the mountains",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 2000000,
+     "prefix": "$",
+     "label": "Burned to keep his daughter warm, according to his son",
+     "note": "Not independently confirmed"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Money he couldn't use.",
+      "So he burned it."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "December 2, 1993",
+   "say": "On December second, 1993, one day after his forty fourth birthday, police traced a phone call to a house in Medellin. Escobar ran across the rooftops. He was shot and killed. His family has always said he took his own life. Investigators concluded he was killed by police fire.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "telephone 1990s",
+      "old landline telephone"
+     ],
+     "ai": "an old 1990s telephone in a dark room",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Medellin rooftops",
+      "Medellin Los Olivos"
+     ],
+     "ai": "red tiled rooftops in Medellin",
+     "zoom": "right"
+    },
+    {
+     "type": "year",
+     "from": 1949,
+     "to": 1993,
+     "label": "Pablo Escobar, 1949 to 1993"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Pablo Escobar grave Montesacro",
+      "Cementerio Montesacro Itagui"
+     ],
+     "ai": "a grave in a green Colombian cemetery",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "chapter": "What it teaches about money",
+   "date": "Today",
+   "say": "So what does Pablo Escobar's fortune teach us about money? First, money you can't use isn't wealth. It's storage, and storage rots. Second, the more you have to hide, the more it costs you. And third, every fortune built on fear has an expiry date.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "What it teaches",
+     "text": "3 Lessons",
+     "sub": "about money, from Pablo Escobar's fortune"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "1.",
+      "Money you can't use",
+      "isn't wealth."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "2.",
+      "The more you hide,",
+      "the more it costs."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "3.",
+      "A fortune built on fear",
+      "has an expiry date."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And the hippos? Escobar brought four of them to Colombia. After his death, nobody took them away. They escaped into the rivers and kept breeding. Scientists now estimate there are well over one hundred and fifty of them, and in 2026, Colombia approved a plan to cull up to eighty.",
+   "pops": [
+    {
+     "text": "150+ HIPPOS",
+     "label": "from the original 4",
+     "on": "one hundred"
+    }
+   ],
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "hippopotamus Magdalena River Colombia",
+      "hippos Colombia river"
+     ],
+     "ai": "hippos in a brown tropical river",
+     "zoom": "in"
+    },
+    {
+     "type": "bars",
+     "title": "Escobar's hippos",
+     "bars": [
+      [
+       "1980s",
+       4
+      ],
+      [
+       "Today",
+       150
+      ]
+     ],
+     "note": "Estimates from Colombian scientists; 2022 study: about 170"
+    },
+    {
+     "type": "map",
+     "view": [
+      -76.5,
+      4.5,
+      -73.5,
+      7.5
+     ],
+     "points": [
+      {
+       "name": "Hacienda Napoles",
+       "at": [
+        -74.73,
+        5.89
+       ],
+       "at_time": 0.3,
+       "side": "left"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Magdalena River",
+       "at": [
+        -74.3,
+        6.6
+       ],
+       "size": 26
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "hippopotamus yawning",
+      "hippopotamus open mouth"
+     ],
+     "ai": "a hippo opening its huge mouth",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Thirty years after his death, the most visible thing Pablo Escobar left behind is not his money. Most of it rotted, burned or was never found. It's a herd of hippos in a Colombian river. If you want more stories about the richest, strangest fortunes in history, how they were made and how they fell apart, subscribe. The next one is coming soon.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Medellin Colombia panorama",
+      "Medellin skyline"
+     ],
+     "ai": "Medellin city at sunset",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "hippopotamus Colombia",
+      "hippopotamus sunset"
+     ],
+     "ai": "a hippo in a river at sunset",
+     "zoom": "in"
+    },
+    {
+     "type": "title",
+     "text": "Pablo Escobar",
+     "sub": "1949 – 1993 · Subscribe for the next story"
+    }
+   ]
+  }
+ ]
+}
