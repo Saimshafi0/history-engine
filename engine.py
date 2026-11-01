@@ -347,6 +347,8 @@ class MapBase:
     def view(self, b, W, H, hl_amount):
         x0, y0 = self.px(b[0], b[3])
         x1, y1 = self.px(b[2], b[1])
+        x0, y0 = max(0.0, x0), max(0.0, y0)
+        x1, y1 = min(float(self.W), max(x0 + 1, x1)), min(float(self.H), max(y0 + 1, y1))
         src = self.plain
         if self.hl is not None and hl_amount >= 0.999:
             src = self.hl
@@ -643,7 +645,9 @@ class ImageScene(Scene):
         dy = {"up": 0.05 - 0.10 * p}.get(m, 0)
         cx = clamp(fx + dx, vw / iw / 2, 1 - vw / iw / 2) * iw
         cy = clamp(fy + dy, vh / ih / 2, 1 - vh / ih / 2) * ih
-        frame = im.resize((W, H), Image.BILINEAR, box=(cx - vw / 2, cy - vh / 2, cx + vw / 2, cy + vh / 2))
+        x0, y0 = max(0.0, cx - vw / 2), max(0.0, cy - vh / 2)  # tiny rounding errors must never give a negative box
+        x1, y1 = min(float(iw), x0 + vw), min(float(ih), y0 + vh)
+        frame = im.resize((W, H), Image.BILINEAR, box=(x0, y0, x1, y1))
         frame = vignette(frame, 0.62)
         if self.v.get("caption"):
             d = ImageDraw.Draw(frame)
