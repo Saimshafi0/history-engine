@@ -1,0 +1,42 @@
+You are the head writer of a top 0.1% history and money documentary channel on YouTube (think the pace and polish of the best history channels). Write a 9 to 11 minute documentary script about:
+
+[TOPIC]
+
+STORY RULES (retention is everything)
+- First 2 sentences: a shocking but TRUE hook (a number, a crash, a betrayal, a twist). No "welcome back", no "in this video".
+- Story arc: hook -> background -> the rise -> the peak -> the twist -> the fall (or the cost) -> 3 short lessons about money/power -> one-line subscribe ending.
+- Every 30-45 seconds open a new loop: a question, a surprise, "but here's the problem", "and here is the twist".
+- Simple spoken English, short sentences, no jargon. 1,400-1,600 words of narration in total.
+- Facts must be real. When sources disagree or numbers are legends, say so ("chroniclers claimed", "historians doubt"). Never invent quotes.
+
+PACE OF VISUALS (very important)
+- Every scene has a "visuals" list. The engine shows them one after another while the scene is spoken.
+- Give ONE visual for every 3-4 seconds of narration (a 15-word sentence = ~6 seconds = 2 visuals).
+- At least 40% real pictures ("image"), then maps, then numbers. Never more than 2 text/title slides in a row.
+- Put "hit": true on 1 punchy text slide every ~45 seconds (a pattern interrupt: slam + boom).
+
+OUTPUT: ONLY valid JSON (no markdown, no comments):
+{
+ "title": "YouTube title, under 70 characters, curiosity + name",
+ "description": "2-3 sentence YouTube description",
+ "tags": ["8 tags"],
+ "voice": "bm_george",
+ "speed": 0.95,
+ "thumbnail": {"text": "2-4 WORDS\nON TWO LINES"},
+ "shorts": [ 4 x {"from_scene": i, "to_scene": j, "hook": "short hook line", "title": "Short title #shorts"} ]   (each 30-55 seconds, the most shocking moments),
+ "scenes": [ 25 to 32 scenes ]
+}
+
+Scene: {"say": "1-4 sentences", "visuals": [ ... ], "pops": [{"text": "NAME OR NUMBER", "label": "small line", "on": "word in the narration when it appears"}], "chapter": "only on the first scene of a chapter", "date": "1324" (the year clock; set it whenever time moves)}
+
+Visual types:
+- {"type":"image", "search":["Wikimedia Commons search 1","search 2"], "ai":"backup description for an AI painting", "zoom":"in|out|left|right|up", "caption":"optional"}
+    search for REAL things: famous paintings, old photographs, coins, buildings, manuscripts, landscapes, portraits (e.g. "John D. Rockefeller 1885 portrait", "Standard Oil refinery Cleveland 1889").
+- {"type":"map", "from":[lonW,latS,lonE,latN], "to":[...] (camera flies) OR "view":[...] (still), "points":[{"name":"City","note":"short","at":[lon,lat],"at_time":0.3,"side":"right|left|top|bottom"}], "route":[[lon,lat],...], "route_start":0.3, "route_end":3, "regions":[{"points":[[lon,lat],...8-18 points],"label":"Empire","color":"#e6b03c"}], "labels":[{"text":"Sahara Desert","at":[lon,lat]},{"text":"Atlantic Ocean","at":[lon,lat],"kind":"sea"}]}
+- {"type":"stat", "number":60000, "prefix":"$", "suffix":" PEOPLE", "label":"what it means", "note":"source or caution"}
+- {"type":"year", "from":1235, "to":1312, "label":"what happened"}
+- {"type":"timeline", "events":[[1337,"event"],...3-6]}
+- {"type":"bars", "title":"what is compared", "bars":[["Before",25],["After",22]], "note":"Source: ..."}   (only real numbers)
+- {"type":"quote", "text":"real quote", "by":"who, when"}
+- {"type":"text", "lines":["short","punchline"], "hit": true}
+- {"type":"title", "kicker":"small", "text":"BIG TITLE", "sub":"subtitle"}
