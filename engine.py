@@ -606,6 +606,10 @@ class ImageScene(Scene):
             except Exception:
                 self.img = None
         self.move = self.v.get("zoom") or self.MOVES[self.idx % len(self.MOVES)]
+        # tall / square pictures (portraits, faces): show the WHOLE picture on a soft blurred copy of itself
+        # instead of cutting a thin 16:9 strip out of it (that cut heads in half)
+        self.portrait = self.img is not None and self.img.size[0] / self.img.size[1] < 1.3 and not self.v.get("fill")
+        self._bg = None
 
     def frame(self, t, dur):
         W, H = self.W, self.H
@@ -623,6 +627,8 @@ class ImageScene(Scene):
             return vignette(img)
         im = self.img
         iw, ih = im.size
+        if self.portrait:
+            return self._portrait_frame(t, dur)
         sc = max(W / iw, H / ih)
         m = self.move
         detail = False
@@ -634,13 +640,13 @@ class ImageScene(Scene):
             else:
                 dur = half
         p = ease_io(t / max(dur, 0.1)) * 0.85 + (t / max(dur, 0.1)) * 0.15
-        z = {"in": 1.05 + 0.13 * p, "out": 1.18 - 0.13 * p}.get(m, 1.14)
+        z = {"in": 1.03 + 0.08 * p, "out": 1.11 - 0.08 * p}.get(m, 1.07)
         if detail:
-            z *= 1.32
+            z *= 1.18
         vw, vh = W / (sc * z), H / (sc * z)
-        fx, fy = self.v.get("focus", [0.5, 0.5])
+        fx, fy = self.v.get("focus", [0.5, 0.42])  # a little above the middle: faces are usually in the upper part
         if detail:
-            fx, fy = fx + (0.12 if self.idx % 2 else -0.12), fy - 0.06
+            fx, fy = fx + (0.08 if self.idx % 2 else -0.08), fy - 0.04
         dx = {"left": 0.06 - 0.12 * p, "right": -0.06 + 0.12 * p}.get(m, (p - 0.5) * 0.03)
         dy = {"up": 0.05 - 0.10 * p}.get(m, 0)
         cx = clamp(fx + dx, vw / iw / 2, 1 - vw / iw / 2) * iw
@@ -649,6 +655,44 @@ class ImageScene(Scene):
         x1, y1 = min(float(iw), x0 + vw), min(float(ih), y0 + vh)
         frame = im.resize((W, H), Image.BILINEAR, box=(x0, y0, x1, y1))
         frame = vignette(frame, 0.62)
+        return self._caption(frame, t)
+
+    def _portrait_frame(self, t, dur):
+        W, H = self.W, self.H
+        im = self.img
+        iw, ih = im.size
+        if self._bg is None:  # blurred, darker copy that fills the screen behind the picture (made once)
+            bw, bh = int(W * 1.12), int(H * 1.12)
+            sc = max(bw / iw, bh / ih)
+            b = im.resize((max(1, int(iw * sc / 4)), max(1, int(ih * sc / 4))), Image.BILINEAR)
+            b = b.filter(ImageFilter.GaussianBlur(10)).resize((int(iw * sc), int(ih * sc)), Image.BILINEAR)
+            cx, cy = (b.size[0] - bw) // 2, (b.size[1] - bh) // 2
+            b = b.crop((cx, cy, cx + bw, cy + bh))
+            self._bg = Image.blend(b, Image.new("RGB", b.size, (12, 10, 8)), 0.45)
+        p = ease_io(clamp(t / max(dur, 0.1)))
+        if self.move == "out":
+            p = 1 - p
+        bw, bh = self._bg.size
+        ox = int((bw - W) * (0.5 + (p - 0.5) * 0.6))
+        frame = self._bg.crop((ox, (bh - H) // 2, ox + W, (bh - H) // 2 + H))
+        z = 1.0 + 0.05 * p  # gentle push-in, the whole picture always stays on screen
+        fh = H * 0.90 * z
+        fw = fh * iw / ih
+        if fw > W * 0.94:  # very wide-ish square: keep inside the screen
+            fw = W * 0.94
+            fh = fw * ih / iw
+        fg = im.resize((max(1, int(fw)), max(1, int(fh))), Image.LANCZOS)
+        x, y = int((W - fw) / 2), int((H - fh) / 2)
+        sh = Image.new("L", (fg.size[0] + 60, fg.size[1] + 60), 0)
+        ImageDraw.Draw(sh).rectangle([30, 30, 30 + fg.size[0], 30 + fg.size[1]], fill=170)
+        sh = sh.resize((sh.size[0] // 4, sh.size[1] // 4)).filter(ImageFilter.GaussianBlur(5)).resize(sh.size)
+        frame.paste((0, 0, 0), (x - 30, y - 22), sh)
+        frame.paste(fg, (x, y))
+        frame = vignette(frame, 0.5)
+        return self._caption(frame, t)
+
+    def _caption(self, frame, t):
+        W, H = self.W, self.H
         if self.v.get("caption"):
             d = ImageDraw.Draw(frame)
             f = font("Oswald", self.S(30), "Medium")
@@ -1763,12 +1807,27 @@ def make_thumbnail(script, plan_, out_dir):
         gd.line([(x, 0), (x, 720)], fill=int(235 * clamp(1 - x / 860) ** 1.2))
     img.paste(Image.new("RGBA", (1280, 720), (8, 8, 10, 255)), (0, 0), grad)
     img = img.convert("RGB")
+    # Midnight Archive style: white line(s) on top, last line black on a yellow box
     lines = (th.get("text") or script.get("title", "")).upper().split("\n")
-    y = 360 - len(lines) * 72
+    longest = max(len(x) for x in lines)
+    size = 150 if longest <= 11 else 124 if longest <= 14 else 104
+    f = font("Oswald", size, "Bold")
+    d = ImageDraw.Draw(img)
+    lh = int(size * 1.05)
+    total = lh * len(lines) + 40
+    y = (720 - total) // 2
     for i, ln in enumerate(lines):
-        f = font("Oswald", 132 if len(ln) < 11 else 104, "Bold")
-        shadow_text(img, (60, y), ln, f, GOLD_L if i == len(lines) - 1 else WHITE, blur=8, alpha=255)
-        y += 144
+        bb = d.textbbox((0, 0), ln, font=f)
+        if i == len(lines) - 1:
+            w, h = bb[2] - bb[0], bb[3] - bb[1]
+            y += 12
+            d = ImageDraw.Draw(img)
+            d.rectangle([56, y, 56 + w + 36, y + h + 42], fill=(255, 213, 74))
+            d.text((56 + 18 - bb[0], y + 18 - bb[1]), ln, font=f, fill=(12, 12, 12))
+        else:
+            shadow_text(img, (66 - bb[0], y - bb[1]), ln, f, (245, 240, 230), blur=8, alpha=230)
+            d = ImageDraw.Draw(img)
+            y += lh
     img.save(os.path.join(out_dir, "thumbnail.jpg"), quality=93)
 
 
