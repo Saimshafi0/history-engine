@@ -1,0 +1,3046 @@
+{
+ "title": "They Sold 16 Bodies to a Doctor. None of Them Died Naturally.",
+ "description": "In 1828, two Irish labourers in Edinburgh discovered that a famous anatomy school would pay up to ten pounds for a fresh body, and never asked where it came from. This is the true story of Burke and Hare, the doctor who bought from them, and the law that finally ended the trade in human bodies.",
+ "tags": [
+  "Burke and Hare",
+  "Edinburgh history",
+  "true crime documentary",
+  "body snatchers",
+  "resurrection men",
+  "Robert Knox",
+  "dark history",
+  "Scottish history",
+  "Anatomy Act 1832",
+  "history documentary"
+ ],
+ "voice": "am_eric",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "£10 PER\nBODY"
+ },
+ "shorts": [
+  {
+   "from_scene": 0,
+   "to_scene": 2,
+   "hook": "16 bodies. None died naturally.",
+   "title": "They sold 16 bodies to a doctor #shorts"
+  },
+  {
+   "from_scene": 22,
+   "to_scene": 23,
+   "hook": "This crime created a new English word",
+   "title": "The murder that became a word #shorts"
+  },
+  {
+   "from_scene": 36,
+   "to_scene": 39,
+   "hook": "She looked under the straw...",
+   "title": "What she found under the straw #shorts"
+  },
+  {
+   "from_scene": 46,
+   "to_scene": 48,
+   "hook": "His skeleton is still on display",
+   "title": "He became what he sold #shorts"
+  }
+ ],
+ "scenes": [
+  {
+   "chapter": "Seven pounds, ten shillings",
+   "date": "1827",
+   "pops": [
+    {
+     "text": "EDINBURGH",
+     "label": "November 1827",
+     "on": "Edinburgh"
+    }
+   ],
+   "say": "In November 1827, two men carried a body through the dark streets of Edinburgh. They were taking it to a doctor. And that doctor was about to pay them more money than they could earn in two months of hard labour.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw moonlight street",
+      "Atkinson Grimshaw"
+     ],
+     "ai": "a moonlit wet cobbled street at night, Victorian painting",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Edinburgh close Archibald Burns",
+      "Edinburgh close old photograph"
+     ],
+     "ai": "a dark narrow close in old Edinburgh, 19th century photograph",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw Liverpool Quay by Moonlight",
+      "Atkinson Grimshaw moonlit"
+     ],
+     "ai": "a dark moonlit Victorian street, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "right"
+    },
+    {
+     "type": "stat",
+     "number": 7.5,
+     "label": "Paid for one body",
+     "prefix": "£",
+     "note": "Seven pounds and ten shillings, November 1827",
+     "decimals": 2
+    }
+   ]
+  },
+  {
+   "say": "Within a year, the same two men would sell sixteen more bodies to the same doctor. And not one of those people died of natural causes.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "16 bodies.",
+      "None died naturally."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Greyfriars Kirkyard",
+      "Greyfriars Kirkyard Edinburgh"
+     ],
+     "ai": "an old Edinburgh graveyard with weathered tombstones",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Town Edinburgh painting",
+      "Edinburgh Old Town 19th century"
+     ],
+     "ai": "the crowded old town of Edinburgh in the 1820s, tall dark stone houses",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "say": "Their names were William Burke and William Hare. This is the true story of how the greatest medical city in the world created a market for dead bodies, and how two poor men discovered that a human life could be sold for ten pounds.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "William Burke murderer",
+      "William Burke Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Burke",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Hare murderer",
+      "William Hare Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Hare",
+     "zoom": "in"
+    },
+    {
+     "type": "title",
+     "kicker": "The true story of",
+     "text": "Burke and Hare",
+     "sub": "Edinburgh, 1827 – 1829"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh from Calton Hill painting",
+      "Edinburgh 1820s painting"
+     ],
+     "ai": "a view over 1820s Edinburgh with the castle, painting",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "The Anatomy Lesson of Dr. Nicolaes Tulp"
+     ],
+     "ai": "a 17th century anatomy lesson painting",
+     "zoom": "out"
+    },
+    {
+     "type": "stat",
+     "number": 10,
+     "label": "The price of a human body",
+     "prefix": "£",
+     "note": "Paid by an Edinburgh anatomy school in winter, 1828"
+    }
+   ]
+  },
+  {
+   "chapter": "The city of doctors",
+   "date": "1820",
+   "say": "In the 1820s, Edinburgh was famous for two things. Its dark, crowded old town. And its doctors. The University of Edinburgh had one of the best medical schools on Earth. Students came from all over Britain, from America, and from across Europe.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -8,
+      54,
+      0,
+      59
+     ],
+     "to": [
+      -3.8,
+      55.75,
+      -2.7,
+      56.15
+     ],
+     "points": [
+      {
+       "name": "Edinburgh",
+       "note": "medical capital",
+       "at": [
+        -3.19,
+        55.95
+       ],
+       "at_time": 1.2,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Scotland",
+       "at": [
+        -4.3,
+        56.9
+       ]
+      },
+      {
+       "text": "North Sea",
+       "at": [
+        -1.2,
+        56.4
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Town Edinburgh painting",
+      "Edinburgh Old Town 19th century"
+     ],
+     "ai": "the crowded old town of Edinburgh in the 1820s, tall dark stone houses",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh wynd 19th century",
+      "Edinburgh close 1860s photograph"
+     ],
+     "ai": "a dark stone alley in old Edinburgh",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old College University of Edinburgh engraving",
+      "Old College Edinburgh"
+     ],
+     "ai": "the University of Edinburgh Old College, 19th century engraving",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The best medical school",
+      "on Earth."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh from Calton Hill painting",
+      "Edinburgh 1820s painting"
+     ],
+     "ai": "a view over 1820s Edinburgh with the castle, painting",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "say": "To become a surgeon, you had to understand the human body. And the only way to truly understand it was to open one up. Every student needed to see dissections with his own eyes, and the most popular teachers packed hundreds of students into a single room.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Vesalius Fabrica muscle man",
+      "De humani corporis fabrica"
+     ],
+     "ai": "a 16th century anatomical woodcut of a human figure",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Gray's Anatomy 1858 illustration",
+      "anatomy illustration 19th century"
+     ],
+     "ai": "an old anatomical drawing",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "The Anatomy Lesson of Dr. Nicolaes Tulp"
+     ],
+     "ai": "a 17th century anatomy lesson painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "19th century surgical instruments",
+      "antique surgical instruments"
+     ],
+     "ai": "antique surgical instruments in a wooden case",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hogarth The Reward of Cruelty",
+      "The Four Stages of Cruelty Hogarth"
+     ],
+     "ai": "an 18th century engraving of a public dissection",
+     "zoom": "out"
+    },
+    {
+     "type": "stat",
+     "number": 500,
+     "label": "Students in one anatomy class",
+     "suffix": "+",
+     "note": "Dr Robert Knox's classes in the late 1820s, as reported by his biographers"
+    }
+   ]
+  },
+  {
+   "say": "But there was a problem. By law, the only bodies doctors could legally dissect were those of executed criminals. And there were nowhere near enough executions. Some years, the medical schools of Scotland had only a handful of legal bodies, for hundreds of students.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Legal bodies:",
+      "executed criminals only."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "public execution crowd engraving",
+      "execution crowd 19th century"
+     ],
+     "ai": "a crowd in an old city square, engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Parliament House Edinburgh",
+      "Parliament Hall Edinburgh"
+     ],
+     "ai": "the great hall of Parliament House, Edinburgh's old court",
+     "zoom": "right"
+    },
+    {
+     "type": "bars",
+     "title": "Bodies needed vs bodies available (illustration)",
+     "bars": [
+      [
+       "Students",
+       100
+      ],
+      [
+       "Legal bodies",
+       3
+      ]
+     ],
+     "note": "Illustration of the gap, not exact numbers"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old College University of Edinburgh engraving",
+      "Old College Edinburgh"
+     ],
+     "ai": "the University of Edinburgh Old College, 19th century engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Not nearly enough."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Supply was tiny. Demand was enormous. And whenever that happens, a black market appears.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Tiny supply.",
+      "Huge demand."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw moonlight street",
+      "Atkinson Grimshaw"
+     ],
+     "ai": "a moonlit wet cobbled street at night, Victorian painting",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A black market."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The resurrection men",
+   "pops": [
+    {
+     "text": "RESURRECTION MEN",
+     "label": "body snatchers",
+     "on": "resurrection"
+    }
+   ],
+   "say": "The black market had a name. The resurrection men. Gangs who crept into graveyards at night, dug down to the head of a fresh coffin, broke it open, and pulled the body out with a rope. By morning, the grave looked untouched.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "resurrectionists body snatchers illustration",
+      "Resurrection men grave robbing engraving"
+     ],
+     "ai": "two body snatchers digging up a grave at night, old engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Greyfriars Kirkyard",
+      "Greyfriars Kirkyard Edinburgh"
+     ],
+     "ai": "an old Edinburgh graveyard with weathered tombstones",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "body snatching engraving 19th century",
+      "grave robbers 1820s illustration"
+     ],
+     "ai": "grave robbers with lanterns in a churchyard, engraving",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw Liverpool Quay by Moonlight",
+      "Atkinson Grimshaw moonlit"
+     ],
+     "ai": "a dark moonlit Victorian street, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "antique wooden coffin",
+      "coffin 19th century"
+     ],
+     "ai": "a plain wooden coffin in a dark room",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Greyfriars Kirkyard",
+      "Greyfriars Kirkyard Edinburgh"
+     ],
+     "ai": "an old Edinburgh graveyard with weathered tombstones",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "By morning,",
+      "nothing looked touched."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And here's the strange part. A dead body was not considered anyone's property. Taking the shroud or the coffin could be called theft. So the resurrection men were careful. They took the person, and left everything else behind.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "A body belonged",
+      "to no one."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "antique wooden coffin",
+      "coffin 19th century"
+     ],
+     "ai": "a plain wooden coffin in a dark room",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "resurrectionists body snatchers illustration",
+      "Resurrection men grave robbing engraving"
+     ],
+     "ai": "two body snatchers digging up a grave at night, old engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They took the person.",
+      "Nothing else."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Families were terrified. Rich ones paid for heavy iron cages called mortsafes, locked over the grave. Others hired watchmen, or took turns guarding their loved ones with guns. Watchtowers went up in graveyards all over Edinburgh. Some of them are still standing today.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Mortsafe Greyfriars Kirkyard",
+      "mortsafe"
+     ],
+     "ai": "an iron cage over a grave, a mortsafe",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Greyfriars Kirkyard",
+      "Greyfriars Kirkyard Edinburgh"
+     ],
+     "ai": "an old Edinburgh graveyard with weathered tombstones",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "St Cuthbert's Churchyard watchtower",
+      "watch house graveyard Scotland"
+     ],
+     "ai": "a small stone watchtower in a Scottish graveyard",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Mortsafe Greyfriars Kirkyard",
+      "mortsafe"
+     ],
+     "ai": "an iron cage over a grave, a mortsafe",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw moonlight street",
+      "Atkinson Grimshaw"
+     ],
+     "ai": "a moonlit wet cobbled street at night, Victorian painting",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "St Cuthbert's Churchyard watchtower",
+      "watch house graveyard Scotland"
+     ],
+     "ai": "a small stone watchtower in a Scottish graveyard",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Some still stand today."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "As the graveyards got harder to rob, the price of a fresh body went up. By the late 1820s, an Edinburgh anatomist might pay seven to ten pounds for one. For a labourer earning a couple of shillings a day, that was months of wages. For a single night's work.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 10,
+     "label": "Top price for one body",
+     "prefix": "£",
+     "note": "Edinburgh, late 1820s"
+    },
+    {
+     "type": "bars",
+     "title": "One body vs a labourer's pay",
+     "bars": [
+      [
+       "One body (shillings)",
+       200
+      ],
+      [
+       "A week of labour",
+       12
+      ]
+     ],
+     "note": "£10 = 200 shillings; a labourer earned roughly 2 shillings a day"
+    },
+    {
+     "type": "image",
+     "search": [
+      "body snatching engraving 19th century",
+      "grave robbers 1820s illustration"
+     ],
+     "ai": "grave robbers with lanterns in a churchyard, engraving",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Months of wages.",
+      "One night."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "Two men from Ulster",
+   "date": "1818",
+   "pops": [
+    {
+     "text": "WILLIAM BURKE",
+     "label": "born 1792, Ulster",
+     "on": "Burke"
+    }
+   ],
+   "say": "William Burke was born in 1792 in Ulster, in the north of Ireland. He had been a soldier, a weaver, a baker's servant. Like thousands of poor Irishmen, he crossed to Scotland looking for work, and found it digging the new Union Canal outside Edinburgh.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "William Burke murderer",
+      "William Burke Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Burke",
+     "zoom": "in"
+    },
+    {
+     "type": "map",
+     "from": [
+      -11,
+      51.3,
+      1,
+      59
+     ],
+     "to": [
+      -9,
+      53.4,
+      -1.5,
+      57.2
+     ],
+     "route": [
+      [
+       -7.45,
+       54.8
+      ],
+      [
+       -6.2,
+       54.9
+      ],
+      [
+       -5.3,
+       55.1
+      ],
+      [
+       -4.25,
+       55.86
+      ],
+      [
+       -3.19,
+       55.95
+      ]
+     ],
+     "route_start": 0.6,
+     "points": [
+      {
+       "name": "Ulster",
+       "note": "home",
+       "at": [
+        -7.2,
+        54.7
+       ],
+       "at_time": 0.3,
+       "side": "left"
+      },
+      {
+       "name": "Edinburgh",
+       "at": [
+        -3.19,
+        55.95
+       ],
+       "at_time": 3.2,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Ireland",
+       "at": [
+        -8.0,
+        53.3
+       ]
+      },
+      {
+       "text": "Scotland",
+       "at": [
+        -4.3,
+        56.8
+       ]
+      },
+      {
+       "text": "Irish Sea",
+       "at": [
+        -5.2,
+        54.0
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Soldier. Weaver.",
+      "Baker's servant."
+     ]
+    },
+    {
+     "type": "map",
+     "view": [
+      -4.6,
+      55.6,
+      -2.8,
+      56.3
+     ],
+     "route": [
+      [
+       -3.2,
+       55.94
+      ],
+      [
+       -3.4,
+       55.92
+      ],
+      [
+       -3.55,
+       55.93
+      ],
+      [
+       -3.68,
+       55.98
+      ],
+      [
+       -3.78,
+       56.0
+      ]
+     ],
+     "route_start": 0.4,
+     "points": [
+      {
+       "name": "Edinburgh",
+       "at": [
+        -3.19,
+        55.95
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      },
+      {
+       "name": "Falkirk",
+       "note": "towards Glasgow",
+       "at": [
+        -3.78,
+        56.0
+       ],
+       "at_time": 2.0,
+       "side": "top"
+      },
+      {
+       "name": "Glasgow",
+       "at": [
+        -4.25,
+        55.86
+       ],
+       "at_time": 2.6,
+       "side": "left"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Union Canal",
+       "at": [
+        -3.5,
+        55.88
+       ]
+      },
+      {
+       "text": "Firth of Forth",
+       "at": [
+        -3.2,
+        56.1
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Union Canal Scotland",
+      "Union Canal Edinburgh"
+     ],
+     "ai": "a canal in the Scottish countryside",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Union Canal Scotland",
+      "Union Canal Edinburgh"
+     ],
+     "ai": "a canal in the Scottish countryside",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "WILLIAM HARE",
+     "label": "age unknown",
+     "on": "Hare"
+    }
+   ],
+   "say": "William Hare was also Irish, and also a labourer. Almost nothing is known about his early life. Even his age is uncertain. What we do know is that he ended up in Edinburgh, living with a woman named Margaret Laird, who ran a cheap lodging house in a narrow alley called Tanner's Close, in the West Port.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "William Hare murderer",
+      "William Hare Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Hare",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Age: unknown.",
+      "Past: unknown."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "West Port Edinburgh",
+      "West Port Edinburgh old"
+     ],
+     "ai": "a narrow old street in the West Port, Edinburgh",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Edinburgh close Archibald Burns",
+      "Edinburgh close old photograph"
+     ],
+     "ai": "a dark narrow close in old Edinburgh, 19th century photograph",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh wynd 19th century",
+      "Edinburgh close 1860s photograph"
+     ],
+     "ai": "a dark stone alley in old Edinburgh",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "West Port Edinburgh",
+      "West Port Edinburgh old"
+     ],
+     "ai": "a narrow old street in the West Port, Edinburgh",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Tanner's Close,",
+      "West Port."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "1827",
+   "say": "In 1827, Burke and his partner, Helen McDougal, moved into that lodging house. The two Williams became friends. Drinking partners. And very soon, business partners.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh wynd 19th century",
+      "Edinburgh close 1860s photograph"
+     ],
+     "ai": "a dark stone alley in old Edinburgh",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "David Wilkie The Penny Wedding",
+      "David Wilkie painting Scotland"
+     ],
+     "ai": "a lively Scottish tavern scene, 1820s painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Landseer Illicit Whisky Still",
+      "Illicit Highland Whisky Still"
+     ],
+     "ai": "a Highland whisky still in a dark hut, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Friends.",
+      "Then business partners."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The first sale",
+   "date": "1827",
+   "say": "In November 1827, one of Hare's lodgers, an old army pensioner named Donald, died of illness in the house. He owed Hare four pounds in rent. Hare was furious. The old man had died owing him money.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "straw bed cottage interior painting",
+      "cottage interior Scotland painting"
+     ],
+     "ai": "a poor 1820s room with a straw bed, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Donald.",
+      "Old soldier. Sick."
+     ]
+    },
+    {
+     "type": "stat",
+     "number": 4,
+     "label": "Rent Donald still owed",
+     "prefix": "£"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Edinburgh close Archibald Burns",
+      "Edinburgh close old photograph"
+     ],
+     "ai": "a dark narrow close in old Edinburgh, 19th century photograph",
+     "zoom": "up"
+    }
+   ]
+  },
+  {
+   "say": "And then someone had an idea. Before the coffin was nailed shut, they lifted Donald out, filled the coffin with tree bark, and let it be buried. The mourners never knew the difference.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "antique wooden coffin",
+      "coffin 19th century"
+     ],
+     "ai": "a plain wooden coffin in a dark room",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They filled the coffin",
+      "with bark."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Greyfriars Kirkyard",
+      "Greyfriars Kirkyard Edinburgh"
+     ],
+     "ai": "an old Edinburgh graveyard with weathered tombstones",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody noticed."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "10 SURGEONS' SQUARE",
+     "label": "Dr Knox's school",
+     "on": "Surgeons"
+    }
+   ],
+   "say": "That night, they asked a medical student where they could sell a body. He sent them to number ten Surgeons' Square, to the anatomy school of Doctor Robert Knox.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw Liverpool Quay by Moonlight",
+      "Atkinson Grimshaw moonlit"
+     ],
+     "ai": "a dark moonlit Victorian street, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old College University of Edinburgh engraving",
+      "Old College Edinburgh"
+     ],
+     "ai": "the University of Edinburgh Old College, 19th century engraving",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in",
+     "caption": "Dr Robert Knox"
+    }
+   ]
+  },
+  {
+   "say": "Knox was the most popular anatomy teacher in Edinburgh. Brilliant, arrogant, and always short of bodies. His assistants looked at Donald and paid seven pounds and ten shillings. And as the two men left, they were told the school would be glad to see them again, whenever they had another one to sell.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Brilliant.",
+      "Arrogant.",
+      "Always short of bodies."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hogarth The Reward of Cruelty",
+      "The Four Stages of Cruelty Hogarth"
+     ],
+     "ai": "an 18th century engraving of a public dissection",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 7.5,
+     "label": "Paid for Donald",
+     "prefix": "£",
+     "decimals": 2
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Come back",
+      "when you have another.\""
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Knox had been an army surgeon, treating soldiers wounded at the Battle of Waterloo. Now, in his thirties, he ran his own school, and he had a reputation for always having bodies to show his students when other teachers did not. That reputation was money. Students paid fees to attend, and the more bodies he had, the more students came.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Army surgeon.",
+      "Waterloo, 1815."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hogarth The Reward of Cruelty",
+      "The Four Stages of Cruelty Hogarth"
+     ],
+     "ai": "an 18th century engraving of a public dissection",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "More bodies =",
+      "more students =",
+      "more money."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old College University of Edinburgh engraving",
+      "Old College Edinburgh"
+     ],
+     "ai": "the University of Edinburgh Old College, 19th century engraving",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Seven pounds, ten shillings. Almost double the rent the old man had owed. And it took one night.",
+   "visuals": [
+    {
+     "type": "bars",
+     "title": "What Donald was 'worth' (in shillings)",
+     "bars": [
+      [
+       "Rent owed",
+       80
+      ],
+      [
+       "Sold for",
+       150
+      ]
+     ],
+     "note": "£4 = 80 shillings, £7 10s = 150 shillings, 1827"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw moonlight street",
+      "Atkinson Grimshaw"
+     ],
+     "ai": "a moonlit wet cobbled street at night, Victorian painting",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "chapter": "The method",
+   "date": "1828",
+   "say": "The problem was, people don't die on schedule. Burke and Hare could have waited for the next lodger to die. Instead, early in 1828, they decided not to wait.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "People don't die",
+      "on schedule."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Edinburgh close Archibald Burns",
+      "Edinburgh close old photograph"
+     ],
+     "ai": "a dark narrow close in old Edinburgh, 19th century photograph",
+     "zoom": "up"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They stopped waiting."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Their first victim was a lodger called Joseph, a miller who had fallen sick with a fever. They were worried a fever in the house would scare away the other lodgers. So they gave him whisky until he could barely move, and then they smothered him.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "straw bed cottage interior painting",
+      "cottage interior Scotland painting"
+     ],
+     "ai": "a poor 1820s room with a straw bed, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Joseph.",
+      "A miller with a fever."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Landseer Illicit Whisky Still",
+      "Illicit Highland Whisky Still"
+     ],
+     "ai": "a Highland whisky still in a dark hut, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh wynd 19th century",
+      "Edinburgh close 1860s photograph"
+     ],
+     "ai": "a dark stone alley in old Edinburgh",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The first murder."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "This became their method. Lure someone in, often a poor stranger with no family nearby. Get them drunk. Then Burke would press down on the chest while the nose and mouth were covered. It left almost no marks. To a doctor, it looked like someone who had simply died.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "David Wilkie Village Politicians",
+      "David Wilkie Pitlessie Fair"
+     ],
+     "ai": "Scottish working men drinking in an inn, painting",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "1. Lure them in."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Landseer Illicit Whisky Still",
+      "Illicit Highland Whisky Still"
+     ],
+     "ai": "a Highland whisky still in a dark hut, painting",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "2. Get them drunk."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "3. Leave no marks."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "19th century surgical instruments",
+      "antique surgical instruments"
+     ],
+     "ai": "antique surgical instruments in a wooden case",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "It looked natural."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "The method became so infamous that it gave the English language a new word. To burke someone means to smother them, or to quietly hush something up. The word is still in the dictionary today.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "burke (verb):",
+      "to smother; to hush up"
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Burke murderer",
+      "William Burke Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Burke",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Still in the",
+      "dictionary today."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And Knox kept paying. Ten pounds in winter. Eight in summer, because bodies spoiled faster in the heat. Nobody asked how two labourers kept finding such fresh bodies, with no sign of disease, and no grave dirt on them.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "bars",
+     "title": "Price per body",
+     "bars": [
+      [
+       "Winter",
+       10
+      ],
+      [
+       "Summer",
+       8
+      ]
+     ],
+     "note": "Pounds sterling, from Burke's confession, 1829"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "No disease.",
+      "No grave dirt."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody asked."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "Sixteen",
+   "date": "1828",
+   "say": "Over the next ten months, the killings followed a pattern. An old woman named Abigail Simpson, who had come into town to collect a small pension. A woman from England. A poor cinder gatherer known as Effy. A drunk woman being led away by the police, whom Burke politely offered to take home.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1828,
+     "to": 1828,
+     "label": "Ten months of murder"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Abigail Simpson."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Grassmarket Edinburgh 19th century",
+      "Grassmarket Edinburgh engraving"
+     ],
+     "ai": "the Grassmarket in Edinburgh, 19th century",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Effy, the cinder gatherer."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Edinburgh close Archibald Burns",
+      "Edinburgh close old photograph"
+     ],
+     "ai": "a dark narrow close in old Edinburgh, 19th century photograph",
+     "zoom": "up"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"I'll take her home.\""
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw Liverpool Quay by Moonlight",
+      "Atkinson Grimshaw moonlit"
+     ],
+     "ai": "a dark moonlit Victorian street, painting",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Most victims were people the city didn't see. The poor, the old, the homeless, strangers passing through. People who could disappear without anyone reporting them missing. That was the business model. Choose the people nobody would look for.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Old Town Edinburgh painting",
+      "Edinburgh Old Town 19th century"
+     ],
+     "ai": "the crowded old town of Edinburgh in the 1820s, tall dark stone houses",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh wynd 19th century",
+      "Edinburgh close 1860s photograph"
+     ],
+     "ai": "a dark stone alley in old Edinburgh",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Victorian workhouse",
+      "workhouse 19th century engraving"
+     ],
+     "ai": "a grim Victorian workhouse, engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The business model:"
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Choose the people",
+      "nobody looks for."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "One victim was an old woman travelling with her grandson, a deaf boy of about twelve. Both were killed. Burke later said that this was the murder that haunted him most.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Grassmarket Edinburgh 19th century",
+      "Grassmarket Edinburgh engraving"
+     ],
+     "ai": "the Grassmarket in Edinburgh, 19th century",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "An old woman.",
+      "Her grandson, about 12."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Burke murderer",
+      "William Burke Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Burke",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "It haunted him most."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "By the end, there were sixteen victims. Sixteen people. And each one was carried through the streets in a box or a sack, and sold across a table at Surgeons' Square.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 16,
+     "label": "People murdered",
+     "note": "Burke's own confession, January 1829"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw moonlight street",
+      "Atkinson Grimshaw"
+     ],
+     "ai": "a moonlit wet cobbled street at night, Victorian painting",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "16 people.",
+      "Sold across a table."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The faces they knew",
+   "date": "1828",
+   "pops": [
+    {
+     "text": "MARY PATERSON",
+     "label": "18 years old",
+     "on": "Mary"
+    }
+   ],
+   "say": "But then they made a mistake. They started killing people who were known. In April 1828, Burke met two young women in a pub. One of them was Mary Paterson, eighteen years old. She went back with him, and she never came out.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Then they made",
+      "a mistake."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "David Wilkie The Penny Wedding",
+      "David Wilkie painting Scotland"
+     ],
+     "ai": "a lively Scottish tavern scene, 1820s painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Mary Paterson Burke and Hare",
+      "Mary Paterson 1828"
+     ],
+     "ai": "an 1820s sketch of a young Scottish woman",
+     "zoom": "in",
+     "caption": "Mary Paterson, 18"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "She never came out."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "When her body was laid out at Knox's school, some of the students recognised her. One even said he had seen her alive just days before. Questions were asked. Burke claimed she had drunk herself to death. And the questions stopped.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Hogarth The Reward of Cruelty",
+      "The Four Stages of Cruelty Hogarth"
+     ],
+     "ai": "an 18th century engraving of a public dissection",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The students",
+      "recognised her."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"She drank herself",
+      "to death.\""
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The questions stopped."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "According to some accounts, Knox was so struck by her body that he kept it preserved in a barrel of whisky for three months, and had his students draw it.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Three months",
+      "in whisky."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Landseer Illicit Whisky Still",
+      "Illicit Highland Whisky Still"
+     ],
+     "ai": "a Highland whisky still in a dark hut, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Gray's Anatomy 1858 illustration",
+      "anatomy illustration 19th century"
+     ],
+     "ai": "an old anatomical drawing",
+     "zoom": "left"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "DAFT JAMIE",
+     "label": "James Wilson, 18",
+     "on": "Jamie"
+    }
+   ],
+   "say": "Then came James Wilson. Everyone in Edinburgh knew him as Daft Jamie, a gentle eighteen year old with a disability who wandered the streets barefoot, telling riddles. He was one of the most recognisable people in the city.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Daft Jamie Edinburgh",
+      "James Wilson Daft Jamie"
+     ],
+     "ai": "an 1820s sketch of a barefoot young man in Edinburgh",
+     "zoom": "in",
+     "caption": "James Wilson, 'Daft Jamie'"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Town Edinburgh painting",
+      "Edinburgh Old Town 19th century"
+     ],
+     "ai": "the crowded old town of Edinburgh in the 1820s, tall dark stone houses",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Barefoot.",
+      "Telling riddles."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Grassmarket Edinburgh 19th century",
+      "Grassmarket Edinburgh engraving"
+     ],
+     "ai": "the Grassmarket in Edinburgh, 19th century",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Daft Jamie Edinburgh",
+      "James Wilson Daft Jamie"
+     ],
+     "ai": "an 1820s sketch of a barefoot young man in Edinburgh",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "Jamie fought back. It took both men to kill him. And when his body arrived on Knox's table, the students knew him at once. According to later accounts, Knox insisted it was not Jamie, and began the dissection early, starting with the face.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Jamie fought back."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh wynd 19th century",
+      "Edinburgh close 1860s photograph"
+     ],
+     "ai": "a dark stone alley in old Edinburgh",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hogarth The Reward of Cruelty",
+      "The Four Stages of Cruelty Hogarth"
+     ],
+     "ai": "an 18th century engraving of a public dissection",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He started",
+      "with the face."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Think about that. A doctor who must have known something was very wrong, and chose to say nothing. Because the bodies were fresh, and the price was right.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He chose",
+      "to say nothing."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Hall Edinburgh",
+      "Surgeons' Hall Edinburgh Playfair"
+     ],
+     "ai": "the columned front of Surgeons' Hall in Edinburgh",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "chapter": "Halloween",
+   "date": "Oct 31, 1828",
+   "pops": [
+    {
+     "text": "MARGARET DOCHERTY",
+     "label": "the last victim",
+     "on": "Docherty"
+    }
+   ],
+   "say": "The end began on Halloween, 1828. Burke met a small Irish woman named Margaret Docherty in a shop, and found out she came from the same part of Ireland as him. He invited her home for a drink, to celebrate.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1828,
+     "to": 1828,
+     "label": "Halloween, 31 October"
+    },
+    {
+     "type": "image",
+     "search": [
+      "West Port Edinburgh",
+      "West Port Edinburgh old"
+     ],
+     "ai": "a narrow old street in the West Port, Edinburgh",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Margaret Docherty."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "David Wilkie Village Politicians",
+      "David Wilkie Pitlessie Fair"
+     ],
+     "ai": "Scottish working men drinking in an inn, painting",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Come for a drink.\""
+     ]
+    }
+   ]
+  },
+  {
+   "say": "There was a problem. Burke had lodgers of his own, a couple called James and Ann Gray. That night, he paid them to sleep somewhere else. The next morning, the old woman was gone, and Burke wouldn't let anyone near a pile of straw at the foot of the bed.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "James and Ann Gray."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "straw bed cottage interior painting",
+      "cottage interior Scotland painting"
+     ],
+     "ai": "a poor 1820s room with a straw bed, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw Liverpool Quay by Moonlight",
+      "Atkinson Grimshaw moonlit"
+     ],
+     "ai": "a dark moonlit Victorian street, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Don't go near",
+      "the straw.\""
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "straw bed cottage interior painting",
+      "cottage interior Scotland painting"
+     ],
+     "ai": "a poor 1820s room with a straw bed, painting",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "When Burke stepped out, Ann Gray looked under the straw.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "straw bed cottage interior painting",
+      "cottage interior Scotland painting"
+     ],
+     "ai": "a poor 1820s room with a straw bed, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "She looked."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "On their way to the police, the Grays were stopped by Helen McDougal. She begged them to keep quiet, and offered them ten pounds a week. A fortune. They refused. And they went to the police anyway.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Old Edinburgh close Archibald Burns",
+      "Edinburgh close old photograph"
+     ],
+     "ai": "a dark narrow close in old Edinburgh, 19th century photograph",
+     "zoom": "up"
+    },
+    {
+     "type": "stat",
+     "number": 10,
+     "label": "Offered every week to stay silent",
+     "prefix": "£"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They said no."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Town Edinburgh painting",
+      "Edinburgh Old Town 19th century"
+     ],
+     "ai": "the crowded old town of Edinburgh in the 1820s, tall dark stone houses",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "By the time the police searched the house, the body was gone. But they followed the trail to Knox's school. And there, packed in a tea chest, they found her.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw moonlight street",
+      "Atkinson Grimshaw"
+     ],
+     "ai": "a moonlit wet cobbled street at night, Victorian painting",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "right"
+    },
+    {
+     "type": "image",
+     "search": [
+      "tea chest antique",
+      "wooden tea chest"
+     ],
+     "ai": "an old wooden tea chest",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "In a tea chest."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The deal",
+   "date": "Nov 1828",
+   "say": "Now the authorities had a serious problem. They had a body. They had suspects. But they had almost no proof of murder. The doctors who examined Margaret Docherty could not say for certain how she died. That was the whole point of the method.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Parliament House Edinburgh",
+      "Parliament Hall Edinburgh"
+     ],
+     "ai": "the great hall of Parliament House, Edinburgh's old court",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A body.",
+      "Suspects."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "But no proof."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "19th century surgical instruments",
+      "antique surgical instruments"
+     ],
+     "ai": "antique surgical instruments in a wooden case",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "So the Lord Advocate made a deal. One of the killers could go free, if he testified against the other. Hare took the deal. He turned King's evidence, and stood up in court against his friend.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Parliament House Edinburgh",
+      "Parliament Hall Edinburgh"
+     ],
+     "ai": "the great hall of Parliament House, Edinburgh's old court",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "One goes free.",
+      "One hangs."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Hare murderer",
+      "William Hare Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Hare",
+     "zoom": "in",
+     "caption": "William Hare"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Hare took the deal."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Burke murderer",
+      "William Burke Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Burke",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "date": "Dec 24, 1828",
+   "say": "The trial began on Christmas Eve, 1828. It went on through the night and into Christmas morning. Burke was found guilty of murdering Margaret Docherty. Helen McDougal got a verdict that only exists in Scotland. Not proven. She walked out of court, free.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "trial of Burke and McDougal",
+      "Burke and Hare trial"
+     ],
+     "ai": "an 1828 courtroom sketch",
+     "zoom": "in"
+    },
+    {
+     "type": "year",
+     "from": 1828,
+     "to": 1828,
+     "label": "Christmas Eve: the trial"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Parliament House Edinburgh",
+      "Parliament Hall Edinburgh"
+     ],
+     "ai": "the great hall of Parliament House, Edinburgh's old court",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Burke: guilty."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "McDougal:",
+      "not proven."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "trial of Burke and McDougal",
+      "Burke and Hare trial"
+     ],
+     "ai": "an 1828 courtroom sketch",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "Burke was sentenced to hang. And then, in a twist the whole city noticed, his body was to be publicly dissected. The man who sold bodies to the anatomists would end up on their table.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Sentence: death."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hogarth The Reward of Cruelty",
+      "The Four Stages of Cruelty Hogarth"
+     ],
+     "ai": "an 18th century engraving of a public dissection",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Then dissection."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old College University of Edinburgh engraving",
+      "Old College Edinburgh"
+     ],
+     "ai": "the University of Edinburgh Old College, 19th century engraving",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "say": "While he waited to die, Burke gave a full confession. He went through the murders one by one, and a newspaper printed his story. People across Britain read every word. It's the main reason we know so much about what happened inside that lodging house.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "William Burke murderer",
+      "William Burke Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Burke",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A full confession."
+     ]
+    },
+    {
+     "type": "timeline",
+     "events": [
+      [
+       1827,
+       "Donald sold"
+      ],
+      [
+       1828,
+       "Sixteen murders"
+      ],
+      [
+       1828,
+       "Docherty found"
+      ],
+      [
+       1829,
+       "Burke confesses"
+      ]
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Town Edinburgh painting",
+      "Edinburgh Old Town 19th century"
+     ],
+     "ai": "the crowded old town of Edinburgh in the 1820s, tall dark stone houses",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Every word printed."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The anatomist's table",
+   "date": "1829",
+   "say": "On the twenty eighth of January, 1829, Burke was hanged in the Lawnmarket, in front of a crowd of around twenty five thousand people. People paid for windows with a view. When he dropped, the crowd cheered.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1828,
+     "to": 1829,
+     "label": "28 January 1829"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Lawnmarket Edinburgh",
+      "Lawnmarket Edinburgh 19th century"
+     ],
+     "ai": "the Lawnmarket street in Edinburgh, 19th century",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Execution of William Burke",
+      "Burke execution 1829"
+     ],
+     "ai": "a huge crowd at a public execution in 1829, engraving",
+     "zoom": "out"
+    },
+    {
+     "type": "stat",
+     "number": 25000,
+     "label": "People watched the hanging",
+     "note": "Contemporary estimates"
+    },
+    {
+     "type": "image",
+     "search": [
+      "public execution crowd engraving",
+      "execution crowd 19th century"
+     ],
+     "ai": "a crowd in an old city square, engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The crowd cheered."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "The next day, the professor of anatomy, Alexander Monro, dissected him in front of a packed lecture hall. Students rioted outside, trying to get in. Afterwards, tens of thousands of people filed past what was left of him.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Alexander Monro tertius",
+      "Alexander Monro (tertius)"
+     ],
+     "ai": "a portrait of an Edinburgh anatomy professor, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old College University of Edinburgh engraving",
+      "Old College Edinburgh"
+     ],
+     "ai": "the University of Edinburgh Old College, 19th century engraving",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Hogarth The Reward of Cruelty",
+      "The Four Stages of Cruelty Hogarth"
+     ],
+     "ai": "an 18th century engraving of a public dissection",
+     "zoom": "out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Students rioted",
+      "to get in."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "public execution crowd engraving",
+      "execution crowd 19th century"
+     ],
+     "ai": "a crowd in an old city square, engraving",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "Monro dipped his quill in Burke's blood and wrote a note. That note still survives.",
+   "visuals": [
+    {
+     "type": "quote",
+     "text": "This is written with the blood of Wm Burke, who was hanged at Edinburgh. This blood was taken from his head.",
+     "by": "Professor Alexander Monro, 1829"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Alexander Monro tertius",
+      "Alexander Monro (tertius)"
+     ],
+     "ai": "a portrait of an Edinburgh anatomy professor, 1820s",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "And here's the darkest twist of all. Burke's skeleton is still on display today, at the University of Edinburgh's Anatomical Museum. And a small pocketbook, made from his tanned skin, is kept at Surgeons' Hall Museums. He became exactly what he sold.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "The darkest twist."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Burke skeleton",
+      "skeleton of William Burke"
+     ],
+     "ai": "a human skeleton in a museum case",
+     "zoom": "up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Burke death mask",
+      "Burke death mask"
+     ],
+     "ai": "a plaster death mask of a man",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Hall Edinburgh",
+      "Surgeons' Hall Edinburgh Playfair"
+     ],
+     "ai": "the columned front of Surgeons' Hall in Edinburgh",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Burke pocketbook skin",
+      "Burke skin pocket book"
+     ],
+     "ai": "a small old brown leather pocketbook",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He became",
+      "what he sold."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The ones who walked away",
+   "date": "1829",
+   "say": "And the others? Hare was released in February 1829. Crowds recognised him and tried to attack him. He was smuggled out of the city, last seen heading south toward England, and then he vanished. Nobody knows where he went, or how he died.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "William Hare murderer",
+      "William Hare Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Hare",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Released.",
+      "February 1829."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw Liverpool Quay by Moonlight",
+      "Atkinson Grimshaw moonlit"
+     ],
+     "ai": "a dark moonlit Victorian street, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "map",
+     "from": [
+      -4.5,
+      55.5,
+      -2.5,
+      56.4
+     ],
+     "to": [
+      -8,
+      50.5,
+      2.5,
+      58.5
+     ],
+     "route": [
+      [
+       -3.19,
+       55.95
+      ],
+      [
+       -2.6,
+       54.9
+      ],
+      [
+       -1.5,
+       53.8
+      ],
+      [
+       -1.2,
+       52.6
+      ],
+      [
+       -0.13,
+       51.5
+      ]
+     ],
+     "route_start": 0.8,
+     "points": [
+      {
+       "name": "Edinburgh",
+       "at": [
+        -3.19,
+        55.95
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      },
+      {
+       "name": "London",
+       "note": "the London Burkers, 1831",
+       "at": [
+        -0.13,
+        51.5
+       ],
+       "at_time": 3.0,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "England",
+       "at": [
+        -1.6,
+        52.9
+       ]
+      },
+      {
+       "text": "Scotland",
+       "at": [
+        -4.3,
+        56.9
+       ]
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Then he vanished."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Helen McDougal and Margaret Laird were also attacked by angry crowds, and fled. Their fates are unknown too.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "public execution crowd engraving",
+      "execution crowd 19th century"
+     ],
+     "ai": "a crowd in an old city square, engraving",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Fates unknown."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And Doctor Knox was never charged with anything. A committee decided he had not known about the murders, but criticised how carelessly he bought bodies. Crowds burned his effigy and smashed his windows. His career in Edinburgh slowly collapsed, and he spent his final years in London, far from the fame he once had.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Never charged."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh from Calton Hill painting",
+      "Edinburgh 1820s painting"
+     ],
+     "ai": "a view over 1820s Edinburgh with the castle, painting",
+     "zoom": "right"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They burned",
+      "his effigy."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "London 1830 painting",
+      "London street 1830s"
+     ],
+     "ai": "a London street around 1830, painting",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "say": "The children of Edinburgh even made up a skipping rhyme about it.",
+   "visuals": [
+    {
+     "type": "quote",
+     "text": "Burke's the butcher, Hare's the thief, Knox the boy that buys the beef.",
+     "by": "Edinburgh street rhyme, 1829"
+    }
+   ]
+  },
+  {
+   "chapter": "The law that changed everything",
+   "date": "1831",
+   "say": "But the story didn't end with a hanging. Across Britain, people finally saw what the system had created. When you make something rare and valuable, someone will find a way to supply it. Even when the thing is a human body.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Rare + valuable",
+      "= someone supplies it."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Palace of Westminster painting",
+      "Houses of Parliament 1830"
+     ],
+     "ai": "the old Houses of Parliament in London around 1830, painting",
+     "zoom": "out"
+    },
+    {
+     "type": "image",
+     "search": [
+      "body snatching engraving 19th century",
+      "grave robbers 1820s illustration"
+     ],
+     "ai": "grave robbers with lanterns in a churchyard, engraving",
+     "zoom": "out"
+    }
+   ]
+  },
+  {
+   "date": "1832",
+   "say": "In 1831, a gang in London, soon nicknamed the London Burkers, murdered a young boy and tried to sell his body to the anatomy school at King's College. Britain had seen enough. A year later, Parliament passed the Anatomy Act. Medical schools could now receive unclaimed bodies from workhouses and hospitals, and anatomists needed a licence. The price of a body collapsed, and the murder market disappeared almost overnight.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -4.5,
+      55.5,
+      -2.5,
+      56.4
+     ],
+     "to": [
+      -8,
+      50.5,
+      2.5,
+      58.5
+     ],
+     "route": [
+      [
+       -3.19,
+       55.95
+      ],
+      [
+       -2.6,
+       54.9
+      ],
+      [
+       -1.5,
+       53.8
+      ],
+      [
+       -1.2,
+       52.6
+      ],
+      [
+       -0.13,
+       51.5
+      ]
+     ],
+     "route_start": 0.8,
+     "points": [
+      {
+       "name": "Edinburgh",
+       "at": [
+        -3.19,
+        55.95
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      },
+      {
+       "name": "London",
+       "note": "the London Burkers, 1831",
+       "at": [
+        -0.13,
+        51.5
+       ],
+       "at_time": 3.0,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "England",
+       "at": [
+        -1.6,
+        52.9
+       ]
+      },
+      {
+       "text": "Scotland",
+       "at": [
+        -4.3,
+        56.9
+       ]
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "London 1830 painting",
+      "London street 1830s"
+     ],
+     "ai": "a London street around 1830, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "year",
+     "from": 1831,
+     "to": 1832,
+     "label": "The Anatomy Act"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Old Palace of Westminster painting",
+      "Houses of Parliament 1830"
+     ],
+     "ai": "the old Houses of Parliament in London around 1830, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Victorian workhouse",
+      "workhouse 19th century engraving"
+     ],
+     "ai": "a grim Victorian workhouse, engraving",
+     "zoom": "right"
+    },
+    {
+     "type": "bars",
+     "title": "Price of a body",
+     "bars": [
+      [
+       "Before 1832",
+       10
+      ],
+      [
+       "After the Anatomy Act",
+       1
+      ]
+     ],
+     "note": "Illustrative: the black-market price collapsed"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The market died."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "But notice who paid the price again. The new law took the bodies of the poorest people, those who died in workhouses with no one to claim them. The poor were still the supply. Only now, it was legal.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Victorian workhouse",
+      "workhouse 19th century engraving"
+     ],
+     "ai": "a grim Victorian workhouse, engraving",
+     "zoom": "left"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The poor were",
+      "still the supply."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Only now,",
+      "it was legal."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "What it teaches about money",
+   "say": "So what does a story from 1828 teach us about money? First. When a rule creates huge demand and tiny supply, it doesn't stop the demand. It creates a black market. And a black market always finds the weakest people.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 1:",
+      "Black markets find",
+      "the weakest."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "resurrectionists body snatchers illustration",
+      "Resurrection men grave robbing engraving"
+     ],
+     "ai": "two body snatchers digging up a grave at night, old engraving",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh wynd 19th century",
+      "Edinburgh close 1860s photograph"
+     ],
+     "ai": "a dark stone alley in old Edinburgh",
+     "zoom": "in"
+    }
+   ]
+  },
+  {
+   "say": "Second. Not asking is a business decision. Knox never killed anyone. But he made it profitable, and he chose not to ask the one question that would have stopped it.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 2:",
+      "Not asking is a choice."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Robert Knox anatomist",
+      "Robert Knox (1791-1862)"
+     ],
+     "ai": "a portrait of the anatomist Dr Robert Knox, 1820s",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Surgeons' Square Edinburgh",
+      "Surgeons Square Edinburgh engraving"
+     ],
+     "ai": "Surgeons' Square in Edinburgh, 19th century engraving",
+     "zoom": "right"
+    }
+   ]
+  },
+  {
+   "say": "And third. In every one of these deals, the people with the least power were the product. The old soldier. The woman with her pension. The boy. The girl from the pub. Sixteen lives, turned into ten pounds each.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 3:",
+      "The powerless were",
+      "the product."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Grassmarket Edinburgh 19th century",
+      "Grassmarket Edinburgh engraving"
+     ],
+     "ai": "the Grassmarket in Edinburgh, 19th century",
+     "zoom": "left"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Mary Paterson Burke and Hare",
+      "Mary Paterson 1828"
+     ],
+     "ai": "an 1820s sketch of a young Scottish woman",
+     "zoom": "in"
+    },
+    {
+     "type": "stat",
+     "number": 16,
+     "label": "Lives sold",
+     "note": "At around £8 to £10 each"
+    }
+   ]
+  },
+  {
+   "say": "Altogether, Burke and Hare probably made something like a hundred and fifty pounds from all those lives. Burke paid with his own. Hare, who did the same things, walked away. And somewhere, nobody knows where, he lived out the rest of his life.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 150,
+     "label": "Roughly what it all earned",
+     "prefix": "£",
+     "note": "Estimate: about 16 bodies at £8 to £10"
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Burke murderer",
+      "William Burke Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Burke",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "William Hare murderer",
+      "William Hare Burke and Hare"
+     ],
+     "ai": "a 1828 sketch portrait of William Hare",
+     "zoom": "in"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Atkinson Grimshaw Liverpool Quay by Moonlight",
+      "Atkinson Grimshaw moonlit"
+     ],
+     "ai": "a dark moonlit Victorian street, painting",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody knows where."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "If you like dark true stories about money and power, subscribe to Midnight Archive. There's always another file in the archive.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Edinburgh from Calton Hill painting",
+      "Edinburgh 1820s painting"
+     ],
+     "ai": "a view over 1820s Edinburgh with the castle, painting",
+     "zoom": "out"
+    },
+    {
+     "type": "title",
+     "kicker": "Subscribe",
+     "text": "Midnight Archive",
+     "sub": "True stories. Told after dark."
+    }
+   ]
+  }
+ ]
+}
