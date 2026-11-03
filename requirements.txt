@@ -4,3 +4,4 @@ numpy
 pillow>=10
 imageio-ffmpeg
 edge-tts
+opencv-python-headless
