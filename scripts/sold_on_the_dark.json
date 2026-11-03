@@ -1,0 +1,1945 @@
+{
+ "title": "Kidnapped to Be Sold on the Dark Web. Then No One Believed Her.",
+ "titles": [
+  "Kidnapped to Be Sold on the Dark Web. No One Believed Her.",
+  "She Was Told She'd Be Auctioned on the Dark Web",
+  "Why Didn't She Run? The Chloe Ayling Kidnapping"
+ ],
+ "description": "In July 2017, a 20-year-old British model flew to Milan for a photoshoot and was kidnapped, drugged and told she would be auctioned on the dark web by a gang called the Black Death Group. This is the true story of Chloe Ayling: the fake job, the six days in a farmhouse near Turin, the man behind the mask, and why so many people refused to believe her.",
+ "tags": [
+  "Chloe Ayling",
+  "Chloe Ayling kidnapping",
+  "dark web",
+  "Black Death Group",
+  "Lukasz Herba",
+  "dark web auction",
+  "true crime documentary",
+  "kidnapping story",
+  "Milan kidnapping",
+  "true crime",
+  "dark web stories",
+  "crime documentary",
+  "why didn't she run",
+  "Midnight Archive"
+ ],
+ "hashtags": [
+  "#ChloeAyling",
+  "#TrueCrime",
+  "#DarkWeb"
+ ],
+ "sources": [
+  "Milan court verdict, 11 June 2018 (AP / CBS News)",
+  "BBC: Chloe Ayling: My Unbelievable Kidnapping (2025)",
+  "The Week, 13 August 2024",
+  "Chloe Ayling, Kidnapped (memoir)"
+ ],
+ "pinned_comment": "Would you have run in the shoe shop, or played along like she did? Be honest.",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "SOLD ON THE\nDARK WEB?"
+ },
+ "thumbnails": [
+  {
+   "text": "SOLD ON THE\nDARK WEB?",
+   "picture": "balaclava ski mask",
+   "style": "dark"
+  },
+  {
+   "text": "6 DAYS.\nNO ESCAPE.",
+   "picture": "stone farmhouse Piedmont",
+   "style": "face"
+  },
+  {
+   "text": "NOBODY\nBELIEVED HER",
+   "picture": "Palazzo di Giustizia Milan",
+   "style": "circle"
+  }
+ ],
+ "shorts": [
+  {
+   "from_scene": 0,
+   "to_scene": 2,
+   "hook": "Sold on the dark web?",
+   "title": "She was told she'd be sold on the dark web #shorts",
+   "comment": "Have you ever heard of this case?"
+  },
+  {
+   "from_scene": 24,
+   "to_scene": 26,
+   "hook": "Why didn't she run?",
+   "title": "Why didn't she run? #shorts",
+   "comment": "What would you have done?"
+  },
+  {
+   "from_scene": 27,
+   "to_scene": 29,
+   "hook": "The gang had one rule",
+   "title": "The rule that set her free #shorts",
+   "comment": "Hero or villain?"
+  },
+  {
+   "from_scene": 39,
+   "to_scene": 41,
+   "hook": "Nobody believed her",
+   "title": "She survived. Then they called her a liar #shorts",
+   "comment": "Should people judge how a victim reacts?"
+  }
+ ],
+ "scenes": [
+  {
+   "chapter": "The job offer",
+   "mood": "tense",
+   "date": "2017",
+   "pops": [
+    {
+     "text": "MILAN",
+     "label": "July 2017",
+     "on": "Milan",
+     "kind": "place"
+    }
+   ],
+   "say": "In July 2017, a twenty year old model from London flew to Milan for a photoshoot. A few hours later, she woke up in the boot of a car, inside a bag, with her wrists cuffed.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Milano Centrale railway station",
+      "Milan station interior"
+     ],
+     "ai": "the grand hall of Milan's central station"
+    },
+    {
+     "type": "image",
+     "search": [
+      "photographer studio lighting equipment",
+      "photo studio softbox"
+     ],
+     "ai": "an empty photo studio with lights"
+    },
+    {
+     "type": "image",
+     "search": [
+      "car boot open dark",
+      "car trunk open"
+     ],
+     "ai": "the open boot of a car at night",
+     "zoom": "in"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "July 2017.",
+      "Milan, Italy."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "The men who took her said she would be sold. Not on a street corner. On the dark web, to the highest bidder.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "laptop screen in dark room",
+      "computer screen dark"
+     ],
+     "ai": "a laptop glowing in a dark room"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "To be sold",
+      "on the dark web."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "server room data center dark",
+      "server racks"
+     ],
+     "ai": "rows of servers in blue light"
+    }
+   ]
+  },
+  {
+   "say": "Her name was Chloe Ayling. And the strangest part of her story isn't what happened in those six days. It's what happened after, when she came home, and almost nobody believed her.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "The true story of",
+     "text": "Chloe Ayling",
+     "sub": "Milan, July 2017"
+    },
+    {
+     "type": "image",
+     "search": [
+      "London skyline at dusk",
+      "London skyline evening"
+     ],
+     "ai": "London's skyline at dusk"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody",
+      "believed her."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "To understand how it happened, we have to start with a simple email. A job offer that looked completely normal.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "email inbox on laptop",
+      "laptop email"
+     ],
+     "ai": "an email inbox on a laptop"
+    },
+    {
+     "type": "image",
+     "search": [
+      "smartphone notification in hand",
+      "smartphone in hand"
+     ],
+     "ai": "a hand holding a phone with a new message"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "CHLOE AYLING",
+     "label": "20 years old, London",
+     "on": "Chloe",
+     "kind": "person"
+    }
+   ],
+   "say": "Chloe was from Coulsdon, in south London. She had a young son, and she was trying to build a modelling career. Her agent was a man named Phil Green, who ran a small agency and booked jobs for her.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Coulsdon town",
+      "Coulsdon high street"
+     ],
+     "ai": "a suburban high street in south London"
+    },
+    {
+     "type": "image",
+     "search": [
+      "fashion photoshoot backstage",
+      "model backstage fashion"
+     ],
+     "ai": "a fashion shoot behind the scenes"
+    },
+    {
+     "type": "image",
+     "search": [
+      "London Underground train platform",
+      "London tube platform"
+     ],
+     "ai": "a London Underground platform"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A young mother.",
+      "A new career."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "ANDRE LAZIO",
+     "label": "the 'photographer'",
+     "on": "Andre",
+     "kind": "person"
+    }
+   ],
+   "say": "Earlier that year, a photographer had tried to book her for a shoot in Paris. It was cancelled. Then, in July, the same kind of request came back, this time for Milan. The photographer called himself Andre Lazio.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Eiffel Tower Paris evening",
+      "Paris evening"
+     ],
+     "ai": "Paris at evening"
+    },
+    {
+     "type": "map",
+     "from": [
+      -6,
+      43,
+      14,
+      54
+     ],
+     "to": [
+      0,
+      44,
+      12,
+      52.5
+     ],
+     "route": [
+      [
+       -0.13,
+       51.5
+      ],
+      [
+       2.35,
+       48.86
+      ],
+      [
+       6.1,
+       46.2
+      ],
+      [
+       9.19,
+       45.46
+      ]
+     ],
+     "route_start": 0.5,
+     "points": [
+      {
+       "name": "London",
+       "at": [
+        -0.13,
+        51.5
+       ],
+       "at_time": 0.3,
+       "side": "left"
+      },
+      {
+       "name": "Milan",
+       "note": "the 'photoshoot'",
+       "at": [
+        9.19,
+        45.46
+       ],
+       "at_time": 2.6,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "France",
+       "at": [
+        2.5,
+        47.0
+       ]
+      },
+      {
+       "text": "Italy",
+       "at": [
+        11.5,
+        44.6
+       ]
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "vintage camera photographer",
+      "camera lens closeup"
+     ],
+     "ai": "a professional camera on a table"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Andre Lazio\"",
+      "Photographer."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "It looked like a real job. A flight, a studio, a fee. Thousands of young models take trips exactly like this every year. Chloe packed a bag and flew to Italy.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Milan Malpensa Airport terminal",
+      "Malpensa airport"
+     ],
+     "ai": "an airport terminal in Milan"
+    },
+    {
+     "type": "image",
+     "search": [
+      "airplane window clouds",
+      "airplane wing above clouds"
+     ],
+     "ai": "the view from a plane window"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A flight. A studio.",
+      "A fee."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Fake jobs are one of the oldest tricks there are. A stranger with a camera, a great offer, a trip abroad. Usually the trap is money. This time, the trap was the person herself.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "passport and boarding pass",
+      "passport travel"
+     ],
+     "ai": "a passport and a boarding pass"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The trap",
+      "was the job."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The photoshoot",
+   "mood": "tense",
+   "date": "Jul 11, 2017",
+   "say": "The address she was given was not a studio. It was a quiet building on the edge of the city. When she walked in, two men in ski masks grabbed her from behind.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "abandoned warehouse interior Italy",
+      "abandoned warehouse"
+     ],
+     "ai": "an empty warehouse"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Milan industrial outskirts",
+      "Milan suburbs industrial"
+     ],
+     "ai": "the industrial edge of Milan"
+    },
+    {
+     "type": "image",
+     "search": [
+      "balaclava ski mask",
+      "ski mask"
+     ],
+     "ai": "a black ski mask"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Two men.",
+      "Ski masks."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "KETAMINE",
+     "label": "a powerful sedative",
+     "on": "ketamine",
+     "kind": "fact"
+    }
+   ],
+   "say": "One held her down. The other pushed a needle into her arm. It was ketamine, a strong sedative. Within minutes, she was unconscious.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "syringe medical",
+      "hypodermic needle"
+     ],
+     "ai": "a medical syringe"
+    },
+    {
+     "type": "image",
+     "search": [
+      "ketamine vials",
+      "ketamine"
+     ],
+     "ai": "small glass medicine vials"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Ketamine."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "According to the prosecutors, she was handcuffed, zipped inside a large canvas bag, and loaded into the boot of a car. Then the car drove west, out of Milan, toward the mountains.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "handcuffs",
+      "handcuffs police"
+     ],
+     "ai": "a pair of steel handcuffs"
+    },
+    {
+     "type": "image",
+     "search": [
+      "large canvas holdall bag",
+      "duffel bag"
+     ],
+     "ai": "a large canvas bag"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Italian motorway at night",
+      "autostrada night"
+     ],
+     "ai": "a motorway at night"
+    },
+    {
+     "type": "map",
+     "from": [
+      6.5,
+      44.6,
+      10.5,
+      46.4
+     ],
+     "to": [
+      6.9,
+      44.9,
+      9.6,
+      45.7
+     ],
+     "route": [
+      [
+       9.19,
+       45.46
+      ],
+      [
+       8.6,
+       45.35
+      ],
+      [
+       7.9,
+       45.2
+      ],
+      [
+       7.68,
+       45.07
+      ],
+      [
+       7.37,
+       45.24
+      ]
+     ],
+     "route_start": 0.4,
+     "points": [
+      {
+       "name": "Milan",
+       "at": [
+        9.19,
+        45.46
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      },
+      {
+       "name": "Turin",
+       "at": [
+        7.68,
+        45.07
+       ],
+       "at_time": 1.8,
+       "side": "bottom"
+      },
+      {
+       "name": "Viù",
+       "note": "the farmhouse",
+       "at": [
+        7.37,
+        45.24
+       ],
+       "at_time": 2.6,
+       "side": "left"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Piedmont",
+       "at": [
+        8.0,
+        44.8
+       ]
+      },
+      {
+       "text": "The Alps",
+       "at": [
+        7.0,
+        45.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "VIÙ",
+     "label": "near Turin",
+     "on": "Viù",
+     "kind": "place"
+    }
+   ],
+   "say": "When she woke up, she was in a farmhouse in a tiny village called Viù, in the hills near Turin. For the first night, she was cuffed to a piece of furniture.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Viù Piedmont",
+      "Viù village"
+     ],
+     "ai": "a small mountain village in Piedmont"
+    },
+    {
+     "type": "image",
+     "search": [
+      "stone farmhouse Piedmont",
+      "farmhouse Piedmont"
+     ],
+     "ai": "an old stone farmhouse in the hills"
+    },
+    {
+     "type": "image",
+     "search": [
+      "old wooden chest of drawers",
+      "antique dresser"
+     ],
+     "ai": "an old wooden chest of drawers"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A farmhouse",
+      "in the mountains."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And then one of her captors, a man who spoke English, started explaining the rules.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Lanzo Valleys mountains",
+      "Valli di Lanzo"
+     ],
+     "ai": "the dark mountain valleys above Turin"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Then he explained",
+      "the rules."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The Black Death Group",
+   "mood": "mystery",
+   "pops": [
+    {
+     "text": "BLACK DEATH GROUP",
+     "label": "the 'gang'",
+     "on": "Black",
+     "kind": "fact"
+    }
+   ],
+   "say": "He told her he worked for a criminal organisation called the Black Death Group. A gang, he said, that kidnapped women and sold them in secret auctions on the dark web.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "dark computer code on screen",
+      "code on screen"
+     ],
+     "ai": "lines of code on a dark screen"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The \"Black Death\"",
+      "Group."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "hooded figure at computer silhouette",
+      "computer silhouette"
+     ],
+     "ai": "a silhouette in front of a monitor"
+    }
+   ]
+  },
+  {
+   "say": "The dark web is a part of the internet you can't reach with a normal browser. Sites there use special software that hides who runs them and who visits them. It's where stolen data, drugs and weapons are sold. And it's the perfect place to build a legend.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Tor Browser screenshot",
+      "Tor network"
+     ],
+     "ai": "a special privacy web browser"
+    },
+    {
+     "type": "image",
+     "search": [
+      "network cables tangled",
+      "ethernet cables"
+     ],
+     "ai": "a tangle of network cables"
+    },
+    {
+     "type": "image",
+     "search": [
+      "stolen credit cards concept",
+      "credit cards"
+     ],
+     "ai": "a pile of credit cards"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Hidden sites.",
+      "Hidden owners."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "TOR",
+     "label": "the onion router",
+     "on": "Tor",
+     "kind": "fact"
+    }
+   ],
+   "say": "The software that makes this possible is called Tor. It actually began as research by the United States Navy, to protect secret communications. Today anyone can download it. Most people who use it just want privacy. But it also hides criminals.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "United States Naval Research Laboratory",
+      "Naval Research Laboratory Washington"
+     ],
+     "ai": "a US government research building"
+    },
+    {
+     "type": "image",
+     "search": [
+      "onion cut in half",
+      "onion layers"
+     ],
+     "ai": "an onion cut in half, showing its layers"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Built for secrets.",
+      "Used by criminals."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2013",
+   "say": "Some dark web markets were very real. In 2013 the FBI shut down Silk Road, a site that sold drugs to over a hundred thousand buyers. So when someone said women were being auctioned on the dark web, it didn't sound impossible. That's exactly why the threat worked.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "FBI headquarters J. Edgar Hoover Building",
+      "FBI building Washington"
+     ],
+     "ai": "the FBI headquarters in Washington"
+    },
+    {
+     "type": "year",
+     "from": 2013,
+     "to": 2013,
+     "label": "Silk Road is shut down"
+    },
+    {
+     "type": "image",
+     "search": [
+      "bitcoin coins",
+      "bitcoin"
+     ],
+     "ai": "gold bitcoin coins"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "It didn't sound",
+      "impossible."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "A group with that name had been talked about online for years. Interpol had looked into it in 2015. But the photos of 'victims' on its sites were later believed to be fake. Nobody could prove it was anything more than a scary story.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Interpol headquarters Lyon",
+      "Interpol Lyon"
+     ],
+     "ai": "a modern international police building"
+    },
+    {
+     "type": "year",
+     "from": 2015,
+     "to": 2017,
+     "label": "Interpol looked into the name"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A real gang?",
+      "Or a story?"
+     ]
+    }
+   ]
+  },
+  {
+   "date": "Jul 12, 2017",
+   "say": "Back in London, on the morning after Chloe disappeared, her agent received an email from someone who signed only with two letters: M D.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Phil Green agent",
+      "London office desk"
+     ],
+     "ai": "an office desk in London"
+    },
+    {
+     "type": "image",
+     "search": [
+      "old desktop computer email",
+      "desktop computer office"
+     ],
+     "ai": "an office computer"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "From: \"MD\""
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "€300,000",
+     "label": "or the auction",
+     "on": "three",
+     "kind": "money"
+    }
+   ],
+   "say": "The message demanded three hundred thousand euros. If the money wasn't paid, it said, Chloe would be auctioned on the dark web on the sixteenth of July.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 300000,
+     "label": "Ransom demanded",
+     "prefix": "€",
+     "note": "Email to her agent, July 2017"
+    },
+    {
+     "type": "image",
+     "search": [
+      "euro banknotes",
+      "euro banknotes pile"
+     ],
+     "ai": "a pile of euro banknotes"
+    },
+    {
+     "type": "image",
+     "search": [
+      "calendar July",
+      "wall calendar"
+     ],
+     "ai": "a calendar page"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Pay.",
+      "Or she's sold."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Her agent went straight to the British consulate in Milan. Italian police searched the address of the fake studio. They found some of her clothes. But Chloe was gone.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "British Consulate General Milan",
+      "Via San Paolo Milan"
+     ],
+     "ai": "a consulate building in Milan"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Polizia di Stato car Milan",
+      "Italian police car"
+     ],
+     "ai": "an Italian police car in Milan"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Her clothes.",
+      "No Chloe."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "The deadline came closer. Three hundred thousand euros is a fortune for a small modelling agency. Nobody paid. And with every hour, the sixteenth of July got nearer.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "clock face close up",
+      "old clock face"
+     ],
+     "ai": "an old clock face close up"
+    },
+    {
+     "type": "image",
+     "search": [
+      "hourglass sand",
+      "hourglass"
+     ],
+     "ai": "an hourglass running out"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody paid.",
+      "The clock kept running."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "Six days",
+   "mood": "tense",
+   "date": "Jul 13, 2017",
+   "say": "Inside the farmhouse, the man who held her told her a strange story. He said he was part of the gang, but that he was on her side. He said he was trying to protect her from the others.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "dark farmhouse room window",
+      "farmhouse window"
+     ],
+     "ai": "a dim room with a small window"
+    },
+    {
+     "type": "image",
+     "search": [
+      "old stone house at night",
+      "stone house night"
+     ],
+     "ai": "a stone house at night"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"I'm on your side.\""
+     ]
+    }
+   ]
+  },
+  {
+   "say": "He showed her photos of other women he claimed had already been sold. He told her the gang was watching, and that if she ran, they would find her.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "photographs on table",
+      "old photographs pile"
+     ],
+     "ai": "a pile of photographs on a table"
+    },
+    {
+     "type": "image",
+     "search": [
+      "surveillance camera on wall",
+      "CCTV camera"
+     ],
+     "ai": "a security camera on a wall"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"If you run,",
+      "they'll find you.\""
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Chloe had to make a choice. Fight, and risk everything. Or play along. She chose to play along. She was calm, she was polite, she let him believe she trusted him. Later, she said it was the only way she could see to stay alive.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Fight?",
+      "Or play along?"
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Piedmont hills fog",
+      "foggy hills Italy"
+     ],
+     "ai": "foggy hills at dawn"
+    },
+    {
+     "type": "image",
+     "search": [
+      "candle in dark room",
+      "candle flame dark"
+     ],
+     "ai": "a single candle in the dark"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "She played along."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "And then came the part of the story that the world would never stop talking about. During those six days, he took her into a town to buy shoes. She was in public. People were around. And she didn't run.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Via Roma Turin shops",
+      "Turin shopping street"
+     ],
+     "ai": "a shopping street in Turin"
+    },
+    {
+     "type": "image",
+     "search": [
+      "shoe shop window Italy",
+      "shoe store window"
+     ],
+     "ai": "a shoe shop window"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A shoe shop.",
+      "She didn't run."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Why? She later said she was terrified. She believed the gang was real, and that someone was watching her every move. Running in a shop felt more dangerous than staying with the man who said he would protect her.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Turin Porta Nuova station",
+      "Turin street crowd"
+     ],
+     "ai": "a busy street in Turin"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "She believed",
+      "the gang was real."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "A 2-YEAR-OLD SON",
+     "label": "at home in London",
+     "on": "son",
+     "kind": "people"
+    }
+   ],
+   "say": "Then, according to her account, he told her something that changed everything. The gang had a rule. They didn't sell mothers. And Chloe had a two year old son at home.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "child's toy on floor",
+      "teddy bear"
+     ],
+     "ai": "a child's teddy bear"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The rule:",
+      "no mothers."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The release",
+   "mood": "mystery",
+   "date": "Jul 17, 2017",
+   "say": "On Monday the seventeenth of July, six days after she vanished, Chloe walked into the British consulate in Milan. And the man walking next to her was her kidnapper.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 2017,
+     "to": 2017,
+     "label": "Monday, 17 July"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Milan street morning",
+      "Milan street"
+     ],
+     "ai": "a Milan street in the morning"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Union Jack flag on building",
+      "British flag building"
+     ],
+     "ai": "a British flag on a building"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He walked her",
+      "to the door."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "He seemed to think he was the hero of the story. He had 'rescued' her from the gang. Police arrested him on the spot.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Carabinieri officers",
+      "Italian police officers"
+     ],
+     "ai": "Italian police officers"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The \"hero\"",
+      "was arrested."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Cameras around the city had caught the two of them together, and the investigators quickly understood something. There was no big gang. There was this man, his brother, and a plan.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "CCTV camera street Milan",
+      "street camera"
+     ],
+     "ai": "a street camera on a pole"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "No gang.",
+      "Just a plan."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "No ransom was ever paid. The man who had spent thousands of euros on the plan walked away with nothing at all. Except handcuffs of his own.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "euro coins scattered",
+      "euro coins"
+     ],
+     "ai": "a few euro coins on a table"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "No ransom.",
+      "Nothing."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The man behind the mask",
+   "mood": "mystery",
+   "pops": [
+    {
+     "text": "LUKASZ HERBA",
+     "label": "30, computer programmer",
+     "on": "Lukasz",
+     "kind": "person"
+    }
+   ],
+   "say": "His name was Lukasz Herba. He was thirty years old, from Poland, and he lived in Oldbury, a quiet town in the West Midlands of England. He worked with computers.",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      -6,
+      50,
+      2,
+      55.5
+     ],
+     "points": [
+      {
+       "name": "Oldbury",
+       "note": "where he lived",
+       "at": [
+        -2.02,
+        52.5
+       ],
+       "at_time": 0.5,
+       "side": "right"
+      },
+      {
+       "name": "London",
+       "at": [
+        -0.13,
+        51.5
+       ],
+       "at_time": 1.4,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "England",
+       "at": [
+        -1.3,
+        53.3
+       ]
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Oldbury West Midlands",
+      "Oldbury town centre"
+     ],
+     "ai": "a quiet town in the English Midlands"
+    },
+    {
+     "type": "image",
+     "search": [
+      "computer programmer desk",
+      "programmer desk monitors"
+     ],
+     "ai": "a programmer's desk with monitors"
+    }
+   ]
+  },
+  {
+   "say": "Andre Lazio, the photographer, was him. M D, the man who wrote the ransom email, was also him. And the Black Death Group, the investigators decided, was a story he had made up.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Andre Lazio = Herba."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"MD\" = Herba."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The gang?",
+      "Made up."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "MICHAL HERBA",
+     "label": "his brother",
+     "on": "Michal",
+     "kind": "person"
+    }
+   ],
+   "say": "Prosecutors said he had spent at least ten thousand euros on the plan. He bought the ski masks. And afterwards, he asked his brother Michal to clean the boot of the car, so that no hair would be left behind.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 10000,
+     "label": "Spent on the plan",
+     "prefix": "€",
+     "suffix": "+",
+     "note": "According to the prosecutors"
+    },
+    {
+     "type": "image",
+     "search": [
+      "car wash cleaning",
+      "cleaning car interior"
+     ],
+     "ai": "someone cleaning a car"
+    },
+    {
+     "type": "image",
+     "search": [
+      "magnifying glass evidence",
+      "forensic evidence"
+     ],
+     "ai": "a magnifying glass over evidence"
+    }
+   ]
+  },
+  {
+   "say": "And then came a detail almost nobody expected. Chloe and Lukasz were not complete strangers. According to evidence heard in court, they had been in contact on Facebook, and had met in person at least once, before her son was born.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Facebook on laptop",
+      "social network laptop"
+     ],
+     "ai": "a social network page on a laptop"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Not strangers."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "It didn't work. Investigators later linked Michal to the crime too.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "forensic laboratory",
+      "forensic lab"
+     ],
+     "ai": "a forensic laboratory"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "It didn't work."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "In court, Lukasz told a different story every time. He said he loved Chloe. He said she had agreed to the whole thing, to make herself famous. He said he wanted to help her with money. He even said the plan was inspired by a film.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Palazzo di Giustizia Milan",
+      "Milan courthouse"
+     ],
+     "ai": "the Palace of Justice in Milan"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"I loved her.\""
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"She agreed to it.\""
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A different story",
+      "every time."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And that last claim, that Chloe had been in on it, was the one the newspapers loved most.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "newspaper stand London",
+      "newsstand"
+     ],
+     "ai": "a newspaper stand"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"She was",
+      "in on it.\""
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "Nobody believed her",
+   "mood": "sad",
+   "date": "2017",
+   "say": "When Chloe came home, she expected sympathy. Instead, she got suspicion. The British press asked one question again and again. If she was really kidnapped, why didn't she run in the shoe shop?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "tabloid newspapers UK",
+      "British newspapers"
+     ],
+     "ai": "a stack of British newspapers"
+    },
+    {
+     "type": "image",
+     "search": [
+      "paparazzi photographers",
+      "press photographers"
+     ],
+     "ai": "a crowd of press photographers"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Why didn't",
+      "she run?"
+     ]
+    }
+   ]
+  },
+  {
+   "say": "People studied her face in interviews. She wasn't crying. She was calm, sometimes she smiled. On live television, she was questioned so hard that many viewers thought she was the one on trial.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "television studio cameras",
+      "TV studio"
+     ],
+     "ai": "a television studio"
+    },
+    {
+     "type": "image",
+     "search": [
+      "smartphone social media",
+      "social media phone"
+     ],
+     "ai": "a phone full of comments"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "She didn't cry.",
+      "So they called her a liar."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Online, strangers called her a liar. Some said it was a publicity stunt. Some said she had planned it with him. The man who kidnapped her had told the same story, and millions of people repeated it for him.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "\"A stunt.\""
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"A liar.\""
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "keyboard typing night",
+      "typing on keyboard"
+     ],
+     "ai": "hands typing in the dark"
+    }
+   ]
+  },
+  {
+   "say": "It didn't help that, a few months later, she appeared on a celebrity reality show. To her critics, that was proof she was chasing fame. To her, it was a chance to tell her side, in front of millions of people who had already made up their minds.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "reality TV house cameras",
+      "television cameras studio"
+     ],
+     "ai": "cameras in a TV studio"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Proof?",
+      "Or survival?"
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2025",
+   "say": "Years later, Chloe would learn something about herself that explained a lot. In 2025, a documentary showed her receiving a diagnosis of autism. She had never reacted to fear the way people expected her to. That was never proof she was lying.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 2017,
+     "to": 2025,
+     "label": "Years later: a diagnosis"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Calm",
+      "is not guilty."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The verdict",
+   "mood": "hopeful",
+   "date": "Jun 11, 2018",
+   "say": "But in court, the evidence spoke louder than the headlines. On the eleventh of June, 2018, a court in Milan found Lukasz Herba guilty of kidnapping for ransom.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 2017,
+     "to": 2018,
+     "label": "The verdict"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Milan court of justice hall",
+      "Italian courtroom"
+     ],
+     "ai": "an Italian courtroom"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Guilty."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "16 YEARS 9 MONTHS",
+     "label": "the sentence",
+     "on": "sixteen",
+     "kind": "law"
+    }
+   ],
+   "say": "The prosecutor had asked for sixteen years and eight months. The judges gave him more. Sixteen years and nine months. They said Chloe could have died.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 16.75,
+     "label": "Years in prison",
+     "note": "16 years and 9 months, Milan, June 2018"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "More than",
+      "the prosecutor asked."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "€500,000",
+     "label": "damages",
+     "on": "half",
+     "kind": "money"
+    }
+   ],
+   "say": "His lawyer argued that because Chloe came home unhurt, the sentence should have been no more than eight years. The court didn't agree. Chloe's own lawyer said he would ask for half a million euros in damages, but admitted Herba would probably never be able to pay.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 500000,
+     "label": "Damages her lawyer wanted",
+     "prefix": "€",
+     "note": "Separate civil case; Herba was unlikely to pay"
+    },
+    {
+     "type": "image",
+     "search": [
+      "lawyer documents desk",
+      "legal documents"
+     ],
+     "ai": "legal papers on a desk"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Half a million.",
+      "Never paid."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2019",
+   "say": "The next year, his brother Michal was convicted too, after being sent from Britain to stand trial in Italy.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "prison corridor Italy",
+      "prison corridor"
+     ],
+     "ai": "a long prison corridor"
+    },
+    {
+     "type": "year",
+     "from": 2018,
+     "to": 2019,
+     "label": "The brother is convicted"
+    }
+   ]
+  },
+  {
+   "chapter": "The appeals",
+   "mood": "mystery",
+   "date": "2021",
+   "say": "But this isn't a story with a clean ending. On appeal, both sentences were cut. Lukasz's was reduced to about twelve years. Michal's was cut to less than six, and he was released early.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Court of Appeal Milan",
+      "Milan appeal court"
+     ],
+     "ai": "an appeal court building"
+    },
+    {
+     "type": "bars",
+     "title": "Lukasz Herba's sentence (years)",
+     "bars": [
+      [
+       "2018",
+       16.75
+      ],
+      [
+       "After appeal",
+       12
+      ]
+     ],
+     "note": "Reported figures; sources differ slightly"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Cut on appeal."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2024",
+   "say": "By 2024, reports said Lukasz Herba could be a free man within months. Neither brother is allowed back into the United Kingdom.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "barbed wire fence prison",
+      "prison fence"
+     ],
+     "ai": "a prison fence with barbed wire"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Free",
+      "within months."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "Clearing her name",
+   "mood": "hopeful",
+   "date": "2024",
+   "say": "Chloe didn't disappear. She wrote a book about what happened to her, called Kidnapped. And in 2024, the BBC turned her story into a drama, made with her help.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "BBC Broadcasting House London",
+      "BBC Broadcasting House"
+     ],
+     "ai": "the BBC building in London"
+    },
+    {
+     "type": "image",
+     "search": [
+      "open book reading",
+      "book pages"
+     ],
+     "ai": "an open book"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Her story.",
+      "In her words."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2025",
+   "say": "In 2025 came a documentary, in her own words. She said she wanted the facts laid out at last, and she asked people to stop judging victims by the way they act.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "documentary film camera crew",
+      "film crew camera"
+     ],
+     "ai": "a film camera crew"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The facts,",
+      "at last."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "She has said that what hurt most was never the six days. It was the years of being told, by strangers, that she had made it all up.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "woman looking out window silhouette",
+      "window silhouette"
+     ],
+     "ai": "a silhouette looking out of a window"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The six days",
+      "weren't the worst part."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "What it teaches us",
+   "mood": "hopeful",
+   "say": "So what does this story really teach us? First. Check every job offer that seems too good. A photographer you've never met, a free trip abroad, a studio address nobody can confirm. Those are the warning signs.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 1:",
+      "Check the job."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "job interview handshake",
+      "handshake"
+     ],
+     "ai": "two people shaking hands"
+    }
+   ]
+  },
+  {
+   "say": "Second. The most powerful weapon in this crime wasn't a needle or handcuffs. It was a story. The Black Death Group didn't need to exist. It only needed her to believe it did.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 2:",
+      "Fear was the weapon."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "shadow on wall",
+      "shadow of a man"
+     ],
+     "ai": "a man's shadow on a wall"
+    }
+   ]
+  },
+  {
+   "say": "And third. Never judge a victim by how she reacts. Some people scream. Some people freeze. Some people smile, stay calm and play along, because that's how they survive.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 3:",
+      "Don't judge how",
+      "a victim survives."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "sunrise over Alps",
+      "Alps sunrise"
+     ],
+     "ai": "sunrise over the mountains"
+    }
+   ]
+  },
+  {
+   "say": "Because in the end, the Black Death Group never auctioned anyone. A man with a laptop invented a monster, and for six days, a young mother had to live inside his lie. Then, for years, the rest of the world made her live inside it again.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "laptop in empty room",
+      "laptop alone table"
+     ],
+     "ai": "a lone laptop on a table"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He invented",
+      "a monster."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "night road mountains Italy",
+      "mountain road night"
+     ],
+     "ai": "a mountain road at night"
+    }
+   ]
+  },
+  {
+   "say": "If you like dark true stories about crime, money and power, subscribe to Midnight Archive. There's always another file in the archive.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Milan Cathedral at night",
+      "Duomo Milan night"
+     ],
+     "ai": "Milan's cathedral at night"
+    },
+    {
+     "type": "title",
+     "kicker": "Subscribe",
+     "text": "Midnight Archive",
+     "sub": "True stories. Told after dark."
+    }
+   ]
+  }
+ ]
+}
