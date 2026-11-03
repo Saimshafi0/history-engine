@@ -47,7 +47,7 @@ jobs:
         if: ${{ always() }}
         run: |
           rm -f output/*/narration.wav output/*/shorts/*.wav
-          cp -n images/* images-cache/ 2>/dev/null || true
+          cp -u images/* images-cache/ 2>/dev/null || true
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
