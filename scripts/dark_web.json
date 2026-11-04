@@ -1,0 +1,2110 @@
+{
+ "title": "The Dark Web Was Invented by the US Navy",
+ "titles": [
+  "He Built a $1.2 Billion Black Market. Then Made One Mistake.",
+  "The Dark Web Was Invented by the US Navy",
+  "$3.36 Billion Was Hidden in a Popcorn Tin"
+ ],
+ "description": "The dark web wasn't invented by criminals. It was invented by the US Navy. This is the full history of the dark web: the first internet message in 1969, the Navy's secret onion routing project, Tor, Bitcoin, the $1.2 billion Silk Road, the $3.36 billion found in a popcorn tin, AlphaBay, Hydra, and how every one of its kings was caught.",
+ "tags": [
+  "dark web",
+  "history of the dark web",
+  "dark web documentary",
+  "who invented the dark web",
+  "Tor",
+  "Silk Road",
+  "Ross Ulbricht",
+  "Dread Pirate Roberts",
+  "Bitcoin history",
+  "James Zhong",
+  "AlphaBay",
+  "Hydra market",
+  "deep web vs dark web",
+  "true crime documentary",
+  "Midnight Archive"
+ ],
+ "hashtags": [
+  "#DarkWeb",
+  "#SilkRoad",
+  "#TrueCrime"
+ ],
+ "sources": [
+  "Tor Project, history of Tor",
+  "FBI criminal complaint against Ross Ulbricht (2013)",
+  "US Department of Justice, James Zhong case (2022)",
+  "KQED, the 2013 Glen Park library arrest",
+  "Hydra Market court and police reports (2022, 2024)"
+ ],
+ "pinned_comment": "Should Ross Ulbricht have been pardoned? Tell me what you think.",
+ "voice": "am_eric",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "THE NAVY\nBUILT IT"
+ },
+ "thumbnails": [
+  {
+   "text": "HE HID\n$1.2 BILLION",
+   "picture": "Ross Ulbricht",
+   "style": "face"
+  },
+  {
+   "text": "THE NAVY\nBUILT IT",
+   "picture": "US Navy aircraft carrier at sea",
+   "style": "dark"
+  },
+  {
+   "text": "$3.36B IN A\nPOPCORN TIN",
+   "picture": "popcorn tin",
+   "style": "circle"
+  }
+ ],
+ "shorts": [
+  {
+   "from_scene": 0,
+   "to_scene": 2,
+   "hook": "The FBI grabbed his laptop",
+   "title": "The FBI grabbed his laptop in a library #shorts",
+   "comment": "Would you have guessed who he was?"
+  },
+  {
+   "from_scene": 5,
+   "to_scene": 7,
+   "hook": "The internet's first message crashed",
+   "title": "The first internet message was 2 letters #shorts",
+   "comment": "Did you know this?"
+  },
+  {
+   "from_scene": 34,
+   "to_scene": 36,
+   "hook": "They staged a fake fight",
+   "title": "How the FBI caught the Dread Pirate #shorts",
+   "comment": "Genius or lucky?"
+  },
+  {
+   "from_scene": 42,
+   "to_scene": 44,
+   "hook": "$3.36 billion in a popcorn tin",
+   "title": "$3.36 billion hidden in a popcorn tin #shorts",
+   "comment": "What would you do with it?"
+  }
+ ],
+ "scenes": [
+  {
+   "chapter": "A laptop in a library",
+   "mood": "tense",
+   "date": "Oct 1, 2013",
+   "pops": [
+    {
+     "text": "SAN FRANCISCO",
+     "label": "Glen Park Library",
+     "on": "Francisco",
+     "kind": "place"
+    }
+   ],
+   "say": "On the first of October, 2013, a young man sat down at a table in a public library in San Francisco and opened his laptop. A few minutes later, two strangers behind him started a loud argument. He turned around to look. And that was the moment the FBI grabbed his computer.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Glen Park Library San Francisco",
+      "Glen Park branch library"
+     ],
+     "ai": "a small public library in San Francisco"
+    },
+    {
+     "type": "image",
+     "search": [
+      "laptop on library table",
+      "laptop in library"
+     ],
+     "ai": "an open laptop on a library table"
+    },
+    {
+     "type": "image",
+     "search": [
+      "San Francisco Glen Park neighborhood",
+      "Glen Park San Francisco"
+     ],
+     "ai": "a San Francisco neighbourhood"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "October 1, 2013.",
+      "San Francisco."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "$1.2 BILLION",
+     "label": "in sales",
+     "on": "billion",
+     "kind": "money"
+    }
+   ],
+   "say": "On that screen was a website that had sold more than a billion dollars of illegal goods. Drugs, fake documents, hacking tools, all paid for with a new kind of money that nobody could easily trace.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 1.2,
+     "label": "Billion dollars of sales",
+     "prefix": "$",
+     "suffix": "B",
+     "note": "FBI estimate, 2011 to 2013",
+     "decimals": 1
+    },
+    {
+     "type": "image",
+     "search": [
+      "bitcoin coin closeup",
+      "bitcoin physical coin"
+     ],
+     "ai": "a gold coin with a B symbol"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Over a billion",
+      "dollars."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "It was called the Silk Road. And it lived on a hidden part of the internet that most people had never even heard of. The dark web.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "The true story of",
+     "text": "The Dark Web",
+     "sub": "Who built it, who got rich, who got caught"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Silk Road seized banner FBI",
+      "Silk Road seized"
+     ],
+     "ai": "a government 'site seized' banner"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The dark web."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "But here's the twist almost nobody knows. The technology that hid that website, and still hides millions of people today, wasn't invented by criminals. It was invented by the United States Navy.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "United States Naval Research Laboratory building",
+      "Naval Research Laboratory"
+     ],
+     "ai": "a US Navy research building"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Invented by",
+      "the US Navy."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "US Navy aircraft carrier at sea",
+      "aircraft carrier"
+     ],
+     "ai": "a navy aircraft carrier at sea"
+    }
+   ]
+  },
+  {
+   "say": "This is the story of how a secret military project became the most famous hiding place on Earth, how one website turned it into a billion dollar empire, and how every one of its kings was eventually found.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "fiber optic cables light",
+      "fiber optic"
+     ],
+     "ai": "glowing fibre optic cables"
+    },
+    {
+     "type": "image",
+     "search": [
+      "data center corridor",
+      "data centre"
+     ],
+     "ai": "a long corridor of servers"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Every king",
+      "was found."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The first message",
+   "mood": "mystery",
+   "date": "1969",
+   "pops": [
+    {
+     "text": "ARPANET",
+     "label": "the first internet",
+     "on": "internet",
+     "kind": "fact"
+    }
+   ],
+   "say": "To understand the dark web, we have to go back to the very first message ever sent over the internet. It was 1969. A student at the University of California in Los Angeles tried to send the word LOGIN to a computer at Stanford, 350 miles away.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1969,
+     "to": 1969,
+     "label": "The first message"
+    },
+    {
+     "type": "map",
+     "view": [
+      -125,
+      31,
+      -112,
+      39
+     ],
+     "route": [
+      [
+       -118.44,
+       34.07
+      ],
+      [
+       -119.5,
+       35.5
+      ],
+      [
+       -121.0,
+       36.8
+      ],
+      [
+       -122.17,
+       37.45
+      ]
+     ],
+     "route_start": 0.5,
+     "points": [
+      {
+       "name": "UCLA",
+       "note": "Los Angeles",
+       "at": [
+        -118.44,
+        34.07
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      },
+      {
+       "name": "Stanford Research Institute",
+       "at": [
+        -122.17,
+        37.45
+       ],
+       "at_time": 2.2,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "California",
+       "at": [
+        -119.6,
+        37.3
+       ]
+      },
+      {
+       "text": "Pacific Ocean",
+       "at": [
+        -123.5,
+        33.0
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "UCLA Boelter Hall",
+      "Boelter Hall UCLA"
+     ],
+     "ai": "a university engineering building"
+    },
+    {
+     "type": "image",
+     "search": [
+      "ARPANET Interface Message Processor",
+      "Interface Message Processor"
+     ],
+     "ai": "a 1960s refrigerator-sized computer"
+    }
+   ]
+  },
+  {
+   "say": "He typed L, then O, and the system crashed. So the first message in internet history was just two letters. Lo.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "L.",
+      "O.",
+      "Crash."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The first message:",
+      "\"LO\""
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "That network, called ARPANET, was paid for by the American military. It was built to share information, not to hide it. Every computer had an address, every message said where it came from and where it was going.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "ARPANET 1969 photo",
+      "early computers 1960s"
+     ],
+     "ai": "1960s computer room with tape machines"
+    },
+    {
+     "type": "image",
+     "search": [
+      "vintage computer terminal",
+      "teletype terminal"
+     ],
+     "ai": "an old computer terminal with a keyboard"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Built to share.",
+      "Not to hide."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Decades later, the internet still works the same way. Every time you visit a website, your computer sends an address, a bit like the return address on an envelope. Your internet company sees it. The website sees it. And anyone watching the line in between can see it too.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "envelope with stamp and address",
+      "old envelope stamp"
+     ],
+     "ai": "an envelope with a return address"
+    },
+    {
+     "type": "image",
+     "search": [
+      "internet exchange point cables",
+      "network switch cables"
+     ],
+     "ai": "racks of network switches"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Everyone can see",
+      "where you go."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "For most people, that's fine. But imagine you're a spy, working in another country, sending reports home over the internet. Every message you send says exactly where you are.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "spy camera vintage",
+      "Minox camera"
+     ],
+     "ai": "a tiny vintage spy camera"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "For a spy,",
+      "that's deadly."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The Navy's secret",
+   "mood": "mystery",
+   "date": "1995",
+   "pops": [
+    {
+     "text": "US NAVAL RESEARCH LAB",
+     "label": "1995",
+     "on": "Naval",
+     "kind": "place"
+    }
+   ],
+   "say": "In 1995, three researchers at the US Naval Research Laboratory in Washington had an idea. David Goldschlag, Michael Reed and Paul Syverson. What if a message could travel through several computers, each one knowing only a tiny part of the journey?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Naval Research Laboratory Washington DC",
+      "NRL Washington"
+     ],
+     "ai": "a research campus in Washington"
+    },
+    {
+     "type": "year",
+     "from": 1969,
+     "to": 1995,
+     "label": "The Navy's idea"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Goldschlag.",
+      "Reed.",
+      "Syverson."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "ONION ROUTING",
+     "label": "layers of encryption",
+     "on": "onion",
+     "kind": "fact"
+    }
+   ],
+   "say": "They called it onion routing. Your message is wrapped in layers of encryption, like the layers of an onion. It bounces through three random computers around the world. Each one peels off one layer, and passes it on.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "onion cut in half layers",
+      "onion cross section"
+     ],
+     "ai": "an onion cut in half"
+    },
+    {
+     "type": "map",
+     "from": [
+      -130,
+      -40,
+      150,
+      70
+     ],
+     "to": [
+      -100,
+      10,
+      60,
+      62
+     ],
+     "route": [
+      [
+       -77.0,
+       38.9
+      ],
+      [
+       -30,
+       45
+      ],
+      [
+       2.35,
+       48.86
+      ],
+      [
+       13.4,
+       52.5
+      ],
+      [
+       30,
+       50
+      ],
+      [
+       37.6,
+       55.75
+      ]
+     ],
+     "route_start": 0.4,
+     "points": [
+      {
+       "name": "You",
+       "at": [
+        -77.0,
+        38.9
+       ],
+       "at_time": 0.3,
+       "side": "left"
+      },
+      {
+       "name": "Relay 1",
+       "at": [
+        2.35,
+        48.86
+       ],
+       "at_time": 1.4,
+       "side": "top"
+      },
+      {
+       "name": "Relay 2",
+       "at": [
+        13.4,
+        52.5
+       ],
+       "at_time": 2.0,
+       "side": "bottom"
+      },
+      {
+       "name": "Relay 3",
+       "at": [
+        37.6,
+        55.75
+       ],
+       "at_time": 2.6,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Atlantic Ocean",
+       "at": [
+        -40,
+        35
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Layer.",
+      "Layer.",
+      "Layer."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "The first computer knows who you are, but not where you're going. The last one knows where you're going, but not who you are. No single computer knows both. That was the magic.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Knows WHO,",
+      "not WHERE."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Knows WHERE,",
+      "not WHO."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody knows both."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "But the Navy had a problem. If only American spies used this network, then anyone who saw the network being used would know it was an American spy. To hide in a crowd, you need a crowd.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "crowd of people Times Square",
+      "Times Square crowd"
+     ],
+     "ai": "a huge crowd of people in a city"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "To hide in a crowd,",
+      "you need a crowd."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "2002",
+   "pops": [
+    {
+     "text": "TOR",
+     "label": "The Onion Router, 2002",
+     "on": "Tor",
+     "kind": "fact"
+    }
+   ],
+   "say": "So they made a decision that sounds crazy for a military project. They gave it away. In 2002, a version called Tor, The Onion Router, went online as free software that anyone in the world could use.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 1995,
+     "to": 2002,
+     "label": "Tor goes online"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roger Dingledine",
+      "Roger Dingledine Tor"
+     ],
+     "ai": "a software developer speaking at a conference"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They gave it",
+      "away."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "2006",
+   "say": "Two young programmers, Roger Dingledine and Nick Mathewson, built it with one of the Navy researchers. By the end of 2003, the whole network was run by just a dozen volunteer computers. In 2006 it became a non profit, and for years, a big part of its money still came from the American government.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Nick Mathewson",
+      "Tor Project developers"
+     ],
+     "ai": "programmers at a conference"
+    },
+    {
+     "type": "stat",
+     "number": 12,
+     "label": "Volunteer computers running Tor",
+     "note": "End of 2003, Tor Project history"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Tor relay server",
+      "home server rack"
+     ],
+     "ai": "a small server in someone's home"
+    }
+   ]
+  },
+  {
+   "chapter": "Deep and dark",
+   "mood": "mystery",
+   "say": "Now, people often mix up two words. The deep web and the dark web. They're not the same thing.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Deep web.",
+      "Dark web."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Not the same."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "The deep web is simply everything that search engines can't see. Your email inbox. Your bank account. Private company files. It's huge, much bigger than the normal internet, and almost all of it is completely boring.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "iceberg underwater",
+      "iceberg"
+     ],
+     "ai": "an iceberg with most of it under water"
+    },
+    {
+     "type": "image",
+     "search": [
+      "online banking login screen",
+      "bank website laptop"
+     ],
+     "ai": "a bank website on a laptop"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The deep web:",
+      "your inbox, your bank."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2004",
+   "pops": [
+    {
+     "text": ".ONION",
+     "label": "dark web addresses",
+     "on": "onion",
+     "kind": "fact"
+    }
+   ],
+   "say": "The dark web is a tiny corner of the deep web. Websites that can only be opened through Tor, with strange addresses ending in dot onion. In 2004, Tor added a feature that let websites hide too, not just visitors. The owner of a dot onion site could be anywhere in the world.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      ".onion"
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Tor Browser screenshot",
+      "Tor Browser"
+     ],
+     "ai": "a privacy web browser window"
+    },
+    {
+     "type": "year",
+     "from": 2002,
+     "to": 2004,
+     "label": "Hidden websites become possible"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The owner",
+      "could be anywhere."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "For a few years, it was mostly used by privacy fans, journalists and activists. But there was still one thing missing. Even if nobody could see you, how would you pay for anything without a bank seeing it?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "journalist typing laptop",
+      "reporter laptop"
+     ],
+     "ai": "a journalist typing on a laptop"
+    },
+    {
+     "type": "image",
+     "search": [
+      "credit card payment terminal",
+      "card payment"
+     ],
+     "ai": "a card payment machine"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "How do you pay",
+      "in secret?"
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "Money with no name",
+   "mood": "epic",
+   "date": "2008",
+   "pops": [
+    {
+     "text": "SATOSHI NAKAMOTO",
+     "label": "real name unknown",
+     "on": "Satoshi",
+     "kind": "person"
+    }
+   ],
+   "say": "The answer arrived on the thirty first of October, 2008. An unknown person, using the name Satoshi Nakamoto, published a nine page paper describing a new kind of digital money. Bitcoin.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 2004,
+     "to": 2008,
+     "label": "Bitcoin is described"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Bitcoin white paper",
+      "Bitcoin paper Nakamoto"
+     ],
+     "ai": "an old printed technical paper"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Satoshi Nakamoto.",
+      "Identity: unknown."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "2009",
+   "say": "No bank. No government. Just a giant public record, shared by thousands of computers, that tracks every coin. The first bitcoins were created in January 2009. To this day, nobody knows for sure who Satoshi really is.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Satoshi Nakamoto statue Budapest",
+      "Satoshi Nakamoto bust"
+     ],
+     "ai": "a bronze statue with a reflective face"
+    },
+    {
+     "type": "image",
+     "search": [
+      "bitcoin mining farm",
+      "bitcoin mining rigs"
+     ],
+     "ai": "rows of computers mining cryptocurrency"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody knows",
+      "who he is."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Now the dark web had everything it needed. Hidden websites. Hidden visitors. And money that didn't need a name. All it needed was someone to put the pieces together.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Hidden sites."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Hidden visitors."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Hidden money."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The Silk Road",
+   "mood": "epic",
+   "date": "2011",
+   "pops": [
+    {
+     "text": "ROSS ULBRICHT",
+     "label": "26, from Austin, Texas",
+     "on": "Ross",
+     "kind": "person"
+    }
+   ],
+   "say": "That someone was a twenty six year old from Austin, Texas, named Ross Ulbricht. He had studied physics, he loved the idea of a world without government control, and he was looking for something big to build.",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      -125,
+      24,
+      -66,
+      50
+     ],
+     "points": [
+      {
+       "name": "Austin",
+       "note": "where it began",
+       "at": [
+        -97.74,
+        30.27
+       ],
+       "at_time": 0.4,
+       "side": "right"
+      },
+      {
+       "name": "San Francisco",
+       "note": "where it ended",
+       "at": [
+        -122.42,
+        37.77
+       ],
+       "at_time": 1.4,
+       "side": "right"
+      },
+      {
+       "name": "New York",
+       "note": "the trial",
+       "at": [
+        -74.0,
+        40.71
+       ],
+       "at_time": 2.4,
+       "side": "left"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Ross Ulbricht",
+      "Ross Ulbricht photo"
+     ],
+     "ai": "a young man with short hair, 2010s"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Austin Texas skyline",
+      "Austin skyline"
+     ],
+     "ai": "the Austin, Texas skyline"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "SILK ROAD",
+     "label": "launched 2011",
+     "on": "Silk",
+     "kind": "fact"
+    }
+   ],
+   "say": "In early 2011, he launched a website on the dark web. He named it after the ancient trade route between China and Europe. The Silk Road. And on day one, the first things for sale were magic mushrooms he had grown himself.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Silk Road ancient trade route map",
+      "Silk Road route"
+     ],
+     "ai": "an old map of the ancient Silk Road"
+    },
+    {
+     "type": "image",
+     "search": [
+      "caravanserai Silk Road",
+      "Silk Road caravan"
+     ],
+     "ai": "an ancient caravan resting place"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Product number one:",
+      "his own mushrooms."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "It worked like eBay for things you couldn't buy anywhere else. Sellers had ratings. Buyers left reviews. The website held the money until the package arrived. And the packages came through the normal post.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "eBay headquarters San Jose",
+      "eBay office"
+     ],
+     "ai": "an e-commerce company office"
+    },
+    {
+     "type": "image",
+     "search": [
+      "five star rating",
+      "star rating"
+     ],
+     "ai": "five gold stars"
+    },
+    {
+     "type": "image",
+     "search": [
+      "post office parcels",
+      "parcels mail sorting"
+     ],
+     "ai": "parcels at a post office sorting centre"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Like eBay.",
+      "For anything."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "For a few months, almost nobody knew it existed. Then, in June 2011, a news website wrote an article about it. Overnight, thousands of new users arrived. And two powerful American senators demanded that it be shut down.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "US Capitol building",
+      "Capitol Washington"
+     ],
+     "ai": "the US Capitol building"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "One article.",
+      "Thousands of users."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "newspaper headlines 2011",
+      "news website laptop"
+     ],
+     "ai": "a news article on a screen"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "DREAD PIRATE ROBERTS",
+     "label": "his secret name",
+     "on": "Dread",
+     "kind": "person"
+    }
+   ],
+   "say": "Ross started calling himself the Dread Pirate Roberts, after a character in a film whose name was passed from one pirate to the next. The idea was perfect. If the name could be passed on, nobody could ever be sure who was behind it.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "pirate ship painting",
+      "pirate ship"
+     ],
+     "ai": "an old painting of a pirate ship"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Dread Pirate Roberts\""
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A name",
+      "that could be passed on."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "$80 MILLION",
+     "label": "his commission",
+     "on": "eighty",
+     "kind": "money"
+    }
+   ],
+   "say": "The money was staggering. According to the FBI, between 2011 and 2013 the Silk Road handled about nine and a half million bitcoins in sales, worth around one point two billion dollars. Ross took a small cut of every sale. His commissions came to about eighty million dollars.",
+   "visuals": [
+    {
+     "type": "bars",
+     "title": "Silk Road, 2011 to 2013 (FBI estimate)",
+     "bars": [
+      [
+       "Sales ($M)",
+       1200
+      ],
+      [
+       "Ross's commissions ($M)",
+       80
+      ]
+     ],
+     "note": "FBI criminal complaint, October 2013"
+    },
+    {
+     "type": "stat",
+     "number": 80,
+     "label": "Million dollars in commissions",
+     "prefix": "$",
+     "suffix": "M",
+     "note": "FBI estimate"
+    },
+    {
+     "type": "image",
+     "search": [
+      "stack of hundred dollar bills",
+      "100 dollar bills"
+     ],
+     "ai": "stacks of hundred dollar bills"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "For one",
+      "website."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "He lived quietly in San Francisco, renting a small room, using a fake name. His roommates had no idea that the man next door was running the biggest black market on the internet.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "San Francisco Victorian houses",
+      "Painted Ladies San Francisco"
+     ],
+     "ai": "a row of houses in San Francisco"
+    },
+    {
+     "type": "image",
+     "search": [
+      "small bedroom desk window",
+      "bedroom desk"
+     ],
+     "ai": "a small room with a desk"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "His roommates",
+      "had no idea."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The hunt",
+   "mood": "tense",
+   "date": "2013",
+   "say": "Every police agency in America wanted the Dread Pirate Roberts. The FBI, the drug agency, homeland security, even the tax office. But how do you find someone on a network that was designed by the Navy to make finding people impossible?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "FBI headquarters J. Edgar Hoover Building",
+      "FBI building"
+     ],
+     "ai": "the FBI headquarters"
+    },
+    {
+     "type": "image",
+     "search": [
+      "DEA headquarters",
+      "Drug Enforcement Administration"
+     ],
+     "ai": "a federal agency building"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "How do you find",
+      "the unfindable?"
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "The answer was surprisingly simple. You stop looking at the dark web, and you start looking at the normal internet. Because before he became famous, Ross had made a tiny mistake.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Don't search",
+      "the dark web."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Search the past."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "GARY ALFORD",
+     "label": "IRS investigator",
+     "on": "Gary",
+     "kind": "person"
+    }
+   ],
+   "say": "An investigator from the tax agency, Gary Alford, searched through old internet forums from early 2011. He found a user named altoid who had promoted the Silk Road when it was brand new. Months later, the same altoid had posted asking for programming help, and left his real email address.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "IRS building Washington",
+      "Internal Revenue Service headquarters"
+     ],
+     "ai": "a government tax office"
+    },
+    {
+     "type": "image",
+     "search": [
+      "old internet forum screen",
+      "forum website"
+     ],
+     "ai": "an old internet forum page"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "User: \"altoid\""
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Email:",
+      "his real name."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "The email address included his name. Ross Ulbricht. One careless message, written before he ever thought anyone would care, pointed straight at the most wanted man online.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "gmail inbox",
+      "email login screen"
+     ],
+     "ai": "an email login screen"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "One message.",
+      "Two years earlier."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "The hunt had dark twists of its own. Prosecutors later said Ross had paid to have several people killed, people he thought were threatening his empire. No one was ever actually killed, and those charges were later dropped. And two federal agents working on the case were caught stealing bitcoin for themselves.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "handcuffs on table",
+      "police handcuffs"
+     ],
+     "ai": "handcuffs on a dark table"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "No one died.",
+      "Charges dropped."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "federal courthouse Baltimore",
+      "Baltimore courthouse"
+     ],
+     "ai": "a federal courthouse"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Two agents",
+      "stole bitcoin."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Then the agents planned the arrest. They needed him to be logged in, with his laptop open, so the evidence couldn't be locked away. So on that October afternoon, they followed him to the Glen Park library, waited, and staged a fake argument right behind him.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "San Francisco street afternoon",
+      "San Francisco street"
+     ],
+     "ai": "a quiet San Francisco street"
+    },
+    {
+     "type": "image",
+     "search": [
+      "library reading room tables",
+      "library interior"
+     ],
+     "ai": "a library reading room"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A fake fight.",
+      "Three seconds."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "When he turned his head, an agent pulled the open laptop away. Everything was on it. The website, the accounts, and a diary of how he had built the whole thing.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "open laptop screen glow",
+      "laptop screen"
+     ],
+     "ai": "a laptop screen glowing"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Everything",
+      "was on it."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "The fall",
+   "mood": "sad",
+   "date": "2015",
+   "say": "In 2015, Ross Ulbricht was put on trial in New York. He was thirty one years old. The jury found him guilty on every charge.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Daniel Patrick Moynihan United States Courthouse",
+      "federal courthouse New York"
+     ],
+     "ai": "a federal courthouse in New York"
+    },
+    {
+     "type": "year",
+     "from": 2013,
+     "to": 2015,
+     "label": "The trial"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Guilty.",
+      "Every charge."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "LIFE",
+     "label": "twice, no parole",
+     "on": "life",
+     "kind": "law"
+    }
+   ],
+   "say": "The judge gave him two life sentences plus forty years, with no chance of parole. She said she wanted to send a message to anyone thinking of building the next Silk Road.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "2 life sentences",
+      "+ 40 years."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "prison cell bars",
+      "jail cell"
+     ],
+     "ai": "the bars of a prison cell"
+    }
+   ]
+  },
+  {
+   "say": "For almost ten years, he sat in prison. Many people thought the sentence was far too harsh for a website owner who hadn't been convicted of violence. A campaign called Free Ross collected hundreds of thousands of signatures.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "federal prison exterior",
+      "prison exterior USA"
+     ],
+     "ai": "a federal prison"
+    },
+    {
+     "type": "image",
+     "search": [
+      "petition signatures campaign",
+      "protest signs"
+     ],
+     "ai": "people holding protest signs"
+    },
+    {
+     "type": "year",
+     "from": 2015,
+     "to": 2024,
+     "label": "Nearly ten years inside"
+    }
+   ]
+  },
+  {
+   "date": "Jan 21, 2025",
+   "say": "And then, on the twenty first of January, 2025, the newly returned President Donald Trump gave him a full pardon. The man who built the Silk Road walked out of prison a free man.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 2024,
+     "to": 2025,
+     "label": "January 21: a pardon"
+    },
+    {
+     "type": "image",
+     "search": [
+      "White House north facade",
+      "White House"
+     ],
+     "ai": "the White House"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Free."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The popcorn tin",
+   "mood": "mystery",
+   "date": "2012",
+   "say": "But the Silk Road had one more secret. And it was hiding in a popcorn tin.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "One more secret."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "popcorn tin",
+      "metal popcorn tin"
+     ],
+     "ai": "a large metal popcorn tin"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "JAMES ZHONG",
+     "label": "the Silk Road thief",
+     "on": "James",
+     "kind": "person"
+    }
+   ],
+   "say": "In 2012, a young man named James Zhong found a flaw in the Silk Road. By clicking the withdraw button many times in a row, very fast, he tricked the site into paying him again and again. He walked away with over fifty thousand bitcoins.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "computer mouse clicking",
+      "computer mouse"
+     ],
+     "ai": "a hand clicking a computer mouse"
+    },
+    {
+     "type": "stat",
+     "number": 50676,
+     "label": "Bitcoins stolen from Silk Road",
+     "note": "US Department of Justice"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Click.",
+      "Click.",
+      "Click."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "At the time, those coins were worth less than a million dollars. Nobody noticed. He kept quiet for almost ten years, while the price of bitcoin went up, and up, and up.",
+   "visuals": [
+    {
+     "type": "year",
+     "from": 2012,
+     "to": 2021,
+     "label": "Bitcoin's price explodes"
+    },
+    {
+     "type": "image",
+     "search": [
+      "stock market chart rising",
+      "rising graph"
+     ],
+     "ai": "a price chart shooting upward"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He waited",
+      "nine years."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "Nov 2021",
+   "pops": [
+    {
+     "text": "$3.36 BILLION",
+     "label": "seized",
+     "on": "three",
+     "kind": "money"
+    }
+   ],
+   "say": "In November 2021, investigators raided his house in Gainesville, Georgia. They found the coins on tiny computer devices, hidden in a safe under the floor, and inside a popcorn tin in a bathroom cupboard. They were now worth three point three six billion dollars.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Gainesville Georgia downtown",
+      "Gainesville Georgia"
+     ],
+     "ai": "a small city in Georgia, USA"
+    },
+    {
+     "type": "image",
+     "search": [
+      "floor safe hidden",
+      "floor safe"
+     ],
+     "ai": "a safe hidden in a floor"
+    },
+    {
+     "type": "stat",
+     "number": 3.36,
+     "label": "Billion dollars, in a popcorn tin",
+     "prefix": "$",
+     "suffix": "B",
+     "note": "Seized November 2021, US Department of Justice",
+     "decimals": 1
+    },
+    {
+     "type": "text",
+     "lines": [
+      "In a",
+      "popcorn tin."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "2023",
+   "say": "It was one of the biggest money seizures in American history. James Zhong was sentenced to one year and one day in prison.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "$3.36 billion."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "1 year and 1 day."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The heads of the Hydra",
+   "mood": "tense",
+   "date": "2014",
+   "say": "Shutting down the Silk Road didn't kill the dark web. It made it bigger. Within weeks, copies appeared. Silk Road 2. Then dozens of others, each one promising to be safer than the last.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "They shut one down.",
+      "Ten more appeared."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "hydra mythology painting",
+      "Hercules and the Hydra"
+     ],
+     "ai": "a painting of a many-headed serpent"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "ALPHABAY",
+     "label": "over $1 billion",
+     "on": "AlphaBay",
+     "kind": "money"
+    }
+   ],
+   "say": "The biggest was AlphaBay. Started in late 2014, it grew to be many times larger than the Silk Road, with hundreds of thousands of users and over a billion dollars in trades. Its owner was a quiet Canadian named Alexandre Cazes, living a life of luxury in Thailand.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      -20,
+      0,
+      140,
+      70
+     ],
+     "to": [
+      -10,
+      5,
+      110,
+      65
+     ],
+     "points": [
+      {
+       "name": "Netherlands",
+       "note": "Hansa",
+       "at": [
+        4.9,
+        52.37
+       ],
+       "at_time": 0.5,
+       "side": "left"
+      },
+      {
+       "name": "Germany",
+       "note": "Hydra servers",
+       "at": [
+        8.24,
+        50.08
+       ],
+       "at_time": 1.2,
+       "side": "bottom"
+      },
+      {
+       "name": "Russia",
+       "note": "Hydra",
+       "at": [
+        37.6,
+        55.75
+       ],
+       "at_time": 1.9,
+       "side": "top"
+      },
+      {
+       "name": "Thailand",
+       "note": "AlphaBay's owner",
+       "at": [
+        100.5,
+        13.75
+       ],
+       "at_time": 2.6,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Bangkok skyline night",
+      "Bangkok skyline"
+     ],
+     "ai": "the Bangkok skyline at night"
+    },
+    {
+     "type": "image",
+     "search": [
+      "luxury sports car",
+      "Lamborghini"
+     ],
+     "ai": "an expensive sports car"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Bigger than",
+      "the Silk Road."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "Jul 2017",
+   "say": "In July 2017, police around the world moved at once. Cazes was arrested in Bangkok. A week later, he was found dead in his cell. And at the same time, Dutch police had pulled off something incredible.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Thai police officers",
+      "Royal Thai Police"
+     ],
+     "ai": "police officers in Thailand"
+    },
+    {
+     "type": "year",
+     "from": 2014,
+     "to": 2017,
+     "label": "Operation Bayonet"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Found dead",
+      "in his cell."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "They had secretly taken over another dark web market called Hansa, and kept running it, quietly, for about a month. When AlphaBay's users fled to Hansa, the police were waiting. They were the market.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Dutch National Police",
+      "Politie Netherlands"
+     ],
+     "ai": "Dutch police officers"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Amsterdam canal night",
+      "Amsterdam night"
+     ],
+     "ai": "Amsterdam at night"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The police",
+      "WERE the market."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "2015",
+   "pops": [
+    {
+     "text": "HYDRA",
+     "label": "$5 billion",
+     "on": "Hydra",
+     "kind": "money"
+    }
+   ],
+   "say": "Then there was Hydra. A Russian language market that started in 2015 and became the biggest of them all. Seventeen million customer accounts, nineteen thousand sellers, and around five billion dollars in total sales.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Moscow city skyline",
+      "Moscow International Business Center"
+     ],
+     "ai": "the Moscow skyline"
+    },
+    {
+     "type": "stat",
+     "number": 5,
+     "label": "Billion dollars in sales",
+     "prefix": "$",
+     "suffix": "B",
+     "note": "Lifetime estimate, Hydra Market"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "17 million",
+      "customers."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "Apr 2022",
+   "say": "In April 2022, German police found Hydra's servers inside Germany, seized them, and shut the market down. In December 2024, a court in Russia sentenced its operator to life in prison.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Bundeskriminalamt Wiesbaden",
+      "BKA Germany"
+     ],
+     "ai": "the German federal police headquarters"
+    },
+    {
+     "type": "year",
+     "from": 2017,
+     "to": 2022,
+     "label": "Hydra is shut down"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Life."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The other side",
+   "mood": "hopeful",
+   "date": "2011",
+   "say": "So is the dark web just a criminal supermarket? Not quite. Because the same tool that hid Ross Ulbricht has also protected people risking their lives.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Just crime?",
+      "Not quite."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "candlelight vigil crowd",
+      "vigil candles"
+     ],
+     "ai": "a crowd holding candles"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "EDWARD SNOWDEN",
+     "label": "2013",
+     "on": "Snowden",
+     "kind": "person"
+    }
+   ],
+   "say": "During the Arab Spring in 2011, protesters used Tor to reach blocked websites and talk to the world. In 2013, the whistleblower Edward Snowden relied on it while revealing secret government surveillance.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Tahrir Square protest 2011",
+      "Tahrir Square 2011"
+     ],
+     "ai": "a huge protest in a city square"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Edward Snowden",
+      "Edward Snowden 2013"
+     ],
+     "ai": "a young man speaking to a camera"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Protesters.",
+      "Whistleblowers."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2026",
+   "say": "Today, big news organisations like the BBC and the New York Times run their own dot onion websites, so that people in countries with censorship can still read the news. Millions of people use Tor every day, and most of them aren't criminals at all.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "BBC Broadcasting House",
+      "BBC building London"
+     ],
+     "ai": "a news broadcaster's building"
+    },
+    {
+     "type": "image",
+     "search": [
+      "New York Times Building",
+      "New York Times headquarters"
+     ],
+     "ai": "a newspaper headquarters tower"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Millions",
+      "every day."
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "What it teaches us",
+   "mood": "hopeful",
+   "say": "So what does the history of the dark web teach us? First. A tool is never good or evil. The same layers that hide a drug market also hide a journalist in danger.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 1:",
+      "A tool is just a tool."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "hammer on workbench",
+      "old hammer"
+     ],
+     "ai": "an old hammer on a workbench"
+    }
+   ]
+  },
+  {
+   "say": "Second. Bitcoin was never truly anonymous. Every single coin leaves a permanent trail on a public record. That trail is exactly how investigators found James Zhong, ten years later.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 2:",
+      "Money leaves a trail."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "blockchain ledger book",
+      "old ledger book"
+     ],
+     "ai": "an old accounting ledger"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Forever."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "And third. The technology was almost perfect. The people weren't. Ross Ulbricht wasn't caught by breaking the Navy's code. He was caught by one old forum post with his own email in it.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 3:",
+      "Code doesn't make mistakes.",
+      "People do."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "keyboard close up dark",
+      "keyboard dark"
+     ],
+     "ai": "a keyboard in the dark"
+    }
+   ]
+  },
+  {
+   "say": "If you like dark true stories about money, power and crime, subscribe to Midnight Archive. There's always another file in the archive.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "server lights in darkness",
+      "server LEDs"
+     ],
+     "ai": "blinking server lights in the dark"
+    },
+    {
+     "type": "title",
+     "kicker": "Subscribe",
+     "text": "Midnight Archive",
+     "sub": "True stories. Told after dark."
+    }
+   ]
+  }
+ ]
+}
