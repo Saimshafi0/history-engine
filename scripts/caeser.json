@@ -1,0 +1,2041 @@
+{
+ "title": "60 Senators Killed the Most Powerful Man in Rome",
+ "titles": [
+  "60 Senators Killed the Most Powerful Man in Rome",
+  "Caesar Was Warned. He Went Anyway.",
+  "The Murder That Destroyed the Roman Republic"
+ ],
+ "description": "On the Ides of March, 44 BC, more than sixty Roman senators stabbed Julius Caesar 23 times, men he had pardoned and promoted. This is the true story of Caesar's rise from a kidnapped young noble to dictator for life, the warnings he ignored, the murder under Pompey's statue, and how killing him to save the Republic created Rome's first emperor.",
+ "tags": [
+  "Julius Caesar",
+  "death of Julius Caesar",
+  "Ides of March",
+  "Brutus",
+  "Et tu Brute",
+  "Roman Republic",
+  "Roman history",
+  "ancient Rome documentary",
+  "assassination of Julius Caesar",
+  "Mark Antony",
+  "Augustus",
+  "Roman Senate",
+  "history documentary",
+  "betrayal in history",
+  "Midnight Archive"
+ ],
+ "hashtags": [
+  "#JuliusCaesar",
+  "#AncientRome",
+  "#History"
+ ],
+ "sources": [
+  "Suetonius, The Life of Julius Caesar",
+  "Plutarch, Life of Caesar and Life of Brutus",
+  "Appian, The Civil Wars",
+  "Cassius Dio, Roman History"
+ ],
+ "pinned_comment": "Were the senators heroes or traitors? Pick a side.",
+ "voice": "am_eric",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "BETRAYED BY\n60 MEN"
+ },
+ "thumbnails": [
+  {
+   "text": "BETRAYED BY\n60 MEN",
+   "picture": "Julius Caesar Tusculum bust",
+   "style": "face"
+  },
+  {
+   "text": "23 WOUNDS.\nONE KILLED HIM.",
+   "picture": "Death of Caesar Gérôme",
+   "style": "dark"
+  },
+  {
+   "text": "YOU TOO,\nBRUTUS?",
+   "picture": "Marcus Junius Brutus bust",
+   "style": "circle"
+  }
+ ],
+ "shorts": [
+  {
+   "from_scene": 4,
+   "to_scene": 6,
+   "hook": "He told pirates to raise his ransom",
+   "title": "Caesar told pirates he was worth more #shorts",
+   "comment": "Would you have dared?"
+  },
+  {
+   "from_scene": 32,
+   "to_scene": 35,
+   "hook": "Caesar was warned. He went anyway.",
+   "title": "The warning Caesar ignored #shorts",
+   "comment": "Would you have gone?"
+  },
+  {
+   "from_scene": 39,
+   "to_scene": 41,
+   "hook": "23 wounds. Only one killed him.",
+   "title": "How Caesar really died #shorts",
+   "comment": "Et tu, Brute? Real or Shakespeare?"
+  },
+  {
+   "from_scene": 55,
+   "to_scene": 56,
+   "hook": "They put the murder on money",
+   "title": "The coin that celebrated killing Caesar #shorts",
+   "comment": "Did you know this?"
+  }
+ ],
+ "scenes": [
+  {
+   "chapter": "The Ides of March",
+   "mood": "tense",
+   "date": "44 BC",
+   "pops": [
+    {
+     "text": "JULIUS CAESAR",
+     "label": "dictator for life",
+     "on": "dictator",
+     "kind": "person"
+    }
+   ],
+   "say": "On the morning of the fifteenth of March, 44 BC, the most powerful man in the world walked into a meeting of the Roman Senate. He had conquered Gaul, won a civil war, and been named dictator for life. Within minutes, he was lying dead on the floor.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Death of Caesar Gérôme",
+      "Jean-Léon Gérôme The Death of Caesar"
+     ],
+     "ai": "Caesar lying dead in an empty Roman hall, painting"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Julius Caesar Tusculum bust",
+      "Tusculum portrait Caesar"
+     ],
+     "ai": "an ancient marble bust of Julius Caesar"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman Senate marble hall",
+      "Roman curia interior"
+     ],
+     "ai": "a marble Roman meeting hall"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "15 March, 44 BC.",
+      "Rome."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "60+ SENATORS",
+     "label": "in the plot",
+     "on": "sixty",
+     "kind": "people"
+    }
+   ],
+   "say": "He wasn't killed by an enemy army. He was killed by more than sixty senators. Men he had pardoned. Men he had promoted. One of them, a man he treated almost like a son.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 60,
+     "label": "Senators in the plot",
+     "suffix": "+",
+     "note": "Suetonius, Life of Julius Caesar"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Vincenzo Camuccini Morte di Cesare",
+      "Camuccini Death of Caesar"
+     ],
+     "ai": "senators surrounding Caesar with daggers, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Killed by",
+      "his friends."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "This is the true story of how Julius Caesar rose higher than any Roman before him, why the men around him decided he had to die, and how the murder that was meant to save the Roman Republic ended up destroying it.",
+   "visuals": [
+    {
+     "type": "title",
+     "kicker": "The true story of",
+     "text": "The Death of Caesar",
+     "sub": "Rome, 44 BC"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman Forum ruins",
+      "Forum Romanum"
+     ],
+     "ai": "the ruins of the Roman Forum"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Meant to save Rome.",
+      "It destroyed it."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The boy the pirates took",
+   "mood": "mystery",
+   "date": "75 BC",
+   "say": "To understand why they killed him, we have to start with the man himself. And with one story that tells you everything about him.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Chiaramonti Caesar bust",
+      "Caesar Chiaramonti"
+     ],
+     "ai": "a marble bust of Caesar in a museum"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "One story",
+      "says everything."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "50 TALENTS",
+     "label": "he raised his own ransom",
+     "on": "fifty",
+     "kind": "money"
+    }
+   ],
+   "say": "When Caesar was about twenty five, he was sailing across the Aegean Sea when pirates captured his ship. They told him his ransom was twenty talents of silver. Caesar laughed at them. He said he was worth at least fifty, and told them to ask for more.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "ancient Greek trireme",
+      "trireme ship"
+     ],
+     "ai": "an ancient warship with oars"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Aegean Sea islands",
+      "Aegean coast"
+     ],
+     "ai": "blue sea between Greek islands"
+    },
+    {
+     "type": "stat",
+     "number": 50,
+     "label": "Talents of silver, his own ransom",
+     "note": "Plutarch: the pirates asked for 20, Caesar insisted on 50"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"I'm worth more.\""
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "For more than a month he lived with them as if he were their boss. He read them his poems, told them to be quiet when he wanted to sleep, and joked that one day he would come back and crucify them all. They thought it was funny.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "ancient scroll papyrus",
+      "papyrus scroll"
+     ],
+     "ai": "an ancient scroll"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Mediterranean pirates painting",
+      "ancient pirates"
+     ],
+     "ai": "pirates on a rocky island, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They laughed."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He didn't."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "When the ransom was paid and he was free, Caesar raised a small fleet, hunted the pirates down, took back the money, and did exactly what he had promised. That was Julius Caesar. He always kept his word. Especially his threats.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman galley fleet painting",
+      "Roman navy"
+     ],
+     "ai": "a fleet of Roman ships at sea"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He kept",
+      "his promise."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The rise",
+   "mood": "epic",
+   "date": "65 BC",
+   "say": "Back in Rome, Caesar understood something the old families didn't. Power came from the crowds. So he spent money like no one else. He paid for games, gladiators and feasts, and borrowed to do it.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Colosseum gladiators painting",
+      "Pollice Verso Gérôme"
+     ],
+     "ai": "gladiators in a Roman arena, painting"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman feast painting",
+      "Roman banquet"
+     ],
+     "ai": "a Roman banquet, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Buy the crowd."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "MARCUS CRASSUS",
+     "label": "the richest man in Rome",
+     "on": "Crassus",
+     "kind": "money"
+    }
+   ],
+   "say": "At one point, he owed so much money that his creditors tried to stop him leaving Rome. The richest man in the city, Marcus Crassus, stepped in and guaranteed his debts. Caesar was betting everything on one idea. Once he had power, the money would come back.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Marcus Licinius Crassus bust",
+      "Crassus Louvre"
+     ],
+     "ai": "a marble bust of a Roman nobleman"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman denarius silver coins",
+      "Roman Republic denarius"
+     ],
+     "ai": "a pile of Roman silver coins"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Buried in debt.",
+      "Betting on power."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "60 BC",
+   "pops": [
+    {
+     "text": "FIRST TRIUMVIRATE",
+     "label": "60 BC",
+     "on": "Triumvirate",
+     "kind": "law"
+    }
+   ],
+   "say": "In 60 BC he made a secret deal with the two most powerful men in Rome. Crassus, the richest. And Pompey the Great, the most famous general alive. Together, the three of them ran Rome from behind the scenes. Historians call it the First Triumvirate. To seal it, Caesar gave Pompey his only daughter, Julia, as a wife.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "First Triumvirate Caesar Pompey Crassus",
+      "Roman triumvirate coins"
+     ],
+     "ai": "three Roman leaders, ancient coins"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The rich man.",
+      "The general.",
+      "Caesar."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Three men",
+      "ran Rome."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "58 BC",
+   "pops": [
+    {
+     "text": "GAUL",
+     "label": "58 to 50 BC",
+     "on": "Gaul",
+     "kind": "place"
+    }
+   ],
+   "say": "He was right. In 58 BC, he took command in Gaul, modern France. For eight years he fought there. He won battle after battle, and sent home so much treasure and so many slaves that his name was on every Roman's lips.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Vercingetorix throws down his arms Lionel Royer",
+      "Vercingetorix surrender painting"
+     ],
+     "ai": "a Gallic chief surrendering to Caesar, painting"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Gaul map Caesar campaigns",
+      "Gallic Wars"
+     ],
+     "ai": "an old map of ancient Gaul"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "8 years.",
+      "All of Gaul."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "53 BC",
+   "pops": [
+    {
+     "text": "CARRHAE",
+     "label": "Crassus is killed, 53 BC",
+     "on": "Carrhae",
+     "kind": "death"
+    }
+   ],
+   "say": "Then the deal began to fall apart. In 54 BC, Julia died in childbirth, and the family tie between Caesar and Pompey was gone. A year later, Crassus marched east to fight the Parthians and was killed at Carrhae. A famous legend says his enemies poured molten gold into his mouth, to mock his greed.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Carrhae battle",
+      "Parthian cataphract"
+     ],
+     "ai": "ancient horse archers in the desert"
+    },
+    {
+     "type": "image",
+     "search": [
+      "molten gold pouring",
+      "liquid gold"
+     ],
+     "ai": "molten gold being poured"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Two of three",
+      "were gone."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "But in Rome, the Senate was getting nervous. A general that rich, that popular, with an army that loyal to him personally, was the most dangerous thing a republic could have.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Cicero denounces Catiline Maccari",
+      "Maccari Cicero Senate"
+     ],
+     "ai": "a Roman senator speaking in the Senate, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Too rich.",
+      "Too popular.",
+      "Too dangerous."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The river",
+   "mood": "tense",
+   "date": "49 BC",
+   "say": "In 49 BC the Senate ordered him to give up his army and come home as a private citizen. Caesar knew that if he did, his enemies would put him on trial and finish him.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman legionaries reenactment",
+      "Roman legion soldiers"
+     ],
+     "ai": "Roman soldiers in armour"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Give up the army.",
+      "Or else."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "THE RUBICON",
+     "label": "the line no general could cross",
+     "on": "Rubicon",
+     "kind": "place"
+    }
+   ],
+   "say": "There was a small river in northern Italy called the Rubicon. It marked the border. No general was allowed to cross it with his army. To do so meant war against Rome itself.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      5,
+      36,
+      20,
+      47.5
+     ],
+     "to": [
+      9.5,
+      41.2,
+      14.5,
+      45.2
+     ],
+     "route": [
+      [
+       11.34,
+       44.49
+      ],
+      [
+       12.0,
+       44.2
+      ],
+      [
+       12.45,
+       44.1
+      ],
+      [
+       12.57,
+       44.06
+      ],
+      [
+       12.6,
+       43.6
+      ],
+      [
+       12.5,
+       41.9
+      ]
+     ],
+     "route_start": 0.5,
+     "points": [
+      {
+       "name": "Rubicon",
+       "note": "the border",
+       "at": [
+        12.42,
+        44.08
+       ],
+       "at_time": 1.0,
+       "side": "right"
+      },
+      {
+       "name": "Rome",
+       "at": [
+        12.5,
+        41.9
+       ],
+       "at_time": 2.4,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Italy",
+       "at": [
+        13.8,
+        42.6
+       ]
+      },
+      {
+       "text": "Adriatic Sea",
+       "at": [
+        14.5,
+        43.8
+       ],
+       "kind": "sea"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Rubicon river Savignano",
+      "Rubicone river"
+     ],
+     "ai": "a small river in northern Italy"
+    }
+   ]
+  },
+  {
+   "say": "According to the ancient writers, Caesar stood at the river, hesitated, and then said, the die is cast. And he crossed.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Caesar crossing the Rubicon painting",
+      "Caesar Rubicon Jean Fouquet"
+     ],
+     "ai": "Caesar on horseback crossing a river, painting"
+    },
+    {
+     "type": "quote",
+     "text": "The die is cast.",
+     "by": "Julius Caesar at the Rubicon, 49 BC (Suetonius)"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He crossed."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "48 BC",
+   "pops": [
+    {
+     "text": "POMPEY THE GREAT",
+     "label": "his rival, once his son-in-law",
+     "on": "Pompey",
+     "kind": "person"
+    }
+   ],
+   "say": "The civil war that followed lasted years. His great rival Pompey, once his friend and even his son in law, fled to Greece, lost the battle of Pharsalus, and escaped to Egypt.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Pompey the Great bust Ny Carlsberg",
+      "Pompey bust"
+     ],
+     "ai": "a marble bust of Pompey the Great"
+    },
+    {
+     "type": "map",
+     "from": [
+      10,
+      28,
+      36,
+      44
+     ],
+     "to": [
+      20,
+      28,
+      36,
+      42
+     ],
+     "route": [
+      [
+       23.6,
+       39.5
+      ],
+      [
+       26,
+       36
+      ],
+      [
+       28,
+       33
+      ],
+      [
+       31.2,
+       31.2
+      ]
+     ],
+     "route_start": 0.4,
+     "points": [
+      {
+       "name": "Pharsalus",
+       "note": "48 BC",
+       "at": [
+        22.4,
+        39.3
+       ],
+       "at_time": 0.3,
+       "side": "left"
+      },
+      {
+       "name": "Egypt",
+       "note": "Pompey's end",
+       "at": [
+        31.2,
+        31.2
+       ],
+       "at_time": 2.3,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Mediterranean Sea",
+       "at": [
+        24,
+        34
+       ],
+       "kind": "sea"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "When Caesar arrived in Egypt, the Egyptians handed him a gift. Pompey's head. They thought he'd be pleased. The ancient writers say Caesar turned away and wept.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Caesar receives Pompey's head",
+      "head of Pompey presented to Caesar"
+     ],
+     "ai": "a Roman general looking away from a gift, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A gift:",
+      "his rival's head."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Alexandria ancient harbour painting",
+      "ancient Alexandria"
+     ],
+     "ai": "the ancient harbour of Alexandria"
+    }
+   ]
+  },
+  {
+   "date": "46 BC",
+   "pops": [
+    {
+     "text": "CLEOPATRA",
+     "label": "queen of Egypt",
+     "on": "Cleopatra",
+     "kind": "person"
+    }
+   ],
+   "say": "In Egypt, he met the young queen Cleopatra, and they had a son. By 46 BC, Caesar had beaten every enemy in the Roman world. He came home as the master of everything.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Cleopatra bust Berlin",
+      "Cleopatra Altes Museum"
+     ],
+     "ai": "an ancient marble bust of Cleopatra"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman triumph procession painting",
+      "Triumph of Caesar Mantegna"
+     ],
+     "ai": "a Roman victory parade, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The master",
+      "of everything."
+     ]
+    }
+   ]
+  },
+  {
+   "date": "46 BC",
+   "pops": [
+    {
+     "text": "JULY",
+     "label": "named after Julius",
+     "on": "July",
+     "kind": "date"
+    }
+   ],
+   "say": "And he changed Rome in ways we still live with. He fixed the broken Roman calendar and gave it three hundred sixty five days with a leap year every four years. The month of his birth was renamed after him. July.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman calendar Fasti Antiates",
+      "Roman calendar inscription"
+     ],
+     "ai": "an ancient carved Roman calendar"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "365 days.",
+      "A leap year."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "July.",
+      "Named after him."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "Dictator for life",
+   "mood": "mystery",
+   "date": "45 BC",
+   "say": "And here's where the trouble really began. Rome hated kings. Almost five hundred years earlier, the Romans had thrown out their last king and sworn never to have another one.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Brutus Capitoline bust",
+      "Capitoline Brutus"
+     ],
+     "ai": "an ancient bronze head of a stern Roman"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Rome hated",
+      "kings."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "Feb 44 BC",
+   "pops": [
+    {
+     "text": "DICTATOR FOR LIFE",
+     "label": "February 44 BC",
+     "on": "life",
+     "kind": "law"
+    }
+   ],
+   "say": "In an emergency, the Republic could name a dictator, but only for six months. Caesar was named dictator for ten years. Then, in February 44 BC, dictator for life.",
+   "visuals": [
+    {
+     "type": "bars",
+     "title": "How long a dictator could rule",
+     "bars": [
+      [
+       "The old rule (months)",
+       6
+      ],
+      [
+       "Caesar, 46 BC (months)",
+       120
+      ]
+     ],
+     "note": "In 44 BC he became dictator for life"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Dictator",
+      "for LIFE."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "900 SENATORS",
+     "label": "packed with his men",
+     "on": "nine",
+     "kind": "people"
+    }
+   ],
+   "say": "His face appeared on coins while he was still alive, something no living Roman had done before. He sat on a golden chair in the Senate. He filled the Senate with his own supporters, raising it to nine hundred members.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Julius Caesar denarius portrait coin 44 BC",
+      "Caesar portrait denarius"
+     ],
+     "ai": "an ancient silver coin with Caesar's face"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman curule chair",
+      "sella curulis"
+     ],
+     "ai": "an ancient Roman official chair"
+    },
+    {
+     "type": "stat",
+     "number": 900,
+     "label": "Senators, after Caesar packed the Senate"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "MARK ANTONY",
+     "label": "his right-hand man",
+     "on": "Antony",
+     "kind": "person"
+    }
+   ],
+   "say": "Then, at a festival in February, his ally Mark Antony tried to place a royal crown on his head in front of the crowd. Caesar pushed it away. Antony offered it again. Again, Caesar refused. The crowd cheered. But many senators wondered. Was it a refusal, or a rehearsal?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Mark Antony bust",
+      "Marcus Antonius bust"
+     ],
+     "ai": "a marble bust of Mark Antony"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Lupercalia festival painting",
+      "Lupercalia"
+     ],
+     "ai": "a Roman festival crowd, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A refusal?",
+      "Or a rehearsal?"
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The Liberators",
+   "mood": "tense",
+   "date": "Mar 44 BC",
+   "say": "Quietly, a group of senators started meeting in secret. They called themselves the Liberators. Their plan was simple. Kill Caesar, and give Rome back its freedom.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "ancient Roman house interior night",
+      "Roman villa atrium"
+     ],
+     "ai": "a dark Roman house at night"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"The Liberators\""
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman oil lamp",
+      "ancient oil lamp"
+     ],
+     "ai": "an ancient clay oil lamp burning"
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "GAIUS CASSIUS",
+     "label": "the organiser",
+     "on": "Cassius",
+     "kind": "person"
+    }
+   ],
+   "say": "The leader was Gaius Cassius, a sharp, angry soldier who had fought against Caesar in the civil war, and been pardoned by him.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Gaius Cassius Longinus coin",
+      "Cassius denarius"
+     ],
+     "ai": "an ancient coin of a Roman senator"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Pardoned by Caesar.",
+      "Plotting against him."
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "MARCUS BRUTUS",
+     "label": "Caesar's favourite",
+     "on": "Brutus",
+     "kind": "person"
+    }
+   ],
+   "say": "But Cassius needed a name the people would trust. He needed Marcus Brutus. Brutus came from the family of the man who had thrown out Rome's last king. And his mother, Servilia, had been one of Caesar's great loves.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Marcus Junius Brutus bust",
+      "Brutus Palazzo Massimo"
+     ],
+     "ai": "a marble bust of a serious young Roman"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman noblewoman portrait marble",
+      "Roman woman bust"
+     ],
+     "ai": "a marble bust of a Roman noblewoman"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A famous name.",
+      "A personal betrayal."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Caesar had pardoned Brutus after the war, given him top jobs, and protected him. Some people in Rome even whispered that Brutus was Caesar's own son. Historians think that's unlikely, but it shows how close they were.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman marble portrait gallery",
+      "Roman portrait busts museum"
+     ],
+     "ai": "a row of Roman marble busts in a museum"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Caesar's son?\"",
+      "Probably not.",
+      "But close."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "The plotters also had a deadline. Caesar was planning a huge war in the east, and he would leave Rome on the eighteenth of March. Once he was with his army, nobody could touch him. It had to be done before he left.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman legion marching painting",
+      "Roman army march"
+     ],
+     "ai": "a Roman army on the march, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He leaves",
+      "March 18."
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Three days",
+      "left."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "DECIMUS BRUTUS",
+     "label": "his trusted general",
+     "on": "Decimus",
+     "kind": "person"
+    }
+   ],
+   "say": "And there was a third man, the one Caesar trusted most of all. Decimus Brutus, a general who had fought beside him in Gaul. His job in the plot would be the cruelest of all. Making sure Caesar came to the meeting.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman general armour statue",
+      "Roman cuirass statue"
+     ],
+     "ai": "a statue of a Roman general in armour"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "His job:",
+      "bring Caesar."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The warnings",
+   "mood": "mystery",
+   "date": "Mar 15, 44 BC",
+   "pops": [
+    {
+     "text": "SPURINNA",
+     "label": "the soothsayer",
+     "on": "Spurinna",
+     "kind": "person"
+    }
+   ],
+   "say": "Caesar had been warned. A soothsayer named Spurinna had told him to beware of danger that would come no later than the Ides of March, the fifteenth day of the month.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman haruspex",
+      "Etruscan haruspex"
+     ],
+     "ai": "an ancient Roman priest reading signs"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Beware",
+      "the Ides of March.\""
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "CALPURNIA",
+     "label": "his wife",
+     "on": "Calpurnia",
+     "kind": "person"
+    }
+   ],
+   "say": "On the night before, his wife Calpurnia had a nightmare. She dreamed she was holding his body in her arms. In the morning she begged him not to go. For a while, he agreed to stay home.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Calpurnia dream Abel de Pujol",
+      "Calpurnia's dream"
+     ],
+     "ai": "a Roman woman waking from a nightmare, painting"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman bedroom fresco",
+      "Roman villa fresco"
+     ],
+     "ai": "a painted Roman room"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Don't go.\""
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Then Decimus Brutus arrived at his house. He told Caesar the senators were waiting, and that it would look weak to send them home because of his wife's dream. Caesar took his hand, and went.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman street ancient",
+      "Via Sacra Rome"
+     ],
+     "ai": "an ancient Roman street"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He took his hand.",
+      "And went."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "There was one more thing that made it possible. A few months earlier, Caesar had sent away his personal bodyguard. He said it was better to die once than to live always afraid of dying.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman praetorian soldiers relief",
+      "Praetorian Guard relief"
+     ],
+     "ai": "an ancient carving of Roman guards"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "No bodyguard."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "On the way, a man pushed a scroll into his hand. It listed the names of the conspirators. Caesar held it, meaning to read it later. He never did.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "ancient wax tablet",
+      "Roman writing tablet"
+     ],
+     "ai": "an ancient Roman wax writing tablet"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The names",
+      "were in his hand."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "As he passed the soothsayer, Caesar joked, the Ides of March have come. The soothsayer answered, yes, they have come. But they have not gone.",
+   "visuals": [
+    {
+     "type": "quote",
+     "text": "The Ides of March have come. ... Yes, they have come, but they have not gone.",
+     "by": "Caesar and the soothsayer (Suetonius, Plutarch)"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They have not",
+      "gone."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "23 wounds",
+   "mood": "tense",
+   "say": "The Senate wasn't meeting in its usual building that day. It met in a hall attached to the great theatre built by Pompey, the rival whose head Caesar had wept over. Inside stood a statue of Pompey.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Theatre of Pompey reconstruction",
+      "Theatre of Pompey"
+     ],
+     "ai": "an ancient Roman theatre complex"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Statue of Pompey Palazzo Spada",
+      "Pompey statue Spada"
+     ],
+     "ai": "a marble statue of Pompey"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Under",
+      "Pompey's statue."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Outside the door, one of the plotters, Trebonius, stopped Mark Antony and kept him talking. Antony was strong and loyal. They didn't want him inside.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman portico columns",
+      "ancient Roman colonnade"
+     ],
+     "ai": "a Roman colonnade"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Keep Antony",
+      "outside."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Caesar sat down. A senator named Tillius Cimber came forward, asking him to pardon his brother. The others crowded around as if they were supporting him. Then Cimber grabbed Caesar's toga and pulled it from his neck. That was the signal.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman toga statue",
+      "togatus statue"
+     ],
+     "ai": "a marble statue of a man in a toga"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The signal."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Karl von Piloty murder of Caesar",
+      "Piloty Ermordung Caesars"
+     ],
+     "ai": "senators rushing at Caesar, painting"
+    }
+   ]
+  },
+  {
+   "say": "A senator named Casca struck first, and missed, only cutting his neck. Caesar grabbed his arm and shouted at him. Then the others closed in, from every side.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "The first blow",
+      "missed."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman pugio dagger",
+      "pugio"
+     ],
+     "ai": "an ancient Roman dagger"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Then",
+      "everyone."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "23 WOUNDS",
+     "label": "only one was fatal",
+     "on": "twenty",
+     "kind": "death"
+    }
+   ],
+   "say": "According to Suetonius, Caesar was stabbed twenty three times. A doctor who examined his body later said only one of those wounds, the second, to his chest, was fatal.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 23,
+     "label": "Wounds",
+     "note": "Suetonius; a doctor said only one was fatal"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Death of Caesar painting Theodor Mommsen",
+      "Death of Julius Caesar 19th century painting"
+     ],
+     "ai": "a dramatic painting of Caesar's murder"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "23 wounds.",
+      "1 fatal."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "When he saw Brutus among them, the ancient writers say he stopped fighting. He pulled his toga over his face and fell at the foot of Pompey's statue. Some said his last words, in Greek, were, you too, child? Shakespeare later made it famous as et tu, Brute. But Suetonius says he may have said nothing at all.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "He saw Brutus."
+     ],
+     "hit": true
+    },
+    {
+     "type": "quote",
+     "text": "Kai su, teknon? (You too, child?)",
+     "by": "Reported by Suetonius, who doubted it"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Et tu, Brute?\"",
+      "Shakespeare, 1599"
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Julius Caesar was fifty five years old. The most powerful man in the world lay dead at the feet of the rival he had beaten.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 55,
+     "label": "His age"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "At the feet",
+      "of his rival."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The mistake",
+   "mood": "sad",
+   "date": "Mar 44 BC",
+   "say": "The Liberators ran out into the streets, holding up their daggers, shouting that Rome was free. They expected the people to cheer. Instead, the city went silent. People locked their doors. Nobody cheered.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman Forum painting 19th century",
+      "Forum Romanum painting"
+     ],
+     "ai": "the Roman Forum, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "\"Rome is free!\""
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Nobody",
+      "cheered."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "And then the conspirators made their biggest mistake. They let Mark Antony live, and they allowed Caesar a public funeral.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Mark Antony statue",
+      "Marcus Antonius statue"
+     ],
+     "ai": "a statue of Mark Antony"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Their biggest",
+      "mistake."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "300 SESTERCES",
+     "label": "to every citizen",
+     "on": "three",
+     "kind": "money"
+    }
+   ],
+   "say": "At the funeral, Antony read out Caesar's will. Caesar had left his gardens to the public, and money to every single citizen of Rome. Three hundred sesterces each.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Mark Antony funeral oration painting",
+      "Antony's oration over Caesar's body"
+     ],
+     "ai": "a crowd listening to a speech over a body, painting"
+    },
+    {
+     "type": "stat",
+     "number": 300,
+     "label": "Sesterces left to every citizen",
+     "note": "Suetonius; Plutarch gives 75 drachmas, about the same"
+    }
+   ]
+  },
+  {
+   "say": "Then Antony held up Caesar's bloody toga, with every tear from every dagger. The crowd exploded. They built a fire in the middle of the Forum, burned Caesar's body there, and ran through the city with torches, looking for the killers.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Roman Forum Temple of Caesar ruins",
+      "Temple of Divus Julius"
+     ],
+     "ai": "ancient ruins in the Roman Forum"
+    },
+    {
+     "type": "image",
+     "search": [
+      "torches at night crowd",
+      "burning torches"
+     ],
+     "ai": "burning torches at night"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The crowd",
+      "turned."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Cleopatra, who was living in Rome with their young son, quietly packed up and sailed home to Egypt. Without Caesar, Rome was no longer safe for her either.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Cleopatra and Caesar painting Gérôme",
+      "Cleopatra before Caesar"
+     ],
+     "ai": "Cleopatra and Caesar, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Cleopatra",
+      "fled too."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Brutus and Cassius had to flee Rome. The men who called themselves liberators were now hunted.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "The liberators",
+      "became the hunted."
+     ],
+     "hit": true
+    },
+    {
+     "type": "image",
+     "search": [
+      "Appian Way at dusk",
+      "Via Appia Antica"
+     ],
+     "ai": "an old Roman road at dusk"
+    }
+   ]
+  },
+  {
+   "chapter": "The heir",
+   "mood": "epic",
+   "date": "44 BC",
+   "pops": [
+    {
+     "text": "OCTAVIAN",
+     "label": "18, Caesar's heir",
+     "on": "Octavian",
+     "kind": "person"
+    }
+   ],
+   "say": "In his will, Caesar had named an heir. Not Antony. His eighteen year old great nephew, Octavian. Almost nobody took the sickly young man seriously.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "young Octavian bust",
+      "Octavian bust"
+     ],
+     "ai": "a marble bust of a young Roman"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "18 years old.",
+      "Underestimated."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "That summer, during games held in Caesar's honour, a bright comet appeared in the sky for seven days. Octavian told the people it was Caesar's soul rising to join the gods. Rome believed him. Caesar became a god.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "comet night sky",
+      "Great Comet"
+     ],
+     "ai": "a bright comet in the night sky"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Divus Julius coin comet star",
+      "Caesar comet coin"
+     ],
+     "ai": "an ancient coin with a star"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Caesar",
+      "became a god."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "date": "42 BC",
+   "say": "Octavian joined forces with Antony. Together they hunted the conspirators across the Roman world.",
+   "visuals": [
+    {
+     "type": "map",
+     "from": [
+      8,
+      36,
+      28,
+      46
+     ],
+     "to": [
+      18,
+      38,
+      28,
+      43
+     ],
+     "route": [
+      [
+       12.5,
+       41.9
+      ],
+      [
+       16.9,
+       41.1
+      ],
+      [
+       20.5,
+       40.6
+      ],
+      [
+       24.28,
+       41.01
+      ]
+     ],
+     "route_start": 0.4,
+     "points": [
+      {
+       "name": "Rome",
+       "at": [
+        12.5,
+        41.9
+       ],
+       "at_time": 0.3,
+       "side": "left"
+      },
+      {
+       "name": "Philippi",
+       "note": "42 BC",
+       "at": [
+        24.28,
+        41.01
+       ],
+       "at_time": 2.2,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "Greece",
+       "at": [
+        22.0,
+        39.5
+       ]
+      },
+      {
+       "text": "Adriatic",
+       "at": [
+        17.5,
+        42.6
+       ],
+       "kind": "sea"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "PHILIPPI",
+     "label": "42 BC",
+     "on": "Philippi",
+     "kind": "place"
+    }
+   ],
+   "say": "In 42 BC, at Philippi in Greece, their armies met the armies of Brutus and Cassius. Cassius, believing the battle was lost, took his own life. Weeks later, after a second defeat, so did Brutus.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Battle of Philippi",
+      "Philippi archaeological site"
+     ],
+     "ai": "an ancient battlefield in Greece"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Death of Brutus painting",
+      "Brutus suicide painting"
+     ],
+     "ai": "a defeated Roman general, painting"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Philippi.",
+      "The end of the Liberators."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Suetonius wrote that none of Caesar's killers lived more than three years after his death, and that none of them died a natural death.",
+   "visuals": [
+    {
+     "type": "quote",
+     "text": "Hardly any of his assassins survived him for more than three years, or died a natural death.",
+     "by": "Suetonius, Life of Julius Caesar"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Not one."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "The twist",
+   "mood": "epic",
+   "date": "27 BC",
+   "pops": [
+    {
+     "text": "AUGUSTUS",
+     "label": "the first emperor",
+     "on": "Augustus",
+     "kind": "person"
+    }
+   ],
+   "say": "And here's the final twist. The senators killed Caesar to stop Rome from having a king. Seventeen years later, Octavian took the name Augustus, and became Rome's first emperor. The Republic they died for never came back.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Augustus of Prima Porta",
+      "Augustus Prima Porta statue"
+     ],
+     "ai": "a marble statue of the emperor Augustus"
+    },
+    {
+     "type": "timeline",
+     "events": [
+      [
+       "49 BC",
+       "Rubicon"
+      ],
+      [
+       "44 BC",
+       "Caesar killed"
+      ],
+      [
+       "42 BC",
+       "Philippi"
+      ],
+      [
+       "27 BC",
+       "Augustus, first emperor"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They killed a dictator.",
+      "They got an emperor."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "pops": [
+    {
+     "text": "EID MAR",
+     "label": "the Ides of March",
+     "on": "EID",
+     "kind": "money"
+    }
+   ],
+   "say": "Brutus even made coins to celebrate the murder. On one side, two daggers and a cap of freedom. Under them, the words EID MAR. The Ides of March. In 2020, a gold one sold at auction for more than three million pounds.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Eid Mar denarius",
+      "Ides of March coin Brutus"
+     ],
+     "ai": "an ancient silver coin with two daggers"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "EID MAR."
+     ],
+     "hit": true
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A murder",
+      "on money."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And the spot where Caesar fell? Today it's a sunken square of ruins in the middle of Rome called Largo di Torre Argentina. It is home to a sanctuary for stray cats. They sleep among the stones where the most famous murder in history happened.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Largo di Torre Argentina",
+      "Area Sacra Largo Argentina"
+     ],
+     "ai": "ancient ruins in a square in Rome"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Largo di Torre Argentina cats",
+      "cats Torre Argentina"
+     ],
+     "ai": "cats sleeping on ancient Roman stones"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Now:",
+      "a home for cats."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "chapter": "What it teaches about power",
+   "mood": "hopeful",
+   "say": "So what does the death of Caesar teach us about power? First. The most dangerous people are rarely your enemies. Caesar pardoned the men who killed him. He trusted the man who walked him to his death.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 1:",
+      "Watch your friends."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman marble hands sculpture",
+      "marble hand sculpture"
+     ],
+     "ai": "marble hands from an ancient statue"
+    }
+   ]
+  },
+  {
+   "say": "Second. Power without limits always creates enemies. The moment Caesar became dictator for life, every ambitious man in Rome had a reason to want him gone.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 2:",
+      "Unlimited power",
+      "makes enemies."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Roman Senate ruins Curia Julia",
+      "Curia Julia"
+     ],
+     "ai": "the old Roman Senate house"
+    }
+   ]
+  },
+  {
+   "say": "And third. Killing a leader doesn't kill an idea. The Liberators thought one morning of violence would fix everything. Instead, they made Caesar a god, and handed Rome to an emperor.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Lesson 3:",
+      "You can kill a man.",
+      "Not an idea."
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "sunset over Rome",
+      "Rome skyline sunset"
+     ],
+     "ai": "Rome at sunset"
+    }
+   ]
+  },
+  {
+   "say": "If you like dark true stories about money, power and betrayal, subscribe to Midnight Archive. There's always another file in the archive.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Colosseum at night",
+      "Colosseum night"
+     ],
+     "ai": "the Colosseum lit up at night"
+    },
+    {
+     "type": "title",
+     "kicker": "Subscribe",
+     "text": "Midnight Archive",
+     "sub": "True stories. Told after dark."
+    }
+   ]
+  }
+ ]
+}
