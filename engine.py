@@ -1854,6 +1854,43 @@ def plan(script):
                         pops.append({"t": hit[0], "text": tok.upper(), "label": "", "script": False, "kind": pop_kind(tok + " " + after)})
         t += dur
     total = t
+    # no shot longer than MAX_SHOT: long picture shots get a second, closer framing (if that picture may still be used),
+    # long clips jump to a later moment of the same clip
+    uses = {}
+    for b in beats:
+        f_ = b["visual"].get("file")
+        if b["visual"].get("type") == "image" and f_:
+            uses[f_] = uses.get(f_, 0) + 1
+    out_b = []
+    for b in beats:
+        v = b["visual"]
+        n_ = math.ceil(b["dur"] / (MAX_SHOT + 0.3))
+        if n_ <= 1 or v.get("type") not in ("image", "video"):
+            out_b.append(b)
+            continue
+        if v.get("type") == "image" and (not v.get("file") or uses.get(v["file"], 0) >= MAX_USES):
+            out_b.append(b)
+            continue
+        n_ = min(n_, 2) if v.get("type") == "image" else min(n_, 3)
+        part = b["dur"] / n_
+        for j in range(n_):
+            nb = dict(b)
+            nb["start"] = round(b["start"] + j * part, 3)
+            nb["dur"] = round(part, 3)
+            if j:
+                nv = dict(v)
+                if v["type"] == "image":
+                    nv["recut"] = int(v.get("recut") or 0) + 1
+                    nv.pop("caption", None)
+                    uses[v["file"]] = uses.get(v["file"], 0) + 1
+                else:
+                    nv["clip_off"] = round(float(v.get("clip_off") or 0) + j * (part + 1.0), 2)
+                nb["visual"] = nv
+                nb["new_scene"] = False
+            out_b.append(nb)
+    beats = out_b
+    for i_, b in enumerate(beats):
+        b["i"] = i_
     last_hit = -99
     for b in beats:
         v = b["visual"]
@@ -2672,7 +2709,46 @@ def html_unescape(t):
 
 
 # Bing is NOT used: its "free license" results were random junk (logos, name pages).
-SOURCES = [("commons", commons_candidates), ("aic", aic_candidates), ("openverse", openverse_candidates)]
+def loc_candidates(queries):
+    """Library of Congress: photos, newspapers, prints. Only items marked 'no known restrictions'."""
+    def one(q):
+        url = "https://www.loc.gov/photos/?" + urllib.parse.urlencode({"q": q, "fo": "json", "c": 40})
+        data = http_json(url)
+        res = []
+        for r in data.get("results") or []:
+            blob = json.dumps(r).lower()
+            if "no known restrictions" not in blob and "public domain" not in blob:
+                continue
+            imgs = [u for u in (r.get("image_url") or []) if isinstance(u, str)]
+            if not imgs:
+                continue
+            u = imgs[-1].split("#")[0]
+            if u.startswith("//"):
+                u = "https:" + u
+            title = r.get("title") or q
+            res.append({"title": str(title)[:140], "url": u, "src": "loc",
+                        "credit": f"{str(title)[:90]} - Library of Congress - No known restrictions - {r.get('url', '')}"})
+        return res
+    return _search_many("Library of Congress", queries, one)
+
+
+def pixabay_photo_candidates(queries):
+    """Pixabay photos (free key): modern real photos of places, cities, objects."""
+    key = secret("pixabay_key")
+    if not key:
+        return []
+
+    def one(q):
+        url = "https://pixabay.com/api/?" + urllib.parse.urlencode({"key": key, "q": q[:95], "image_type": "photo", "per_page": 30, "safesearch": "true"})
+        data = http_json(url)
+        return [{"title": h.get("tags") or q, "url": h.get("largeImageURL"), "src": "pixabay",
+                 "credit": f"{h.get('tags', 'photo')} - {h.get('user', 'unknown')} on Pixabay - Pixabay Content License - {h.get('pageURL', '')}"}
+                for h in data.get("hits") or [] if h.get("largeImageURL") and int(h.get("imageWidth") or 0) >= 1200]
+    return _search_many("Pixabay photos", queries, one)
+
+
+SOURCES = [("commons", commons_candidates), ("openverse", openverse_candidates), ("loc", loc_candidates), ("met", met_candidates),
+           ("aic", aic_candidates), ("pixabay", pixabay_photo_candidates)]
 
 
 def ai_painting(prompt, path):
@@ -2740,11 +2816,11 @@ def _find_candidates(key, v, use_ai, state):
                 except OSError:
                     pass
     cands = [c for c in (meta.get("candidates") or []) if c.get("url")]
-    if cands and meta.get("cver", 0) >= 3:
+    if cands and meta.get("cver", 0) >= 4:
         return key, meta
     if cands and len([c for c in cands if not c.get("weak")]) >= 4:
         meta["candidates"] = _rank_candidates(cands, q)
-        meta["cver"] = 3
+        meta["cver"] = 4
         _json_write(meta_p, meta)
         return key, meta
     found = list(cands)
@@ -2765,10 +2841,10 @@ def _find_candidates(key, v, use_ai, state):
             continue
         seen = {c["url"] for c in found}
         found += [c for c in got if c["url"] not in seen]
-        if len([c for c in _rank_candidates(found, q) if not c.get("weak")]) >= 6:
+        if len([c for c in _rank_candidates(found, q) if not c.get("weak")]) >= 14:
             break  # enough good options, don't ask the next website
     meta["candidates"] = _rank_candidates(found, q)
-    meta["cver"] = 3
+    meta["cver"] = 4
     _json_write(meta_p, meta)
     return key, meta
 
@@ -3081,7 +3157,7 @@ def resolve_pictures(script, use_ai=True):
 #   - your own clips (clips_own/<slide>.mp4): YOUR responsibility (see MEDIA-RULES.txt)
 # Every clip is credited in the description.
 
-CLIP_SEC = 9.0          # how much of each clip we cut (beats are shorter, so there is room)
+CLIP_SEC = 15.0         # how much of each clip we cut: enough for 3 different moments of 4-5 seconds
 _OK_LIC = re.compile(r"public ?domain|publicdomain|\bpd\b|pd-|cc0|cc[- ]?by|creativecommons\.org/licenses/by(-sa)?/|creativecommons\.org/publicdomain", re.I)
 _BAD_LIC = re.compile(r"\bnc\b|\bnd\b|-nc|-nd|by-nc|by-nd|noncommercial|noderiv", re.I)
 
@@ -3317,6 +3393,39 @@ def _video_candidates(key, v, state):
     return ranked
 
 
+MAX_SHOT = 4.6   # seconds one visual may stay on screen
+MAX_USES = 2     # how often the same picture/clip moment may appear in one video
+
+
+def expand_visuals(script):
+    """Every scene gets enough visuals that none stays longer than MAX_SHOT seconds.
+    Extra slots reuse the scene's own searches: the engine then takes the NEXT picture/clip for that search,
+    so they are new, real and on topic. Scenes with no picture search borrow the previous scene's searches."""
+    added = 0
+    last_pool = []
+    for sc in script["scenes"]:
+        say = sc.get("say") or ""
+        est = 0.4 + len(say.split()) / 2.35 + 0.45 * max(1, len(split_sentences(say)))
+        vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
+        need = max(1, math.ceil(est / MAX_SHOT))
+        pool = [v for v in vis if v.get("type") in ("image", "video") and _queries(v)] or last_pool
+        k = 0
+        while len(vis) < need and pool:
+            src = pool[k % len(pool)]
+            nv = {kk: vv for kk, vv in src.items() if kk in ("type", "search", "source", "look", "year", "ai", "label")}
+            nv["extra"] = True
+            pos = min(len(vis), 1 + 2 * (k + 1))  # spread the new shots between the planned ones
+            vis.insert(pos, nv)
+            k += 1
+            added += 1
+        sc["visuals"] = vis
+        sc.pop("visual", None)
+        if pool:
+            last_pool = [v for v in vis if v.get("type") in ("image", "video") and _queries(v)][-3:]
+    log(f"  {added} extra shots planned so no picture stays longer than about 4-5 seconds")
+    return added
+
+
 VIDEO_REPORT = []
 
 
@@ -3346,6 +3455,7 @@ def resolve_videos(script, W, H, fps):
     print()
     used, credits, got = set(), [], 0
     report = []
+    seg_uses = {}
     for i, (key, v) in enumerate(slides, 1):
         print(f"\r   cutting clips {i}/{len(slides)}  ({30 + i * 20 // len(slides)}%)", end="", flush=True)
         own = next((A("clips_own", key + e) for e in (".mp4", ".mov", ".webm", ".mkv", ".m4v") if os.path.exists(A("clips_own", key + e))), None)
@@ -3365,9 +3475,25 @@ def resolve_videos(script, W, H, fps):
             except Exception as e:
                 c["bad"] = True
                 why.append(f"{c.get('src')}: {str(e)[:90]}")
+        if not done:  # nothing new: show a LATER moment of a clip already cut for this search (max 3 moments per clip)
+            for (k2, d2), n_used in list(seg_uses.items()):
+                if k2 == key and n_used < 3:
+                    info2 = _json_read(os.path.join(d2, "info.json"), {})
+                    if int(info2.get("n") or 0) >= (n_used + 1) * MAX_SHOT * fps:
+                        seg_uses[(k2, d2)] = n_used + 1
+                        v["clip"] = os.path.relpath(d2, ROOT).replace(os.sep, "/")
+                        v["clip_off"] = round(n_used * MAX_SHOT, 2)
+                        v["clip_kind"] = info2.get("kind")
+                        got += 1
+                        report.append(f"OK    {' / '.join(_queries(v))}  ->  another moment of the same clip")
+                        done = "segment"
+                        break
+            if done == "segment":
+                continue
         if done:
             c, d = done
             used.add(c["url"])
+            seg_uses[(key, d)] = 1
             info = _json_read(os.path.join(d, "info.json"), {})
             v["clip"] = os.path.relpath(d, ROOT).replace(os.sep, "/")
             v["clip_kind"] = c.get("kind") or info.get("kind")
@@ -3513,8 +3639,10 @@ class VideoScene(Scene):
         super().__init__(*a)
         self.dir = A(self.v["clip"]) if self.v.get("clip") else None
         info = _json_read(os.path.join(self.dir, "info.json"), {}) if self.dir else {}
-        self.n = int(info.get("n") or 0)
         self.fps = int(info.get("fps") or 25)
+        n_all = int(info.get("n") or 0)
+        self.off = max(0, min(int(float(self.v.get("clip_off") or 0) * self.fps), n_all - int(MAX_SHOT * self.fps)))
+        self.n = max(0, n_all - self.off)
         self.cache = (None, None)
         kind = self.v.get("clip_kind") or info.get("kind")
         self.look = self.v.get("look") or ("film" if (kind == "archive" and int(self.v.get("year") or 3000) < 1975) else None)
@@ -3529,7 +3657,7 @@ class VideoScene(Scene):
     def _frame(self, i):
         if self.cache[0] == i:
             return self.cache[1].copy()
-        p = os.path.join(self.dir, f"{i + 1:04d}.jpg")
+        p = os.path.join(self.dir, f"{i + 1 + self.off:04d}.jpg")
         im = Image.open(p).convert("RGB")
         if im.size != (self.W, self.H):
             im = im.resize((self.W, self.H), Image.BILINEAR)
@@ -3699,7 +3827,30 @@ SCENES["casefile"] = CaseFileScene
 TEXTY = ("text", "title", "quote", "stat", "type", "year", "bars", "timeline", "count")
 
 
-def curate_visuals(script):
+def backup_searches(script):
+    """Broad, real searches about the same story (its places, people, era) to fill gaps with NEW real pictures instead of repeats."""
+    given = [q for q in (script.get("backup_searches") or []) if isinstance(q, str) and q.strip()]
+    if given:
+        return given
+    cnt = {}
+    for sc in script["scenes"]:
+        for v in sc.get("visuals") or []:
+            if v.get("type") in ("image", "video"):
+                for w in re.findall(r"[A-Za-z][A-Za-z']{3,}", " ".join(_queries(v))):
+                    if w.lower()[:5] in _STOP or w.lower() in _STOP:
+                        continue
+                    cnt[w] = cnt.get(w, 0) + (2 if w[0].isupper() else 1)
+    words = [w for w, _ in sorted(cnt.items(), key=lambda x: -x[1])][:14]
+    years = sorted({int(y) for sc in script["scenes"] for y in re.findall(r"\b(1[0-9]{3}|20[0-2][0-9])\b", str(sc.get("date", "")))})
+    out = []
+    for i, w in enumerate(words):
+        out.append(w)
+        if years and i < 6:
+            out.append(f"{w} {years[min(i, len(years) - 1)]}")
+    return out
+
+
+def curate_visuals(script, final=True):
     """Before the video is made: only REAL, fitting visuals stay.
     - a slide whose picture/clip was not found is removed (never a text card with the search words)
     - the same picture is not shown again as a 'close-up' when the scene has anything else
@@ -3725,6 +3876,14 @@ def curate_visuals(script):
     dropped = {"missing": 0, "repeat": 0, "text": 0}
     used_files = {}
     prev_real = None
+    backups = backup_searches(script) if not final else []
+    bi = [0]
+    recent = []
+
+    def backup_slot():
+        q = backups[bi[0] % len(backups)]
+        bi[0] += 1
+        return {"type": "image", "search": [q], "extra": True, "backup": True}
     for sc in scenes:
         vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
         out = []
@@ -3732,9 +3891,16 @@ def curate_visuals(script):
             t = v.get("type")
             if t == "image" and not v.get("file"):
                 dropped["missing"] += 1
+                if backups and not v.get("backup"):
+                    out.append(backup_slot())
+                continue
+            if t == "image" and used_files.get(v.get("file"), 0) >= MAX_USES:
+                dropped["repeat"] += 1
+                if backups and not v.get("backup"):
+                    out.append(backup_slot())
                 continue
             if t == "image" and v.get("recut"):
-                if used_files.get(v["file"], 0) >= 2 or any(real(x) for x in vis if x is not v):
+                if any(real(x) for x in vis if x is not v and not x.get("recut")):
                     dropped["repeat"] += 1
                     continue
             if t in TEXTY and id(v) not in keep_text and (any(real(x) for x in vis if x is not v) or prev_real is not None):
@@ -3743,8 +3909,11 @@ def curate_visuals(script):
             if t == "image":
                 used_files[v["file"]] = used_files.get(v["file"], 0) + 1
             out.append(v)
-        if not out and prev_real is not None:  # nothing real here: stay on the last real shot (a slow detail of it), never a text card
-            v2 = dict(prev_real)
+        if not out and prev_real is not None:  # nothing real here: a recent real shot that may still be used, never a text card
+            cand = [x for x in reversed(recent) if x.get("type") == "video" or used_files.get(x.get("file"), 0) < MAX_USES]
+            v2 = dict(cand[0] if cand else prev_real)
+            if v2.get("type") == "image":
+                used_files[v2["file"]] = used_files.get(v2["file"], 0) + 1
             if v2.get("type") == "image":
                 v2["recut"] = int(v2.get("recut") or 0) + 1
             v2.pop("caption", None)
@@ -3752,11 +3921,15 @@ def curate_visuals(script):
         for v in out:
             if shot(v):
                 prev_real = v
+                recent = (recent + [v])[-8:]
         if out:
             sc["visuals"] = out
             sc.pop("visual", None)
-    log(f"  visuals checked: {sum(dropped.values())} removed ({dropped['missing']} not found, {dropped['repeat']} repeats, {dropped['text']} extra text slides)")
-    return dropped
+    if final:
+        log(f"  visuals checked: {sum(dropped.values())} removed ({dropped['missing']} not found, {dropped['repeat']} repeats, {dropped['text']} extra text slides)")
+    else:
+        log(f"  {bi[0]} gaps will get new real pictures from broader searches ({', '.join(backups[:6])}...)")
+    return bi[0] if not final else sum(dropped.values())
 
 
 def next_picture(key):
@@ -4469,8 +4642,11 @@ def build(script_path, preview=False, captions=None):
     except Exception as e:
         log(f"  couldn't download the offline voice ({e}); using the online voice instead.")
     log("STEP 1/4 Pictures and clips")
+    expand_visuals(script)
     vcredits = resolve_videos(script, W, H, fps)
     credits, missing = resolve_pictures(script, use_ai=cfg.get("ai_pictures", True))
+    if curate_visuals(script, final=False):  # gaps and repeats -> new real pictures from broader searches
+        credits, missing = resolve_pictures(script, use_ai=False)
     credits = vcredits + [c for c in credits if c not in vcredits]
     curate_visuals(script)
     if missing:
@@ -4823,7 +4999,7 @@ STYLE_RULES = """VOICE OF THE STORY (this is what makes people stay)
   Minors: no names unless widely published, never any sexual detail. The story honours the victim, never the criminal.
 - YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on)."""
 
-VISUAL_RULES = """VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 5-7 seconds = about 1 per 15 words)
+VISUAL_RULES = """VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 4-5 seconds = about 2 per 22 words; each visual is on screen max 5 seconds)
 EVERYTHING ON SCREEN MUST BE REAL AND ABOUT THIS STORY. Viewers leave when the picture doesn't match the words.
 Mix, per chapter: about 35% "video", 50% "image", a few maps, dates and case files. Text slides ("text", "type", "stat", "quote") at most ONE per chapter.
 Every image/video search must name a SPECIFIC REAL thing that has photos or footage online: the actual person (if public photos exist),
@@ -4967,6 +5143,7 @@ Answer ONLY JSON:
  "facts": ["20-35 short, checkable facts: names, dates, places, numbers, what happened, what happened after"],
  "unsure": ["things that are disputed or that you are not sure about (the script must not state these as fact)"],
  "sources": ["real books, court records, news outlets or reports this is based on"],
+ "backup_searches": ["15 broad searches for REAL photos/footage of this story's places, people and era, e.g. 'Hangzhou old town', 'Edinburgh 1820s', 'Khmer Rouge soldiers 1975'"],
  "hook": "the first 2 sentences: a true, shocking, quiet hook (no 'welcome back', no 'in this video')",
  "chapters": [{{"name": "Chapter name", "mood": "tense|mystery|sad|epic|hopeful", "covers": "what this chapter tells, which facts", "open_loop": "the question it leaves", "words": 260}}]
 }}
@@ -5035,7 +5212,8 @@ Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\\nHIM",
               "sources": outline.get("sources") or [], "pinned_comment": meta.get("pinned_comment", ""), "voice": "saim", "speed": 0.95,
               "thumbnail": {"text": thumbs[0]["text"] if thumbs else "THE TRUTH\nCAME OUT"}, "thumbnails": thumbs,
               "shorts": [s for s in (meta.get("shorts") or []) if isinstance(s, dict) and "from_scene" in s][:4],
-              "facts_to_check": facts, "unsure": outline.get("unsure") or [], "written_by": f"{name} {model}", "scenes": scenes}
+              "facts_to_check": facts, "unsure": outline.get("unsure") or [],
+              "backup_searches": [q for q in (outline.get("backup_searches") or []) if isinstance(q, str)][:20], "written_by": f"{name} {model}", "scenes": scenes}
     slug = re.sub(r"[^a-z0-9]+", "_", topic.lower()).strip("_")[:40] or "new_video"
     path = A("scripts", slug + ".json")
     _json_write(path, script)
