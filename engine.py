@@ -1857,7 +1857,7 @@ def plan(script):
     last_hit = -99
     for b in beats:
         v = b["visual"]
-        if v.get("hit") is True or (v.get("hit") is not False and v.get("type") in ("text", "stat", "title", "year") and b["start"] - last_hit > 45 and b["start"] > 8):
+        if v.get("hit") is True or (v.get("hit") is not False and v.get("type") in ("text", "stat", "title", "year") and b["start"] - last_hit > 75 and b["start"] > 8):
             b["hit"] = True
             last_hit = b["start"]
     # tidy callouts: one at a time, 1.8-3.4 s each, never on number/text slides
@@ -1867,7 +1867,7 @@ def plan(script):
         b = next((x for x in beats if x["start"] <= p["t"] < x["start"] + x["dur"]), None)
         if not b or b["visual"].get("type") in (QUIET_TYPES if not p["script"] else ("stat", "year", "title", "text", "quote")):
             continue
-        if p["t"] < last_end + 0.3:
+        if p["t"] < last_end + (0.3 if p["script"] else 14):  # numbers spoken aloud get a card only now and then
             continue
         end = min(p["t"] + 3.4, b["start"] + b["dur"] - 0.2)
         if end - p["t"] < 1.4:
@@ -2246,7 +2246,6 @@ def overlay(img, t, plan_, cur, prev, W, H, captions=False):
     s = W / 1920
     d = ImageDraw.Draw(img, "RGBA")
     total = plan_["total"]
-    d.rectangle([0, 0, W * t / total, max(3, int(4 * s))], fill=GOLD + (230,))
     date = cur["date"]
     if date:
         changing = prev is not None and prev["date"] != date and (t - cur["start"]) < 1.4
@@ -2712,10 +2711,11 @@ def _rank_candidates(cands, queries):
     for q in queries:
         qw |= _sig_words(q)
     scored = []
+    need = 1 if len(qw) <= 2 else 2  # a long search must share at least 2 real words with the title
     for i, c in enumerate(cands):
         s = len(qw & _sig_words(c.get("title", ""))) if qw else 1
         c = dict(c)
-        c["weak"] = s == 0
+        c["weak"] = s < need
         scored.append((-s, i, c))
     scored.sort(key=lambda x: (x[0], x[1]))
     return [c for _, _, c in scored]
@@ -3103,12 +3103,14 @@ def commons_video_candidates(queries):
     def one(q):
         url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
             "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6, "gsrsearch": q + " filetype:video", "gsrlimit": 20,
-            "prop": "videoinfo", "viprop": "url|size|mime|extmetadata|derivatives"})
+            "prop": "videoinfo|imageinfo", "viprop": "url|size|mime|extmetadata|derivatives", "iiprop": "url|size|mime|extmetadata"})
         data = http_json(url)
         res = []
         pages = sorted((data.get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
         for p in pages:
-            vi = (p.get("videoinfo") or [{}])[0]
+            vi = (p.get("videoinfo") or p.get("imageinfo") or [{}])[0]
+            if not str(vi.get("mime", "video")).startswith(("video", "application/ogg")):
+                continue
             meta = vi.get("extmetadata") or {}
             lic = (meta.get("LicenseShortName") or {}).get("value", "")
             if not _lic_ok(lic):
@@ -3303,9 +3305,19 @@ def _video_candidates(key, v, state):
             found += [c for c in got if c["url"] not in seen]
         if len([c for c in _rank_candidates(found, q) if not c.get("weak")]) >= 3:
             break
-    ranked = _rank_candidates(found, q)
+    qw = set()
+    for x in q:
+        qw |= _sig_words(x)
+    ranked = []
+    for c in _rank_candidates(found, q):
+        c["weak"] = not (qw & _sig_words(c.get("title", ""))) if qw else False
+        ranked.append(c)
+    ranked.sort(key=lambda c: c["weak"])
     _json_write(meta_p, {"q": q, "at": time.time(), "candidates": ranked})
     return ranked
+
+
+VIDEO_REPORT = []
 
 
 def resolve_videos(script, W, H, fps):
@@ -3333,13 +3345,15 @@ def resolve_videos(script, W, H, fps):
             print(f"\r   searching clips {i}/{len(futs)}  ({i * 30 // max(1, len(futs))}%)", end="", flush=True)
     print()
     used, credits, got = set(), [], 0
+    report = []
     for i, (key, v) in enumerate(slides, 1):
         print(f"\r   cutting clips {i}/{len(slides)}  ({30 + i * 20 // len(slides)}%)", end="", flush=True)
         own = next((A("clips_own", key + e) for e in (".mp4", ".mov", ".webm", ".mkv", ".m4v") if os.path.exists(A("clips_own", key + e))), None)
         pool = ([{"url": own, "src": "own", "kind": "own", "credit": v.get("credit") or ""}] if own else []) + \
                [c for c in cands.get(key, []) if not c.get("weak")] + [c for c in cands.get(key, []) if c.get("weak")][:1]
         done = None
-        for c in pool[:6]:
+        why = []
+        for c in pool[:8]:
             if c["url"] in used:
                 continue
             d = _clip_dir(key, c, W, H, fps)
@@ -3350,7 +3364,7 @@ def resolve_videos(script, W, H, fps):
                 break
             except Exception as e:
                 c["bad"] = True
-                log(f"\n    clip skipped ({c.get('src')}: {str(e)[:70]})")
+                why.append(f"{c.get('src')}: {str(e)[:90]}")
         if done:
             c, d = done
             used.add(c["url"])
@@ -3361,11 +3375,19 @@ def resolve_videos(script, W, H, fps):
             if c.get("credit") and c["credit"] not in credits:
                 credits.append(c["credit"])
             got += 1
+            report.append(f"OK    {' / '.join(_queries(v))}  ->  {c.get('src')}: {c.get('title', '')[:70]}")
         else:
             v["type"] = "image"   # no footage: the same search as a picture
             v["was_video"] = True
+            report.append(f"NONE  {' / '.join(_queries(v))}  ->  {len(cands.get(key, []))} found" + (" | " + " | ".join(why[:3]) if why else ""))
     print()
     log(f"  clips: {got} real clips, {len(slides) - got} slide(s) changed to pictures")
+    dead = sorted(state["dead"])
+    if dead:
+        log("  clip websites not reachable: " + ", ".join(dead))
+    if not secret("pexels_key") and not secret("pixabay_key"):
+        log("  (no Pexels/Pixabay key: only archive footage was searched. Add the free keys in the app, Help tab.)")
+    VIDEO_REPORT[:] = report
     return credits
 
 
@@ -3672,6 +3694,69 @@ SCENES["type"] = TypeScene
 SCENES["casefile"] = CaseFileScene
 
 
+
+
+TEXTY = ("text", "title", "quote", "stat", "type", "year", "bars", "timeline", "count")
+
+
+def curate_visuals(script):
+    """Before the video is made: only REAL, fitting visuals stay.
+    - a slide whose picture/clip was not found is removed (never a text card with the search words)
+    - the same picture is not shown again as a 'close-up' when the scene has anything else
+    - text slides are kept rare (about 1 per 90 seconds); real pictures and clips carry the video
+    The narration stays the same: the remaining visuals simply stay on screen longer, still moving."""
+    scenes = script["scenes"]
+    words = sum(len((sc.get("say") or "").split()) for sc in scenes)
+    minutes = max(1.0, words / 140)
+    text_budget = max(3, int(minutes / 1.5))
+    real = lambda v: (v.get("type") == "image" and v.get("file")) or (v.get("type") == "video" and v.get("clip")) or v.get("type") in ("map", "date", "casefile")
+    shot = lambda v: (v.get("type") == "image" and v.get("file")) or (v.get("type") == "video" and v.get("clip"))
+    # which text slides to keep: the punchy ones ("hit") first, then spread evenly
+    texts = [(si, j, v) for si, sc in enumerate(scenes) for j, v in enumerate(sc.get("visuals") or []) if v.get("type") in TEXTY]
+    texts.sort(key=lambda x: (0 if x[2].get("hit") else 1, x[0]))
+    keep_text, last = set(), []
+    for si, j, v in texts:
+        if len(keep_text) >= text_budget:
+            break
+        if any(abs(si - k) < max(2, len(scenes) // (text_budget + 1)) for k in last):
+            continue
+        keep_text.add(id(v))
+        last.append(si)
+    dropped = {"missing": 0, "repeat": 0, "text": 0}
+    used_files = {}
+    prev_real = None
+    for sc in scenes:
+        vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
+        out = []
+        for v in vis:
+            t = v.get("type")
+            if t == "image" and not v.get("file"):
+                dropped["missing"] += 1
+                continue
+            if t == "image" and v.get("recut"):
+                if used_files.get(v["file"], 0) >= 2 or any(real(x) for x in vis if x is not v):
+                    dropped["repeat"] += 1
+                    continue
+            if t in TEXTY and id(v) not in keep_text and (any(real(x) for x in vis if x is not v) or prev_real is not None):
+                dropped["text"] += 1
+                continue
+            if t == "image":
+                used_files[v["file"]] = used_files.get(v["file"], 0) + 1
+            out.append(v)
+        if not out and prev_real is not None:  # nothing real here: stay on the last real shot (a slow detail of it), never a text card
+            v2 = dict(prev_real)
+            if v2.get("type") == "image":
+                v2["recut"] = int(v2.get("recut") or 0) + 1
+            v2.pop("caption", None)
+            out = [v2]
+        for v in out:
+            if shot(v):
+                prev_real = v
+        if out:
+            sc["visuals"] = out
+            sc.pop("visual", None)
+    log(f"  visuals checked: {sum(dropped.values())} removed ({dropped['missing']} not found, {dropped['repeat']} repeats, {dropped['text']} extra text slides)")
+    return dropped
 
 
 def next_picture(key):
@@ -4387,6 +4472,7 @@ def build(script_path, preview=False, captions=None):
     vcredits = resolve_videos(script, W, H, fps)
     credits, missing = resolve_pictures(script, use_ai=cfg.get("ai_pictures", True))
     credits = vcredits + [c for c in credits if c not in vcredits]
+    curate_visuals(script)
     if missing:
         log(f"  {len(missing)} slide(s) without a picture use a gold title card instead.")
     log("STEP 2/4 Voice")
@@ -4429,6 +4515,9 @@ def build(script_path, preview=False, captions=None):
         log(f"   (3 thumbnails failed: {str(e)[:80]}; making the simple one)")
         make_thumbnail(script, pl, out_dir)
     write_texts(script, pl, credits, out_dir)
+    if VIDEO_REPORT:
+        with open(os.path.join(out_dir, "clips_report.txt"), "w", encoding="utf-8") as f:
+            f.write("REAL CLIPS: what was found for every video slide\n\n" + "\n".join(VIDEO_REPORT) + "\n")
     if silent:
         with open(os.path.join(out_dir, "voiceover_guide.txt"), "w", encoding="utf-8") as f:
             f.write("VOICE-OVER GUIDE: say each line at the time shown (the video has no voice, only music)\n\n")
@@ -4687,7 +4776,6 @@ def short_frame(clip, t, dur, total, hook, lines, long_title):
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=GOLD + (int(240 * a),))
         d.polygon([(cx - 22, cy - 34), (cx - 22, cy + 34), (cx + 36, cy)], fill=(15, 12, 8, int(255 * a)))
     d = ImageDraw.Draw(img, "RGBA")
-    d.rectangle([0, 0, W * t / total, 8], fill=GOLD + (230,))
     return dust(img, t, 0.5, seed=9)
 
 
@@ -4735,8 +4823,12 @@ STYLE_RULES = """VOICE OF THE STORY (this is what makes people stay)
   Minors: no names unless widely published, never any sexual detail. The story honours the victim, never the criminal.
 - YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on)."""
 
-VISUAL_RULES = """VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 3-4 seconds = about 2 per 15 words)
-Mix, per chapter: about 30% "video", 45% "image", the rest maps, dates, typed words, case files and numbers. Never 3 of the same type in a row.
+VISUAL_RULES = """VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 5-7 seconds = about 1 per 15 words)
+EVERYTHING ON SCREEN MUST BE REAL AND ABOUT THIS STORY. Viewers leave when the picture doesn't match the words.
+Mix, per chapter: about 35% "video", 50% "image", a few maps, dates and case files. Text slides ("text", "type", "stat", "quote") at most ONE per chapter.
+Every image/video search must name a SPECIFIC REAL thing that has photos or footage online: the actual person (if public photos exist),
+the actual town, street, building, court house, prison, newspaper front page, ship, army, protest, ruins, document. Add the year or country.
+NEVER vague searches like "sad woman", "dark room", "crime scene", "mystery". If no real picture of a moment exists, show the real PLACE where it happened.
 - {"type":"video","search":["english search","second search"],"source":"archive"|"stock","year":1969,"look":"film|tv|rec|glitch" (optional)}
     "archive" = REAL footage of that time/place/event (Wikimedia Commons, Internet Archive): name the real thing, e.g. "Vietnam war helicopter 1968", "Berlin wall 1961 newsreel", "VOA news Kabul 2001".
     "stock" = modern mood footage that illustrates without pretending to be the real people: "police car lights at night", "rain on window night", "empty forest road fog", "hand typing keyboard dark", "old film projector".
@@ -4750,7 +4842,7 @@ Mix, per chapter: about 30% "video", 45% "image", the rest maps, dates, typed wo
 - {"type":"casefile","title":"CASE FILE <year>","fields":[["Name","..."],["Last seen","..."],["Date","..."]],"stamp":"MISSING|UNSOLVED|CLOSED|GUILTY"}  once per crime story, real facts only.
 - {"type":"map","view":[lonW,latS,lonE,latN],"points":[{"name":"City","note":"short","at":[lon,lat],"at_time":0.3,"side":"right"}]}
 - {"type":"stat","number":1600000,"suffix":" FOLLOWERS","label":"what it means"}
-- {"type":"text","lines":["short","punchline"],"hit":true}  1 punchy slide about every 45 seconds.
+- {"type":"text","lines":["short","punchline"],"hit":true}  at most one per chapter, only for the biggest twist.
 - {"type":"quote","text":"real quote","by":"who, when"}  only real, sourced quotes.
 FLOATING CARDS: "pops":[{"text":"NAME OR NUMBER","label":"small line","on":"a word from the narration","kind":"person|money|death|place|date|law|people"}] 1-2 per scene.
 MUSIC: "mood" on the first scene of each chapter: tense | mystery | sad | epic | hopeful."""
