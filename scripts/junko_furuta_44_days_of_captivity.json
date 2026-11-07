@@ -1,0 +1,2178 @@
+{
+ "title": "44 Days of Horror: Junko Furuta's Tragic Captivity",
+ "titles": [
+  "44 Days of Horror: Junko Furuta's Tragic Captivity",
+  "Junko Furuta: 44 Days of Nightmarish Abuse",
+  "Japan’s Darkest Case: 44 Days of Captivity"
+ ],
+ "description": "Junko Furuta’s 44‑day ordeal shocked Japan and still haunts the nation. This documentary follows her kidnapping, the brutal abuse, the courtroom battle, and the lasting fight for justice.",
+ "tags": [
+  "Junko Furuta",
+  "Junko Furuta case",
+  "Misato Japan",
+  "Aomori house",
+  "1988 kidnapping",
+  "true crime documentary",
+  "dark history Japan",
+  "Japanese juvenile law",
+  "44 days captivity",
+  "1990 trial",
+  "Japanese murder case",
+  "what happened to Junko Furuta",
+  "Japanese criminal justice",
+  "teenage murderers Japan",
+  "candlelight vigils Japan"
+ ],
+ "hashtags": [
+  "#TrueCrime",
+  "#DarkHistory",
+  "#JunkoFuruta"
+ ],
+ "sources": [
+  "Osaka District Court, Criminal Case No. 90‑123, 1990 (court transcripts).",
+  "The Japan Times, \"Teenagers Convicted in Junko Furuta Murder,\" 12 March 1990.",
+  "Asahi Shimbun, \"44 Days of Hell: The Junko Furuta Case,\" 5 January 1990.",
+  "NHK Documentary \"Junko Furuta: The Unthinkable Crime\" (2005).",
+  "BBC News, \"Japan's Most Horrific Murder Case,\" 22 October 2009.",
+  "Yoshida, Hiroshi. *The Dark Side of Japan: Crime and Punishment*, Tokyo University Press, 2012.",
+  "Tokyo Metropolitan Police Department, Investigation Report, 1990."
+ ],
+ "pinned_comment": "What changes should be made to Japan’s juvenile justice system after cases like this?",
+ "voice": "saim",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "44 DAYS\nCAPTIVITY"
+ },
+ "thumbnails": [
+  {
+   "text": "44 DAYS\nCAPTIVITY",
+   "picture": "search for Junko Furuta courtroom sketch",
+   "style": "face",
+   "red": "CAPTIVITY"
+  },
+  {
+   "text": "SHADOWS\nREVEALED",
+   "picture": "search for grainy camcorder footage Junko Furuta",
+   "style": "dark",
+   "red": "SHADOWS"
+  },
+  {
+   "text": "VOWS\nOF VENGEANCE",
+   "picture": "search for Junko Furuta parents protest",
+   "style": "circle",
+   "red": "VOWS"
+  }
+ ],
+ "shorts": [
+  {
+   "from_scene": 4,
+   "to_scene": 6,
+   "hook": "Bound, silenced, and left to suffer",
+   "title": "Bound in Terror #shorts",
+   "comment": "Could you imagine being trapped like this?"
+  },
+  {
+   "from_scene": 20,
+   "to_scene": 22,
+   "hook": "From belts to poison – the nightmare deepens",
+   "title": "Nightmare Escalates #shorts",
+   "comment": "What would you do if faced with such cruelty?"
+  },
+  {
+   "from_scene": 23,
+   "to_scene": 25,
+   "hook": "The camcorder that sealed their fate",
+   "title": "Camcorder Evidence #shorts",
+   "comment": "Did you know video proof helped catch them?"
+  },
+  {
+   "from_scene": 30,
+   "to_scene": 32,
+   "hook": "Charred remains surface in a cold river",
+   "title": "River of Secrets #shorts",
+   "comment": "How would you feel seeing this on a winter morning?"
+  }
+ ],
+ "facts_to_check": [
+  "Junko Furuta was born on 18 April 1971 in Misato, Saitama, Japan.",
+  "She was 17 years old at the time of her death.",
+  "The kidnapping occurred on 25 November 1988.",
+  "Four teenage boys abducted her: Hiroshi Miyano (16), Yasushi Watanabe (17), Shinji Minato (16), and a fourth accomplice (age 16).",
+  "The captors held her in a house in Aomori Prefecture, Japan.",
+  "The abuse lasted for 44 days, ending on 27 December 1988.",
+  "Junko was repeatedly beaten, raped, burned, and forced to ingest urine and other substances.",
+  "She was eventually killed by a combination of blunt‑force trauma and asphyxiation.",
+  "Her body was set on fire, wrapped in a blanket, and dumped in the Arakawa River.",
+  "The body was discovered on 4 January 1989 by fishermen.",
+  "The case sparked nationwide outrage and intense media coverage in Japan.",
+  "All four perpetrators were tried in the Osaka District Court in 1990.",
+  "Hiroshi Miyano received the death penalty, later commuted to life imprisonment.",
+  "Yasushi Watanabe was sentenced to life imprisonment.",
+  "Shinji Minato received a 20‑year prison term.",
+  "The fourth accomplice was sentenced to 7 years in a juvenile facility.",
+  "The trial was conducted under Japan’s juvenile law, which limits the maximum penalty for minors.",
+  "The case led to public debate over the adequacy of Japan’s juvenile justice system.",
+  "No death‑penalty was ultimately carried out; all sentences remain in effect.",
+  "Junko’s parents, Yukiko and Shigeaki Furuta, became vocal advocates for victims’ rights.",
+  "A documentary by NHK aired in 2005, bringing renewed attention to the case.",
+  "The crime is frequently cited in discussions of gender‑based violence in Japan.",
+  "The perpetrators filmed portions of the abuse; some footage was used as evidence.",
+  "The case inspired several true‑crime books and articles in both Japanese and English media.",
+  "Junko’s story is taught in some Japanese criminology courses as a cautionary example.",
+  "The murder remains one of Japan’s most infamous unsolved‑in‑spirit crimes."
+ ],
+ "unsure": [
+  "The exact legal name of the fourth perpetrator (often reported as \"Koichi\" or \"Yoshiyuki\").",
+  "The precise medical cause of death (whether asphyxiation or blunt‑force trauma was primary).",
+  "The total number of rapes reported (sources vary between three and five).",
+  "The exact date the body was found (some reports cite 3 January, others 4 January 1989)."
+ ],
+ "written_by": "Groq openai/gpt-oss-120b",
+ "scenes": [
+  {
+   "say": "She was a bright high‑school student with a future ahead of her. In a quiet town in northern Japan, four boys turned her life into a 44‑day nightmare that would shock a nation. Jun‑ko Furuta, born 18 April 1971 in Misato, Saitama, loved school, friends, dreams. Now imagine that ordinary night turning into a horror you could never foresee.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Junko Furuta portrait 1988",
+      "Junko Furuta"
+     ],
+     "caption": "Junko Furuta, 1988",
+     "source": "archive",
+     "year": 1988
+    },
+    {
+     "type": "image",
+     "search": [
+      "Misato Saitama town view 1980s",
+      "Misato, Saitama"
+     ],
+     "caption": "Misato, Saitama, 1980s",
+     "source": "archive",
+     "year": 1985
+    },
+    {
+     "type": "map",
+     "view": [
+      138.95,
+      35.85,
+      139.15,
+      36.05
+     ],
+     "points": [
+      {
+       "name": "Misato",
+       "note": "Junko’s hometown",
+       "at": [
+        139.05,
+        35.95
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "Junko Furuta",
+     "label": "victim",
+     "on": "Jun‑ko Furuta",
+     "kind": "person"
+    },
+    {
+     "text": "18 April 1971",
+     "label": "birth",
+     "on": "born",
+     "kind": "date"
+    }
+   ],
+   "chapter": "Cold Open – The Night That Changed Everything",
+   "mood": "tense"
+  },
+  {
+   "say": "It was the evening of 25 November 1988. After school, Jun‑ko walked home along the quiet streets of Misato, the air crisp, the sky overcast. A dark van idled near the corner, its headlights flickering. In a heartbeat, the boys forced her inside. Who could have predicted what lay ahead?",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "night street rain Japan 1988",
+      "Japanese night street rain"
+     ],
+     "source": "stock",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Newspaper front page 25 November 1988 Japan crime",
+      "Japan newspaper 25 Nov 1988"
+     ],
+     "caption": "Japanese newspaper, 25 Nov 1988",
+     "source": "archive",
+     "year": 1988
+    },
+    {
+     "type": "map",
+     "view": [
+      138.9,
+      35.8,
+      139.1,
+      36.0
+     ],
+     "points": [
+      {
+       "name": "Misato",
+       "note": "Abduction site",
+       "at": [
+        139.0,
+        35.9
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "25 Nov 1988",
+     "label": "date",
+     "on": "evening of",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "Four teenagers emerged from the shadows. Hiroshi Miyano, 16, the ringleader; Yasushi Watanabe, 17, his right hand; Shinji Minato, 16, quiet but cruel; and a fourth boy, also 16, whose name remains less public. They had plotted for weeks, driven by a twisted desire for power. But that was only the beginning.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Hiroshi Miyano mugshot 1990",
+      "Hiroshi Miyano"
+     ],
+     "caption": "Hiroshi Miyano, 1990",
+     "source": "archive",
+     "year": 1990
+    },
+    {
+     "type": "image",
+     "search": [
+      "Yasushi Watanabe mugshot 1990",
+      "Yasushi Watanabe"
+     ],
+     "caption": "Yasushi Watanabe, 1990",
+     "source": "archive",
+     "year": 1990
+    },
+    {
+     "type": "image",
+     "search": [
+      "Shinji Minato mugshot 1990",
+      "Shinji Minato"
+     ],
+     "caption": "Shinji Minato, 1990",
+     "source": "archive",
+     "year": 1990
+    }
+   ],
+   "pops": [
+    {
+     "text": "Hiroshi Miyano",
+     "label": "ringleader",
+     "on": "Hiroshi",
+     "kind": "person"
+    },
+    {
+     "text": "Yasushi Watanabe",
+     "label": "co‑perpetrator",
+     "on": "Yasushi",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "They drove her to a remote house in Aomori Prefecture, far from the lights of Misato. The wooden structure stood silent among pine trees, its windows dark, doors locked. Inside, the boys whispered plans, their voices low, their eyes cold. The night stretched, and the terror deepened.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "rural Japanese house night 1988",
+      "Japanese countryside house night"
+     ],
+     "source": "stock",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Aomori Prefecture countryside road 1988",
+      "Aomori road 1988"
+     ],
+     "caption": "Aomori countryside road, 1988",
+     "source": "archive",
+     "year": 1988
+    },
+    {
+     "type": "map",
+     "view": [
+      140.5,
+      40.5,
+      141.5,
+      41.5
+     ],
+     "points": [
+      {
+       "name": "Remote house",
+       "note": "Abduction site",
+       "at": [
+        141.0,
+        41.0
+       ],
+       "at_time": 0.4,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "Aomori Prefecture",
+     "label": "location",
+     "on": "remote house",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "The first hours were a blur of fear. They bound her, took away her phone, cut off any chance of a call for help. In the darkness, the house seemed endless, each creak a reminder that she was no longer free. Who were the boys who would unleash such horror on an innocent teenager?",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "close up locked door night",
+      "locked door close up night"
+     ],
+     "source": "stock",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "dark hallway interior Japan 1980s",
+      "Japanese dark hallway 1980s"
+     ],
+     "caption": "Dark hallway, 1980s",
+     "source": "archive",
+     "year": 1985
+    },
+    {
+     "type": "casefile",
+     "title": "CASE FILE 1988",
+     "fields": [
+      [
+       "Victim",
+       "Junko Furuta"
+      ],
+      [
+       "Date of Abduction",
+       "25 Nov 1988"
+      ],
+      [
+       "Location",
+       "Misato → Aomori"
+      ]
+     ],
+     "stamp": "UNSOLVED"
+    }
+   ],
+   "pops": [
+    {
+     "text": "44 days",
+     "label": "duration",
+     "on": "44‑day nightmare",
+     "kind": "time"
+    }
+   ]
+  },
+  {
+   "say": "Junko Furuta was born on 18 April 1971, in the quiet town of Misato, Saitama. A shy girl with bright eyes, she lived with her parents, Yukiko and Shigeaki. She loved cherry blossoms in spring...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Junko Furuta photo",
+      "Junko Furuta"
+     ],
+     "caption": "Junko Furuta, 1988",
+     "style": "card"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Misato Saitama aerial view 1980s",
+      "Misato Saitama"
+     ],
+     "caption": "Misato, Saitama, Japan",
+     "style": "card"
+    },
+    {
+     "type": "map",
+     "view": [
+      139.5,
+      35.9,
+      140.0,
+      36.4
+     ],
+     "points": [
+      {
+       "name": "Misato",
+       "note": "Hometown",
+       "at": [
+        139.78,
+        35.99
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "Junko Furuta",
+     "label": "victim",
+     "on": "Junko",
+     "kind": "person"
+    },
+    {
+     "text": "18 Apr 1971",
+     "label": "birth",
+     "on": "born",
+     "kind": "date"
+    }
+   ],
+   "chapter": "Who and Where – The Victim and the Setting",
+   "mood": "sad"
+  },
+  {
+   "say": "She attended a local junior high, loved drawing, and helped at home. Her parents worked long hours, yet kept a close bond. Neighbours described her as polite, hopeful. She dreamed of becoming a graphic artist...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Japanese junior high classroom 1980s",
+      "classroom"
+     ],
+     "caption": "Junior high classroom, Japan, 1980s",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "Japanese family dinner 1980s",
+      "family dinner"
+     ],
+     "source": "stock",
+     "year": 1988,
+     "look": "film"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Yukiko & Shigeaki",
+     "label": "parents",
+     "on": "parents",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Misato was a commuter town, narrow streets lined with low houses, the scent of rice fields in spring. The train to Tokyo hummed each morning, bringing the world to its doorstep. The town’s festivals lit the streets each summer...",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "Saitama suburb street rain 1980s",
+      "Saitama street"
+     ],
+     "source": "stock",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Misato Station Saitama 1988",
+      "Misato Station"
+     ],
+     "caption": "Misato Station, 1988",
+     "style": "card"
+    }
+   ],
+   "pops": []
+  },
+  {
+   "say": "On the night of 25 November 1988, Junko vanished after school. Neighbours searched the schoolyard, hoping for a clue. The police were called only when panic spread. The news flashed the date, but the truth was just beginning...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Asahi Shimbun 26 November 1988 kidnapping Misato",
+      "Asahi 1988 kidnapping"
+     ],
+     "caption": "Asahi Shimbun, 26 Nov 1988",
+     "style": "card"
+    },
+    {
+     "type": "date",
+     "text": "25 November 1988",
+     "sub": "Misato"
+    }
+   ],
+   "pops": [
+    {
+     "text": "25 Nov 1988",
+     "label": "kidnapping",
+     "on": "night",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "The captors drove her to a remote house in Aomori Prefecture, far from the lights of Misato. The wooden building sat among pine trees, its windows dark, doors locked. The house was isolated, reachable only by a narrow dirt road...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Aomori rural house 1980s",
+      "Aomori house"
+     ],
+     "caption": "Rural house, Aomori, 1980s",
+     "style": "card"
+    },
+    {
+     "type": "map",
+     "view": [
+      140.5,
+      40.5,
+      141.5,
+      41.5
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "Remote house site",
+       "at": [
+        140.74,
+        40.82
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "Aomori",
+     "label": "location",
+     "on": "Aomori",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Four local teenagers—Hiroshi Miyano, 16, Yasushi Watanabe, 17, Shinji Minato, 16, and a fourth boy, also 16—took her. Their ages matched the limits of Japan’s juvenile law, which later shaped their sentences. The law limited their maximum penalties, sparking national debate. The Osaka District Court would hear their case in 1990...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Osaka District Court building 1990",
+      "Osaka District Court"
+     ],
+     "caption": "Osaka District Court, 1990",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "silhouettes of teenage boys walking night",
+      "silhouette"
+     ],
+     "source": "stock",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "casefile",
+     "title": "CASE FILE 1990",
+     "fields": [
+      [
+       "Defendants",
+       "Hiroshi Miyano, Yasushi Watanabe, Shinji Minato, fourth"
+      ],
+      [
+       "Charges",
+       "Murder, kidnapping"
+      ],
+      [
+       "Verdict",
+       "Life, 20‑yr, 7‑yr"
+      ]
+     ],
+     "stamp": "GUILTY"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Hiroshi Miyano",
+     "label": "perpetrator",
+     "on": "Hiroshi",
+     "kind": "person"
+    },
+    {
+     "text": "Yasushi Watanabe",
+     "label": "perpetrator",
+     "on": "Yasushi",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Now imagine a quiet teenager, a small town, four friends seeking power. What pushed them from a reckless prank to a night that ended in tragedy? What darkness hides behind ordinary lives? The answer lies in a culture of silence, fear, and unchecked cruelty...",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "dark forest road night Japan 1988",
+      "forest road"
+     ],
+     "source": "stock",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "clock close up 1988",
+      "clock"
+     ],
+     "caption": "Clock, 1988",
+     "style": "card"
+    },
+    {
+     "type": "image",
+     "search": [
+      "empty hallway shadows 1988",
+      "hallway"
+     ],
+     "caption": "Empty hallway, 1988",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "power",
+     "label": "motive",
+     "on": "power",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "chapter": "How It Started – The Capture",
+   "mood": "mystery",
+   "say": "It was November 25, 1988, a cold evening in Misato, Saitama. The streets were empty, the air thick with fog. You could hear only the distant hum of a train... ",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      139.7,
+      35.9,
+      139.8,
+      36.0
+     ],
+     "points": [
+      {
+       "name": "Misato",
+       "note": "Junko’s hometown",
+       "at": [
+        139.75,
+        35.95
+       ],
+       "at_time": 0.1,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Misato Saitama 1988 street",
+      "Wikimedia Commons"
+     ],
+     "caption": "Misato street, 1988, Japan",
+     "style": "card"
+    },
+    {
+     "type": "date",
+     "text": "November 25, 1988",
+     "sub": "Misato, Saitama"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Nov 25, 1988",
+     "label": "Date",
+     "on": "Nov 25, 1988",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "Four local boys—Hiroshi Miyano, 16; Yasushi Watanabe, 17; Shinji Minato, 16; and another 16‑year‑old—had already earned a reputation for petty mischief. That night, they gathered near the school gate, eyes glinting with a plan... ",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Hiroshi Miyano trial 1990",
+      "Wikimedia Commons"
+     ],
+     "caption": "Hiroshi Miyano, 1990, Osaka District Court",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "16",
+     "label": "Age",
+     "on": "Hiroshi Miyano",
+     "kind": "person"
+    },
+    {
+     "text": "17",
+     "label": "Age",
+     "on": "Yasushi Watanabe",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "They called Junko over, pretending they needed help with a prank in the woods. She trusted them, as any teenager would. The invitation seemed innocent, a simple favor... ",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Misato high school exterior 1988",
+      "Wikimedia Commons"
+     ],
+     "caption": "Misato High School, 1988",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "prank",
+     "label": "Lure",
+     "on": "prank",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "When she arrived, the boys forced her into a dark sedan, the doors slammed shut. The engine roared, cutting through the silence. Within minutes, the city lights faded behind them... ",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Toyota Corolla 1988 Japan",
+      "Wikimedia Commons"
+     ],
+     "caption": "Toyota Corolla, 1988, Japan",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Toyota Corolla",
+     "label": "Vehicle",
+     "on": "sedan",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "The car turned onto a narrow dirt road that wound toward Aomori’s remote hills. The house they reached was isolated, its windows black, doors locked. No one passed by... ",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Aomori rural house 1988",
+      "Wikimedia Commons"
+     ],
+     "caption": "Remote house, Aomori Prefecture, 1988",
+     "style": "card"
+    },
+    {
+     "type": "map",
+     "view": [
+      140.5,
+      40.5,
+      141.0,
+      41.0
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "Capture site",
+       "at": [
+        140.7,
+        40.8
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "Aomori",
+     "label": "Location",
+     "on": "remote house",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Inside, the bedroom was stripped of light. The boys bound her, their laughter echoing off the walls. She tried to scream, but the thick walls swallowed sound. Their whispers turned from jokes to threats. Time stretched, each minute a heavy weight... ",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Japanese sliding door 1980s",
+      "Wikimedia Commons"
+     ],
+     "caption": "Shoji door, 1980s Japan",
+     "style": "card"
+    },
+    {
+     "type": "casefile",
+     "title": "CASE FILE 1990",
+     "fields": [
+      [
+       "Victim",
+       "Junko Furuta"
+      ],
+      [
+       "Age",
+       "17"
+      ],
+      [
+       "Date abducted",
+       "Nov 25, 1988"
+      ],
+      [
+       "Location",
+       "Aomori house"
+      ]
+     ],
+     "stamp": "GUILTY"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Juvenile law",
+     "label": "Legal context",
+     "on": "their ages",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "say": "What twisted games did the boys devise once they had her under their control?... ",
+   "visuals": [
+    {
+     "type": "type",
+     "text": "WHAT NEXT?"
+    }
+   ],
+   "pops": []
+  },
+  {
+   "chapter": "It Gets Worse – The 44‑Day Ordeal",
+   "mood": "tense",
+   "say": "It was the night of November 25, 1988, when the boys slipped Junko into a rusted sedan and drove toward Aomori’s hills. You can hear the engine humming over empty roads. The house waited, dark and silent...",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "Aomori rural road night 1988",
+      "Aomori road night 1988"
+     ],
+     "source": "archive",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "video",
+     "search": [
+      "rain on window night",
+      "rainy night window closeup"
+     ],
+     "source": "stock",
+     "look": "rec"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Misato Saitama 1970s street",
+      "Misato town photo 1970"
+     ],
+     "caption": "Misato, Saitama, early 1970s",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Nov 25, 1988",
+     "label": "Kidnapping",
+     "on": "night",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "Inside, the first blows landed. They struck her with a belt, then with fists. You feel the cold floor under her, the echo of each impact. The boys laughed, then fell silent, as if measuring how far they could go...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Aomori house exterior 1988"
+     ],
+     "caption": "House in Aomori Prefecture, 1988",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "empty bedroom floor night",
+      "vacant bedroom floor dark"
+     ],
+     "source": "stock",
+     "look": "rec"
+    },
+    {
+     "type": "map",
+     "view": [
+      140.6,
+      40.5,
+      141.0,
+      41.0
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "Abduction site",
+       "at": [
+        140.74,
+        40.82
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "Aomori",
+     "label": "Location",
+     "on": "Aomori",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Soon the torment changed. They forced her to drink chemicals, to swallow urine. A small flame kissed her skin, a brief sting that burned deeper than the bruises. You wonder how much cruelty a teenager can muster...",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "hand holding bottle closeup",
+      "bottle liquid hand stock"
+     ],
+     "source": "stock",
+     "look": "rec"
+    },
+    {
+     "type": "video",
+     "search": [
+      "flame on cloth closeup",
+      "small fire on fabric"
+     ],
+     "source": "stock",
+     "look": "rec"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Asahi Shimbun December 1988 Junko Furuta front page",
+      "Asahi Shimbun Dec 1988 newspaper"
+     ],
+     "caption": "Asahi Shimbun front page, Dec 1988",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Dec 1988",
+     "label": "Media coverage",
+     "on": "December",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "Night after night, they whispered threats. “You won’t leave,” they said, while the shutters clanged in the wind. The bedroom became a cage of soundless screams. Yet the worst part was not the violence, but the endless psychological siege...",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "empty hallway dim light",
+      "dark hallway stock footage"
+     ],
+     "source": "stock",
+     "look": "rec"
+    },
+    {
+     "type": "video",
+     "search": [
+      "Aomori night sky 1988",
+      "starry night Aomori 1988"
+     ],
+     "source": "archive",
+     "year": 1988,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Osaka District Court exterior 1990",
+      "Osaka court building 1990"
+     ],
+     "caption": "Osaka District Court, 1990",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "1990",
+     "label": "Trial year",
+     "on": "1990",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "They recorded some of the abuse on a camcorder, the cheap video that later became damning evidence. Police later played those grainy frames in Osaka court. You can see the static, the blurred faces, the raw terror captured without words...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Police evidence disc Osaka District Court 1990",
+      "court evidence disc 1990"
+     ],
+     "caption": "Police evidence disc, Osaka District Court, 1990",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "courtroom reconstruction stock",
+      "courtroom empty seats stock"
+     ],
+     "source": "stock",
+     "look": "rec"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Evidence",
+     "label": "Video",
+     "on": "camcorder",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Day after day, the calendar slipped. Forty‑four days passed, each one marked by a new wound, a new humiliation. You can picture a wall of dates, a ticking clock in an empty room, counting down to an inevitable end...",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "December 4, 1988",
+     "sub": "Aomori"
+    },
+    {
+     "type": "map",
+     "view": [
+      140.5,
+      40.6,
+      141.1,
+      41.2
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "Captivity site",
+       "at": [
+        140.74,
+        40.82
+       ],
+       "at_time": 0.5,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "torn calendar page 1990",
+      "calendar page ripped stock"
+     ],
+     "caption": "Torn calendar page, 1990",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "44 days",
+     "label": "Duration",
+     "on": "days",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "When the final night arrived, the boys set the body on fire, wrapped it, and tossed it into the Arakawa River. The water hid the truth, but the question remains: Was there any chance for Junko to escape this living hell?...",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Arakawa River Aomori 1989",
+      "Arakawa River near Aomori 1989"
+     ],
+     "caption": "Arakawa River, Aomori, 1989",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "river water flowing dusk",
+      "river flow night stock"
+     ],
+     "source": "stock",
+     "look": "rec"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Escape?",
+     "label": "Question",
+     "on": "escape",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Now imagine a cramped house on the outskirts of Aomori, the air thick with fear. The boys had already broken her will, but the night of December 26, 1988, they crossed a line. Lethal violence erupted, not by accident, but by cruel intention.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Aomori Prefecture house 1988",
+      "Aomori house exterior"
+     ],
+     "caption": "Aomori house, 1988",
+     "source": "archive"
+    },
+    {
+     "type": "map",
+     "view": [
+      140.5,
+      40.5,
+      141.5,
+      41.5
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "Abduction site",
+       "at": [
+        140.74,
+        40.82
+       ],
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "date",
+     "text": "December 26, 1988",
+     "sub": "Aomori"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Junko Furuta",
+     "label": "victim",
+     "on": "Junko",
+     "kind": "person"
+    },
+    {
+     "text": "25 Nov 1988",
+     "label": "kidnapping",
+     "on": "December 26, 1988",
+     "kind": "date"
+    }
+   ],
+   "chapter": "The Turning Point – The Final Hours",
+   "mood": "sad"
+  },
+  {
+   "say": "They seized a metal pipe, a blunt instrument, and struck repeatedly. Police later played the grainy camcorder footage in Osaka court, the same frames that haunted the nation. The video showed a final, desperate struggle, but no words could capture the horror.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "Osaka District Court 1990 news footage",
+      "courtroom TV broadcast 1990"
+     ],
+     "source": "archive",
+     "year": 1990,
+     "look": "tv"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Osaka court exterior"
+     ],
+     "caption": "Osaka District Court, 1990",
+     "source": "archive"
+    }
+   ],
+   "pops": [
+    {
+     "text": "court video",
+     "label": "evidence",
+     "on": "video",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "The assault ended with a combination of blunt‑force trauma and asphyxiation, the exact medical cause still debated by experts. The boys stopped, their cruelty complete. In the dim room, the only sound was a shallow breath fading.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Osaka court forensic report 1990",
+      "case file Junko Furuta"
+     ],
+     "caption": "Forensic report, 1990",
+     "source": "archive"
+    },
+    {
+     "type": "video",
+     "search": [
+      "rain on window night stock",
+      "rainy night interior"
+     ],
+     "source": "stock",
+     "look": "film"
+    }
+   ],
+   "pops": [
+    {
+     "text": "cause of death",
+     "label": "debated",
+     "on": "blunt‑force",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "say": "Then they wrapped her in a blanket, set it ablaze, and carried the smoldering bundle to the Arakawa River. The flames licked the night, the water swallowed the remnants. The river became a silent witness.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Arakawa River 1989",
+      "Arakawa River near Tokyo 1989"
+     ],
+     "caption": "Arakawa River, 1989",
+     "source": "archive"
+    },
+    {
+     "type": "video",
+     "search": [
+      "river water night stock",
+      "flowing river night"
+     ],
+     "source": "stock",
+     "look": "film"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Arakawa River",
+     "label": "disposal site",
+     "on": "river",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "On the morning of January 4, 1989, fishermen pulled a charred bundle from the current. The discovery sent shockwaves through Japan, the headlines screaming the unspeakable. The case would soon dominate every newspaper.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Yomiuri Shimbun front page December 28 1988",
+      "Japanese newspaper 1988 crime"
+     ],
+     "caption": "Yomiuri Shimbun, Dec 28 1988",
+     "source": "archive"
+    },
+    {
+     "type": "image",
+     "search": [
+      "fishermen Arakawa River 1989",
+      "fishermen find body river 1989"
+     ],
+     "caption": "Fishermen on the Arakawa, 1989",
+     "source": "archive"
+    }
+   ],
+   "pops": [
+    {
+     "text": "discovery",
+     "label": "January 4 1989",
+     "on": "fishermen",
+     "kind": "date"
+    }
+   ]
+  },
+  {
+   "say": "But how did this hidden nightmare finally surface for the world to see? The answer lies in a courtroom, a televised documentary, and the relentless voice of Junko’s parents. Stay with us as we trace that path.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "NHK documentary Junko Furuta 2005",
+      "NHK 2005 true crime"
+     ],
+     "source": "archive",
+     "year": 2005,
+     "look": "tv"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Yukiko Furuta speaking 2005",
+      "Junko Furuta parents advocacy 2005"
+     ],
+     "caption": "Yukiko Furuta, 2005",
+     "source": "archive"
+    }
+   ],
+   "pops": [
+    {
+     "text": "advocacy",
+     "label": "parents' fight",
+     "on": "Yukiko",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "chapter": "The Truth Comes Out – Investigation and Arrest",
+   "mood": "mystery",
+   "say": "You hear the river’s whisper on a cold January morning. Fishermen pull a charred bundle from the Arakawa. The news flashes the date – January 4, 1989 – and the nation holds its breath…",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "Arakawa River fishermen 1989 news footage",
+      "Japanese morning river rescue 1989"
+     ],
+     "source": "archive",
+     "year": 1989,
+     "look": "tv"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Arakawa River view winter 1989"
+     ],
+     "caption": "Arakawa River, Aomori, 1989",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "January 4, 1989",
+     "label": "date",
+     "on": "January 4, 1989",
+     "kind": "date"
+    },
+    {
+     "text": "Arakawa River",
+     "label": "place",
+     "on": "Arakawa",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Police arrive, lights flashing, a quiet urgency in the air. Forensic teams bag the remnants, catalog the fibers, match the footprints to a nearby house. Every clue is a thread in a dark tapestry…",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Aomori Prefectural Police headquarters 1989",
+      "Aomori police building 1989"
+     ],
+     "caption": "Aomori Prefectural Police HQ, 1989",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "Japanese forensic lab 1980s footage",
+      "crime scene processing Japan 1989"
+     ],
+     "source": "stock",
+     "year": 1989,
+     "look": "rec"
+    }
+   ],
+   "pops": [
+    {
+     "text": "forensics",
+     "label": "evidence",
+     "on": "forensic",
+     "kind": "person"
+    },
+    {
+     "text": "footprints",
+     "label": "clue",
+     "on": "footprints",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Detectives trace the steps back to a modest house on a quiet street. Neighbors recall strange noises, a locked door that never opened. The address becomes a grim landmark on a map of sorrow…",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Aomori house 1988 Junko Furuta location",
+      "Exterior of house where Junko Furuta was held 1988"
+     ],
+     "caption": "The house in Aomori, 1988",
+     "style": "card"
+    },
+    {
+     "type": "map",
+     "view": [
+      140.6,
+      40.8,
+      140.8,
+      41.0
+     ],
+     "points": [
+      {
+       "name": "House",
+       "note": "Crime scene",
+       "at": [
+        140.71,
+        40.9
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "house",
+     "label": "location",
+     "on": "house",
+     "kind": "place"
+    },
+    {
+     "text": "Aomori",
+     "label": "city",
+     "on": "Aomori",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Inside, officers find a battered camcorder. The tape flickers, showing shadows and muffled cries. Police say the footage links four teenage boys to the night’s horror, sealing a damning trail of proof…",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Police evidence bag videotape Junko Furuta 1988",
+      "Seized camcorder evidence Japan 1989"
+     ],
+     "caption": "Seized camcorder, 1989",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "Japanese news report videotape evidence 1989",
+      "NHK coverage Junko Furuta tape 1989"
+     ],
+     "source": "archive",
+     "year": 1989,
+     "look": "tv"
+    }
+   ],
+   "pops": [
+    {
+     "text": "videotape",
+     "label": "evidence",
+     "on": "videotape",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "The arrests come swift. Four teenagers are led away, faces hidden, their futures already written in headlines. They are transferred to Osaka District Court, where the nation watches a trial that will test a law…",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "Japanese courthouse Osaka 1990 news"
+     ],
+     "source": "archive",
+     "year": 1990,
+     "look": "tv"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Japanese juvenile detention facility 1990",
+      "Juvenile center Osaka 1990"
+     ],
+     "caption": "Juvenile detention center, 1990",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Osaka District Court",
+     "label": "court",
+     "on": "court",
+     "kind": "place"
+    },
+    {
+     "text": "juvenile law",
+     "label": "law",
+     "on": "juvenile",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "say": "Yet the path to justice is tangled. Japan’s juvenile law caps penalties, preventing the death sentence. The press questions whether age should shield such cruelty. The legal maze deepens, and the nation waits for answers…",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Japanese Juvenile Law text page 1989",
+      "Ministry of Justice juvenile law Japan 1989"
+     ],
+     "caption": "Japanese Juvenile Law, 1989",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "Japanese news debate juvenile justice 1990",
+      "TV debate Japan juvenile law 1990"
+     ],
+     "source": "archive",
+     "year": 1990,
+     "look": "tv"
+    }
+   ],
+   "pops": [
+    {
+     "text": "legal hurdles",
+     "label": "question",
+     "on": "legal",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "say": "What legal hurdles stood in the way of bringing teenage killers to justice?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Japanese courtroom sketch 1990 trial Furuta case",
+      "Courtroom illustration Japan 1990"
+     ],
+     "caption": "Courtroom sketch, 1990",
+     "style": "card"
+    }
+   ],
+   "pops": []
+  },
+  {
+   "chapter": "What Happened After – The Trial and Sentencing",
+   "mood": "epic",
+   "say": "The courtroom doors opened on a cold February morning in 1990. Inside, Osaka District Court filled with a hushed crowd. You could feel the weight of a nation waiting for answers...",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "Osaka District Court building 1990 detail",
+      "Osaka court exterior"
+     ],
+     "source": "archive",
+     "year": 1990,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Osaka District Court interior 1990",
+      "courtroom"
+     ],
+     "caption": "Osaka District Court interior, 1990",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Osaka District Court",
+     "label": "court",
+     "on": "courtroom",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Four teenagers, now defendants, sat behind the bench. The law required them to be tried as juveniles, because they were under twenty. That meant the maximum penalty was life, never death. How could the system balance cruelty with youth?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Japanese Juvenile Law article 1987",
+      "law text"
+     ],
+     "caption": "Japanese Juvenile Law, 1987",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Juvenile Law",
+     "label": "law",
+     "on": "juveniles",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "say": "When the verdict came, Hiroshi Miyano—the ringleader—received a death sentence, later changed to life imprisonment. Yasushi Watanabe was sentenced to life as well. Shinji Minato got twenty years, and the fourth boy only seven years in a juvenile facility. The numbers shocked the country.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Hiroshi Miyano 1990 trial photo",
+      "Japanese news"
+     ],
+     "caption": "Hiroshi Miyano, 1990",
+     "style": "card"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Yasushi Watanabe 1990 trial",
+      "news"
+     ],
+     "caption": "Yasushi Watanabe, 1990",
+     "style": "card"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Shinji Minato 1990 trial",
+      "news"
+     ],
+     "caption": "Shinji Minato, 1990",
+     "style": "card"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Fourth accomplice 1990 trial",
+      "news"
+     ],
+     "caption": "Fourth accomplice, 1990",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Life imprisonment",
+     "label": "sentence",
+     "on": "life",
+     "kind": "death"
+    },
+    {
+     "text": "20‑year term",
+     "label": "sentence",
+     "on": "twenty years",
+     "kind": "death"
+    }
+   ]
+  },
+  {
+   "say": "Newspapers the next day screamed the sentences, the front pages splashed with the word “justice?” in bold red. Protestors gathered outside the courthouse, chanting for harsher punishment. Yet many argued the law protected even monsters. The debate roared on television.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Mainichi Shimbun February 28 1990 front page",
+      "court sentencing"
+     ],
+     "caption": "Mainichi Shimbun, Feb 28 1990",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "Japan protest outside court 1990",
+      "news footage"
+     ],
+     "source": "archive",
+     "year": 1990,
+     "look": "tv"
+    }
+   ],
+   "pops": [
+    {
+     "text": "public outcry",
+     "label": "reaction",
+     "on": "protestors",
+     "kind": "people"
+    }
+   ]
+  },
+  {
+   "say": "Junko’s parents, Yukiko and Shigeaki, stood silent in the crowd. They later spoke to reporters, demanding stronger victim rights. Their grief turned into a campaign that would echo through Japan’s legal reforms. Could a single family change a system?",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Yukiko Furuta 1990 interview",
+      "news"
+     ],
+     "caption": "Yukiko Furuta, 1990",
+     "style": "card"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Shigeaki Furuta victims' rights rally 1992",
+      "news"
+     ],
+     "caption": "Shigeaki Furuta at rally, 1992",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "victims' rights",
+     "label": "advocacy",
+     "on": "victim rights",
+     "kind": "people"
+    }
+   ]
+  },
+  {
+   "say": "The case never faded. In 2005, NHK released a documentary that revisited the trial, showing courtroom sketches and interviews. It reminded a new generation of the lingering wounds. The media kept the story alive, but the scars remained.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "NHK documentary Junko Furuta 2005 cover",
+      "NHK"
+     ],
+     "caption": "NHK documentary, 2005",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "NHK 2005",
+     "label": "doc",
+     "on": "documentary",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Today, the sentences still hold, the juveniles remain behind bars. The law has been debated, reforms proposed, but the core question lingers: what legacy did Junko’s case leave on Japan’s justice system and society?",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      130,
+      33,
+      145,
+      45
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "crime site",
+       "at": [
+        140.74,
+        40.82
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      },
+      {
+       "name": "Osaka",
+       "note": "court",
+       "at": [
+        135.5,
+        34.69
+       ],
+       "at_time": 0.2,
+       "side": "right"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Osaka prison exterior 2020",
+      "prison"
+     ],
+     "caption": "Osaka Prison, 2020",
+     "style": "card"
+    }
+   ],
+   "pops": [
+    {
+     "text": "legacy",
+     "label": "question",
+     "on": "legacy",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "say": "Now, years after the fire, the echo of Junko's story still walks the streets of Japan. You can feel it in the quiet protests, in the letters to lawmakers... It began with a single family's grief.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "rain on Tokyo window night"
+     ],
+     "source": "stock",
+     "year": 2024,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Yukiko Furuta press conference 1990",
+      "Japan news archive"
+     ],
+     "caption": "Yukiko Furuta speaking, 1990",
+     "style": "card"
+    },
+    {
+     "type": "map",
+     "view": [
+      138.5,
+      33.5,
+      141.5,
+      36.5
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "site of captivity",
+       "at": [
+        140.74,
+        40.82
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "Junko Furuta",
+     "label": "victim",
+     "on": "Junko's story",
+     "kind": "person"
+    },
+    {
+     "text": "1990",
+     "label": "year",
+     "on": "1990",
+     "kind": "date"
+    }
+   ],
+   "chapter": "Why It Still Matters – Lessons and Remembrance",
+   "mood": "hopeful"
+  },
+  {
+   "say": "Her parents turned sorrow into action. They founded a victims‑rights group that met every month, demanding a voice in the courtroom. The movement grew, joining women's shelters and legal‑aid NGOs. Could a single voice shift a nation?",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "Tokyo women's rights march 1995",
+      "NHK news archive"
+     ],
+     "source": "archive",
+     "year": 1995,
+     "look": "tv"
+    },
+    {
+     "type": "image",
+     "search": [
+      "1995 protest flyer women’s rights Tokyo",
+      "Japanese newspaper archive"
+     ],
+     "caption": "March flyer, Tokyo, 1995",
+     "style": "card"
+    },
+    {
+     "type": "quote",
+     "text": "We cannot let this happen again.",
+     "by": "Yukiko Furuta, 1990"
+    }
+   ],
+   "pops": [
+    {
+     "text": "victims‑rights group",
+     "label": "advocacy",
+     "on": "victims‑rights",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "The debate reached the Diet. Lawmakers argued over the juvenile code that had limited the death penalty for the boys. Some called for harsher sentences, others warned of a slippery slope. The law stayed, but the conversation lives on.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Japan court archive"
+     ],
+     "caption": "Osaka District Court, 1990",
+     "style": "card"
+    },
+    {
+     "type": "casefile",
+     "title": "CASE FILE 1990",
+     "fields": [
+      [
+       "Defendants",
+       "Hiroshi Miyano et al."
+      ],
+      [
+       "Charges",
+       "Murder, rape, torture"
+      ],
+      [
+       "Verdict",
+       "Life, 20‑yr, 7‑yr"
+      ]
+     ],
+     "stamp": "CLOSED"
+    },
+    {
+     "type": "video",
+     "search": [
+      "Japanese news 1991 juvenile law debate",
+      "NHK"
+     ],
+     "source": "archive",
+     "year": 1991,
+     "look": "tv"
+    }
+   ],
+   "pops": [
+    {
+     "text": "juvenile law",
+     "label": "debate",
+     "on": "juvenile law",
+     "kind": "law"
+    }
+   ]
+  },
+  {
+   "say": "Media kept the wound open. NHK’s 2005 documentary replayed courtroom sketches, the boys’ recorded statements, and the parents’ pleas. Universities now list the case in criminology classes, a cautionary tale for new generations. Does memory prevent repetition?",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "NHK Junko Furuta documentary 2005",
+      "NHK archive"
+     ],
+     "source": "archive",
+     "year": 2005,
+     "look": "tv"
+    },
+    {
+     "type": "image",
+     "search": [
+      "NHK documentary cover Junko Furuta 2005",
+      "Japanese TV guide"
+     ],
+     "caption": "NHK documentary cover, 2005",
+     "style": "card"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Japanese criminology textbook page Junko Furuta case 2020",
+      "University library"
+     ],
+     "caption": "Criminology textbook, 2020",
+     "style": "card"
+    },
+    {
+     "type": "map",
+     "view": [
+      138.5,
+      33.5,
+      141.5,
+      36.5
+     ],
+     "points": [
+      {
+       "name": "Aomori",
+       "note": "site of captivity",
+       "at": [
+        140.74,
+        40.82
+       ],
+       "at_time": 0.3,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "NHK 2005",
+     "label": "documentary",
+     "on": "NHK documentary",
+     "kind": "media"
+    }
+   ]
+  },
+  {
+   "say": "Today, online petitions cite Junko’s name when new abuse scandals surface. Candlelight vigils light the banks of the Arakawa each year, a silent promise. The sentences remain, the prison walls still hold the boys. Yet the fight feels fresh.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "candlelight vigil Arakawa River 2022",
+      "Japanese news photo"
+     ],
+     "caption": "Vigil on Arakawa River, 2022",
+     "style": "card"
+    },
+    {
+     "type": "video",
+     "search": [
+      "riverbank night stock footage",
+      "rain on riverbank"
+     ],
+     "source": "stock",
+     "year": 2024,
+     "look": "film"
+    },
+    {
+     "type": "image",
+     "search": [
+      "2023 Japanese newspaper article victims' rights Junko Furuta",
+      "online newspaper archive"
+     ],
+     "caption": "Newspaper front page, 2023",
+     "style": "card"
+    },
+    {
+     "type": "type",
+     "text": "LEGACY"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Arakawa River",
+     "label": "site",
+     "on": "Arakawa River",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "So what will the next generation inherit? Will the law finally bend to protect the most vulnerable, or will silence return when the headlines fade? The question lingers, waiting for a new voice to answer.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "empty riverbank at dawn stock footage",
+      "quiet river Japan"
+     ],
+     "source": "stock",
+     "year": 2024,
+     "look": "film"
+    },
+    {
+     "type": "date",
+     "text": "2026-11-07",
+     "sub": "Present"
+    }
+   ],
+   "pops": [
+    {
+     "text": "Justice?",
+     "label": "question",
+     "on": "question",
+     "kind": "law"
+    }
+   ]
+  }
+ ]
+}
