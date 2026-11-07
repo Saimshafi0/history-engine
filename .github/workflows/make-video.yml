@@ -16,6 +16,8 @@ jobs:
     env:
       SCRIPT: ${{ inputs.script }}
       PREVIEW: ${{ inputs.preview }}
+      PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
+      PIXABAY_KEY: ${{ secrets.PIXABAY_KEY }}
     steps:
       - name: Get the engine
         uses: actions/checkout@v4
@@ -35,8 +37,13 @@ jobs:
       - name: Install
         run: |
           pip install -r requirements.txt
+          pip install "rembg[cpu]" || pip install rembg || true
           mkdir -p images images-cache
           cp -n images-cache/* images/ 2>/dev/null || true
+      - name: Unlock your files
+        env:
+          MEDIA_KEY: ${{ secrets.MEDIA_KEY }}
+        run: python -u engine.py --unlock
       - name: Make video
         run: |
           if [ "$PREVIEW" = "yes" ]; then python -u engine.py "scripts/$SCRIPT" --preview; else python -u engine.py "scripts/$SCRIPT"; fi
@@ -47,6 +54,7 @@ jobs:
         if: ${{ always() }}
         run: |
           rm -f output/*/narration.wav output/*/shorts/*.wav
+          rm -rf voiceover/*.mp3 voiceover/*.m4a voiceover/*.wav clips_own/*.mp4 clips_own/*.mov clips_own/*.webm
           cp -u images/* images-cache/ 2>/dev/null || true
       - name: Upload
         uses: actions/upload-artifact@v4
