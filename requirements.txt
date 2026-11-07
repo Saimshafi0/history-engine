@@ -1,7 +1,8 @@
-kokoro-onnx>=0.4
+kokoro-onnx>=0.4.7
 soundfile
 numpy
 pillow>=10
 imageio-ffmpeg
 edge-tts
 opencv-python-headless
+pynacl
