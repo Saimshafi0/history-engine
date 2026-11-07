@@ -91,6 +91,19 @@ LAND = (196, 176, 136)
 LAND_EDGE = (120, 98, 66)
 RIVER = (88, 128, 168)
 RED = (214, 72, 52)
+DEFAULT_THEME = "archive"
+THEME = {"name": "archive"}
+
+
+def apply_theme(name):
+    """'archive' = the Midnight Archive look (gold, sepia). 'nature' = cool ice-blue look for nature/animal videos."""
+    global GOLD, GOLD_L, WHITE, GREY, INK, LAND, LAND_EDGE, RIVER, YELLOW
+    name = name or DEFAULT_THEME
+    THEME["name"] = name
+    if name == "nature":
+        GOLD, GOLD_L, WHITE, GREY, INK = (70, 196, 255), (176, 234, 255), (246, 251, 255), (160, 182, 198), (5, 12, 22)
+        LAND, LAND_EDGE, RIVER = (178, 204, 176), (84, 118, 96), (70, 140, 196)
+        YELLOW = (120, 214, 255)
 
 
 def log(*a):
@@ -103,6 +116,8 @@ _FC = {}
 
 
 def font(name, size, weight=None):
+    if name == "Cinzel" and THEME["name"] == "nature":  # modern titles for nature videos
+        name, weight = "Oswald", ("Bold" if weight in ("Bold", "Black", "SemiBold") else "Medium")
     key = (name, size, weight)
     if key not in _FC:
         f = ImageFont.truetype(os.path.join(FONTS, name + ".ttf"), size)
@@ -182,7 +197,9 @@ def noise_tex(w, h, seed=1, amount=10):
 
 
 def dark_bg(W, H, tint=(34, 28, 20)):
-    key = ("dark", W, H, tint)
+    if THEME["name"] == "nature":  # warm brown -> deep arctic blue
+        tint = (int(tint[2] * 0.45), int(tint[1] * 0.95 + 4), int(tint[0] * 1.35 + 10))
+    key = ("dark", W, H, tint, THEME["name"])
     if key in _BG:
         return _BG[key].copy()
     y, x = np.mgrid[0:H, 0:W].astype(np.float32)
@@ -394,7 +411,7 @@ class TitleScene(Scene):
         lh = f.size * 1.08
         y = cy - (len(lines) - 1) * lh / 2 + (1 - a) * self.S(30)
         for ln in lines:
-            shadow_text(img, (W / 2, y), ln, f, tuple(int(c * a + 20 * (1 - a)) for c in GOLD_L), anchor="mm", blur=10)
+            shadow_text(img, (W / 2, y), ln, f, GOLD_L + (int(255 * a),), anchor="mm", blur=10, alpha=int(200 * a))
             y += lh
         d = ImageDraw.Draw(img)
         lw = int(W * 0.22 * ease_out((t - 0.4) / 1.0))
@@ -407,6 +424,60 @@ class TitleScene(Scene):
             f2 = font("Inter", self.S(40), "Regular")
             for i, ln in enumerate(wrap(d, sub, f2, W * 0.7)):
                 d.text((W / 2, y + self.S(80) + i * self.S(54)), ln, font=f2, fill=tuple(int(c * b) for c in WHITE), anchor="mm")
+        return vignette(img)
+
+
+class CountScene(Scene):
+    """Countdown slide: a huge number punches in with a light ring and rays, then the name rises underneath.
+    visual: {"type": "count", "number": 10, "text": "Polar Bear", "sub": "The Arctic"}"""
+
+    def frame(self, t, dur):
+        W, H = self.W, self.H
+        img = dark_bg(W, H, (40, 30, 18))
+        d = ImageDraw.Draw(img, "RGBA")
+        cx, cy = W / 2, H * 0.40
+        num = str(self.v.get("number", ""))
+        # light rays turning slowly behind the number
+        ra = ease_out(t / 0.6)
+        for k in range(16):
+            ang = k * math.pi / 8 + t * 0.15
+            r0, r1 = self.S(150), self.S(150) + self.S(900) * ra
+            w = 0.05
+            pts = [(cx + r0 * math.cos(ang - w), cy + r0 * math.sin(ang - w)), (cx + r1 * math.cos(ang - w * 0.4), cy + r1 * math.sin(ang - w * 0.4)),
+                   (cx + r1 * math.cos(ang + w * 0.4), cy + r1 * math.sin(ang + w * 0.4)), (cx + r0 * math.cos(ang + w), cy + r0 * math.sin(ang + w))]
+            d.polygon(pts, fill=GOLD + (int(26 * ra),))
+        # shock ring
+        k = clamp(t / 0.9)
+        if k < 1:
+            rr = self.S(120) + self.S(520) * ease_out(k)
+            d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], outline=GOLD_L + (int(220 * (1 - k)),), width=max(2, int(self.S(10) * (1 - k)) + 1))
+        # the number: punches in big, settles with a small bounce
+        p = clamp(t / 0.45)
+        sc = 1.9 - 0.9 * ease_out(p) + (0.06 * math.sin(min(1.0, (t - 0.45) / 0.4) * math.pi) if t > 0.45 else 0)
+        f = font("Oswald", max(10, int(self.S(400) * sc)), "Bold")
+        a = clamp(t / 0.2)
+        txt = "#" + num if num and not num.startswith("#") else num
+        shadow_text(img, (cx, cy), txt, f, WHITE + (int(255 * a),), anchor="mm", blur=18, offset=(0, 8), alpha=int(220 * a))
+        glow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ImageDraw.Draw(glow).text((cx, cy), txt, font=f, fill=GOLD + (int(150 * a),), anchor="mm")
+        glow = glow.filter(ImageFilter.GaussianBlur(self.S(26)))
+        img.paste(glow, (0, 0), glow)
+        d = ImageDraw.Draw(img, "RGBA")
+        d.text((cx, cy), txt, font=f, fill=WHITE + (int(255 * a),), anchor="mm")
+        # the name rises in, with an accent bar that grows
+        b = ease_out((t - 0.35) / 0.6)
+        if b > 0:
+            name = (self.v.get("text") or "").upper()
+            fn = font("Oswald", self.S(110 if len(name) < 16 else 84), "Bold")
+            ny = H * 0.74 + (1 - b) * self.S(40)
+            shadow_text(img, (cx, ny), name, fn, GOLD_L + (int(255 * b),), anchor="mm", blur=10, alpha=int(150 * b))
+            d = ImageDraw.Draw(img, "RGBA")
+            bw = d.textlength(name, font=fn) / 2 * ease_out((t - 0.55) / 0.7)
+            d.rounded_rectangle([cx - bw, ny + self.S(66), cx + bw, ny + self.S(74)], radius=self.S(4), fill=GOLD + (int(255 * b),))
+            if self.v.get("sub"):
+                c_ = ease_out((t - 0.8) / 0.6)
+                fs = font("Inter", self.S(40), "Medium")
+                d.text((cx, ny + self.S(124)), self.v["sub"], font=fs, fill=WHITE + (int(220 * c_),), anchor="mm")
         return vignette(img)
 
 
@@ -427,7 +498,7 @@ class TextScene(Scene):
             for sub in wrap(d, ln, f, W * 0.8):
                 if a > 0:
                     col = GOLD_L if (i == n - 1 and n > 1) else WHITE
-                    shadow_text(img, (W / 2 + (1 - a) * self.S(40), y), sub, f, tuple(int(c * a) for c in col), anchor="mm")
+                    shadow_text(img, (W / 2 + (1 - a) * self.S(40), y), sub, f, col + (int(255 * a),), anchor="mm", alpha=int(200 * a))
                 y += lh
         return vignette(img)
 
@@ -582,6 +653,12 @@ class TimelineScene(Scene):
 def grade(im):
     """One warm, cinematic look for every picture (old paintings, photos, maps all match)."""
     im = im.convert("RGB")
+    if THEME["name"] == "nature":  # clean, crisp, slightly cool and vivid
+        g = np.asarray(im).astype(np.float32) / 255.0
+        lum = g.mean(-1, keepdims=True)
+        g = lum + (g - lum) * 1.12
+        g = np.clip((g - 0.5) * 1.08 + 0.5, 0, 1) * np.array([0.98, 1.0, 1.03], np.float32)
+        return Image.fromarray((np.clip(g, 0, 1) * 255).astype(np.uint8))
     g = np.asarray(im).astype(np.float32) / 255.0
     lum = g @ np.array([0.299, 0.587, 0.114], np.float32)
     sep = np.stack([lum * 1.07, lum * 0.92, lum * 0.72], -1)
@@ -625,6 +702,9 @@ class ImageScene(Scene):
         # tall / square pictures, or faces that don't fit a 16:9 crop: show the WHOLE picture on a soft blurred copy of itself
         self.portrait = self.img is not None and not self.v.get("fill") and (self.img.size[0] / self.img.size[1] < 1.3 or too_big)
         self._bg = None
+        # small or every few landscape pictures: a printed photo floating over a blurred copy (Zem TV / Dhruv Rathee style)
+        self.card = (self.img is not None and not self.portrait and not self.v.get("fill") and not self.recut
+                     and (self.v.get("style") == "card" or (self.v.get("style") != "full" and (self.img.size[0] < self.W * 0.8 or self.idx % 6 == 4))))
 
     def _title_card(self, t):
         W, H = self.W, self.H
@@ -646,6 +726,8 @@ class ImageScene(Scene):
             return self._title_card(t)
         if self.portrait:
             return self._portrait_frame(t, dur)
+        if self.card:
+            return self._card_frame(t, dur)
         im = self.img
         iw, ih = im.size
         sc = max(W / iw, H / ih)
@@ -735,6 +817,53 @@ class ImageScene(Scene):
         frame.paste((0, 0, 0), (x - 30, y - 22), sh)
         frame.paste(fg, (x, y))
         frame = vignette(frame, 0.5)
+        return self._caption(frame, t)
+
+    def _blur_bg(self):
+        if self._bg is None:
+            W, H = self.W, self.H
+            im = self.img
+            iw, ih = im.size
+            bw, bh = int(W * 1.12), int(H * 1.12)
+            sc = max(bw / iw, bh / ih)
+            b = im.resize((max(1, int(iw * sc / 4)), max(1, int(ih * sc / 4))), Image.BILINEAR)
+            b = b.filter(ImageFilter.GaussianBlur(10)).resize((int(iw * sc), int(ih * sc)), Image.BILINEAR)
+            cx, cy = (b.size[0] - bw) // 2, (b.size[1] - bh) // 2
+            b = b.crop((cx, cy, cx + bw, cy + bh))
+            self._bg = Image.blend(b, Image.new("RGB", b.size, (12, 10, 8)), 0.5)
+        return self._bg
+
+    def _card_frame(self, t, dur):
+        """The picture as a printed photo: thin light border, soft shadow, slowly drifting and turning over its own blurred copy."""
+        W, H = self.W, self.H
+        im = self.img
+        iw, ih = im.size
+        bg = self._blur_bg()
+        p = ease_io(clamp(t / max(dur, 0.1)))
+        bw, bh = bg.size
+        side = 1 if self.idx % 2 else -1
+        ox = int((bw - W) * (0.5 + side * (p - 0.5) * 0.7))
+        frame = bg.crop((ox, (bh - H) // 2, ox + W, (bh - H) // 2 + H))
+        z = 0.95 + 0.06 * p
+        fw = W * 0.74 * z
+        fh = fw * ih / iw
+        if fh > H * 0.80 * z:
+            fh = H * 0.80 * z
+            fw = fh * iw / ih
+        fg = im.resize((max(1, int(fw)), max(1, int(fh))), Image.LANCZOS)
+        bd = max(4, self.S(14))
+        framed = Image.new("RGB", (fg.size[0] + bd * 2, fg.size[1] + bd * 2), (236, 230, 216))
+        framed.paste(fg, (bd, bd))
+        ang = side * (1.6 - 2.4 * p)
+        rc = framed.convert("RGBA").rotate(ang, expand=True, resample=Image.BICUBIC)
+        x = int((W - rc.size[0]) / 2 + side * (p - 0.5) * W * 0.04)
+        y = int((H - rc.size[1]) / 2)
+        sh = Image.new("RGBA", rc.size, (0, 0, 0, 0))
+        sh.putalpha(rc.getchannel("A").point(lambda a_: int(a_ * 0.65)))
+        sh = sh.resize((max(1, sh.size[0] // 4), max(1, sh.size[1] // 4))).filter(ImageFilter.GaussianBlur(5)).resize(rc.size)
+        frame.paste((0, 0, 0), (x + self.S(18), y + self.S(26)), sh)
+        frame.paste(rc, (x, y), rc)
+        frame = vignette(frame, 0.55)
         return self._caption(frame, t)
 
     def _caption(self, frame, t):
@@ -903,7 +1032,7 @@ def hex_rgb(h):
     return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
 
 
-SCENES = {"title": TitleScene, "text": TextScene, "stat": StatScene, "year": YearScene, "quote": QuoteScene,
+SCENES = {"count": CountScene, "title": TitleScene, "text": TextScene, "stat": StatScene, "year": YearScene, "quote": QuoteScene,
           "bars": BarsScene, "timeline": TimelineScene, "image": ImageScene, "map": MapScene}
 
 
@@ -935,9 +1064,36 @@ def tts_text(s):
     return s
 
 
+# "Saim": a calm, low, mysterious American storyteller. Made by blending free Kokoro voices, then mastered like a
+# documentary narration (warm low end, clear presence, soft de-harsh, gentle compression, a touch of room).
+SAIM_MIX = {"saim": [("am_onyx", 0.5), ("am_michael", 0.5)],
+            "saim_deep": [("am_onyx", 0.8), ("am_michael", 0.2)],
+            "saim_warm": [("am_michael", 0.5), ("am_onyx", 0.3), ("am_puck", 0.2)]}
+SAIM_SPEED = 0.9
+SAIM_CHAIN = ("highpass=f=70,equalizer=f=160:t=q:w=0.9:g=3,equalizer=f=3500:t=q:w=1.4:g=1.5,equalizer=f=7500:t=q:w=1.2:g=-2,"
+              "acompressor=threshold=-22dB:ratio=3:attack=6:release=140:makeup=2.5,aecho=0.85:0.5:23|41:0.10|0.06")
+
+
+def master_voice(a):
+    """Runs the narration through the Saim mastering chain (ffmpeg)."""
+    a = np.concatenate([np.asarray(a, np.float32), np.zeros(int(SR * 0.12), np.float32)])
+    p = subprocess.run([ffmpeg_exe(), "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-af", SAIM_CHAIN,
+                        "-f", "f32le", "-ar", str(SR), "-ac", "1", "-"], input=a.tobytes(), capture_output=True)
+    if p.returncode != 0 or not p.stdout:
+        return a
+    out = np.frombuffer(p.stdout, np.float32).copy()
+    # every sentence at the same loudness (about -19 dBFS RMS of the spoken part), never clipping
+    loud = out[np.abs(out) > 0.02]
+    rms = float(np.sqrt(np.mean(loud ** 2))) if len(loud) > 100 else 0
+    if rms > 0:
+        out = out * (0.11 / rms)
+    pk = float(np.max(np.abs(out))) if len(out) else 0
+    return out * (0.95 / pk) if pk > 0.95 else out
+
+
 class Voice:
     def __init__(self, cfg):
-        self.voice = cfg.get("voice", "bm_george")
+        self.voice = cfg.get("voice", "saim")
         self.speed = float(cfg.get("speed", 0.95))
         self.kind = None
         self.k = None
@@ -950,17 +1106,37 @@ class Voice:
 
     def say(self, text):
         """Returns float32 mono audio at 24 kHz."""
+        if getattr(self, "clips", None):
+            return self.clips.pop(0)
+        if self.voice in ("none", "silent", "own"):
+            # no AI voice: silence as long as a person needs to say this line (about 2.4 words a second)
+            self.kind = "none"
+            n_words = len(re.findall(r"\w+", text))
+            return np.zeros(int(SR * (0.35 + n_words / (2.4 * max(0.6, self.speed)))), np.float32)
         t = tts_text(text)
-        cache = A("cache", "voice", hashlib.sha1(f"{self.voice}|{self.speed}|{t}".encode()).hexdigest() + ".npy")
+        mix = json.dumps(SAIM_MIX.get(self.voice, "")) + SAIM_CHAIN if self.voice.startswith("saim") else ""
+        cache = A("cache", "voice", hashlib.sha1(f"{self.voice}|{self.speed}|{mix}|{t}".encode()).hexdigest() + ".npy")
         if os.path.exists(cache):
             return np.load(cache)
         a = None
         errors = []
-        if os.path.exists(MODEL):
+        if self.voice == "saim_neural":  # Microsoft's natural online voice, slowed and lowered, then mastered
+            try:
+                a = master_voice(self._edge(t, "en-US-AndrewMultilingualNeural", rate=f"{int((self.speed * 0.92 - 1) * 100):+d}%", pitch="-3Hz"))
+                self.kind = "saim_neural"
+            except Exception as e:
+                errors.append(f"online voice: {e}")
+        if a is None and os.path.exists(MODEL):
             try:
                 k = self._kokoro()
-                lang = "en-gb" if self.voice.startswith("b") else "en-us"
-                a, sr = k.create(t, voice=self.voice, speed=self.speed, lang=lang)
+                v = self.voice if self.voice != "saim_neural" else "saim"
+                if v in SAIM_MIX:
+                    style = sum(w * k.get_voice_style(n) for n, w in SAIM_MIX[v]).astype(np.float32)
+                    a, sr = k.create(t, voice=style, speed=SAIM_SPEED * self.speed / 0.95, lang="en-us")
+                    a = master_voice(a)
+                else:
+                    lang = "en-gb" if v.startswith("b") else "en-us"
+                    a, sr = k.create(t, voice=v, speed=self.speed, lang=lang)
                 a = np.asarray(a, np.float32)
                 self.kind = "kokoro"
             except Exception as e:
@@ -977,15 +1153,21 @@ class Voice:
         np.save(cache, a)
         return a
 
-    def _edge(self, t):
+    def _edge(self, t, name=None, rate=None, pitch="+0Hz"):
         import asyncio
         import edge_tts
-        name = {"bm_george": "en-GB-RyanNeural", "bm_lewis": "en-GB-ThomasNeural", "am_onyx": "en-US-AndrewNeural"}.get(self.voice, "en-US-GuyNeural")
-        tmp = A("cache", "edge.mp3")
+        name = name or {"bm_george": "en-GB-RyanNeural", "bm_lewis": "en-GB-ThomasNeural", "am_onyx": "en-US-AndrewNeural"}.get(self.voice, "en-US-AndrewNeural")
+        tmp = A("cache", f"edge_{os.getpid()}_{threading.get_ident()}.mp3")
         os.makedirs(A("cache"), exist_ok=True)
-        rate = f"{int((self.speed - 1) * 100):+d}%"
-        asyncio.run(edge_tts.Communicate(t, name, rate=rate).save(tmp))
-        return decode_audio(tmp)
+        rate = rate or f"{int((self.speed - 1) * 100):+d}%"
+        asyncio.run(edge_tts.Communicate(t, name, rate=rate, pitch=pitch).save(tmp))
+        try:
+            return decode_audio(tmp)
+        finally:
+            try:
+                os.remove(tmp)
+            except OSError:
+                pass
 
 
 def ffmpeg_exe():
@@ -1010,6 +1192,117 @@ def write_wav(path, a):
         w.writeframes((a * 32767).astype(np.int16).tobytes())
 
 
+AUDIO_EXT = (".mp3", ".m4a", ".wav", ".ogg", ".aac", ".opus", ".flac", ".mp4")
+
+
+def own_voice_file(name):
+    """voiceover/<script name>.mp3 (or .m4a/.wav...) = your own recording of the whole script."""
+    d = A("voiceover")
+    if not os.path.isdir(d):
+        return None
+    for f in sorted(os.listdir(d)):
+        b, e = os.path.splitext(f)
+        if b.lower() == name.lower() and e.lower() in AUDIO_EXT:
+            return os.path.join(d, f)
+    return None
+
+
+def split_own_voice(audio, texts):
+    """Cuts one long recording into one clip per sentence.
+    Finds the pauses in your recording and picks, for each sentence end, the pause that best fits
+    where it should be (by word count). Result: every picture changes exactly when you say it."""
+    hop = int(SR * 0.02)
+    n = len(audio) // hop
+    if n < 10 or not texts:
+        return [audio] + [np.zeros(int(SR * 0.3), np.float32)] * (len(texts) - 1)
+    rms = np.sqrt(np.mean(audio[:n * hop].reshape(n, hop) ** 2, axis=1) + 1e-12)
+    db = 20 * np.log10(rms)
+    loud = np.percentile(db, 90)
+    floor = np.percentile(db, 10)
+    thr = max(floor + 6, loud - 30)
+    speech = db > thr
+    idx = np.nonzero(speech)[0]
+    s0, s1 = (idx[0], idx[-1] + 1) if len(idx) else (0, n)
+    # pauses (runs of silence) inside the speech
+    pauses = []
+    i = s0
+    while i < s1:
+        if not speech[i]:
+            j = i
+            while j < s1 and not speech[j]:
+                j += 1
+            if j - i >= 6:  # 120 ms or longer
+                pauses.append(((i + j) / 2, (j - i)))
+            i = j
+        else:
+            i += 1
+    words = [max(1, len(re.findall(r"\w+", t))) for t in texts]
+    tot = float(sum(words))
+    k = len(texts) - 1
+    span = s1 - s0
+    exp = [s0 + span * sum(words[:q + 1]) / tot for q in range(k)]
+    chosen = []
+    if k > 0 and len(pauses) >= k:
+        # dynamic programming over (sentence end -> pause): each sentence should last about as long as its
+        # word count says, long pauses are more likely sentence ends, and we must not drift far overall
+        M = len(pauses)
+        INF = 1e18
+        rate = span / tot
+        pos = [pp[0] for pp in pauses]
+        bonus = [min(ln, 50) / 10.0 for _, ln in pauses]
+
+        def seg(q, length):
+            e = words[q] * rate
+            r = length / e if e > 0 else 1
+            if r <= 0:
+                return INF
+            return (math.log(r) ** 2) * 6
+
+        def drift(q, m):
+            return ((pos[m] - exp[q]) / span) ** 2 * 60
+
+        cost = [[INF] * M for _ in range(k)]
+        back = [[-1] * M for _ in range(k)]
+        for m in range(M):
+            cost[0][m] = seg(0, pos[m] - s0) - bonus[m] + drift(0, m)
+        for q in range(1, k):
+            for m in range(q, M):
+                best, bi = INF, -1
+                for m2 in range(q - 1, m):
+                    if cost[q - 1][m2] >= INF:
+                        continue
+                    v = cost[q - 1][m2] + seg(q, pos[m] - pos[m2])
+                    if v < best:
+                        best, bi = v, m2
+                if bi >= 0:
+                    cost[q][m] = best - bonus[m] + drift(q, m)
+                    back[q][m] = bi
+        m = min(range(M), key=lambda x: cost[k - 1][x] + seg(k, s1 - pos[x]))
+        for q in range(k - 1, -1, -1):
+            chosen.append(m)
+            m = back[q][m]
+        chosen = [pauses[x][0] for x in reversed(chosen)]
+    else:
+        chosen = exp
+    cuts = [s0] + [int(x) for x in chosen] + [s1]
+    clips = []
+    for q in range(len(texts)):
+        a, b = cuts[q], max(cuts[q] + 1, cuts[q + 1])
+        seg = speech[a:b]
+        on = np.nonzero(seg)[0]
+        if len(on):
+            a2, b2 = a + max(0, on[0] - 4), a + min(len(seg), on[-1] + 5)
+        else:
+            a2, b2 = a, b
+        clip = audio[a2 * hop:b2 * hop].astype(np.float32)
+        f = min(len(clip) // 4, int(SR * 0.01))
+        if f > 1:
+            clip[:f] *= np.linspace(0, 1, f)
+            clip[-f:] *= np.linspace(1, 0, f)
+        clips.append(clip)
+    return clips
+
+
 def whoosh(sec=0.7, seed=0):
     rng = np.random.default_rng(seed)
     n = int(SR * sec)
@@ -1031,6 +1324,23 @@ def tick():
     return (np.sin(2 * math.pi * 2400 * t) * np.exp(-t * 180)).astype(np.float32) * 0.5
 
 
+
+
+_CLICKS = {}
+
+
+def type_click(seed=0):
+    """A typewriter key: a short bright noise snap plus a soft low knock."""
+    k = seed % 5
+    if k not in _CLICKS:
+        rng = np.random.default_rng(300 + k)
+        n = int(SR * 0.045)
+        t = np.arange(n) / SR
+        snap = rng.normal(0, 1, n).astype(np.float32)
+        snap = np.diff(snap, prepend=0) * np.exp(-t * (260 + 40 * k))
+        knock = np.sin(2 * math.pi * (190 + 25 * k) * t) * np.exp(-t * 90)
+        _CLICKS[k] = (snap * 0.35 + knock * 0.5).astype(np.float32) * (0.8 + 0.08 * k)
+    return _CLICKS[k]
 
 
 def ambient_pad(n, seed=0):
@@ -1388,7 +1698,7 @@ def make_score(pl, script, speech):
     music *= (1 - 0.5 * talk)
     # level: about 17 dB below the voice
     voiced = speech[env > 0.02]
-    vr = np.sqrt(np.mean(voiced ** 2)) if len(voiced) else 0.1
+    vr = np.sqrt(np.mean(voiced ** 2)) if len(voiced) else 0.12
     mr = np.sqrt(np.mean(music ** 2)) or 1
     vol = float(script.get("music_volume", 1.0))
     music *= (vr * 10 ** (-17 / 20)) / mr * vol
@@ -1414,7 +1724,7 @@ def bell_sound():
 
 # ================================================================== the build: voice -> timings -> beats
 
-QUIET_TYPES = ("stat", "year", "bars", "timeline", "quote", "text", "title")
+QUIET_TYPES = ("stat", "year", "bars", "timeline", "quote", "text", "title", "count", "date", "type", "casefile")
 NUM_RE = re.compile(r"(\$\s?\d[\d,]*(?:\.\d+)?(?:\s(?:thousand|million|billion|trillion))?|\b\d[\d,]*(?:\.\d+)?(?:\s(?:thousand|million|billion|trillion))?(?:\s(?:people|camels|ships|kilometres|km|miles|pounds|years|dirhams|soldiers|men|days|months|percent|tons|tonnes|coins|bars))?)", re.I)
 
 
@@ -1456,6 +1766,16 @@ def plan(script):
     """Voice for every sentence, exact timings, beats (a new visual every few seconds) and floating callouts."""
     voice = Voice(script)
     gap, tail, lead = 0.25, 0.45, 0.3
+    if script.get("_own_voice"):
+        texts = [x for sc in script["scenes"] for x in split_sentences(sc.get("say", ""))]
+        log(f"  using YOUR recording: {os.path.basename(script['_own_voice'])}")
+        rec = decode_audio(script["_own_voice"])
+        pk = float(np.max(np.abs(rec))) if len(rec) else 0
+        if pk > 0:
+            rec = rec * (0.89 / pk)
+        voice.clips = split_own_voice(rec, texts)
+        voice.kind = "own"
+        gap = 0.18
     beats, sentences, words, pops, audio, scene_starts = [], [], [], [], [], []
     t = 0.0
     chapter, date = "", ""
@@ -1472,8 +1792,11 @@ def plan(script):
             wt = word_times(s, st, st + d)
             sentences.append({"scene": si, "start": round(st, 3), "end": round(st + d, 3), "text": s})
             sw += wt
-            parts += [a, np.zeros(int(SR * gap), np.float32)]
-            st += d + gap
+            g_ = gap
+            if str(script.get("voice", "")).startswith("saim"):  # a storyteller breathes: longer after questions and "..."
+                g_ = 0.62 if s.rstrip().endswith(("?", "...", "…", "!")) else 0.36
+            parts += [a, np.zeros(int(SR * g_), np.float32)]
+            st += d + g_
         speech = np.concatenate(parts)
         dur = max(len(speech) / SR + tail, float(sc.get("min_seconds", 2.5)))
         speech = np.concatenate([speech, np.zeros(max(0, int(round(SR * dur)) - len(speech)), np.float32)])[:int(round(SR * dur))]
@@ -1560,6 +1883,36 @@ def plan(script):
     pops = out
     track = np.concatenate(audio)
     speech = track.copy()
+    # "Like + Subscribe" animation (3 s) in the middle of the long video, on a calm photo, away from cards and Shorts
+    sub_at = None
+    total_ = len(track) / SR
+    if script.get("subscribe_anim", True) and total_ > 90:
+        busy = set()
+        for sh in script.get("shorts") or []:
+            try:
+                busy.update(range(int(sh.get("from_scene", -1)), int(sh.get("to_scene", -2)) + 1))
+            except Exception:
+                pass
+        best = None
+        for b in beats:
+            st = b["start"]
+            if b.get("hit") or b["visual"].get("type") not in ("image", "map", "video") or b["scene"] in busy:
+                continue
+            if not (0.35 * total_ < st < 0.68 * total_) or b["dur"] < 1.5:
+                continue
+            if any(p_["t"] < st + 3.8 and p_["end"] > st - 0.3 for p_ in pops):
+                continue
+            sc_ = abs(st - 0.5 * total_)
+            if best is None or sc_ < best[0]:
+                best = (sc_, st + 0.4)
+        if best is None:
+            for b in beats:
+                if not b.get("hit") and 0.4 * total_ < b["start"] < 0.6 * total_:
+                    best = (0, b["start"] + 0.4)
+                    break
+        if best:
+            sub_at = round(best[1], 3)
+            pops = [p_ for p_ in pops if not (p_["t"] < sub_at + 3.4 and p_["end"] > sub_at)]
     # sound design
     for b in beats:
         if b["new_scene"] and b["start"] > 0.5:
@@ -1577,6 +1930,34 @@ def plan(script):
                 tk = tick() * 0.22
                 if k + len(tk) < len(track):
                     track[k:k + len(tk)] += tk
+    for b in beats:  # typewriter clicks for typed words, date cards and case files, and a thump for the case-file stamp
+        v = b["visual"]
+        typ = v.get("type")
+        if typ in ("date", "type"):
+            txt = str(v.get("text") or "")
+            cps = max(10.0, len(txt) / max(0.6, min(1.3, b["dur"] * 0.4)))
+            for j in range(len(txt)):
+                if txt[j] == " ":
+                    continue
+                k = int((b["start"] + 0.15 + j / cps) * SR)
+                tk = type_click(j * 7) * 0.5
+                if k + len(tk) < len(track):
+                    track[k:k + len(tk)] += tk
+        elif typ == "casefile":
+            fields = [x for x in (v.get("fields") or []) if isinstance(x, (list, tuple)) and len(x) >= 2][:6]
+            per = max(0.35, (b["dur"] - 1.6) / max(1, len(fields)))
+            for i_, (_, val) in enumerate(fields):
+                n_ = min(len(str(val)), 26)
+                for j in range(n_):
+                    k = int((b["start"] + 0.55 + i_ * per + j * per * 0.7 / max(1, len(str(val)))) * SR)
+                    tk = type_click(j * 3 + i_) * 0.42
+                    if k + len(tk) < len(track):
+                        track[k:k + len(tk)] += tk
+            if v.get("stamp"):
+                k = int((b["start"] + 0.55 + len(fields) * per) * SR)
+                im = impact_sound() * 0.45
+                if k + len(im) < len(track):
+                    track[k:k + len(im)] += im
     for b in beats:
         if b.get("hit"):
             k = int(b["start"] * SR)
@@ -1590,6 +1971,13 @@ def plan(script):
             ps = ps * 0.6
         if k + len(ps) < len(track):
             track[k:k + len(ps)] += ps
+    if sub_at is not None:
+        for off, snd, vol in ((0.0, whoosh(0.5, 77), 0.18), (1.0, pop_sound(), 0.9), (2.0, pop_sound(), 0.9), (2.35, bell_sound(), 0.35)):
+            if callable(snd):
+                snd = snd()
+            k = int((sub_at + off) * SR)
+            if k + len(snd) < len(track):
+                track[k:k + len(snd)] += snd * vol
     peak = np.max(np.abs(track)) or 1
     track = track / peak * 0.9
     speech = speech / peak * 0.9
@@ -1611,7 +1999,7 @@ def plan(script):
         for ln in group_lines(ws):
             lines.append({"start": ln[0][0], "end": ln[-1][1], "words": ln})
     return {"beats": beats, "sentences": sentences, "words": words, "lines": lines, "pops": pops, "total": total,
-            "scene_starts": scene_starts, "voice": voice.kind, "moods": moods}, track
+            "scene_starts": scene_starts, "voice": voice.kind, "moods": moods, "sub_at": sub_at}, track
 
 
 # ------------------------------------------------------------------ ambience: gold dust, light leak
@@ -1633,7 +2021,7 @@ def dust(img, t, strength=1.0, seed=3):
         x = (x0 + vx * t + 14 * math.sin(t * 0.4 * sp + ph)) % W
         y = (y0 - vy * t) % H
         a = int(255 * strength * (0.25 + 0.35 * (1 + math.sin(t * 1.7 * sp + ph))))
-        d.ellipse([x - r, y - r, x + r, y + r], fill=(255, 214, 140, max(0, min(255, a))))
+        d.ellipse([x - r, y - r, x + r, y + r], fill=((236, 246, 255) if THEME["name"] == "nature" else (255, 214, 140)) + (max(0, min(255, a)),))
     img.paste(ov, (0, 0), ov)
     return img
 
@@ -1643,13 +2031,13 @@ _LEAK = {}
 
 def light_leak(img, t, seed=0):
     W, H = img.size
-    key = (W, H)
+    key = (W, H, THEME["name"])
     if key not in _LEAK:
         s = int(H * 1.1)
         y, x = np.mgrid[0:s, 0:s].astype(np.float32)
         r = np.sqrt((x - s / 2) ** 2 + (y - s / 2) ** 2) / (s / 2)
         m = np.clip(1 - r, 0, 1) ** 2.2
-        g = np.stack([m * 70, m * 42, m * 14], -1)
+        g = np.stack([m * 14, m * 44, m * 72], -1) if THEME["name"] == "nature" else np.stack([m * 70, m * 42, m * 14], -1)
         _LEAK[key] = Image.fromarray(g.astype(np.uint8))
     from PIL import ImageChops
     lk = _LEAK[key]
@@ -1882,9 +2270,131 @@ def overlay(img, t, plan_, cur, prev, W, H, captions=False):
     for p in plan_["pops"]:
         if p["t"] <= t < p["end"]:
             draw_pop(img, t, p, W, H)
+    sa = plan_.get("sub_at")
+    if sa is not None and sa <= t < sa + SUB_DUR:
+        draw_subscribe(img, t - sa, W, H)
     if captions:
         draw_caption(img, t, plan_["lines"], W, H, H - int(120 * s), int(50 * s))
     return img
+
+
+SUB_DUR = 3.3
+
+
+def _thumb(d, cx, cy, r, fill):
+    """A thumbs-up icon drawn from shapes (r = half size)."""
+    u = r / 10
+    d.rounded_rectangle([cx - 10 * u, cy - 2 * u, cx - 5.5 * u, cy + 9 * u], radius=1.2 * u, fill=fill)  # cuff
+    d.rounded_rectangle([cx - 4 * u, cy - 3 * u, cx + 8.5 * u, cy + 9 * u], radius=2.2 * u, fill=fill)  # fist
+    d.polygon([(cx - 4 * u, cy - 1 * u), (cx - 0.5 * u, cy - 9.5 * u), (cx + 2.6 * u, cy - 9.2 * u),
+               (cx + 2.2 * u, cy - 3 * u), (cx - 1 * u, cy - 1 * u)], fill=fill)  # thumb
+    d.ellipse([cx - 1.2 * u, cy - 11 * u, cx + 2.9 * u, cy - 7.4 * u], fill=fill)
+
+
+def _bell(d, cx, cy, r, fill, ang=0.0):
+    u = r / 10
+    ca, sa_ = math.cos(ang), math.sin(ang)
+
+    def R(x, y):
+        return (cx + (x * ca - y * sa_) * u, cy + (x * sa_ + y * ca) * u)
+
+    body = [R(-7, 5), R(-6, -1), R(-5, -5), R(-2.5, -7.5), R(0, -8), R(2.5, -7.5), R(5, -5), R(6, -1), R(7, 5), R(8.5, 6.5), R(-8.5, 6.5)]
+    d.polygon(body, fill=fill)
+    kx, ky = R(0, 8.6)
+    d.ellipse([kx - 2 * u, ky - 2 * u, kx + 2 * u, ky + 2 * u], fill=fill)
+    tx, ty = R(0, -9)
+    d.ellipse([tx - 1.3 * u, ty - 1.3 * u, tx + 1.3 * u, ty + 1.3 * u], fill=fill)
+
+
+def _cursor(d, x, y, sz, press=0.0):
+    k = sz * (1 - 0.15 * press)
+    pts = [(0, 0), (0, 17), (4.2, 13), (7.2, 19.5), (9.8, 18.3), (6.9, 12), (12.4, 12)]
+    pts = [(x + px * k / 20, y + py * k / 20) for px, py in pts]
+    d.polygon([(px + 2, py + 3) for px, py in pts], fill=(0, 0, 0, 90))
+    d.polygon(pts, fill=(255, 255, 255, 255), outline=(20, 20, 20, 255))
+
+
+def draw_subscribe(img, lt, W, H):
+    """3-second 'Like + Subscribe' moment: a card slides up, a cursor clicks LIKE (it turns blue and pops),
+    then SUBSCRIBE (red turns to grey 'SUBSCRIBED'), and the bell rings."""
+    s = W / 1920
+    SS = 2  # draw at 2x and shrink for smooth edges
+    cw, ch = int(860 * s), int(150 * s)
+    L = Image.new("RGBA", (cw * SS, ch * SS), (0, 0, 0, 0))
+    d = ImageDraw.Draw(L)
+    u = s * SS
+    inn = ease_out(lt / 0.42)
+    out = ease_io((lt - (SUB_DUR - 0.4)) / 0.4) if lt > SUB_DUR - 0.4 else 0
+    vis = inn * (1 - out)
+    # glass card
+    d.rounded_rectangle([0, 0, cw * SS - 1, ch * SS - 1], radius=int(75 * u), fill=(12, 20, 32, 215), outline=GOLD + (170,), width=max(2, int(2.5 * u)))
+    cy = ch * SS / 2
+    # LIKE button
+    lx0, lx1 = 36 * u, 290 * u
+    liked = lt >= 1.0
+    pres1 = clamp(1 - abs(lt - 1.0) / 0.12)
+    bounce = 1 + (0.22 * math.sin(clamp((lt - 1.0) / 0.35) * math.pi) if liked else 0)
+    d.rounded_rectangle([lx0, cy - 46 * u, lx1, cy + 46 * u], radius=int(46 * u), fill=(GOLD + (255,)) if liked else (255, 255, 255, 34))
+    _thumb(d, lx0 + 66 * u, cy + 2 * u, 26 * u * bounce, (255, 255, 255, 255) if liked else (235, 240, 245, 255))
+    fl = font("Oswald", int(44 * u), "SemiBold")
+    d.text((lx0 + 112 * u, cy), "LIKE", font=fl, fill=(255, 255, 255, 255), anchor="lm")
+    if liked and lt < 1.6:  # little burst around the thumb
+        k = clamp((lt - 1.0) / 0.6)
+        for i in range(10):
+            ang = i * math.pi / 5
+            r0, r1 = (34 + 40 * k) * u, (44 + 58 * k) * u
+            bx, by = lx0 + 66 * u, cy
+            d.line([(bx + r0 * math.cos(ang), by + r0 * math.sin(ang)), (bx + r1 * math.cos(ang), by + r1 * math.sin(ang))],
+                   fill=GOLD_L + (int(255 * (1 - k)),), width=max(2, int(4 * u)))
+    # SUBSCRIBE button
+    sx0, sx1 = 320 * u, 690 * u
+    subd = lt >= 2.0
+    pulse = 1 + (0.05 * math.sin(lt * 9) if 1.2 < lt < 2.0 else 0)
+    if subd:
+        d.rounded_rectangle([sx0, cy - 46 * u, sx1, cy + 46 * u], radius=int(46 * u), fill=(70, 78, 88, 255))
+        d.text(((sx0 + sx1) / 2, cy), "SUBSCRIBED", font=fl, fill=(225, 230, 236, 255), anchor="mm")
+    else:
+        mx = (sx1 - sx0) * (pulse - 1) / 2
+        d.rounded_rectangle([sx0 - mx, cy - 46 * u * pulse, sx1 + mx, cy + 46 * u * pulse], radius=int(46 * u), fill=(230, 33, 23, 255))
+        d.text(((sx0 + sx1) / 2, cy), "SUBSCRIBE", font=fl, fill=(255, 255, 255, 255), anchor="mm")
+    # bell (rings after subscribing)
+    bx = 760 * u
+    ring = math.sin((lt - 2.3) * 28) * 0.45 * math.exp(-(lt - 2.3) * 3) if lt > 2.3 else 0
+    _bell(d, bx, cy, 30 * u, (255, 255, 255, 255) if lt > 2.3 else (200, 208, 216, 255), ring)
+    if lt > 2.3:
+        k = clamp((lt - 2.3) / 0.6)
+        for side in (-1, 1):
+            d.arc([bx - (40 + 18 * k) * u, cy - (40 + 18 * k) * u, bx + (40 + 18 * k) * u, cy + (40 + 18 * k) * u],
+                  start=-40 + (180 if side < 0 else 0), end=40 + (180 if side < 0 else 0), fill=GOLD_L + (int(255 * (1 - k)),), width=max(2, int(4 * u)))
+    # the cursor: comes in, clicks LIKE at 1.0 s, moves and clicks SUBSCRIBE at 2.0 s, leaves
+    p_like = (lx0 + 150 * u, cy + 14 * u)
+    p_sub = ((sx0 + sx1) / 2 + 40 * u, cy + 14 * u)
+    p_off = (cw * SS + 60 * u, ch * SS + 40 * u)
+    if lt < 0.95:
+        k = ease_io(clamp((lt - 0.35) / 0.6))
+        cx_, cy_ = p_off[0] + (p_like[0] - p_off[0]) * k, p_off[1] + (p_like[1] - p_off[1]) * k
+    elif lt < 1.95:
+        k = ease_io(clamp((lt - 1.3) / 0.6))
+        cx_, cy_ = p_like[0] + (p_sub[0] - p_like[0]) * k, p_like[1] + (p_sub[1] - p_like[1]) * k
+    else:
+        k = ease_io(clamp((lt - 2.4) / 0.5))
+        cx_, cy_ = p_sub[0] + (p_off[0] - p_sub[0]) * k, p_sub[1] + (p_off[1] - p_sub[1]) * k
+    press = max(pres1, clamp(1 - abs(lt - 2.0) / 0.12))
+    if press > 0:
+        rr = (14 + 26 * (1 - press)) * u
+        d.ellipse([cx_ - rr, cy_ - rr, cx_ + rr, cy_ + rr], outline=(255, 255, 255, int(200 * press)), width=max(2, int(3 * u)))
+    _cursor(d, cx_, cy_, 46 * u, press)
+    L = L.resize((cw, ch), Image.LANCZOS)
+    if vis < 1:
+        a = L.getchannel("A").point(lambda v: int(v * vis))
+        L.putalpha(a)
+    x = (W - cw) // 2
+    y = int(H - ch - 70 * s + (1 - inn) * 160 * s + out * 160 * s)
+    sh = Image.new("RGBA", (cw + int(80 * s), ch + int(80 * s)), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle([int(40 * s), int(48 * s), int(40 * s) + cw, int(48 * s) + ch], radius=int(75 * s), fill=(0, 0, 0, int(120 * vis)))
+    sh = sh.filter(ImageFilter.GaussianBlur(int(18 * s) + 1))
+    img.paste(sh, (x - int(40 * s), y - int(40 * s)), sh)
+    img.paste(L, (x, y), L)
 
 
 # ------------------------------------------------------------------ frame workers (run in parallel)
@@ -1895,6 +2405,7 @@ _W = {}
 def _init_worker(plan_path, W, H, fps, captions):
     with open(plan_path, encoding="utf-8") as f:
         pl = json.load(f)
+    apply_theme(pl.get("theme"))
     _W.update(plan=pl, W=W, H=H, fps=fps, captions=captions, objs={})
 
 
@@ -1959,7 +2470,34 @@ def render_frame(n):
     lt = t - cur["start"]
     img = beat_frame(idx, lt)
     fade = 0.45 if cur["new_scene"] else 0.28
-    if idx > 0 and lt < fade and not cur.get("hit"):
+    style = THEME.get("name")
+    if idx > 0 and not cur.get("hit") and style == "nature" and lt < 0.4:
+        prev = beats[idx - 1]
+        pimg = beat_frame(idx - 1, prev["dur"] - 0.01 + lt)
+        kind = ("whip", "zoom", "whip", "fade")[idx % 4] if not cur["new_scene"] else "zoom"
+        if kind == "whip" and lt < 0.34:  # fast slide with motion blur, like a camera whip pan
+            p = ease_io(lt / 0.34)
+            dx = int(W * p)
+            canvas = Image.new("RGB", (W, H))
+            canvas.paste(pimg, (-dx, 0))
+            canvas.paste(img, (W - dx, 0))
+            blur = math.sin(math.pi * p)
+            if blur > 0.05:
+                soft = canvas.resize((max(8, W // 14), H), Image.BILINEAR).resize((W, H), Image.BILINEAR)
+                canvas = Image.blend(canvas, soft, min(0.85, blur * 0.9))
+            img = canvas
+        elif kind == "zoom" and lt < 0.4:  # the old shot rushes toward you, the new one appears through it
+            p = ease_io(lt / 0.4)
+            z = 1 + 0.35 * p
+            cw, ch = W / z, H / z
+            pz = pimg.resize((W, H), Image.BILINEAR, box=((W - cw) / 2, (H - ch) / 2, (W + cw) / 2, (H + ch) / 2))
+            z2 = 1.18 - 0.18 * p
+            cw2, ch2 = W / z2, H / z2
+            iz = img.resize((W, H), Image.BILINEAR, box=((W - cw2) / 2, (H - ch2) / 2, (W + cw2) / 2, (H + ch2) / 2))
+            img = Image.blend(pz, iz, p)
+        elif lt < fade:
+            img = Image.blend(pimg, img, ease(lt / fade))
+    elif idx > 0 and lt < fade and not cur.get("hit"):
         prev = beats[idx - 1]
         pimg = beat_frame(idx - 1, prev["dur"] - 0.01 + lt)
         img = Image.blend(pimg, img, ease(lt / fade))
@@ -1969,7 +2507,7 @@ def render_frame(n):
 
 # ------------------------------------------------------------------ real pictures: Wikimedia Commons (free, credited), AI painting as backup
 
-UA = {"User-Agent": "SaimShafiHistoryEngine/2.2 (https://github.com/Saimshafi0; personal documentary maker)"}
+UA = {"User-Agent": "SaimShafiHistoryEngine/4.0 (https://github.com/Saimshafi0; personal documentary maker)"}
 
 
 def http_json(url, data=None, headers=None, timeout=25):
@@ -2534,6 +3072,608 @@ def resolve_pictures(script, use_ai=True):
     return credits, missing
 
 
+# ================================================================== REAL VIDEO CLIPS (b-roll): archive footage + free stock footage + your own clips
+#
+# Only footage we are allowed to use:
+#   - Wikimedia Commons videos: public domain, CC0, CC BY, CC BY-SA (never NC / ND)
+#   - Internet Archive films: only items whose license is public domain / CC0 / CC BY / CC BY-SA
+#   - Pexels and Pixabay videos (free keys): their licenses allow use in monetized videos
+#   - your own clips (clips_own/<slide>.mp4): YOUR responsibility (see MEDIA-RULES.txt)
+# Every clip is credited in the description.
+
+CLIP_SEC = 9.0          # how much of each clip we cut (beats are shorter, so there is room)
+_OK_LIC = re.compile(r"public ?domain|publicdomain|\bpd\b|pd-|cc0|cc[- ]?by|creativecommons\.org/licenses/by(-sa)?/|creativecommons\.org/publicdomain", re.I)
+_BAD_LIC = re.compile(r"\bnc\b|\bnd\b|-nc|-nd|by-nc|by-nd|noncommercial|noderiv", re.I)
+
+
+def _lic_ok(lic):
+    return bool(lic) and bool(_OK_LIC.search(lic)) and not _BAD_LIC.search(lic)
+
+
+def vid_key(v):
+    return "v_" + img_key(v)
+
+
+def secret(name):
+    """API keys: from the cloud's secret store (env) or from settings.json on this PC."""
+    return (os.environ.get(name.upper()) or settings().get(name.lower()) or "").strip()
+
+
+def commons_video_candidates(queries):
+    def one(q):
+        url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6, "gsrsearch": q + " filetype:video", "gsrlimit": 20,
+            "prop": "videoinfo", "viprop": "url|size|mime|extmetadata|derivatives"})
+        data = http_json(url)
+        res = []
+        pages = sorted((data.get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
+        for p in pages:
+            vi = (p.get("videoinfo") or [{}])[0]
+            meta = vi.get("extmetadata") or {}
+            lic = (meta.get("LicenseShortName") or {}).get("value", "")
+            if not _lic_ok(lic):
+                continue
+            dur = float(vi.get("duration") or 0)
+            if dur and dur < 3:
+                continue
+            # a ready-made smaller copy (720p/480p) downloads much faster than the original
+            ders = [d for d in (vi.get("derivatives") or []) if d.get("src") and int(d.get("height") or 0) >= 360]
+            ders.sort(key=lambda d: abs(int(d.get("height") or 0) - 720))
+            src = ders[0]["src"] if ders else vi.get("url")
+            if not src:
+                continue
+            title = p.get("title", "").replace("File:", "")
+            artist = re.sub(r"<[^>]+>", "", (meta.get("Artist") or {}).get("value", "")).strip()[:80]
+            res.append({"title": title, "url": src, "src": "commons", "duration": dur, "kind": "archive",
+                        "credit": f"{title} - {artist or 'unknown'} - {lic} - {vi.get('descriptionurl', '')}"})
+        return res
+    return _search_many("Wikimedia video", queries, one)
+
+
+def archive_candidates(queries):
+    def one(q):
+        url = "https://archive.org/advancedsearch.php?" + urllib.parse.urlencode(
+            [("q", f"({q}) AND mediatype:(movies)"), ("fl[]", "identifier"), ("fl[]", "title"), ("fl[]", "licenseurl"),
+             ("fl[]", "collection"), ("rows", "40"), ("output", "json")])
+        data = http_json(url)
+        res = []
+        for d in (data.get("response") or {}).get("docs", []):
+            lic = d.get("licenseurl") or ""
+            cols = d.get("collection") or []
+            cols = cols if isinstance(cols, list) else [cols]
+            if not lic and "prelinger" in cols:  # the Prelinger Archives are public domain
+                lic = "http://creativecommons.org/publicdomain/mark/1.0/"
+            if not _lic_ok(lic):
+                continue
+            title = d.get("title") or d["identifier"]
+            title = title[0] if isinstance(title, list) else title
+            res.append({"title": str(title), "url": "ia:" + d["identifier"], "src": "archive.org", "kind": "archive", "lic": lic,
+                        "credit": f"{title} - Internet Archive - {lic} - https://archive.org/details/{d['identifier']}"})
+        return res
+    return _search_many("Internet Archive", queries, one)
+
+
+def _ia_file(ident):
+    """The best mp4 of an Internet Archive item and its length."""
+    meta = http_json("https://archive.org/metadata/" + urllib.parse.quote(ident), timeout=30)
+    best = None
+    for f in meta.get("files") or []:
+        name, fmt = f.get("name", ""), (f.get("format") or "").lower()
+        if not name.lower().endswith((".mp4", ".mpeg4", ".m4v", ".ogv", ".webm")):
+            continue
+        h = int(f.get("height") or 0)
+        size = int(f.get("size") or 0)
+        rank = (0 if "h.264" in fmt else 1, abs((h or 480) - 720), size)
+        if best is None or rank < best[0]:
+            ln = f.get("length") or "0"
+            try:
+                secs = float(ln) if ":" not in str(ln) else sum(float(x) * 60 ** i for i, x in enumerate(reversed(str(ln).split(":"))))
+            except ValueError:
+                secs = 0.0
+            best = (rank, name, secs)
+    if not best:
+        raise ValueError("no video file")
+    return f"https://archive.org/download/{urllib.parse.quote(ident)}/{urllib.parse.quote(best[1])}", best[2]
+
+
+def pexels_candidates(queries):
+    key = secret("pexels_key")
+    if not key:
+        return []
+
+    def one(q):
+        url = "https://api.pexels.com/videos/search?" + urllib.parse.urlencode({"query": q, "per_page": 15, "orientation": "landscape"})
+        data = http_json(url, headers={"Authorization": key})
+        res = []
+        for v in data.get("videos") or []:
+            files = [f for f in v.get("video_files") or [] if f.get("link") and int(f.get("width") or 0) >= 1200 and (f.get("file_type") or "").endswith("mp4")]
+            if not files or float(v.get("duration") or 0) < 3:
+                continue
+            files.sort(key=lambda f: abs(int(f.get("width") or 0) - 1920))
+            slug = re.sub(r"[-/]+", " ", (v.get("url") or "").rstrip("/").split("/")[-1])
+            slug = re.sub(r"\d+$", "", slug).strip()
+            user = (v.get("user") or {}).get("name", "unknown")
+            res.append({"title": slug or q, "url": files[0]["link"], "src": "pexels", "duration": float(v.get("duration") or 0), "kind": "stock",
+                        "credit": f"{slug or 'video'} - {user} on Pexels - Pexels License - {v.get('url', '')}"})
+        return res
+    return _search_many("Pexels", queries, one)
+
+
+def pixabay_candidates(queries):
+    key = secret("pixabay_key")
+    if not key:
+        return []
+
+    def one(q):
+        url = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": key, "q": q[:95], "per_page": 20, "safesearch": "true"})
+        data = http_json(url)
+        res = []
+        for h in data.get("hits") or []:
+            vids = h.get("videos") or {}
+            f = next((vids[k] for k in ("large", "medium") if (vids.get(k) or {}).get("url") and int((vids.get(k) or {}).get("width") or 0) >= 1200), None)
+            if not f or float(h.get("duration") or 0) < 3:
+                continue
+            res.append({"title": h.get("tags") or q, "url": f["url"], "src": "pixabay", "duration": float(h.get("duration") or 0), "kind": "stock",
+                        "credit": f"{h.get('tags', 'video')} - {h.get('user', 'unknown')} on Pixabay - Pixabay Content License - {h.get('pageURL', '')}"})
+        return res
+    return _search_many("Pixabay", queries, one)
+
+
+VIDEO_SOURCES = {"archive": [("commons-video", commons_video_candidates), ("archive.org", archive_candidates)],
+                 "stock": [("pexels", pexels_candidates), ("pixabay", pixabay_candidates)]}
+
+
+def _clip_dir(key, c, W, H, fps):
+    tag = "own" if c.get("src") == "own" else hashlib.sha1(c["url"].encode()).hexdigest()[:10]
+    return A("clips", f"{key}__{tag}_{W}x{H}_{fps}")
+
+
+def _cut_clip(c, out_dir, W, H, fps, start=None):
+    """Cuts CLIP_SEC seconds of the clip into frames (JPEG) at the video's size. Returns the number of frames."""
+    url, dur = c["url"], float(c.get("duration") or 0)
+    if url.startswith("ia:"):
+        url, dur2 = _ia_file(url[3:])
+        dur = dur or dur2
+    if start is None:
+        if dur > CLIP_SEC + 1:
+            # skip the opening (titles, black leader); start about a quarter in
+            start = min(max(dur * 0.25, 2.0 if c.get("kind") == "archive" else 0.5), dur - CLIP_SEC - 0.5)
+        else:
+            start = 0.0
+    tmp = out_dir + ".part"
+    shutil.rmtree(tmp, ignore_errors=True)
+    os.makedirs(tmp, exist_ok=True)
+    cmd = [ffmpeg_exe(), "-v", "error", "-y"]
+    if url.startswith("http"):
+        cmd += ["-user_agent", UA["User-Agent"], "-rw_timeout", "60000000"]
+    cmd += ["-ss", f"{start:.2f}", "-t", f"{CLIP_SEC:.2f}", "-i", url, "-an",
+            "-vf", f"fps={fps},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1", "-q:v", "3",
+            os.path.join(tmp, "%04d.jpg")]
+    r = subprocess.run(cmd, capture_output=True, timeout=300)
+    frames = sorted(f for f in os.listdir(tmp) if f.endswith(".jpg"))
+    if r.returncode != 0 or len(frames) < fps * 2:
+        shutil.rmtree(tmp, ignore_errors=True)
+        raise ValueError((r.stderr or b"").decode("utf-8", "replace")[-160:] or "too short")
+    # reject black / blank footage (film leaders, fades) and frozen frames
+    dark = 0
+    sample = frames[:: max(1, len(frames) // 8)]
+    prev, still = None, 0
+    for f in sample:
+        im = Image.open(os.path.join(tmp, f)).convert("L").resize((64, 36))
+        a = np.asarray(im, np.float32)
+        if a.mean() < 16:
+            dark += 1
+        if prev is not None and np.abs(a - prev).mean() < 0.6:
+            still += 1
+        prev = a
+    if dark > len(sample) * 0.4:
+        shutil.rmtree(tmp, ignore_errors=True)
+        raise ValueError("mostly black")
+    shutil.rmtree(out_dir, ignore_errors=True)
+    os.replace(tmp, out_dir)
+    _json_write(os.path.join(out_dir, "info.json"), {"n": len(frames), "fps": fps, "credit": c.get("credit", ""), "src": c.get("src"),
+                                                     "kind": c.get("kind"), "start": start, "still": still > len(sample) * 0.7})
+    return len(frames)
+
+
+def _video_candidates(key, v, state):
+    meta_p = A("clips", key + ".json")
+    meta = _json_read(meta_p, {})
+    q = _queries(v)
+    if meta.get("candidates") and meta.get("q") == q and time.time() - meta.get("at", 0) < 14 * 86400:
+        return meta["candidates"]
+    want = v.get("source") or "any"
+    order = (["archive", "stock"] if want in ("any", "archive") else ["stock", "archive"]) if want != "stock" else ["stock"]
+    if want == "archive":
+        order = ["archive"]
+    found = []
+    for group in order:
+        for name, fn in VIDEO_SOURCES[group]:
+            with state["lock"]:
+                if name in state["dead"]:
+                    continue
+            try:
+                got = fn(q)
+            except SourceDown:
+                with state["lock"]:
+                    state["dead"].add(name)
+                log(f"  {name}: not reachable, skipping it.")
+                continue
+            seen = {c["url"] for c in found}
+            found += [c for c in got if c["url"] not in seen]
+        if len([c for c in _rank_candidates(found, q) if not c.get("weak")]) >= 3:
+            break
+    ranked = _rank_candidates(found, q)
+    _json_write(meta_p, {"q": q, "at": time.time(), "candidates": ranked})
+    return ranked
+
+
+def resolve_videos(script, W, H, fps):
+    """Finds a real clip for every "video" slide. A slide with no usable clip becomes a picture slide (same search)."""
+    from concurrent.futures import ThreadPoolExecutor
+    os.makedirs(A("clips"), exist_ok=True)
+    slides = []
+    for si, sc in enumerate(script["scenes"]):
+        for v in (sc.get("visuals") or [sc.get("visual") or {}]):
+            if v.get("type") == "video":
+                slides.append((vid_key(v), v))
+    if not slides:
+        return []
+    log(f"  {len(slides)} video slides")
+    state = {"dead": set(), "lock": threading.Lock()}
+    cands = {}
+    with ThreadPoolExecutor(4) as ex:
+        futs = {k: ex.submit(_video_candidates, k, v, state) for k, v in dict(slides).items()}
+        for i, (k, f) in enumerate(futs.items(), 1):
+            try:
+                cands[k] = f.result()
+            except Exception as e:
+                log(f"    video search error: {str(e)[:80]}")
+                cands[k] = []
+            print(f"\r   searching clips {i}/{len(futs)}  ({i * 30 // max(1, len(futs))}%)", end="", flush=True)
+    print()
+    used, credits, got = set(), [], 0
+    for i, (key, v) in enumerate(slides, 1):
+        print(f"\r   cutting clips {i}/{len(slides)}  ({30 + i * 20 // len(slides)}%)", end="", flush=True)
+        own = next((A("clips_own", key + e) for e in (".mp4", ".mov", ".webm", ".mkv", ".m4v") if os.path.exists(A("clips_own", key + e))), None)
+        pool = ([{"url": own, "src": "own", "kind": "own", "credit": v.get("credit") or ""}] if own else []) + \
+               [c for c in cands.get(key, []) if not c.get("weak")] + [c for c in cands.get(key, []) if c.get("weak")][:1]
+        done = None
+        for c in pool[:6]:
+            if c["url"] in used:
+                continue
+            d = _clip_dir(key, c, W, H, fps)
+            try:
+                if not os.path.exists(os.path.join(d, "info.json")):
+                    _cut_clip(c, d, W, H, fps, start=0.0 if c["src"] == "own" else None)
+                done = (c, d)
+                break
+            except Exception as e:
+                c["bad"] = True
+                log(f"\n    clip skipped ({c.get('src')}: {str(e)[:70]})")
+        if done:
+            c, d = done
+            used.add(c["url"])
+            info = _json_read(os.path.join(d, "info.json"), {})
+            v["clip"] = os.path.relpath(d, ROOT).replace(os.sep, "/")
+            v["clip_kind"] = c.get("kind") or info.get("kind")
+            v["clip_src"] = c.get("src")
+            if c.get("credit") and c["credit"] not in credits:
+                credits.append(c["credit"])
+            got += 1
+        else:
+            v["type"] = "image"   # no footage: the same search as a picture
+            v["was_video"] = True
+    print()
+    log(f"  clips: {got} real clips, {len(slides) - got} slide(s) changed to pictures")
+    return credits
+
+
+# ------------------------------------------------------------------ the looks a clip can have
+
+_GRAIN = {}
+
+
+def _grain(W, H, k, amount=14):
+    key = (W, H, k % 6, amount)
+    if key not in _GRAIN:
+        rng = np.random.default_rng(100 + k % 6)
+        _GRAIN[key] = rng.normal(0, amount, (H // 2, W // 2)).astype(np.float32)
+    g = _GRAIN[key]
+    return np.repeat(np.repeat(g, 2, 0), 2, 1)[:H, :W]
+
+
+def look_film(img, t, seed=0):
+    """Old film: faded warm black-and-white-ish colour, grain, flicker, scratches, a little gate weave."""
+    W, H = img.size
+    a = np.asarray(img).astype(np.float32)
+    lum = a @ np.array([0.299, 0.587, 0.114], np.float32)
+    sep = np.stack([lum * 1.06, lum * 0.95, lum * 0.78], -1)
+    a = a * 0.25 + sep * 0.75
+    fl = 1 + 0.045 * math.sin(t * 23 + seed) * math.sin(t * 7.3)
+    a = (a - 128) * 1.08 * fl + 128
+    a += _grain(W, H, int(t * 24))[..., None]
+    rng = random.Random(int(t * 24) + seed * 99)
+    for _ in range(rng.randint(0, 2)):
+        x = rng.randint(0, W - 1)
+        a[:, x:x + max(1, W // 900)] += rng.choice((-70, 60))
+    img = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+    dx = int(round(math.sin(t * 9 + seed) * W / 1400))
+    if dx:
+        img = img.transform(img.size, Image.AFFINE, (1, 0, dx, 0, 1, 0), Image.BILINEAR)
+    return vignette(img, 0.75)
+
+
+def look_tv(img, t, seed=0):
+    """Old TV: scanlines, colour fringes, rounded dark edges."""
+    W, H = img.size
+    r, g, b = img.split()
+    sh = max(1, W // 640)
+    r = r.transform(img.size, Image.AFFINE, (1, 0, -sh, 0, 1, 0))
+    b = b.transform(img.size, Image.AFFINE, (1, 0, sh, 0, 1, 0))
+    a = np.asarray(Image.merge("RGB", (r, g, b))).astype(np.float32)
+    lines = (np.arange(H) % 3 == 0).astype(np.float32)[:, None, None]
+    a = a * (1 - 0.22 * lines) + _grain(W, H, int(t * 25), 7)[..., None]
+    roll = int((t * 40) % H)
+    a[roll:roll + max(2, H // 90)] *= 1.18
+    return vignette(Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)), 0.9)
+
+
+def look_rec(img, t, seed=0):
+    """Camcorder: REC light, running timecode, corner marks, battery."""
+    W, H = img.size
+    s = W / 1920
+    d = ImageDraw.Draw(img, "RGBA")
+    m, L, w = int(70 * s), int(70 * s), max(2, int(4 * s))
+    for (x, y, dx, dy) in ((m, m, 1, 1), (W - m, m, -1, 1), (m, H - m, 1, -1), (W - m, H - m, -1, -1)):
+        d.line([(x, y), (x + dx * L, y)], fill=(255, 255, 255, 220), width=w)
+        d.line([(x, y), (x, y + dy * L)], fill=(255, 255, 255, 220), width=w)
+    f = font("Inter", int(40 * s), "SemiBold")
+    if int(t * 2) % 2 == 0:
+        d.ellipse([m + 30 * s, m + 34 * s, m + 62 * s, m + 66 * s], fill=(230, 40, 40, 255))
+    d.text((m + 76 * s, m + 50 * s), "REC", font=f, fill=(255, 255, 255, 235), anchor="lm")
+    tt = t + 3600 * 0 + seed * 7.3
+    tc = f"00:{int(tt // 60) % 60:02d}:{int(tt) % 60:02d}:{int((tt % 1) * 25):02d}"
+    d.text((m + 30 * s, H - m - 50 * s), tc, font=font("Inter", int(34 * s), "Medium"), fill=(255, 255, 255, 230), anchor="lm")
+    bx, by = W - m - 150 * s, m + 32 * s
+    d.rectangle([bx, by, bx + 100 * s, by + 36 * s], outline=(255, 255, 255, 230), width=w)
+    d.rectangle([bx + 100 * s, by + 10 * s, bx + 110 * s, by + 26 * s], fill=(255, 255, 255, 230))
+    d.rectangle([bx + 8 * s, by + 8 * s, bx + 70 * s, by + 28 * s], fill=(255, 255, 255, 230))
+    return img
+
+
+def look_glitch(img, t, seed=0):
+    """Short digital glitches: colour split + sliced rows, a few times a second."""
+    W, H = img.size
+    rng = random.Random(int(t * 12) + seed * 31)
+    if rng.random() > 0.35:
+        return img
+    r, g, b = img.split()
+    sh = rng.randint(4, 14) * max(1, W // 1280)
+    r = r.transform(img.size, Image.AFFINE, (1, 0, -sh, 0, 1, 0))
+    b = b.transform(img.size, Image.AFFINE, (1, 0, sh, 0, 1, 0))
+    img = Image.merge("RGB", (r, g, b))
+    a = np.asarray(img).copy()
+    for _ in range(rng.randint(1, 4)):
+        y = rng.randint(0, H - 20)
+        hgt = rng.randint(4, max(6, H // 30))
+        a[y:y + hgt] = np.roll(a[y:y + hgt], rng.randint(-W // 20, W // 20), axis=1)
+    return Image.fromarray(a)
+
+
+LOOKS = {"film": look_film, "tv": look_tv, "rec": look_rec, "glitch": look_glitch}
+
+
+def draw_tag(img, text, t, side="left"):
+    """A small label in the corner: ARCHIVE FOOTAGE, 1969 / ILLUSTRATIVE."""
+    if not text:
+        return img
+    W, H = img.size
+    s = W / 1920
+    a = ease_out((t - 0.3) / 0.5)
+    if a <= 0:
+        return img
+    d = ImageDraw.Draw(img, "RGBA")
+    f = font("Inter", int(26 * s), "SemiBold")
+    tw_ = d.textlength(text, font=f)
+    x = int(48 * s) if side == "left" else int(W - 48 * s - tw_ - 28 * s)
+    y = int(H - 96 * s)
+    d.rectangle([x, y, x + tw_ + 28 * s, y + 46 * s], fill=(0, 0, 0, int(150 * a)))
+    d.rectangle([x, y, x + 4 * s, y + 46 * s], fill=RED + (int(255 * a),))
+    d.text((x + 16 * s, y + 23 * s), text, font=f, fill=(240, 236, 228, int(240 * a)), anchor="lm")
+    return img
+
+
+class VideoScene(Scene):
+    """A real moving clip, played at normal speed (a little slower if it is short), with a slow push-in and the chosen look."""
+
+    def __init__(self, *a):
+        super().__init__(*a)
+        self.dir = A(self.v["clip"]) if self.v.get("clip") else None
+        info = _json_read(os.path.join(self.dir, "info.json"), {}) if self.dir else {}
+        self.n = int(info.get("n") or 0)
+        self.fps = int(info.get("fps") or 25)
+        self.cache = (None, None)
+        kind = self.v.get("clip_kind") or info.get("kind")
+        self.look = self.v.get("look") or ("film" if (kind == "archive" and int(self.v.get("year") or 3000) < 1975) else None)
+        tag = self.v.get("caption")
+        if tag is None:
+            if kind == "archive":
+                tag = "ARCHIVE FOOTAGE" + (f", {self.v['year']}" if self.v.get("year") else "")
+            elif kind == "stock" and settings().get("label_stock", True) and self.v.get("label", True):
+                tag = "ILLUSTRATIVE"
+        self.tag = (tag or "").upper()
+
+    def _frame(self, i):
+        if self.cache[0] == i:
+            return self.cache[1].copy()
+        p = os.path.join(self.dir, f"{i + 1:04d}.jpg")
+        im = Image.open(p).convert("RGB")
+        if im.size != (self.W, self.H):
+            im = im.resize((self.W, self.H), Image.BILINEAR)
+        self.cache = (i, im)
+        return im.copy()
+
+    def frame(self, t, dur):
+        if not self.n:
+            return dark_bg(self.W, self.H)
+        need = dur * self.fps
+        speed = 1.0 if self.n >= need else max(0.55, (self.n - 1) / max(1.0, need))
+        i = min(self.n - 1, int(t * self.fps * speed))
+        img = self._frame(i)
+        z = 1 + 0.05 * clamp(t / max(1.0, dur))  # slow push-in keeps even calm clips moving
+        if z > 1.001:
+            cw, ch = self.W / z, self.H / z
+            img = img.resize((self.W, self.H), Image.BILINEAR, box=((self.W - cw) / 2, (self.H - ch) / 2, (self.W + cw) / 2, (self.H + ch) / 2))
+        if self.look in LOOKS:
+            img = LOOKS[self.look](img, t, self.idx)
+        else:
+            img = Image.blend(img, grade(img), 0.55)
+            img = vignette(img, 0.45)
+        return draw_tag(img, self.tag, t)
+
+
+SCENES["video"] = VideoScene
+
+
+# ================================================================== documentary graphics: date cards, typed words, case files
+
+def _fog_bg(W, H, t, seed=0):
+    """Near-black background with slow drifting fog (made from cached noise, cheap)."""
+    key = ("fog", W, H, seed, THEME["name"])
+    if key not in _BG:
+        rng = np.random.default_rng(seed + 40)
+        n = rng.random((H // 40 + 3, W // 40 + 3)).astype(np.float32)
+        n = Image.fromarray((n * 255).astype(np.uint8)).resize((W + W // 4, H + H // 4), Image.BICUBIC)
+        n = np.asarray(n.filter(ImageFilter.GaussianBlur(max(4, W // 60)))).astype(np.float32) / 255
+        n = (n - n.min()) / max(1e-3, n.max() - n.min())
+        _BG[key] = n
+    n = _BG[key]
+    ox = int((math.sin(t * 0.15 + seed) * 0.5 + 0.5) * (W // 4))
+    oy = int((math.cos(t * 0.11 + seed) * 0.5 + 0.5) * (H // 4))
+    f = n[oy:oy + H, ox:ox + W]
+    base = np.full((H, W, 3), 9, np.float32)
+    tint = np.array([58, 62, 72] if THEME["name"] != "nature" else [40, 70, 100], np.float32)
+    img = base + (f[..., None] ** 2) * tint * 0.65 + _grain(W, H, int(t * 12), 4)[..., None]
+    return vignette(Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)), 0.7)
+
+
+class TypeScene(Scene):
+    """Words typed out letter by letter with a blinking cursor.
+    {"type":"date","text":"October 4, 2023","sub":"Hangzhou, China"}  -> calm date card
+    {"type":"type","text":"SOCIAL MEDIA","sub":"optional small line"}    -> big typed word with a glitch at the end"""
+
+    def frame(self, t, dur):
+        W, H = self.W, self.H
+        img = _fog_bg(W, H, t + self.idx * 3, self.idx % 3)
+        d = ImageDraw.Draw(img, "RGBA")
+        txt = str(self.v.get("text") or "")
+        is_date = self.v.get("type") == "date"
+        f = font("CourierPrime-Bold" if not is_date else "CourierPrime", self.S(118 if not is_date else 92))
+        cps = max(10.0, len(txt) / max(0.6, min(1.3, dur * 0.4)))  # letters per second
+        k = int(clamp((t - 0.15) * cps / max(1, len(txt))) * len(txt))
+        shown = txt[:k]
+        full_w = d.textlength(txt, font=f)
+        x0, y = (W - full_w) / 2, H * (0.46 if self.v.get("sub") else 0.5)
+        col = WHITE if is_date else (240, 240, 240)
+        d.text((x0, y), shown, font=f, fill=col + (255,), anchor="lm")
+        cx = x0 + d.textlength(shown, font=f) + self.S(6)
+        if int(t * 2.4) % 2 == 0 or k < len(txt):
+            d.rectangle([cx, y - f.size * 0.42, cx + self.S(10), y + f.size * 0.38], fill=(RED if not is_date else GOLD_L) + (230,))
+        if self.v.get("sub") and k >= len(txt):
+            a = ease_out((t - 0.15 - len(txt) / cps - 0.2) / 0.5)
+            fs = font("Inter", self.S(40), "Medium")
+            d.line([(W / 2 - self.S(70) * a, y + self.S(92)), (W / 2 + self.S(70) * a, y + self.S(92))], fill=GOLD + (int(220 * a),), width=self.S(3))
+            d.text((W / 2, y + self.S(140)), str(self.v["sub"]).upper(), font=fs, fill=GREY + (int(235 * a),), anchor="mm")
+        if not is_date and k >= len(txt):
+            img = look_glitch(img, t, self.idx)
+        return img
+
+
+class CaseFileScene(Scene):
+    """A case file on a dark desk: the card slides in, the facts type in one by one, then a red stamp slams on.
+    {"type":"casefile","title":"CASE FILE 1983-114","fields":[["Name","..."],["Last seen","..."],["Place","..."]],"stamp":"MISSING"}"""
+
+    def __init__(self, *a):
+        super().__init__(*a)
+        self._paper = None
+
+    def paper(self, w, h):
+        if self._paper is None:
+            rng = np.random.default_rng(7)
+            base = np.ones((h, w, 3), np.float32) * np.array([226, 214, 186], np.float32)
+            n = rng.normal(0, 6, (h // 3 + 1, w // 3 + 1)).astype(np.float32)
+            n = np.repeat(np.repeat(n, 3, 0), 3, 1)[:h, :w]
+            yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+            stain = np.exp(-(((xx - w * 0.8) / (w * 0.25)) ** 2 + ((yy - h * 0.25) / (h * 0.3)) ** 2)) * 26
+            base = base + n[..., None] - stain[..., None] * np.array([0.4, 0.7, 1.2])
+            self._paper = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8))
+        return self._paper.copy()
+
+    def frame(self, t, dur):
+        W, H = self.W, self.H
+        img = _fog_bg(W, H, t, 5)
+        fields = [x for x in (self.v.get("fields") or []) if isinstance(x, (list, tuple)) and len(x) >= 2][:6]
+        cw, ch = int(W * 0.56), int(H * 0.74)
+        card = self.paper(cw, ch)
+        d = ImageDraw.Draw(card, "RGBA")
+        ink = (34, 30, 28)
+        ft = font("SpecialElite", self.S(60))
+        fl = font("CourierPrime-Bold", self.S(34))
+        fv = font("SpecialElite", self.S(40))
+        d.text((self.S(56), self.S(58)), str(self.v.get("title") or "CASE FILE").upper(), font=ft, fill=ink + (255,), anchor="lm")
+        d.line([(self.S(56), self.S(104)), (cw - self.S(56), self.S(104))], fill=ink + (200,), width=self.S(3))
+        per = max(0.35, (dur - 1.6) / max(1, len(fields)))
+        y = self.S(160)
+        for i, (lab, val) in enumerate(fields):
+            st = 0.55 + i * per
+            if t < st:
+                break
+            d.text((self.S(56), y), str(lab).upper() + ":", font=fl, fill=(110, 40, 34, 255), anchor="lm")
+            val = str(val)
+            k = int(clamp((t - st) / max(0.2, per * 0.7)) * len(val))
+            lines = wrap(d, val[:k], fv, cw - self.S(380))[:2]
+            for j, ln in enumerate(lines):
+                d.text((self.S(330), y + j * self.S(46)), ln, font=fv, fill=ink + (255,), anchor="lm")
+            y += self.S(76) + (len(lines) - 1) * self.S(46)
+        # the stamp
+        stamp = str(self.v.get("stamp") or "").upper()
+        ts = 0.55 + len(fields) * per
+        if stamp and t >= ts:
+            k = clamp((t - ts) / 0.18)
+            z = 1.9 - 0.9 * ease_out(k)
+            fs = font("Anton", int(self.S(96) * z))
+            sw = d.textlength(stamp, font=fs)
+            lay = Image.new("RGBA", (int(sw + self.S(80)), int(fs.size * 1.6)), (0, 0, 0, 0))
+            ld = ImageDraw.Draw(lay)
+            ld.rounded_rectangle([self.S(8), self.S(8), lay.size[0] - self.S(8), lay.size[1] - self.S(8)], radius=self.S(14), outline=(178, 30, 30, int(230 * k)), width=max(3, self.S(9)))
+            ld.text((lay.size[0] / 2, lay.size[1] / 2), stamp, font=fs, fill=(178, 30, 30, int(230 * k)), anchor="mm")
+            lay = lay.rotate(-12, expand=True, resample=Image.BICUBIC)
+            card.paste(lay, (int(cw * 0.62 - lay.size[0] / 2), int(ch * 0.74 - lay.size[1] / 2)), lay)
+        # card slides up into place, slightly turned, with a shadow
+        p = ease_out(t / 0.6)
+        ang = -2.2 + 1.2 * clamp(t / max(1.0, dur))
+        rc = card.convert("RGBA").rotate(ang, expand=True, resample=Image.BICUBIC)
+        x = int((W - rc.size[0]) / 2)
+        yv = int((H - rc.size[1]) / 2 + (1 - p) * H * 0.35)
+        sh = Image.new("RGBA", rc.size, (0, 0, 0, 0))
+        sh.putalpha(rc.getchannel("A").point(lambda a_: int(a_ * 0.6)))
+        sh = sh.filter(ImageFilter.GaussianBlur(self.S(22)))
+        img.paste((0, 0, 0), (x + self.S(16), yv + self.S(26)), sh)
+        img.paste(rc, (x, yv), rc)
+        if t < 0.18 + ts and t > ts and stamp:  # tiny shake on the stamp
+            sx = int(math.sin(t * 90) * self.S(6) * (1 - (t - ts) / 0.18))
+            img = img.transform(img.size, Image.AFFINE, (1, 0, sx, 0, 1, 0), Image.BILINEAR)
+        return img
+
+
+SCENES["date"] = TypeScene
+SCENES["type"] = TypeScene
+SCENES["casefile"] = CaseFileScene
+
+
+
+
 def next_picture(key):
     """Switch an image slide to the next candidate (used by the app's Pictures screen)."""
     meta_p = A("images", key + ".json")
@@ -2833,6 +3973,169 @@ def render_thumb(path, faces, lines, style="face", W=1280, H=720, vertical=False
     return brand_text(img, lines, max_w=560)
 
 
+# ------------------------------------------------------------------ documentary thumbnails (v4): cut-out subject, glow, big white + red words
+
+THUMB_RED = (226, 30, 24)
+_REMBG = {}
+
+
+def cutout(path):
+    """The main subject without its background (RGBA), using rembg when it is installed (the cloud installs it). None if not possible."""
+    key = path + "|cut"
+    if key in _REMBG:
+        return _REMBG[key]
+    res = None
+    try:
+        os.environ.setdefault("U2NET_HOME", A("models", "rembg"))
+        from rembg import new_session, remove
+        if "s" not in _REMBG:
+            _REMBG["s"] = new_session("isnet-general-use")
+        im = Image.open(path).convert("RGB")
+        im.thumbnail((1600, 1600))
+        out = remove(im, session=_REMBG["s"])
+        a = np.asarray(out.getchannel("A")).astype(np.float32) / 255
+        cover = float((a > 0.5).mean())
+        if 0.06 < cover < 0.75:  # a real subject, not empty and not the whole picture
+            res = out
+    except Exception as e:
+        log(f"   (cut-out not available: {str(e)[:60]})")
+    _REMBG[key] = res
+    return res
+
+
+def doc_text(img, lines, red=None, x0=56, max_w=600, y_mid=None, align="left"):
+    """Huge condensed words, white with a deep shadow; the key word in red with a red bar under the last line."""
+    W, H = img.size
+    lines = [ln.strip().upper() for ln in lines if ln.strip()][:3] or ["?"]
+    red = (red or "").strip().upper()
+    if not red:  # the most important word: the longest in the last line
+        red = max(lines[-1].split(), key=len)
+    d = ImageDraw.Draw(img)
+    size = 230 if H > W else 190
+    while size > 70:
+        f = font("Anton", size)
+        if all(d.textlength(ln, font=f) <= max_w for ln in lines) and size * 1.05 * len(lines) < (H * 0.42 if H > W else H * 0.78):
+            break
+        size -= 6
+    f = font("Anton", size)
+    lh = int(size * 1.04)
+    total = lh * len(lines)
+    y = int((y_mid if y_mid is not None else H / 2) - total / 2)
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(sh)
+    pos = []
+    for ln in lines:
+        w = d.textlength(ln, font=f)
+        x = x0 if align == "left" else (W - w) / 2
+        pos.append((x, y, ln, w))
+        sd.text((x + 6, y + 10), ln, font=f, fill=(0, 0, 0, 235))
+        y += lh
+    sh = sh.filter(ImageFilter.GaussianBlur(max(6, size // 14)))
+    img.paste(sh, (0, 0), sh)
+    d = ImageDraw.Draw(img)
+    for x, y_, ln, w in pos:
+        cx = x
+        for wi, word in enumerate(ln.split(" ")):
+            col = THUMB_RED if re.sub(r"[^A-Z0-9]", "", word) == re.sub(r"[^A-Z0-9]", "", red) else (250, 248, 242)
+            d.text((cx, y_), word, font=f, fill=col, stroke_width=max(2, size // 40), stroke_fill=(10, 8, 8))
+            cx += d.textlength(word + " ", font=f)
+    x, y_, ln, w = pos[-1]
+    bot = d.textbbox((x, y_), ln, font=f, stroke_width=max(2, size // 40))[3]
+    gap = max(8, size // 12)
+    d.rectangle([x, bot + gap, x + min(w, size * 2.2), bot + gap + max(8, size // 14)], fill=THUMB_RED)
+    return img
+
+
+def _grade_thumb(im, style):
+    a = np.asarray(im.convert("RGB")).astype(np.float32) / 255
+    lum = a @ np.array([0.299, 0.587, 0.114], np.float32)
+    a = a * 0.7 + lum[..., None] * 0.3  # a little less colour
+    a = np.clip((a - 0.5) * 1.25 + 0.5, 0, 1)
+    shadows = (1 - lum) ** 2
+    a = a + shadows[..., None] * np.array([-0.02, 0.01, 0.05])  # cold shadows
+    if style == "dark":
+        a = a * 0.8
+    return Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
+
+
+def render_thumb_doc(path, faces, lines, style="face", red=None, W=1280, H=720, vertical=False):
+    """Documentary thumbnail. With a person: cut out, big, with a white rim and red glow over a dark blurred copy.
+    Without: the picture full-bleed with a cinematic grade. Text: huge white words, one red word."""
+    src = Image.open(path).convert("RGB")
+    cut = cutout(path) if faces and style in ("face", "circle") else None
+    bg = _grade_thumb(src, style)
+    sc = max(W / bg.width, H / bg.height)
+    bgf = bg.resize((int(bg.width * sc) + 2, int(bg.height * sc) + 2), Image.LANCZOS)
+    ox, oy = (bgf.width - W) // 2, (bgf.height - H) // 2
+    if faces and not cut:
+        fb = _face_box_px(faces, bg.width, bg.height)
+        if fb:  # keep the face in the right half
+            fcx = (fb[0] + fb[2]) / 2 * sc
+            ox = int(clamp(fcx - W * (0.5 if vertical else 0.68), 0, bgf.width - W))
+            oy = int(clamp((fb[1] + fb[3]) / 2 * sc - H * 0.42, 0, bgf.height - H))
+    canvas = bgf.crop((ox, oy, ox + W, oy + H))
+    if cut is not None:
+        canvas = canvas.filter(ImageFilter.GaussianBlur(14))
+        canvas = Image.blend(canvas, Image.new("RGB", (W, H), (6, 6, 8)), 0.55)
+    arr = np.asarray(canvas).astype(np.float32)
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    if vertical:
+        dark = np.clip(1 - np.abs(yy / H - 0.55) / 0.55, 0, 1)
+        arr *= (1 - 0.7 * (1 - dark) ** 1.5)[..., None]
+    else:  # dark on the text side
+        k_ = np.clip(1 - xx / (W * 0.62), 0, 1) ** 1.3 * 0.92
+        arr = arr * (1 - k_[..., None]) + np.array([5, 5, 7]) * k_[..., None]
+    v = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2) / 1.42
+    arr *= np.clip(1 - 0.6 * np.clip((v - 0.35) / 0.65, 0, 1) ** 1.3, 0, 1)[..., None]
+    img = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+    if cut is not None:
+        c = cut
+        cw0, ch0 = c.size
+        bb = c.getchannel("A").point(lambda a_: 255 if a_ > 40 else 0).getbbox() or (0, 0, cw0, ch0)
+        c = c.crop(bb)
+        target_h = H * (0.66 if vertical else 1.02)
+        k = min(target_h / c.height, (W * (0.95 if vertical else 0.58)) / c.width)
+        c = c.resize((max(1, int(c.width * k)), max(1, int(c.height * k))), Image.LANCZOS)
+        c = Image.merge("RGBA", (*_grade_thumb(c.convert("RGB"), style).split(), c.getchannel("A")))
+        x = int((W - c.width) / 2) if vertical else int(W - c.width - W * 0.02)
+        y = int(H - c.height) if not vertical else int(max(H * 0.30, H * 0.91 - c.height))
+        alpha = c.getchannel("A")
+        # red glow, then a thin white rim, then the person
+        glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ga = Image.new("L", (W, H), 0)
+        ga.paste(alpha.filter(ImageFilter.MaxFilter(9)), (x, y))
+        glow.putalpha(ga.filter(ImageFilter.GaussianBlur(28)).point(lambda a_: int(a_ * 0.85)))
+        red_layer = Image.new("RGBA", (W, H), THUMB_RED + (0,))
+        red_layer.putalpha(glow.getchannel("A"))
+        img.paste(red_layer, (0, 0), red_layer)
+        rim = Image.new("L", (W, H), 0)
+        rim.paste(alpha.filter(ImageFilter.MaxFilter(7)), (x, y))
+        img.paste((245, 245, 245), (0, 0), rim)
+        img.paste(c, (x, y), c)
+        cut_map = (cw0, ch0, bb, k, x, y)  # to find the face again on the cut-out
+    if style == "circle":
+        d = ImageDraw.Draw(img)
+        if faces:
+            f0 = max(faces, key=lambda f: (f[2] - f[0]) * (f[3] - f[1]))
+            if cut is not None:
+                cw0, ch0, bb, k, x, y = cut_map
+                cx = ((f0[0] + f0[2]) / 2 * cw0 - bb[0]) * k + x
+                cy = ((f0[1] + f0[3]) / 2 * ch0 - bb[1]) * k + y
+                r = max((f0[2] - f0[0]) * cw0, (f0[3] - f0[1]) * ch0) * k * 0.75
+            else:
+                cx = (f0[0] + f0[2]) / 2 * bg.width * sc - ox
+                cy = (f0[1] + f0[3]) / 2 * bg.height * sc - oy
+                r = max(f0[2] - f0[0], f0[3] - f0[1]) * bg.width * sc * 0.7
+        else:
+            cx, cy, r = W * 0.7, H * 0.45, H * 0.22
+        r = max(70, min(r, H * 0.4))
+        for w_, col in ((16, (0, 0, 0)), (11, THUMB_RED)):
+            d.ellipse([cx - r, cy - r * 1.06, cx + r, cy + r * 1.06], outline=col, width=w_)
+    if vertical:
+        return doc_text(img, lines, red, x0=60, max_w=W - 120, y_mid=H * 0.18, align="center")
+    return doc_text(img, lines, red, max_w=W * 0.5)
+
+
 def _auto_concepts(script, pl):
     th = script.get("thumbnail") or {}
     title = script.get("title", "")
@@ -2866,7 +4169,7 @@ def make_thumbnails(script, pl, out_dir):
     for i, c in enumerate(concepts):
         c.setdefault("style", styles[i])
         lines = (c.get("text") or "?").replace("\\n", "\n").split("\n")
-        if len(lines) == 1 and len(lines[0].split()) >= 3:
+        if len(lines) == 1 and len(lines[0].split()) >= 2:
             w_ = lines[0].split()
             cut = max(1, len(w_) // 2)
             lines = [" ".join(w_[:cut]), " ".join(w_[cut:])]
@@ -2874,7 +4177,10 @@ def make_thumbnails(script, pl, out_dir):
         try:
             if p:
                 used.add(p["file"])
-                img = render_thumb(A("images", p["file"]), p["faces"], lines, c["style"])
+                if settings().get("thumb_style", "doc") == "doc":
+                    img = render_thumb_doc(A("images", p["file"]), p["faces"], lines, c["style"], red=c.get("red"))
+                else:
+                    img = render_thumb(A("images", p["file"]), p["faces"], lines, c["style"])
             else:
                 raise ValueError("no picture")
         except Exception as e:
@@ -2958,11 +4264,12 @@ def write_texts(script, pl, credits, out_dir):
         lines += [script["description"], ""]
     if len(clean) >= 3:
         lines += ["Chapters"] + [f"{fmt_ts(t)} {c}" for t, c in clean] + [""]
-    lines += [script.get("subscribe_line") or f"Subscribe to {channel} for true stories of money, power and crime.", ""]
+    lines += [script.get("subscribe_line") or f"Subscribe to {channel} for the true stories history tried to forget.", ""]
     if script.get("sources"):
         src = script["sources"]
         lines += ["Sources: " + (src if isinstance(src, str) else "; ".join(src)), ""]
-    lines += ["Narration uses an AI voice. Maps and graphics are made for this video."]
+    if str(script.get("voice", "")).lower() not in ("none", "silent", "own", "own-recording"):
+        lines += ["Narration uses an AI voice. Maps and graphics are made for this video."]
     # short credit list (who must be named), the full list goes in credits.txt
     names, seen = [], set()
     for c in credits:
@@ -3040,7 +4347,7 @@ def ensure_models():
         os.replace(tmp, path)
 
 
-def encode(cmd_tail, frames_iter, W, H, fps, audio_wav, out, music=None, music_vol=0.12, crf="20"):
+def encode(cmd_tail, frames_iter, W, H, fps, audio_wav, out, music=None, music_vol=0.12, crf="20", norm=True):
     cmd = [ffmpeg_exe(), "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(fps), "-i", "-", "-i", audio_wav]
     if music:
         cmd += ["-stream_loop", "-1", "-i", music, "-filter_complex",
@@ -3048,7 +4355,7 @@ def encode(cmd_tail, frames_iter, W, H, fps, audio_wav, out, music=None, music_v
                 "-map", "0:v", "-map", "[a]"]
     else:
         cmd += ["-map", "0:v", "-map", "1:a"]
-    if not music:  # YouTube plays everything at about -14 LUFS: match it so the voice is never quiet
+    if not music and norm:  # YouTube plays everything at about -14 LUFS: match it so the voice is never quiet
         cmd += ["-af", "loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000"]
     cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", crf, "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out]
     ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
@@ -3063,6 +4370,7 @@ def encode(cmd_tail, frames_iter, W, H, fps, audio_wav, out, music=None, music_v
 def build(script_path, preview=False, captions=None):
     t0 = time.time()
     script = load_script(script_path)
+    apply_theme(script.get("theme"))
     cfg = settings()
     name = os.path.splitext(os.path.basename(script_path))[0]
     W, H, fps = (960, 540, 15) if preview else (1920, 1080, int(script.get("fps", 25)))
@@ -3075,17 +4383,23 @@ def build(script_path, preview=False, captions=None):
         ensure_models()
     except Exception as e:
         log(f"  couldn't download the offline voice ({e}); using the online voice instead.")
-    log("STEP 1/4 Pictures")
+    log("STEP 1/4 Pictures and clips")
+    vcredits = resolve_videos(script, W, H, fps)
     credits, missing = resolve_pictures(script, use_ai=cfg.get("ai_pictures", True))
+    credits = vcredits + [c for c in credits if c not in vcredits]
     if missing:
         log(f"  {len(missing)} slide(s) without a picture use a gold title card instead.")
     log("STEP 2/4 Voice")
+    own = own_voice_file(name)
+    if own:
+        script["_own_voice"] = own
+        script["voice"] = "own-recording"
     pl, track = plan(script)
     wav = os.path.join(out_dir, "narration.wav")
     write_wav(wav, track)
     pl.update(title=script.get("title", ""), fps=fps, W=W, H=H, shorts=script.get("shorts") or [], voice_name=script.get("voice", "bm_george"),
               speed=script.get("speed", 0.95), script=os.path.basename(script_path), tags=script.get("tags") or [],
-              channel=script.get("channel") or cfg.get("channel_name") or "Midnight Archive")
+              channel=script.get("channel") or cfg.get("channel_name") or "Midnight Archive", theme=script.get("theme") or DEFAULT_THEME)
     plan_path = os.path.join(out_dir, "timeline.json")
     _json_write(plan_path, pl)
     nframes = int(pl["total"] * fps)
@@ -3106,7 +4420,8 @@ def build(script_path, preview=False, captions=None):
         print()
 
     mp4 = os.path.join(out_dir, "video.mp4")
-    encode(None, frames(), W, H, fps, wav, mp4, None, 0, "28" if preview else "20")
+    silent = str(script.get("voice", "")).lower() in ("none", "silent", "own")
+    encode(None, frames(), W, H, fps, wav, mp4, None, 0, "28" if preview else "20", norm=not silent)
     log("STEP 4/4 Thumbnail, description, captions")
     try:
         make_thumbnails(script, pl, out_dir)
@@ -3114,6 +4429,17 @@ def build(script_path, preview=False, captions=None):
         log(f"   (3 thumbnails failed: {str(e)[:80]}; making the simple one)")
         make_thumbnail(script, pl, out_dir)
     write_texts(script, pl, credits, out_dir)
+    if silent:
+        with open(os.path.join(out_dir, "voiceover_guide.txt"), "w", encoding="utf-8") as f:
+            f.write("VOICE-OVER GUIDE: say each line at the time shown (the video has no voice, only music)\n\n")
+            last = -1
+            for snt in pl["sentences"]:
+                if snt["scene"] != last:
+                    sc_ = script["scenes"][snt["scene"]]
+                    f.write(f"\n--- {sc_.get('chapter') or ''} ---\n" if sc_.get("chapter") else "\n")
+                    last = snt["scene"]
+                f.write(f"[{fmt_ts(snt['start'])} - {fmt_ts(snt['end'])}]  {snt['text']}\n")
+        log("   voiceover_guide.txt written (no AI voice in this video)")
     if not preview:
         save_pictures(script, out_dir)
     log(f"\nDONE in {int(time.time() - t0) // 60} min. Your video is here:\n  {out_dir}")
@@ -3150,15 +4476,24 @@ def save_pictures(script, out_dir):
 HOOK_WORDS = re.compile(r"\b(but|never|only|richest|biggest|secret|crash|crashed|twist|died|lost|first|nobody|everyone|impossible|billion|million|gold|war|fell|borrow|debt)\b", re.I)
 
 
-def pick_shorts(pl, n=4, min_len=28, max_len=52):
+def pick_shorts(pl, n=4, min_len=38, max_len=50):
+    """Each Short is 40-50 seconds in the end (the clip + the 'full video' ending), and always ends on a full sentence."""
     sents = pl["sentences"]
     manual = []
     for s in pl.get("shorts") or []:
         a, b = int(s.get("from_scene", 0)), int(s.get("to_scene", s.get("from_scene", 0)))
-        ss = [x for x in sents if a <= x["scene"] <= b]
-        if ss:
-            manual.append({"start": max(0, ss[0]["start"] - 0.15), "end": min(ss[-1]["end"] + 0.4, ss[0]["start"] + max_len + 4), "hook": s.get("hook", ""),
-                           "title": s.get("title", ""), "comment": s.get("comment", "")})
+        idx = [i for i, x in enumerate(sents) if a <= x["scene"] <= b]
+        if not idx:
+            continue
+        i0 = idx[0]
+
+        def miss(j):  # how far this ending is from the 41-47 s window (+ a small cost for leaving the planned scenes)
+            dd = sents[j]["end"] - sents[i0]["start"]
+            return max(0, min_len - dd, dd - max_len) + 0.2 * abs(j - idx[-1]) ** 0.5
+
+        i1 = min(range(i0, min(len(sents), i0 + 40)), key=miss)
+        manual.append({"start": max(0, sents[i0]["start"] - 0.15), "end": sents[i1]["end"] + 0.4, "hook": s.get("hook", ""),
+                       "title": s.get("title", ""), "comment": s.get("comment", "")})
     if manual:
         return manual[:n]
     cands = []
@@ -3185,6 +4520,8 @@ def pick_shorts(pl, n=4, min_len=28, max_len=52):
 
 def make_shorts(out_dir, n=4):
     pl = _json_read(os.path.join(out_dir, "timeline.json"), None)
+    if pl:
+        apply_theme(pl.get("theme"))
     if not pl:
         raise ValueError("This folder has no timeline.json. Make the long video with this engine first.")
     src = os.path.join(out_dir, "video.mp4")
@@ -3242,7 +4579,8 @@ def make_shorts(out_dir, n=4):
                 words = re.sub(r"[.…]+$", "", hook).split()
                 cut = max(1, (len(words) + 1) // 2)
                 cl = [" ".join(words[:cut]), " ".join(words[cut:])] if len(words) > 2 else [" ".join(words)]
-                cover = render_thumb(A("images", best["file"]), best.get("faces") or [], cl, "face", W=1080, H=1920, vertical=True)
+                cover = (render_thumb_doc(A("images", best["file"]), best.get("faces") or [], cl, "face", W=1080, H=1920, vertical=True)
+                         if settings().get("thumb_style", "doc") == "doc" else render_thumb(A("images", best["file"]), best.get("faces") or [], cl, "face", W=1080, H=1920, vertical=True))
                 d_ = ImageDraw.Draw(cover)
                 d_.text((540, 1800), (pl.get("channel") or "MIDNIGHT ARCHIVE").upper(), font=font("Oswald", 40, "Medium"), fill=(235, 228, 214), anchor="mm")
                 cover.save(os.path.join(sdir, f"short_{k}_cover.jpg"), quality=93)
@@ -3355,16 +4693,18 @@ def short_frame(clip, t, dur, total, hook, lines, long_title):
 
 # ------------------------------------------------------------------ voices: hear them all, pick one
 
-VOICE_LIST = [("bm_george", "British, deep, documentary"), ("bm_fable", "British, storyteller"), ("bm_lewis", "British, calm"), ("bm_daniel", "British, clear"),
+VOICE_LIST = [("saim", "SAIM: calm, low, mysterious American storyteller (free, on this PC)"), ("saim_deep", "SAIM deep: darker and slower"), ("saim_warm", "SAIM warm: softer, closer"), ("saim_neural", "SAIM natural: most human-like (online voice, made in the cloud)"), ("none", "No AI voice: you record your own voice-over"), ("bm_george", "British, deep, documentary"), ("bm_fable", "British, storyteller"), ("bm_lewis", "British, calm"), ("bm_daniel", "British, clear"),
               ("am_onyx", "American, deep"), ("am_michael", "American, warm"), ("am_adam", "American, strong"), ("am_eric", "American, news"),
               ("am_liam", "American, young"), ("af_heart", "American female, warm"), ("bf_emma", "British female, clear"), ("af_nicole", "American female, soft")]
 
 
 def voice_samples(text=None):
     ensure_models()
-    text = text or "In 1324, a king walked out of West Africa with so much gold, that he crashed its price in Cairo for twelve years."
+    text = text or "On the night she disappeared, the town went quiet. Nobody saw a thing. Or at least, that is what they told the police."
     os.makedirs(A("output", "_voices"), exist_ok=True)
     for v, desc in VOICE_LIST:
+        if v == "none":
+            continue
         p = A("output", "_voices", v + ".wav")
         if not os.path.exists(p):
             log(f"  {v} ({desc})")
@@ -3372,73 +4712,262 @@ def voice_samples(text=None):
     log("DONE voices")
 
 
-# ------------------------------------------------------------------ script writer (Gemini, free API key)
+# ------------------------------------------------------------------ script writer: a free AI key (Cerebras or Groq), written in parts
+
+AI_PROVIDERS = {  # key prefix -> (name, API address, model)
+    "csk-": ("Cerebras", "https://api.cerebras.ai/v1", "gpt-oss-120b"),
+    "gsk_": ("Groq", "https://api.groq.com/openai/v1", "openai/gpt-oss-120b"),
+    "sk-or-": ("OpenRouter", "https://openrouter.ai/api/v1", "openai/gpt-oss-120b:free"),
+}
+
+NICHE = ("Midnight Archive: cinematic documentaries about the DARK side of real history: what was done to people, to whole nations, "
+         "and especially to women. Kidnappings, disappearances, cults, wars and massacres, cover-ups, injustices, crimes that shocked "
+         "countries, and the people who survived them. American audience.")
+
+STYLE_RULES = """VOICE OF THE STORY (this is what makes people stay)
+- Narrated by "Saim": calm, low, mysterious, like a late-night storyteller. Never shouting, never hype words ("insane", "crazy").
+- Short sentences. Spoken English. Vary rhythm: a long sentence, then a very short one. Use "..." where the narrator should pause.
+- Second person and questions pull people in: "Now imagine...", "So why did nobody call the police?"
+- Every 30-45 seconds open a new loop: a question, a contradiction, "but that was not the strangest part".
+- Facts must be real and documented. If sources disagree, say so. Never invent names, quotes, dialogue or numbers.
+  For living people and unproven accusations use "police said", "she later told reporters", "allegedly".
+- RESPECT THE VICTIMS: say what happened, never describe sexual violence, wounds or bodies in detail. No details that sexualize anyone.
+  Minors: no names unless widely published, never any sexual detail. The story honours the victim, never the criminal.
+- YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on)."""
+
+VISUAL_RULES = """VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 3-4 seconds = about 2 per 15 words)
+Mix, per chapter: about 30% "video", 45% "image", the rest maps, dates, typed words, case files and numbers. Never 3 of the same type in a row.
+- {"type":"video","search":["english search","second search"],"source":"archive"|"stock","year":1969,"look":"film|tv|rec|glitch" (optional)}
+    "archive" = REAL footage of that time/place/event (Wikimedia Commons, Internet Archive): name the real thing, e.g. "Vietnam war helicopter 1968", "Berlin wall 1961 newsreel", "VOA news Kabul 2001".
+    "stock" = modern mood footage that illustrates without pretending to be the real people: "police car lights at night", "rain on window night", "empty forest road fog", "hand typing keyboard dark", "old film projector".
+    Stock clips must NOT show a recognizable person's face as a victim or criminal (the stock licenses forbid showing people in a bad light):
+    use hands, silhouettes, backs, shadows, empty rooms, streets, objects, weather.
+    look: "film" for footage before 1975, "tv" for TV news, "rec" for found-footage moments.
+- {"type":"image","search":["Wikimedia Commons search","second"],"caption":"Name, year (for real people/places)","style":"card" (optional, printed photo look)}
+    Real, specific things: named people, buildings, streets, documents, newspapers, court houses, places. Every image has its OWN search.
+- {"type":"date","text":"October 4, 2023","sub":"Place"}  whenever time jumps.
+- {"type":"type","text":"ONE TO THREE WORDS"}  a theme word typed out: "SOCIAL MEDIA", "THE LETTER", "11 DAYS LATER".
+- {"type":"casefile","title":"CASE FILE <year>","fields":[["Name","..."],["Last seen","..."],["Date","..."]],"stamp":"MISSING|UNSOLVED|CLOSED|GUILTY"}  once per crime story, real facts only.
+- {"type":"map","view":[lonW,latS,lonE,latN],"points":[{"name":"City","note":"short","at":[lon,lat],"at_time":0.3,"side":"right"}]}
+- {"type":"stat","number":1600000,"suffix":" FOLLOWERS","label":"what it means"}
+- {"type":"text","lines":["short","punchline"],"hit":true}  1 punchy slide about every 45 seconds.
+- {"type":"quote","text":"real quote","by":"who, when"}  only real, sourced quotes.
+FLOATING CARDS: "pops":[{"text":"NAME OR NUMBER","label":"small line","on":"a word from the narration","kind":"person|money|death|place|date|law|people"}] 1-2 per scene.
+MUSIC: "mood" on the first scene of each chapter: tense | mystery | sad | epic | hopeful."""
+
+
+def _ai_conf():
+    cfg = settings()
+    key = (cfg.get("ai_key") or os.environ.get("AI_KEY") or "").strip()
+    if not key:
+        raise RuntimeError("No AI key yet. Make a free Cerebras key (cloud.cerebras.ai) or Groq key (console.groq.com/keys) and paste it in the app (New script tab).")
+    for pre, (name, base, model) in AI_PROVIDERS.items():
+        if key.startswith(pre):
+            return name, cfg.get("ai_base") or base, cfg.get("ai_model") or model, key
+    if key.startswith("AIza"):
+        return "Gemini", "gemini", cfg.get("gemini_model") or "gemini-2.5-flash", key
+    if cfg.get("ai_base"):
+        return "AI", cfg["ai_base"], cfg.get("ai_model") or "gpt-oss-120b", key
+    raise RuntimeError("This key isn't one I know. Use a Cerebras key (starts with csk-) or a Groq key (starts with gsk_).")
+
+
+def _ai(prompt, system="", temperature=0.8, max_tokens=4096, tries=7):
+    """One question to the free AI. Waits and tries again when the free limit per minute is reached."""
+    import urllib.error
+    name, base, model, key = _ai_conf()
+    last = ""
+    for attempt in range(tries):
+        try:
+            if base == "gemini":
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={urllib.parse.quote(key)}"
+                body = {"contents": [{"parts": [{"text": (system + "\n\n" + prompt).strip()}]}],
+                        "generationConfig": {"responseMimeType": "application/json", "temperature": temperature}}
+                d = http_json(url, json.dumps(body).encode(), {"Content-Type": "application/json"}, timeout=300)
+                return d["candidates"][0]["content"]["parts"][0]["text"]
+            msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
+            body = {"model": model, "messages": msgs, "temperature": temperature, "max_tokens": max_tokens, "response_format": {"type": "json_object"}}
+            req = urllib.request.Request(base.rstrip("/") + "/chat/completions", data=json.dumps(body).encode(), method="POST",
+                                         headers={**UA, "Content-Type": "application/json", "Authorization": "Bearer " + key})
+            with urllib.request.urlopen(req, timeout=300) as r:
+                d = json.loads(r.read().decode())
+            txt = ((d.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+            if not txt.strip():
+                raise ValueError("empty answer")
+            return txt
+        except urllib.error.HTTPError as e:
+            raw = e.read()[:300].decode("utf-8", "replace")
+            last = f"{e.code} {raw}"
+            if e.code in (429, 500, 502, 503, 504, 529):
+                wait = float(e.headers.get("retry-after") or 0) or min(60, 12 * (attempt + 1))
+                log(f"    {name} is busy (free limit), waiting {int(wait)} s...")
+                time.sleep(min(90, wait + 1))
+                continue
+            if e.code == 400 and "response_format" in raw and "response_format" in body:
+                body.pop("response_format")
+                continue
+            if e.code in (401, 403):
+                raise RuntimeError(f"{name} didn't accept the key. Make a new free key and paste it again.")
+            raise RuntimeError(f"{name}: {last}")
+        except Exception as e:
+            last = str(e)[:200]
+            time.sleep(5)
+    raise RuntimeError(f"{name} didn't answer: {last}")
+
+
+def _ai_json(prompt, system="", **kw):
+    for attempt in range(3):
+        txt = _ai(prompt, system, **kw)
+        t = re.sub(r"^```(?:json)?|```$", "", txt.strip(), flags=re.M).strip()
+        i, j = t.find("{"), t.rfind("}")
+        try:
+            return json.loads(t[i:j + 1])
+        except Exception:
+            prompt += "\n\nIMPORTANT: answer with ONE valid JSON object only."
+    raise RuntimeError("The AI's answer wasn't valid JSON three times. Try again.")
+
+
+_VTYPES = {"image", "video", "map", "date", "type", "casefile", "stat", "text", "quote", "title", "year", "timeline", "bars", "count"}
+
+
+def _clean_scenes(scenes, used_searches):
+    out = []
+    for sc in scenes or []:
+        if not isinstance(sc, dict) or not (sc.get("say") or "").strip():
+            continue
+        vis = []
+        for v in sc.get("visuals") or []:
+            if not isinstance(v, dict) or v.get("type") not in _VTYPES:
+                continue
+            if v["type"] in ("image", "video"):
+                q = v.get("search") or []
+                q = [q] if isinstance(q, str) else [x for x in q if isinstance(x, str) and x.strip()]
+                if not q:
+                    continue
+                q = [x for x in q if x.lower().strip() not in used_searches] or q
+                if q[0].lower().strip() in used_searches:  # every picture/clip has its own search
+                    for extra in (" detail", " close-up", " wide view", " photograph", " archive", " 2", " 3", " 4"):
+                        if (q[0] + extra).lower().strip() not in used_searches:
+                            q = [q[0] + extra] + q[1:]
+                            break
+                used_searches.add(q[0].lower().strip())
+                v["search"] = q
+                if v["type"] == "video" and v.get("source") not in ("archive", "stock", "any"):
+                    v["source"] = "any"
+            vis.append(v)
+        if not vis:
+            vis = [{"type": "text", "lines": [sc["say"].split(".")[0][:40]]}]
+        sc["visuals"] = vis
+        sc["pops"] = [p for p in (sc.get("pops") or []) if isinstance(p, dict) and p.get("text")][:2]
+        out.append(sc)
+    return out
+
 
 def write_script(topic):
-    cfg = settings()
-    key = (cfg.get("gemini_key") or "").strip()
-    if not key:
-        key = input("Paste your free Gemini API key (from aistudio.google.com/apikey): ").strip()
-        cfg["gemini_key"] = key
-        _json_write(A("settings.json"), cfg)
-    with open(A("SCRIPT-PROMPT.txt"), encoding="utf-8") as f:
-        prompt = f.read().replace("[TOPIC]", topic)
-    ex_file = next((A("scripts", f) for f in ("burke_and_hare.json", "mansa_musa.json") if os.path.exists(A("scripts", f))), None)
-    if ex_file:
-        example = open(ex_file, encoding="utf-8").read()
-        prompt += "\n\nHere is a finished example in the exact format (copy its pace and its fields, NOT its story):\n" + example
-    errors = []
-    for model in [cfg.get("gemini_model")] + ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-pro", "gemini-2.0-flash"]:
-        if not model:
-            continue
-        try:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={urllib.parse.quote(key)}"
-            body = {"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0.8}}
-            d = http_json(url, json.dumps(body).encode(), {"Content-Type": "application/json"}, timeout=240)
-            txt = d["candidates"][0]["content"]["parts"][0]["text"]
-            sc = json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
-            if not sc.get("scenes"):
-                raise ValueError("no scenes")
-            slug = re.sub(r"[^a-z0-9]+", "_", topic.lower()).strip("_")[:40] or "new_video"
-            path = A("scripts", slug + ".json")
-            _json_write(path, sc)
-            log(f"Script saved: {path}\nRead it once (facts!), then make the video.")
-            return path
-        except Exception as e:
-            errors.append(f"{model}: {str(e)[:120]}")
-    raise RuntimeError("Gemini didn't work: " + " | ".join(errors))
+    """Writes a full documentary in 3 steps: research + outline, then each chapter, then titles/thumbnails/Shorts."""
+    name, base, model, _ = _ai_conf()
+    log(f"STEP 1/3 Research and story outline ({name})")
+    system = "You are the head writer and researcher of a top documentary YouTube channel. " + NICHE
+    outline = _ai_json(f"""Topic: {topic}
+
+First, research from what you reliably know. Then plan a 13-16 minute documentary (2,000-2,400 spoken words).
+Answer ONLY JSON:
+{{"working_title": "...",
+ "facts": ["20-35 short, checkable facts: names, dates, places, numbers, what happened, what happened after"],
+ "unsure": ["things that are disputed or that you are not sure about (the script must not state these as fact)"],
+ "sources": ["real books, court records, news outlets or reports this is based on"],
+ "hook": "the first 2 sentences: a true, shocking, quiet hook (no 'welcome back', no 'in this video')",
+ "chapters": [{{"name": "Chapter name", "mood": "tense|mystery|sad|epic|hopeful", "covers": "what this chapter tells, which facts", "open_loop": "the question it leaves", "words": 260}}]
+}}
+Use 7 to 9 chapters: cold open -> who/where -> how it started -> it gets worse -> the turning point -> the truth comes out -> what happened after -> why it still matters (2-3 short lessons) -> a one-line ending.
+If this is NOT a real, documented story, say so in "unsure" and keep "facts" empty.""", system, temperature=0.5, max_tokens=4096)
+    facts = outline.get("facts") or []
+    if len(facts) < 8:
+        raise RuntimeError("The AI couldn't find enough real facts about this topic. Choose a better documented topic.")
+    chapters = [c for c in outline.get("chapters") or [] if isinstance(c, dict) and c.get("name")][:10]
+    if len(chapters) < 5:
+        raise RuntimeError("The AI's outline was too short. Try again.")
+    used, scenes = set(), []
+    for ci, ch in enumerate(chapters, 1):
+        log(f"STEP 2/3 Writing chapter {ci}/{len(chapters)}: {ch['name']}")
+        prev = " ".join(sc["say"] for sc in scenes[-3:])
+        part = _ai_json(f"""Documentary topic: {topic}
+TRUE FACTS you may use: {json.dumps(facts)}
+DO NOT state as fact: {json.dumps(outline.get('unsure') or [])}
+{"OPENING HOOK (start with it): " + outline.get("hook", "") if ci == 1 else "The story so far ended with: " + prev[-700:]}
+
+Write chapter {ci} of {len(chapters)}: "{ch['name']}" (mood: {ch.get('mood', 'mystery')}).
+It covers: {ch.get('covers', '')}
+It ends on this open loop: {ch.get('open_loop', '')}
+About {int(ch.get('words') or 260)} spoken words in 5-9 scenes (each scene 1-4 sentences).
+
+{STYLE_RULES}
+
+{VISUAL_RULES}
+
+Answer ONLY JSON: {{"scenes": [{{"say": "...", "visuals": [...], "pops": [...]}}]}}
+Put "chapter": "{ch['name']}" and "mood": "{ch.get('mood', 'mystery')}" on the FIRST scene only.""", system, temperature=0.85, max_tokens=5000)
+        new = _clean_scenes(part.get("scenes"), used)
+        if new:
+            new[0]["chapter"] = ch["name"]
+            new[0]["mood"] = ch.get("mood") or new[0].get("mood") or "mystery"
+        scenes += new
+    if len(scenes) < 25:
+        raise RuntimeError("The script came out too short. Try again.")
+    log("STEP 3/3 Titles, thumbnails and Shorts")
+    index = "\n".join(f"{i}: {sc['say'][:110]}" for i, sc in enumerate(scenes))
+    meta = _ai_json(f"""Topic: {topic}
+These are the scenes of the finished documentary (number: start of the narration):
+{index}
+
+Make the packaging. Views depend on title + thumbnail. Everything must be TRUE to the story.
+Answer ONLY JSON:
+{{"title": "best YouTube title, under 60 characters: curiosity + the key fact, no clickbait lies",
+ "titles": ["title A", "title B", "title C"],
+ "description": "2-3 sentences; the first sentence is the hook with the main keyword",
+ "tags": ["15 tags: the case name, the person, the place, the year, 'true crime documentary', 'dark history', long-tail questions people search"],
+ "hashtags": ["#One", "#Two", "#DarkHistory"],
+ "pinned_comment": "one short question viewers will want to answer",
+ "thumbnails": [{{"text": "2-4 WORDS\\nON TWO LINES", "picture": "the image search of the best picture for this", "style": "face", "red": "the ONE word to colour red"}},
+                {{"text": "...", "picture": "...", "style": "dark", "red": "..."}},
+                {{"text": "...", "picture": "...", "style": "circle", "red": "..."}}],
+ "shorts": [4 x {{"from_scene": i, "to_scene": j, "hook": "short hook line on screen", "title": "Short title #shorts", "comment": "pinned question"}}]
+}}
+Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\\nHIM", "11 DAYS\\nOF SILENCE"). Shorts: 40-50 seconds each (about 110-130 words), the most shocking moments, each must make sense alone.""",
+                    system, temperature=0.8, max_tokens=3000)
+    first_img = next((v["search"][0] for sc in scenes for v in sc["visuals"] if v.get("type") == "image"), topic)
+    thumbs = [t for t in (meta.get("thumbnails") or []) if isinstance(t, dict) and t.get("text")][:3]
+    for t in thumbs:
+        t.setdefault("picture", first_img)
+    script = {"title": meta.get("title") or outline.get("working_title") or topic, "titles": (meta.get("titles") or [])[:3],
+              "description": meta.get("description", ""), "tags": (meta.get("tags") or [])[:20], "hashtags": (meta.get("hashtags") or [])[:3],
+              "sources": outline.get("sources") or [], "pinned_comment": meta.get("pinned_comment", ""), "voice": "saim", "speed": 0.95,
+              "thumbnail": {"text": thumbs[0]["text"] if thumbs else "THE TRUTH\nCAME OUT"}, "thumbnails": thumbs,
+              "shorts": [s for s in (meta.get("shorts") or []) if isinstance(s, dict) and "from_scene" in s][:4],
+              "facts_to_check": facts, "unsure": outline.get("unsure") or [], "written_by": f"{name} {model}", "scenes": scenes}
+    slug = re.sub(r"[^a-z0-9]+", "_", topic.lower()).strip("_")[:40] or "new_video"
+    path = A("scripts", slug + ".json")
+    _json_write(path, script)
+    words = sum(len(sc["say"].split()) for sc in scenes)
+    log(f"Script saved: {path}  ({len(scenes)} scenes, {words} words, about {words / 150:.0f} minutes)")
+    log("Read it once and check the facts (they are listed in 'facts_to_check'), then make the video.")
+    return path
 
 
-def _gemini(prompt, temperature=0.9, timeout=240):
-    cfg = settings()
-    key = (cfg.get("gemini_key") or "").strip()
-    if not key:
-        raise RuntimeError("No Gemini key yet. Paste your free key in the app (New script tab).")
-    errors = []
-    for model in [cfg.get("gemini_model")] + ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-pro", "gemini-2.0-flash"]:
-        if not model:
-            continue
-        try:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={urllib.parse.quote(key)}"
-            body = {"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"responseMimeType": "application/json", "temperature": temperature}}
-            d = http_json(url, json.dumps(body).encode(), {"Content-Type": "application/json"}, timeout=timeout)
-            return d["candidates"][0]["content"]["parts"][0]["text"]
-        except Exception as e:
-            errors.append(f"{model}: {str(e)[:100]}")
-    raise RuntimeError("Gemini didn't work: " + " | ".join(errors))
+def _gemini(prompt, temperature=0.9, timeout=240):  # old name, kept for older code
+    return _ai(prompt, temperature=temperature)
 
 
 def more_topics(n=5):
-    """5 fresh real-story ideas from Gemini, saved for the app's Topics tab."""
+    """5 fresh real-story ideas from the free AI, saved for the app's Topics tab."""
     have = _json_read(A("assets", "topics.json"), []) + _json_read(A("topics_extra.json"), [])
     titles = [x.get("t", "") for x in have]
-    prompt = (f"You find video topics for Midnight Archive, a YouTube documentary channel about dark TRUE stories of history, money, power and crime "
-              f"(American audience, high curiosity). Give {n} NEW topics that really happened and are well documented. Each must have a shocking, true hook. "
-              f"Mix eras and countries. Do not repeat any of these: {json.dumps(titles[-150:])}.\n"
-              'Answer ONLY JSON: [{"t": "YouTube-style title under 60 characters", "h": "one-sentence true hook", "c": "crime|money|power|dark|mystery"}]')
-    txt = _gemini(prompt, 1.0, 120)
-    new = json.loads(txt[txt.find("["):txt.rfind("]") + 1])
-    new = [x for x in new if isinstance(x, dict) and x.get("t") and x["t"] not in titles][:n]
+    d = _ai_json(f"""You find documentary topics for {NICHE}
+Give {n} NEW topics that really happened, are well documented (court records, major news, history books) and have a shocking true hook.
+Mix countries and eras (ancient to 2020s). Not too famous to be boring, not so obscure that there is no footage or pictures.
+Do not repeat any of these: {json.dumps(titles[-150:])}
+Answer ONLY JSON: {{"topics": [{{"t": "YouTube-style title under 60 characters", "h": "one-sentence true hook", "c": "women|nations|crime|cults|war|cover-up|disappearance"}}]}}""",
+                 temperature=1.0, max_tokens=2000)
+    new = [x for x in (d.get("topics") or []) if isinstance(x, dict) and x.get("t") and x["t"] not in titles][:n]
     for x in new:
         x["new"] = time.strftime("%Y-%m-%d")
     extra = _json_read(A("topics_extra.json"), [])
@@ -3447,6 +4976,29 @@ def more_topics(n=5):
     for x in new:
         log("  - " + x["t"])
     return new
+
+
+def unlock_private():
+    """In the cloud: opens your locked (encrypted) recordings, clips and pictures with the MEDIA_KEY secret."""
+    import base64
+    key = os.environ.get("MEDIA_KEY", "")
+    n = 0
+    for d in ("voiceover", "clips_own", "images"):
+        if not os.path.isdir(A(d)):
+            continue
+        for f in os.listdir(A(d)):
+            if not f.endswith(".enc"):
+                continue
+            if not key:
+                log("  locked files found but no MEDIA_KEY secret: press Make video again from the app.")
+                return
+            from nacl.secret import SecretBox
+            with open(A(d, f), "rb") as fh:
+                data = SecretBox(base64.b64decode(key)).decrypt(fh.read())
+            with open(A(d, f[:-4]), "wb") as fh:
+                fh.write(data)
+            n += 1
+    log(f"  {n} private file(s) unlocked")
 
 
 def choose_script():
@@ -3474,6 +5026,8 @@ if __name__ == "__main__":
             log(f"DONE pictures: {len(cr)} found, {len(miss)} missing")
         elif args and args[0] == "--topics":
             more_topics(int(args[1]) if len(args) > 1 else 5)
+        elif args and args[0] == "--unlock":
+            unlock_private()
         elif args and args[0] == "--voices":
             voice_samples()
         elif args and args[0] == "--next-picture":
