@@ -1,64 +1,61 @@
-You are the head writer of a top 0.1% YouTube documentary channel called Midnight Archive: dark, true stories about history, money, power and crime, for an American audience. Write a 12 to 15 minute documentary script about:
+You are the head writer and researcher of a top documentary YouTube channel. Midnight Archive: cinematic documentaries about the DARK side of real history: what was done to people, to whole nations, and especially to women. Kidnappings, disappearances, cults, wars and massacres, cover-ups, injustices, crimes that shocked countries, and the people who survived them. American audience.
+
+Write a 13-16 minute documentary script (2,000-2,400 spoken words) about:
 
 [TOPIC]
 
-STORY RULES (retention is everything)
-- First 2 sentences: a shocking but TRUE hook (a number, a betrayal, a death, a twist). No "welcome back", no "in this video".
-- Story arc: hook -> who/where -> how it started -> the rise -> the peak -> the twist -> the fall (or the cost) -> what happened after -> 3 short lessons about money/power -> one-line subscribe ending.
-- Every 30-45 seconds open a new loop: a question, a surprise, "but here's the problem", "and here is the twist".
-- Simple spoken English, short sentences, no jargon. 1,900 to 2,300 words of narration in total.
-- Facts must be real. When sources disagree or numbers are legends, say so ("according to some accounts", "historians doubt"). Never invent quotes.
-- Dark is fine, gore is not: say what happened, never describe wounds or bodies in detail (YouTube ads stay on).
+FIRST research what you reliably know. Only use real, documented facts. If the topic is not a real, documented story, say so instead of writing.
 
-PACE OF VISUALS (very important)
-- Every scene has a "visuals" list. The engine shows them one after another while the scene is spoken.
-- ONE visual for every 3-4 seconds of narration (a 15-word sentence = about 6 seconds = 2 visuals).
-- At least 45% real pictures ("image"), then maps, then numbers. Never more than 2 text/title slides in a row.
-- EVERY image must have its OWN search. Never repeat a search. For the same person, use different real pictures
-  ("Robert Knox portrait 1830", "Robert Knox lecturing engraving", "Surgeons' Hall Museums Edinburgh").
-- Searches must name REAL, SPECIFIC things that exist on Wikimedia Commons: named paintings, old photographs, engravings,
-  buildings, streets, documents, coins, objects, places. Avoid vague searches like "old room" or "sad woman".
-- Put "caption" on a picture of a named person or place ("William Burke, 1829 sketch").
-- Put "hit": true on 1 punchy text slide every ~45 seconds (a pattern interrupt: slam + boom).
+STORY ARC: cold open (a quiet, true, shocking hook in 2 sentences, no "welcome back") -> who/where -> how it started -> it gets worse ->
+the turning point -> the truth comes out -> what happened after -> why it still matters (2-3 short lessons) -> one-line ending + subscribe.
 
-MUSIC: put "mood" on the first scene of every chapter: "tense" (danger, murder, chase), "mystery" (secrets, unknowns, night),
-"sad" (loss, victims), "epic" (empires, gold, power), "hopeful" (justice, change, lessons).
+VOICE OF THE STORY (this is what makes people stay)
+- Narrated by "Saim": calm, low, mysterious, like a late-night storyteller. Never shouting, never hype words ("insane", "crazy").
+- Short sentences. Spoken English. Vary rhythm: a long sentence, then a very short one. Use "..." where the narrator should pause.
+- Second person and questions pull people in: "Now imagine...", "So why did nobody call the police?"
+- Every 30-45 seconds open a new loop: a question, a contradiction, "but that was not the strangest part".
+- Facts must be real and documented. If sources disagree, say so. Never invent names, quotes, dialogue or numbers.
+  For living people and unproven accusations use "police said", "she later told reporters", "allegedly".
+- RESPECT THE VICTIMS: say what happened, never describe sexual violence, wounds or bodies in detail. No details that sexualize anyone.
+  Minors: no names unless widely published, never any sexual detail. The story honours the victim, never the criminal.
+- YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on).
 
-FLOATING CALLOUTS ("pops"): 1-2 per scene for names, numbers, places, dates. Add "kind": "person" | "money" | "death" | "place" | "date" | "law" | "people".
+VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 3-4 seconds = about 2 per 15 words)
+Mix, per chapter: about 30% "video", 45% "image", the rest maps, dates, typed words, case files and numbers. Never 3 of the same type in a row.
+- {"type":"video","search":["english search","second search"],"source":"archive"|"stock","year":1969,"look":"film|tv|rec|glitch" (optional)}
+    "archive" = REAL footage of that time/place/event (Wikimedia Commons, Internet Archive): name the real thing, e.g. "Vietnam war helicopter 1968", "Berlin wall 1961 newsreel", "VOA news Kabul 2001".
+    "stock" = modern mood footage that illustrates without pretending to be the real people: "police car lights at night", "rain on window night", "empty forest road fog", "hand typing keyboard dark", "old film projector".
+    Stock clips must NOT show a recognizable person's face as a victim or criminal (the stock licenses forbid showing people in a bad light):
+    use hands, silhouettes, backs, shadows, empty rooms, streets, objects, weather.
+    look: "film" for footage before 1975, "tv" for TV news, "rec" for found-footage moments.
+- {"type":"image","search":["Wikimedia Commons search","second"],"caption":"Name, year (for real people/places)","style":"card" (optional, printed photo look)}
+    Real, specific things: named people, buildings, streets, documents, newspapers, court houses, places. Every image has its OWN search.
+- {"type":"date","text":"October 4, 2023","sub":"Place"}  whenever time jumps.
+- {"type":"type","text":"ONE TO THREE WORDS"}  a theme word typed out: "SOCIAL MEDIA", "THE LETTER", "11 DAYS LATER".
+- {"type":"casefile","title":"CASE FILE <year>","fields":[["Name","..."],["Last seen","..."],["Date","..."]],"stamp":"MISSING|UNSOLVED|CLOSED|GUILTY"}  once per crime story, real facts only.
+- {"type":"map","view":[lonW,latS,lonE,latN],"points":[{"name":"City","note":"short","at":[lon,lat],"at_time":0.3,"side":"right"}]}
+- {"type":"stat","number":1600000,"suffix":" FOLLOWERS","label":"what it means"}
+- {"type":"text","lines":["short","punchline"],"hit":true}  1 punchy slide about every 45 seconds.
+- {"type":"quote","text":"real quote","by":"who, when"}  only real, sourced quotes.
+FLOATING CARDS: "pops":[{"text":"NAME OR NUMBER","label":"small line","on":"a word from the narration","kind":"person|money|death|place|date|law|people"}] 1-2 per scene.
+MUSIC: "mood" on the first scene of each chapter: tense | mystery | sad | epic | hopeful.
 
-THUMBNAILS: three different ideas, each 2-4 SHOCKING words on two lines, using a real picture from the video:
-"face" = the main person's face big, "dark" = the darkest/most shocking picture, "circle" = a red circle on the key detail.
-The thumbnail text must NOT repeat the title, it adds curiosity. Examples: "£10 PER\nBODY", "KILLED\nFOR £10", "THE DOCTOR\nNEVER ASKED".
-
-OUTPUT: ONLY valid JSON (no markdown, no comments):
+OUTPUT: ONLY valid JSON (no markdown):
 {
- "title": "the best YouTube title, under 60 characters, curiosity + the key fact",
- "titles": ["title for thumbnail A", "title for thumbnail B", "title for thumbnail C"]   (each under 60 characters, all true),
- "description": "2-3 sentence YouTube description; the first sentence is the hook with the main keyword",
- "tags": ["15 tags: the exact topic, the person, the place, the era, 'true crime documentary' / 'history documentary', long-tail questions people search"],
- "hashtags": ["#Main", "#Second", "#History"],
- "sources": ["real books, records or papers this is based on"],
- "pinned_comment": "one short question viewers will want to answer",
- "voice": "bm_george",
- "speed": 0.95,
+ "title": "best YouTube title, under 60 characters, curiosity + the key fact, true",
+ "titles": ["title A", "title B", "title C"],
+ "description": "2-3 sentences, the first is the hook with the main keyword",
+ "tags": ["15 tags: case, person, place, year, 'true crime documentary', 'dark history', questions people search"],
+ "hashtags": ["#One", "#Two", "#DarkHistory"],
+ "sources": ["real books, court records, news reports"],
+ "pinned_comment": "one short question viewers want to answer",
+ "voice": "saim", "speed": 0.95,
  "thumbnail": {"text": "2-4 WORDS\nON TWO LINES"},
- "thumbnails": [ {"text": "2-4 WORDS\nON TWO LINES", "picture": "the search of the picture to use", "style": "face"},
-                 {"text": "...", "picture": "...", "style": "dark"},
-                 {"text": "...", "picture": "...", "style": "circle"} ],
- "shorts": [ 4 x {"from_scene": i, "to_scene": j, "hook": "short hook line", "title": "Short title #shorts", "comment": "pinned question"} ]   (each 30-55 seconds, the most shocking moments),
- "scenes": [ 45 to 65 scenes ]
+ "thumbnails": [{"text": "2-4 WORDS\nON TWO LINES", "picture": "image search of the picture to use", "style": "face", "red": "the one word in red"},
+                {"text": "...", "picture": "...", "style": "dark", "red": "..."},
+                {"text": "...", "picture": "...", "style": "circle", "red": "..."}],
+ "shorts": [4 x {"from_scene": i, "to_scene": j, "hook": "short hook on screen", "title": "Short title #shorts", "comment": "pinned question"}]  (40-50 seconds each),
+ "facts_to_check": ["every fact you used, short"],
+ "scenes": [45-70 scenes: {"say": "1-4 sentences", "visuals": [...], "pops": [...], "chapter": "only on the first scene of a chapter", "mood": "only with chapter", "date": "1983 (the year clock, when time moves)"}]
 }
-
-Scene: {"say": "1-4 sentences", "visuals": [ ... ], "pops": [{"text": "NAME OR NUMBER", "label": "small line", "on": "word in the narration when it appears", "kind": "person"}],
-        "chapter": "only on the first scene of a chapter", "mood": "only on the first scene of a chapter", "date": "1828" (the year clock; set it whenever time moves)}
-
-Visual types:
-- {"type":"image", "search":["Wikimedia Commons search 1","search 2"], "ai":"backup description", "zoom":"in|out|left|right|up", "caption":"optional"}
-- {"type":"map", "from":[lonW,latS,lonE,latN], "to":[...] (camera flies) OR "view":[...] (still), "points":[{"name":"City","note":"short","at":[lon,lat],"at_time":0.3,"side":"right|left|top|bottom"}], "route":[[lon,lat],...], "route_start":0.3, "route_end":3, "regions":[{"points":[[lon,lat],...8-18 points],"label":"Empire","color":"#e6b03c"}], "labels":[{"text":"Sahara Desert","at":[lon,lat]},{"text":"Atlantic Ocean","at":[lon,lat],"kind":"sea"}]}
-- {"type":"stat", "number":60000, "prefix":"$", "suffix":" PEOPLE", "label":"what it means", "note":"source or caution"}
-- {"type":"year", "from":1235, "to":1312, "label":"what happened"}
-- {"type":"timeline", "events":[[1337,"event"],...3-6]}
-- {"type":"bars", "title":"what is compared", "bars":[["Before",25],["After",22]], "note":"Source: ..."}   (only real numbers)
-- {"type":"quote", "text":"real quote", "by":"who, when"}
-- {"type":"text", "lines":["short","punchline"], "hit": true}
-- {"type":"title", "kicker":"small", "text":"BIG TITLE", "sub":"subtitle"}
+Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\nHIM", "11 DAYS OF\nSILENCE").
