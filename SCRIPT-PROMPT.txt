@@ -20,8 +20,12 @@ VOICE OF THE STORY (this is what makes people stay)
   Minors: no names unless widely published, never any sexual detail. The story honours the victim, never the criminal.
 - YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on).
 
-VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 3-4 seconds = about 2 per 15 words)
-Mix, per chapter: about 30% "video", 45% "image", the rest maps, dates, typed words, case files and numbers. Never 3 of the same type in a row.
+VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 4-5 seconds = about 2 per 22 words; each visual is on screen max 5 seconds)
+EVERYTHING ON SCREEN MUST BE REAL AND ABOUT THIS STORY. Viewers leave when the picture doesn't match the words.
+Mix, per chapter: about 35% "video", 50% "image", a few maps, dates and case files. Text slides ("text", "type", "stat", "quote") at most ONE per chapter.
+Every image/video search must name a SPECIFIC REAL thing that has photos or footage online: the actual person (if public photos exist),
+the actual town, street, building, court house, prison, newspaper front page, ship, army, protest, ruins, document. Add the year or country.
+NEVER vague searches like "sad woman", "dark room", "crime scene", "mystery". If no real picture of a moment exists, show the real PLACE where it happened.
 - {"type":"video","search":["english search","second search"],"source":"archive"|"stock","year":1969,"look":"film|tv|rec|glitch" (optional)}
     "archive" = REAL footage of that time/place/event (Wikimedia Commons, Internet Archive): name the real thing, e.g. "Vietnam war helicopter 1968", "Berlin wall 1961 newsreel", "VOA news Kabul 2001".
     "stock" = modern mood footage that illustrates without pretending to be the real people: "police car lights at night", "rain on window night", "empty forest road fog", "hand typing keyboard dark", "old film projector".
@@ -35,7 +39,7 @@ Mix, per chapter: about 30% "video", 45% "image", the rest maps, dates, typed wo
 - {"type":"casefile","title":"CASE FILE <year>","fields":[["Name","..."],["Last seen","..."],["Date","..."]],"stamp":"MISSING|UNSOLVED|CLOSED|GUILTY"}  once per crime story, real facts only.
 - {"type":"map","view":[lonW,latS,lonE,latN],"points":[{"name":"City","note":"short","at":[lon,lat],"at_time":0.3,"side":"right"}]}
 - {"type":"stat","number":1600000,"suffix":" FOLLOWERS","label":"what it means"}
-- {"type":"text","lines":["short","punchline"],"hit":true}  1 punchy slide about every 45 seconds.
+- {"type":"text","lines":["short","punchline"],"hit":true}  at most one per chapter, only for the biggest twist.
 - {"type":"quote","text":"real quote","by":"who, when"}  only real, sourced quotes.
 FLOATING CARDS: "pops":[{"text":"NAME OR NUMBER","label":"small line","on":"a word from the narration","kind":"person|money|death|place|date|law|people"}] 1-2 per scene.
 MUSIC: "mood" on the first scene of each chapter: tense | mystery | sad | epic | hopeful.
@@ -56,6 +60,7 @@ OUTPUT: ONLY valid JSON (no markdown):
                 {"text": "...", "picture": "...", "style": "circle", "red": "..."}],
  "shorts": [4 x {"from_scene": i, "to_scene": j, "hook": "short hook on screen", "title": "Short title #shorts", "comment": "pinned question"}]  (40-50 seconds each),
  "facts_to_check": ["every fact you used, short"],
+ "backup_searches": ["15 broad searches for real photos/footage of the story's places, people and era"],
  "scenes": [45-70 scenes: {"say": "1-4 sentences", "visuals": [...], "pops": [...], "chapter": "only on the first scene of a chapter", "mood": "only with chapter", "date": "1983 (the year clock, when time moves)"}]
 }
 Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\nHIM", "11 DAYS OF\nSILENCE").
