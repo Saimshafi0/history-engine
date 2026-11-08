@@ -2951,6 +2951,34 @@ def faces_for(fname):
 
 # ------------------------------------------------------------------ choosing pictures: every slide gets its OWN picture
 
+ERA = {"max": None}
+
+
+def _too_modern(c):
+    """A photo dated long after the story (e.g. a 2015 photo in a story that ends in 1910) is skipped."""
+    if not ERA["max"] or ERA["max"] >= 1990:
+        return False
+    ys = [int(y) for y in re.findall(r"(?<!\d)(1[89]\d\d|20[0-2]\d)(?!\d)", c.get("title", ""))]
+    return bool(ys) and min(ys) > ERA["max"] + 20
+
+
+def set_era(script):
+    era = script.get("era") or []
+    ys = [int(y) for y in era if str(y).isdigit()] if isinstance(era, list) else []
+    if not ys:
+        ys = [int(y) for sc in script["scenes"] for y in re.findall(r"\b(1[0-9]{3}|20[0-2][0-9])\b", str(sc.get("date", "")))]
+    ERA["max"] = max(ys) if ys else None
+    region = (script.get("region") or "").strip()
+    if region:  # every search names the place, so we don't get Budapest for an Australian story
+        rw = _sig_words(region)
+        for sc in script["scenes"]:
+            for v in sc.get("visuals") or []:
+                if v.get("type") in ("image", "video") and v.get("search"):
+                    q = _queries(v)
+                    if q and not (rw & _sig_words(q[0])) and not re.search(r"\b[A-Z][a-z]+", q[0]):
+                        v["search"] = [q[0] + " " + region] + q[1:]
+
+
 def resolve_pictures(script, use_ai=True):
     """Finds a real picture for every image slide. The same picture is never used twice in one video:
     if a search repeats, the next picture for that search is used; copies of the same picture are detected by fingerprint."""
@@ -2995,8 +3023,8 @@ def resolve_pictures(script, use_ai=True):
         ch = int(meta.get("choice", 0) or 0)
         if 0 < ch < len(cands):
             cands = [cands[ch]] + cands[:ch] + cands[ch + 1:]
-        strong = [c for c in cands if not c.get("weak")]
-        weak = [c for c in cands if c.get("weak")]
+        strong = [c for c in cands if not c.get("weak") and not _too_modern(c)]
+        weak = [c for c in cands if c.get("weak") and not _too_modern(c)]
         opts = ([{"url": "own:" + key, "credit": meta.get("credit", ""), "title": "your picture"}] if own else []) + strong
         options[key] = (opts, weak)
         # old cache: images/<key>.jpg is the chosen candidate; reuse it instead of downloading again
@@ -3403,16 +3431,22 @@ def expand_visuals(script):
     so they are new, real and on topic. Scenes with no picture search borrow the previous scene's searches."""
     added = 0
     last_pool = []
+    backups = [{"type": "image", "search": [q], "backup": True} for q in backup_searches(script)]
+    bk = 0
     for sc in script["scenes"]:
         say = sc.get("say") or ""
         est = 0.4 + len(say.split()) / 2.35 + 0.45 * max(1, len(split_sentences(say)))
         vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
         need = max(1, math.ceil(est / MAX_SHOT))
-        pool = [v for v in vis if v.get("type") in ("image", "video") and _queries(v)] or last_pool
+        pool = [v for v in vis if v.get("type") in ("image", "video") and _queries(v)]
+        if not pool and backups:  # a map / text scene: new real pictures of the story's places, not the last scene again
+            pool = [backups[(bk + j) % len(backups)] for j in range(3)]
+            bk += 3
+        pool = pool or last_pool
         k = 0
         while len(vis) < need and pool:
             src = pool[k % len(pool)]
-            nv = {kk: vv for kk, vv in src.items() if kk in ("type", "search", "source", "look", "year", "ai", "label")}
+            nv = {kk: vv for kk, vv in src.items() if kk in ("type", "search", "source", "look", "year", "ai", "label", "backup")}
             nv["extra"] = True
             pos = min(len(vis), 1 + 2 * (k + 1))  # spread the new shots between the planned ones
             vis.insert(pos, nv)
@@ -4642,6 +4676,7 @@ def build(script_path, preview=False, captions=None):
     except Exception as e:
         log(f"  couldn't download the offline voice ({e}); using the online voice instead.")
     log("STEP 1/4 Pictures and clips")
+    set_era(script)
     expand_visuals(script)
     vcredits = resolve_videos(script, W, H, fps)
     credits, missing = resolve_pictures(script, use_ai=cfg.get("ai_pictures", True))
@@ -4684,12 +4719,18 @@ def build(script_path, preview=False, captions=None):
     mp4 = os.path.join(out_dir, "video.mp4")
     silent = str(script.get("voice", "")).lower() in ("none", "silent", "own")
     encode(None, frames(), W, H, fps, wav, mp4, None, 0, "28" if preview else "20", norm=not silent)
-    log("STEP 4/4 Thumbnail, description, captions")
-    try:
-        make_thumbnails(script, pl, out_dir)
-    except Exception as e:
-        log(f"   (3 thumbnails failed: {str(e)[:80]}; making the simple one)")
-        make_thumbnail(script, pl, out_dir)
+    log("STEP 4/4 Thumbnail prompts, description, captions")
+    if cfg.get("thumb_mode", "prompt") == "images":
+        try:
+            make_thumbnails(script, pl, out_dir)
+        except Exception as e:
+            log(f"   (3 thumbnails failed: {str(e)[:80]}; making the simple one)")
+            make_thumbnail(script, pl, out_dir)
+    else:
+        try:
+            write_thumbnail_prompts(script, pl, out_dir)
+        except Exception as e:
+            log(f"   (thumbnail prompts failed: {str(e)[:80]})")
     write_texts(script, pl, credits, out_dir)
     if VIDEO_REPORT:
         with open(os.path.join(out_dir, "clips_report.txt"), "w", encoding="utf-8") as f:
@@ -4705,8 +4746,7 @@ def build(script_path, preview=False, captions=None):
                     last = snt["scene"]
                 f.write(f"[{fmt_ts(snt['start'])} - {fmt_ts(snt['end'])}]  {snt['text']}\n")
         log("   voiceover_guide.txt written (no AI voice in this video)")
-    if not preview:
-        save_pictures(script, out_dir)
+    save_pictures(script, out_dir)
     log(f"\nDONE in {int(time.time() - t0) // 60} min. Your video is here:\n  {out_dir}")
     return out_dir
 
@@ -4783,10 +4823,18 @@ def pick_shorts(pl, n=4, min_len=38, max_len=50):
     return sorted(out, key=lambda o: o["start"])
 
 
-def make_shorts(out_dir, n=4):
+def make_shorts(out_dir, n=1):
     pl = _json_read(os.path.join(out_dir, "timeline.json"), None)
     if pl:
         apply_theme(pl.get("theme"))
+        sc_ = _json_read(A("scripts", pl.get("script") or ""), {}) if pl.get("script") else {}
+        if (sc_.get("summary_short") or {}).get("say"):
+            try:
+                ensure_models()
+            except Exception:
+                pass
+            return make_summary_short(out_dir, sc_)
+        n = 1  # no summary in this script: one Short from the strongest moment
     if not pl:
         raise ValueError("This folder has no timeline.json. Make the long video with this engine first.")
     src = os.path.join(out_dir, "video.mp4")
@@ -4898,6 +4946,266 @@ def make_shorts(out_dir, n=4):
         f.write("\n".join(info))
     log(f"\nDONE. {len(segs)} shorts in:\n  {sdir}")
     return sdir
+
+
+# ================================================================== ONE SUMMARY SHORT: the whole story in 45-55 seconds, full-screen vertical
+
+def _short_shots(pl, n):
+    """The best real shots of the long video, spread over the whole story, in order."""
+    shots = []
+    seen = set()
+    for b in pl["beats"]:
+        v = b["visual"]
+        if v.get("type") == "image" and v.get("file") and not v.get("recut") and os.path.exists(A("images", v["file"])):
+            k = v["file"]
+            score = 2 + 3 * max([(f[2] - f[0]) * (f[3] - f[1]) for f in (v.get("faces") or [])] or [0])
+        elif v.get("type") == "video" and v.get("clip") and os.path.exists(os.path.join(A(v["clip"]), "info.json")):
+            k = v["clip"] + "|" + str(v.get("clip_off") or 0)
+            score = 4
+        else:
+            continue
+        if k in seen:
+            continue
+        seen.add(k)
+        shots.append((b["start"], score, v))
+    if not shots:
+        return []
+    shots.sort(key=lambda x: x[0])
+    out = []
+    for i in range(n):  # one per part of the story, the strongest in each part
+        lo, hi = len(shots) * i // n, max(len(shots) * (i + 1) // n, len(shots) * i // n + 1)
+        part = shots[lo:hi] or shots[-1:]
+        out.append(max(part, key=lambda x: x[1])[2])
+    return out
+
+
+class VShot:
+    """One vertical full-screen shot from a picture or a clip: sharp middle band over its own blurred copy, slow push-in."""
+
+    def __init__(self, v, W=1080, H=1920):
+        self.v, self.W, self.H = v, W, H
+        self.clip = None
+        if v.get("type") == "video":
+            self.clip = VideoScene({"visual": dict(v)}, 1920, 1080, 0)
+            self.img = None
+        else:
+            im = Image.open(A("images", v["file"])).convert("RGB")
+            im.thumbnail((2400, 2400))
+            self.img = grade(im)
+        self.faces = v.get("faces") or []
+
+    def _src(self, t, dur):
+        if self.clip is not None:
+            return self.clip.frame(t, dur)
+        return self.img
+
+    def frame(self, t, dur):
+        W, H = self.W, self.H
+        src = self._src(t, dur)
+        iw, ih = src.size
+        p = clamp(t / max(dur, 0.1))
+        # background: the same shot, blurred and dark
+        k = max(W / iw, H / ih)
+        bg = src.resize((max(1, int(iw * k / 8)), max(1, int(ih * k / 8))), Image.BILINEAR).filter(ImageFilter.GaussianBlur(4))
+        bg = bg.resize((int(iw * k) + 2, int(ih * k) + 2), Image.BILINEAR)
+        bx, by = (bg.width - W) // 2, (bg.height - H) // 2
+        img = Image.blend(bg.crop((bx, by, bx + W, by + H)), Image.new("RGB", (W, H), (6, 6, 8)), 0.5)
+        # foreground: fills the full width, 70% of the height, centred on the face if there is one
+        fh = int(H * 0.70)
+        z = 1.0 + 0.07 * ease_io(p)
+        k2 = max(W / iw, fh / ih) * z
+        fw_full, fh_full = iw * k2, ih * k2
+        if self.faces:
+            f0 = max(self.faces, key=lambda f: (f[2] - f[0]) * (f[3] - f[1]))
+            cx, cy = (f0[0] + f0[2]) / 2 * fw_full, (f0[1] + f0[3]) / 2 * fh_full
+        else:
+            cx, cy = fw_full * (0.5 + 0.06 * math.sin(p * 2)), fh_full * 0.45
+        x0 = clamp(cx - W / 2, 0, max(0, fw_full - W))
+        y0 = clamp(cy - fh / 2, 0, max(0, fh_full - fh))
+        box = (x0 / k2, y0 / k2, (x0 + W) / k2, (y0 + fh) / k2)
+        fg = src.resize((W, fh), Image.BILINEAR, box=box)
+        top = int(H * 0.15)
+        img.paste(fg, (0, top))
+        return vignette(img, 0.5)
+
+
+def make_summary_short(out_dir, script):
+    """ONE Short that tells the whole story in about 50 seconds, with its own narration and the best real shots."""
+    pl = _json_read(os.path.join(out_dir, "timeline.json"), None)
+    if not pl:
+        raise ValueError("Make the long video first.")
+    apply_theme(pl.get("theme"))
+    ss = script.get("summary_short") or {}
+    say = (ss.get("say") or "").strip()
+    sdir = os.path.join(out_dir, "shorts")
+    os.makedirs(sdir, exist_ok=True)
+    vname = pl.get("voice_name") or "saim"
+    if vname in ("none", "silent", "own", "own-recording"):
+        vname = "saim"  # your own voice isn't there for the summary: Saim tells it
+    voice = Voice({"voice": vname, "speed": pl.get("speed", 0.95)})
+    sents = split_sentences(say)
+    parts, words, sentences, t = [np.zeros(int(SR * 0.25), np.float32)], [], [], 0.25
+    for s_ in sents:
+        a = voice.say(s_)
+        d = len(a) / SR
+        words += word_times(s_, t, t + d)
+        sentences.append({"start": t, "end": t + d, "text": s_})
+        g = 0.45 if s_.rstrip().endswith(("?", "...", "…")) else 0.22
+        parts += [a, np.zeros(int(SR * g), np.float32)]
+        t += d + g
+    speech_end = t
+    end_card = 2.6
+    total = speech_end + end_card
+    speech = np.concatenate(parts)
+    speech = np.concatenate([speech, np.zeros(int(total * SR) - len(speech) + 10, np.float32)])[:int(total * SR)]
+    # music: the story's mood, quiet under the voice
+    mood = next((m for _, _, m in (pl.get("moods") or [])), "mystery")
+    try:
+        music = _fill(mood, len(speech), 7)
+        env = np.abs(speech)
+        k_ = int(SR * 0.3)
+        env = np.convolve(env, np.ones(k_, np.float32) / k_, mode="same")
+        duck = 1 - 0.75 * np.clip(env / (env.max() * 0.25 + 1e-6), 0, 1)
+        mix = speech + music[:len(speech)] * 0.16 * duck
+    except Exception:
+        mix = speech
+    nshots = max(8, int(round(speech_end / 3.0)))
+    shots = _short_shots(pl, nshots)
+    if not shots:
+        raise ValueError("No real pictures in the long video to use.")
+    seg = speech_end / len(shots)
+    for i in range(1, len(shots)):  # a whoosh on every cut
+        k = int((i * seg - 0.18) * SR)
+        w = whoosh(0.35, i) * 0.12
+        if 0 <= k < len(mix) - len(w):
+            mix[k:k + len(w)] += w
+    pk = float(np.max(np.abs(mix))) or 1
+    wav = os.path.join(sdir, "short_1.wav")
+    write_wav(wav, mix * (0.92 / pk))
+    lines = [{"start": ln[0][0], "end": ln[-1][1], "words": ln} for ln in group_lines(words, max_chars=16, max_words=3)]
+    hook = (ss.get("hook") or pl.get("title", "")).upper()
+    W, H, fps = 1080, 1920, 25
+    objs = {}
+
+    def shot(i):
+        if i not in objs:
+            objs.clear()
+            objs[i] = VShot(shots[i], W, H)
+        return objs[i]
+
+    def frames():
+        for fi in range(int(total * fps)):
+            tt = fi / fps
+            if tt < speech_end:
+                i = min(len(shots) - 1, int(tt / seg))
+                lt = tt - i * seg
+                img = shot(i).frame(lt, seg)
+                if lt < 0.14 and i > 0:  # quick punch on each cut
+                    z = 1 + 0.08 * (1 - lt / 0.14)
+                    cw, ch = W / z, H / z
+                    img = img.resize((W, H), Image.BILINEAR, box=((W - cw) / 2, (H - ch) / 2, (W + cw) / 2, (H + ch) / 2))
+                d = ImageDraw.Draw(img, "RGBA")
+                if tt < 3.2:  # the hook, only at the start
+                    a = ease_out(tt / 0.35) * (1 - clamp((tt - 2.8) / 0.4))
+                    f = font("Anton", 86)
+                    hl = wrap(d, hook, f, W * 0.86)[:3]
+                    y = 150
+                    for j, ln in enumerate(hl):
+                        col = THUMB_RED if j == len(hl) - 1 else (250, 248, 242)
+                        d.text((W / 2, y), ln, font=f, fill=col + (int(255 * a),), anchor="mm", stroke_width=5, stroke_fill=(0, 0, 0, int(255 * a)))
+                        y += 98
+                else:
+                    d.text((W / 2, 120), (pl.get("channel") or "MIDNIGHT ARCHIVE").upper(), font=font("Oswald", 34, "Medium"), fill=(230, 226, 216, 200), anchor="mm")
+                draw_caption(img, tt, lines, W, H, int(H * 0.80), 84, box=False, max_w=W * 0.88)
+            else:  # end card
+                lt = tt - speech_end
+                img = shot(len(shots) - 1).frame(seg + lt, seg + end_card)
+                img = Image.blend(img, Image.new("RGB", (W, H), (6, 6, 8)), 0.6)
+                d = ImageDraw.Draw(img, "RGBA")
+                a = ease_out(lt / 0.4)
+                d.text((W / 2, 820), "WATCH THE", font=font("Anton", 110), fill=(250, 248, 242, int(255 * a)), anchor="mm")
+                d.text((W / 2, 950), "FULL STORY", font=font("Anton", 130), fill=THUMB_RED + (int(255 * a),), anchor="mm")
+                d.text((W / 2, 1090), "on the channel", font=font("Inter", 46, "SemiBold"), fill=(220, 216, 206, int(230 * a)), anchor="mm")
+            yield img.tobytes()
+            if fi % 50 == 0:
+                print(f"\r   summary Short  ({int(fi * 100 / (total * fps))}%)", end="", flush=True)
+        print()
+
+    out = os.path.join(sdir, "short_1.mp4")
+    encode(None, frames(), W, H, fps, wav, out)
+    os.remove(wav)
+    title = ss.get("title") or (hook.title() + " #shorts")
+    tags = [x for x in (pl.get("tags") or []) if x][:2]
+    hs = " ".join("#" + re.sub(r"[^A-Za-z0-9]", "", x.title()) for x in tags) or "#history"
+    with open(os.path.join(sdir, "shorts.txt"), "w", encoding="utf-8") as f:
+        f.write("THE SUMMARY SHORT (the whole story in under a minute)\n"
+                f"File: short_1.mp4   ({fmt_ts(total)})\n"
+                f"Title: {title}\n"
+                f"Description: {ss.get('hook') or pl.get('title', '')} The full documentary is on the channel. {hs} #shorts\n"
+                f"Pinned comment: {ss.get('comment') or 'Did you know this story? Tell me below.'}\n"
+                "Cover: see thumbnail_prompts.txt (SHORT COVER).\n"
+                "In YouTube Studio > this Short > 'Related video': pick the long video.\n")
+    log(f"\nDONE. Summary Short: {out}")
+    return sdir
+
+
+# ================================================================== THUMBNAIL PROMPTS for ChatGPT (instead of finished thumbnails)
+
+def write_thumbnail_prompts(script, pl, out_dir):
+    pool = _pictures_used(pl)
+    concepts = [dict(c) for c in (script.get("thumbnails") or [])][:3]
+    auto = _auto_concepts(script, pl)
+    while len(concepts) < 3:
+        concepts.append(auto[len(concepts)])
+    titles = (list(script.get("titles") or []) + [script.get("title", "")] * 3)[:3]
+    used = set()
+    out = ["THUMBNAIL PROMPTS FOR CHATGPT",
+           "How: open ChatGPT > attach the real picture named below (from the 'pictures' folder) > paste the prompt > download > upload to YouTube.",
+           "Test & compare: make all three, upload A, then add B and C in YouTube Studio > Thumbnail > Test & compare.",
+           "Real people: always attach their REAL photo. Never let the AI invent the face of a real victim or criminal.", ""]
+    style = ("Style: dark cinematic true-crime / history documentary thumbnail (like big documentary YouTube channels). Very high contrast, deep blacks, "
+             "desaturated colours with cold blue-grey shadows, subtle film grain, a soft red glow (#E21E18) behind the main subject, strong vignette. "
+             "Photorealistic, sharp, readable on a phone at small size. No logos, no watermark, no extra words, no borders.")
+    for i, c in enumerate(concepts):
+        lines = [x.strip().upper() for x in (c.get("text") or "?").replace("\\n", "\n").split("\n") if x.strip()]
+        if len(lines) == 1 and len(lines[0].split()) >= 2:
+            w_ = lines[0].split()
+            lines = [" ".join(w_[:len(w_) // 2]), " ".join(w_[len(w_) // 2:])]
+        red = (c.get("red") or max(lines[-1].split(), key=len)).upper()
+        p = _pick_picture(c, pool, used, pl["total"])
+        pic = ""
+        subj = c.get("picture") or script.get("title", "")
+        if p:
+            used.add(p["file"])
+            pic = os.path.splitext(p["file"])[0] + ".jpg"
+        person = bool(p and p.get("faces"))
+        st = c.get("style", ("face", "dark", "circle")[i])
+        if person:
+            comp = ("Use the attached photo. Keep the person's face exactly as in the photo (do not change or invent the face). "
+                    "Cut the person out and place them big on the RIGHT third, head and shoulders, looking serious; thin white rim light and a red glow around them. "
+                    "Background: a dark, blurred version of the scene.")
+        else:
+            comp = (f"Use the attached photo as the scene ({subj}). Make it moody and dramatic, the main subject on the RIGHT half, "
+                    "the left side darker so the text stands out.")
+        if st == "circle":
+            comp += " Add one thick bright red hand-drawn circle around the most important detail, and a small red arrow pointing at it."
+        text = (f'Text on the LEFT side, huge bold condensed font (like Anton/Impact), white with a thick black outline and drop shadow: "{lines[0]}"'
+                + (f' on the first line and "{" ".join(lines[1:])}" on the second line' if len(lines) > 1 else "")
+                + f'. The word "{red}" in bright red (#E21E18). A short red bar under the last line. Spell the words exactly like this.')
+        out += [f"===== THUMBNAIL {'ABC'[i]}  (title: {titles[i]}) =====",
+                f"Attach this picture: pictures/{pic}" if pic else "Attach a real picture of: " + subj,
+                "Prompt:",
+                f"Create a YouTube thumbnail, 16:9, 1280x720. {comp} {text} {style}", ""]
+    ss = script.get("summary_short") or {}
+    hook = (ss.get("hook") or script.get("title", "")).upper()
+    out += ["===== SHORT COVER (vertical) =====",
+            f"Attach the same picture as thumbnail A.",
+            "Prompt:",
+            f"Create a vertical YouTube Shorts cover, 9:16, 1080x1920. The main subject big in the lower two thirds. At the top, huge bold condensed white text with "
+            f'black outline: "{hook}", the last word in bright red (#E21E18). At the bottom, small text: "MIDNIGHT ARCHIVE". {style}', ""]
+    with open(os.path.join(out_dir, "thumbnail_prompts.txt"), "w", encoding="utf-8") as f:
+        f.write("\n".join(out))
+    log("   thumbnail_prompts.txt written (3 thumbnails + Short cover for ChatGPT)")
 
 
 def short_frame(clip, t, dur, total, hook, lines, long_title):
@@ -5144,6 +5452,8 @@ Answer ONLY JSON:
  "unsure": ["things that are disputed or that you are not sure about (the script must not state these as fact)"],
  "sources": ["real books, court records, news outlets or reports this is based on"],
  "backup_searches": ["15 broad searches for REAL photos/footage of this story's places, people and era, e.g. 'Hangzhou old town', 'Edinburgh 1820s', 'Khmer Rouge soldiers 1975'"],
+ "region": "the ONE country or city where this story happens, in English (e.g. 'Australia')",
+ "era": [first year of the story, last year of the story],
  "hook": "the first 2 sentences: a true, shocking, quiet hook (no 'welcome back', no 'in this video')",
  "chapters": [{{"name": "Chapter name", "mood": "tense|mystery|sad|epic|hopeful", "covers": "what this chapter tells, which facts", "open_loop": "the question it leaves", "words": 260}}]
 }}
@@ -5174,7 +5484,9 @@ About {int(ch.get('words') or 260)} spoken words in 5-9 scenes (each scene 1-4 s
 {VISUAL_RULES}
 
 Answer ONLY JSON: {{"scenes": [{{"say": "...", "visuals": [...], "pops": [...]}}]}}
-Put "chapter": "{ch['name']}" and "mood": "{ch.get('mood', 'mystery')}" on the FIRST scene only.""", system, temperature=0.85, max_tokens=5000)
+Put "chapter": "{ch['name']}" and "mood": "{ch.get('mood', 'mystery')}" on the FIRST scene only.
+EVERY image/video search must contain "{outline.get('region', '')}" or a real place/person name inside it, and must fit the time of the story
+({outline.get('era', '')}): never show modern buildings or modern photos for an old event.""", system, temperature=0.85, max_tokens=5000)
         new = _clean_scenes(part.get("scenes"), used)
         if new:
             new[0]["chapter"] = ch["name"]
@@ -5199,9 +5511,10 @@ Answer ONLY JSON:
  "thumbnails": [{{"text": "2-4 WORDS\\nON TWO LINES", "picture": "the image search of the best picture for this", "style": "face", "red": "the ONE word to colour red"}},
                 {{"text": "...", "picture": "...", "style": "dark", "red": "..."}},
                 {{"text": "...", "picture": "...", "style": "circle", "red": "..."}}],
- "shorts": [4 x {{"from_scene": i, "to_scene": j, "hook": "short hook line on screen", "title": "Short title #shorts", "comment": "pinned question"}}]
+ "summary_short": {{"hook": "max 7 words on screen, the most shocking true fact", "say": "the WHOLE story told in 110-130 spoken words: a hook, what happened, the twist, how it ended. Short sentences, Saim's calm voice. Last sentence: 'The full story is on the channel.'", "title": "Short title under 60 characters #shorts", "comment": "pinned question"}},
+ "shorts": [1 x {{"from_scene": i, "to_scene": j, "hook": "short hook line", "title": "Short title #shorts", "comment": "pinned question"}}]
 }}
-Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\\nHIM", "11 DAYS\\nOF SILENCE"). Shorts: 40-50 seconds each (about 110-130 words), the most shocking moments, each must make sense alone.""",
+Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\\nHIM", "11 DAYS\\nOF SILENCE").""",
                     system, temperature=0.8, max_tokens=3000)
     first_img = next((v["search"][0] for sc in scenes for v in sc["visuals"] if v.get("type") == "image"), topic)
     thumbs = [t for t in (meta.get("thumbnails") or []) if isinstance(t, dict) and t.get("text")][:3]
@@ -5211,7 +5524,9 @@ Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\\nHIM",
               "description": meta.get("description", ""), "tags": (meta.get("tags") or [])[:20], "hashtags": (meta.get("hashtags") or [])[:3],
               "sources": outline.get("sources") or [], "pinned_comment": meta.get("pinned_comment", ""), "voice": "saim", "speed": 0.95,
               "thumbnail": {"text": thumbs[0]["text"] if thumbs else "THE TRUTH\nCAME OUT"}, "thumbnails": thumbs,
-              "shorts": [s for s in (meta.get("shorts") or []) if isinstance(s, dict) and "from_scene" in s][:4],
+              "shorts": [s for s in (meta.get("shorts") or []) if isinstance(s, dict) and "from_scene" in s][:1],
+              "summary_short": meta.get("summary_short") if isinstance(meta.get("summary_short"), dict) else {},
+              "region": outline.get("region") or "", "era": outline.get("era") or [],
               "facts_to_check": facts, "unsure": outline.get("unsure") or [],
               "backup_searches": [q for q in (outline.get("backup_searches") or []) if isinstance(q, str)][:20], "written_by": f"{name} {model}", "scenes": scenes}
     slug = re.sub(r"[^a-z0-9]+", "_", topic.lower()).strip("_")[:40] or "new_video"
