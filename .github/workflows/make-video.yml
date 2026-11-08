@@ -6,7 +6,7 @@ on:
         description: Script file in the scripts folder, e.g. mansa_musa.json
         required: true
       preview:
-        description: "yes = quick small preview, no = full video + 4 Shorts"
+        description: "yes = quick small preview, no = full video + summary Short"
         required: false
         default: "no"
 jobs:
@@ -49,7 +49,7 @@ jobs:
           if [ "$PREVIEW" = "yes" ]; then python -u engine.py "scripts/$SCRIPT" --preview; else python -u engine.py "scripts/$SCRIPT"; fi
       - name: Make shorts
         if: ${{ inputs.preview != 'yes' }}
-        run: python -u engine.py --shorts "output/${SCRIPT%.json}" 4
+        run: python -u engine.py --shorts "output/${SCRIPT%.json}" 1
       - name: Pack
         if: ${{ always() }}
         run: |
