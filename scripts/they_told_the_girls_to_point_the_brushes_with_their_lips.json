@@ -1,0 +1,483 @@
+{
+ "title": "They Told the Girls to Point the Brushes With Their Lips",
+ "titles": [
+  "They Told the Girls to Point the Brushes With Their Lips",
+  "The Women Who Glowed in the Dark",
+  "The Company That Knew the Paint Was Killing Them"
+ ],
+ "description": "In the 1910s and 1920s, hundreds of young women were hired to paint watch dials with glowing radium paint. The company told them it was safe. It was not. This is the true story of the Radium Girls — and the executives who watched them die.",
+ "tags": [
+  "radium girls",
+  "radium girls true story",
+  "us radium corporation",
+  "glow in the dark paint",
+  "corporate cover up",
+  "women workers history",
+  "dark history documentary",
+  "industrial poisoning",
+  "1920s true crime",
+  "catherine donohue",
+  "grace fryer",
+  "radium jaw",
+  "undark paint",
+  "worker rights history",
+  "true dark history"
+ ],
+ "hashtags": [
+  "#DarkHistory",
+  "#RadiumGirls",
+  "#TrueStory"
+ ],
+ "sources": [
+  "Kate Moore – The Radium Girls (2017)",
+  "Court records of Grace Fryer et al. v. United States Radium Corporation",
+  "Contemporary newspaper reports 1925–1938",
+  "US Radium Corporation internal documents later entered into evidence"
+ ],
+ "pinned_comment": "If the company knew the paint was dangerous as early as 1924, why did they keep telling the girls to lip-point the brushes?",
+ "voice": "saim",
+ "speed": 1.0,
+ "thumbnail": {
+  "text": "THEY LICKED\nTHE BRUSHES"
+ },
+ "thumbnails": [
+  {
+   "text": "THEY LICKED\nTHE BRUSHES",
+   "picture": "radium girls factory workers painting dials 1920s",
+   "style": "face",
+   "red": "LICKED"
+  },
+  {
+   "text": "THE COMPANY\nKNEW",
+   "picture": "US Radium Corporation building Orange New Jersey historical",
+   "style": "dark",
+   "red": "KNEW"
+  },
+  {
+   "text": "SHE GLOWED\nIN THE DARK",
+   "picture": "radium girl luminous paint historical photograph",
+   "style": "circle",
+   "red": "GLOWED"
+  }
+ ],
+ "summary_short": {
+  "hook": "They told the girls to lick the brushes",
+  "say": "In the 1920s, young women were paid to paint glowing watch dials with radium. The company told them the paint was harmless. So they pointed the brushes with their lips. Within a few years their jaws began to crumble. Their bones glowed. The company already knew the paint was deadly. They kept the girls working anyway. This is the story of the Radium Girls. The full story is on the channel.",
+  "title": "They Told the Girls to Lick the Brushes #shorts",
+  "comment": "Would you have believed the company?"
+ },
+ "shorts": [
+  {
+   "from_scene": 0,
+   "to_scene": 9,
+   "hook": "They licked the brushes",
+   "title": "They Told the Girls to Lick the Brushes #shorts",
+   "comment": "The company already knew."
+  }
+ ],
+ "facts_to_check": [
+  "US Radium Corporation hired young women to paint dials with radium-226 paint starting around 1917",
+  "Workers were instructed to shape the brush tip with their lips ('lip-pointing')",
+  "Company scientists and managers handled the paint with protection while the painters did not",
+  "Grace Fryer was diagnosed with radium poisoning and sued in the mid-1920s",
+  "Catherine Donohue's case in Illinois became a major public fight in the 1930s",
+  "Many of the women developed 'radium jaw' — necrosis of the jawbone",
+  "The paint was luminous because of radium; the girls' clothes and skin would glow",
+  "Internal company knowledge of the danger existed years before the public lawsuits",
+  "Settlements were reached; several of the original plaintiffs died young from radiation-related disease",
+  "The cases helped push later occupational safety standards in the United States"
+ ],
+ "backup_searches": [
+  "radium girls factory Orange New Jersey 1920s",
+  "US Radium Corporation building historical photo",
+  "women painting watch dials radium 1920s",
+  "Grace Fryer radium girl portrait",
+  "Catherine Donohue radium poisoning",
+  "radium dial painters Ottawa Illinois",
+  "undark radium paint advertisement",
+  "radium jaw medical historical photograph",
+  "1920s luminous watch dial close up",
+  "newspaper headline radium girls 1928",
+  "courtroom radium girls trial 1920s",
+  "young women factory workers New Jersey 1920",
+  "radium vial historical laboratory",
+  "glowing paint watch factory interior",
+  "1930s Illinois radium case newspaper"
+ ],
+ "region": "United States",
+ "era": [
+  1917,
+  1939
+ ],
+ "scenes": [
+  {
+   "say": "They told the girls to point the brushes with their lips. It made the tips finer. The paint tasted like chalk. At night, some of them noticed their clothes still glowed.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "radium girls painting dials 1920s factory",
+      "women painting luminous watch dials 1920"
+     ],
+     "caption": "Dial painters, 1920s"
+    },
+    {
+     "type": "type",
+     "text": "LIP-POINTING"
+    }
+   ],
+   "pops": [
+    {
+     "text": "LIP-POINTING",
+     "label": "company instruction",
+     "on": "lips",
+     "kind": "law"
+    }
+   ],
+   "chapter": "Cold Open",
+   "mood": "mystery"
+  },
+  {
+   "say": "This is the story of the Radium Girls. Young women hired to paint the numbers on watches and instruments so soldiers and civilians could read them in the dark.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "1920s luminous wristwatch close up",
+      "World War I luminous dial instruments"
+     ],
+     "caption": "Luminous dials"
+    },
+    {
+     "type": "date",
+     "text": "1917–1920s",
+     "sub": "United States"
+    }
+   ],
+   "pops": []
+  },
+  {
+   "say": "The paint was called Undark. It contained radium-226. The company that made it was the United States Radium Corporation, based in Orange, New Jersey.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "US Radium Corporation Orange New Jersey historical",
+      "Undark radium paint advertisement 1920s"
+     ],
+     "caption": "US Radium Corporation"
+    },
+    {
+     "type": "stat",
+     "number": 226,
+     "suffix": "",
+     "label": "Radium isotope used"
+    }
+   ],
+   "pops": [
+    {
+     "text": "UNDARK",
+     "label": "the paint",
+     "on": "Undark",
+     "kind": "place"
+    }
+   ],
+   "chapter": "Who / Where",
+   "mood": "tense"
+  },
+  {
+   "say": "Most of the painters were teenagers or women in their early twenties. The work paid better than many factory jobs. They were told the paint was safe.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "young women factory workers New Jersey 1920",
+      "1920s female factory workers portrait United States"
+     ],
+     "caption": "Dial painters"
+    },
+    {
+     "type": "image",
+     "search": [
+      "radium paint brush and dial 1920s",
+      "watch dial painting workshop historical"
+     ]
+    }
+   ],
+   "pops": []
+  },
+  {
+   "say": "While the girls lip-pointed the brushes, the company’s own chemists and managers handled the same material with gloves, screens, and caution. That difference mattered.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "1920s laboratory scientist with gloves historical",
+      "early 20th century chemist protective equipment"
+     ],
+     "caption": "Company laboratories"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "The girls had none",
+      "of that protection"
+     ],
+     "hit": true
+    }
+   ],
+   "pops": [
+    {
+     "text": "DOUBLE STANDARD",
+     "label": "already in place",
+     "on": "difference",
+     "kind": "law"
+    }
+   ],
+   "chapter": "How It Started",
+   "mood": "tense"
+  },
+  {
+   "say": "By the mid-1920s, some of the women began to suffer severe dental problems. Teeth fell out. Jaws became infected and crumbled. Doctors had never seen anything quite like it.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "historical medical photograph jaw necrosis",
+      "1920s dental X-ray historical"
+     ],
+     "caption": "Medical effects"
+    },
+    {
+     "type": "type",
+     "text": "RADIUM JAW"
+    }
+   ],
+   "pops": [
+    {
+     "text": "RADIUM JAW",
+     "label": "bone necrosis",
+     "on": "crumbled",
+     "kind": "death"
+    }
+   ],
+   "chapter": "It Gets Worse",
+   "mood": "sad"
+  },
+  {
+   "say": "Grace Fryer was one of the first to fight back. She had worked at the Orange plant. When she became ill, she tried to sue the company. Finding a lawyer who would take the case was difficult.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Grace Fryer radium girl portrait",
+      "Grace Fryer historical photograph"
+     ],
+     "caption": "Grace Fryer"
+    },
+    {
+     "type": "date",
+     "text": "1925–1927",
+     "sub": "First legal fight"
+    }
+   ],
+   "pops": [
+    {
+     "text": "GRACE FRYER",
+     "label": "plaintiff",
+     "on": "Grace Fryer",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "The company denied responsibility. They suggested the women’s illnesses came from poor hygiene or syphilis. Internal knowledge of radium’s dangers already existed inside the industry.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "1920s newspaper headline radium",
+      "US Radium Corporation executives historical"
+     ],
+     "caption": "Company response"
+    },
+    {
+     "type": "quote",
+     "text": "The paint is harmless.",
+     "by": "Company position, mid-1920s"
+    }
+   ],
+   "pops": [],
+   "chapter": "The Turning Point",
+   "mood": "tense"
+  },
+  {
+   "say": "In Illinois, another group of dial painters, including Catherine Donohue, faced the same slow poisoning. Her case became public and ugly. She testified while severely ill.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Catherine Donohue radium girl",
+      "Ottawa Illinois radium dial painters"
+     ],
+     "caption": "Catherine Donohue"
+    },
+    {
+     "type": "image",
+     "search": [
+      "1930s courtroom interior United States historical",
+      "1930s newspaper radium girls Illinois"
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "CATHERINE DONOHUE",
+     "label": "Illinois case",
+     "on": "Catherine Donohue",
+     "kind": "person"
+    }
+   ],
+   "chapter": "The Truth Surfaces",
+   "mood": "sad"
+  },
+  {
+   "say": "Medical examinations showed radioactive material deposited in their bones. The body treated radium like calcium. Once it was inside, it stayed there, irradiating the marrow and the bone for years.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "historical X-ray bone radium",
+      "1920s medical laboratory equipment"
+     ],
+     "caption": "Internal deposition"
+    },
+    {
+     "type": "stat",
+     "number": 1600,
+     "suffix": " YEARS",
+     "label": "half-life of radium-226 (approx)"
+    }
+   ],
+   "pops": []
+  },
+  {
+   "say": "Several of the original New Jersey plaintiffs reached a settlement in 1928. It was not large by modern standards. Many of them died within a few years from cancers and blood diseases linked to the exposure.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "1928 newspaper radium girls settlement",
+      "Grace Fryer later photograph if available"
+     ],
+     "caption": "Settlement era"
+    },
+    {
+     "type": "date",
+     "text": "1928",
+     "sub": "New Jersey settlement"
+    }
+   ],
+   "pops": [],
+   "chapter": "What Happened After",
+   "mood": "sad"
+  },
+  {
+   "say": "Catherine Donohue died in 1938. Her death, and the public fight around it, helped force attention onto industrial radiation hazards in the United States.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Catherine Donohue funeral or memorial historical",
+      "1938 newspaper radium"
+     ],
+     "caption": "1938"
+    },
+    {
+     "type": "date",
+     "text": "1938",
+     "sub": "Death of Catherine Donohue"
+    }
+   ],
+   "pops": []
+  },
+  {
+   "say": "The Radium Girls did not set out to become symbols. They took a factory job that paid better than most. The company had more information than they did. That imbalance killed them.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "radium girls group photograph 1920s",
+      "young women factory 1920s New Jersey"
+     ],
+     "caption": "The painters"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "They were not",
+      "volunteers"
+     ],
+     "hit": true
+    }
+   ],
+   "pops": [],
+   "chapter": "Why It Still Matters",
+   "mood": "hopeful"
+  },
+  {
+   "say": "Their cases helped build the argument that employers owe workers honest information about invisible dangers. That argument is still being fought in different industries today.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "historical factory safety poster 1930s",
+      "occupational safety historical United States"
+     ],
+     "caption": "Later safety standards"
+    },
+    {
+     "type": "image",
+     "search": [
+      "modern worker safety equipment contrast historical"
+     ]
+    }
+   ],
+   "pops": []
+  },
+  {
+   "say": "The paint glowed because it was destroying the women who used it. The company knew. The girls were told to keep smiling and keep pointing the brushes with their mouths.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "luminous radium paint close up historical",
+      "glowing watch dial in dark 1920s"
+     ],
+     "caption": "Undark"
+    },
+    {
+     "type": "type",
+     "text": "THEY KNEW"
+    }
+   ],
+   "pops": [],
+   "chapter": "Ending",
+   "mood": "mystery"
+  },
+  {
+   "say": "That is the story of the Radium Girls.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "radium girls memorial or historical marker",
+      "US Radium Corporation site historical"
+     ],
+     "caption": "Legacy"
+    }
+   ],
+   "pops": []
+  }
+ ]
+}
