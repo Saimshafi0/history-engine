@@ -4679,13 +4679,14 @@ def build(script_path, preview=False, captions=None):
     set_era(script)
     expand_visuals(script)
     vcredits = resolve_videos(script, W, H, fps)
-    credits, missing = resolve_pictures(script, use_ai=cfg.get("ai_pictures", True))
+    use_ai = bool(cfg.get("ai_pictures", False)) and not cfg.get("elite_mode", True)
+    credits, missing = resolve_pictures(script, use_ai=use_ai)
     if curate_visuals(script, final=False):  # gaps and repeats -> new real pictures from broader searches
         credits, missing = resolve_pictures(script, use_ai=False)
     credits = vcredits + [c for c in credits if c not in vcredits]
     curate_visuals(script)
     if missing:
-        log(f"  {len(missing)} slide(s) without a picture use a gold title card instead.")
+        log(f"  {len(missing)} slide(s) without a real picture — elite mode prefers real archive over AI. Check pictures before upload.")
     log("STEP 2/4 Voice")
     own = own_voice_file(name)
     if own:
@@ -5292,9 +5293,10 @@ AI_PROVIDERS = {  # key prefix -> (name, API address, model)
     "sk-or-": ("OpenRouter", "https://openrouter.ai/api/v1", "openai/gpt-oss-120b:free"),
 }
 
-NICHE = ("Midnight Archive: cinematic documentaries about the DARK side of real history: what was done to people, to whole nations, "
-         "and especially to women. Kidnappings, disappearances, cults, wars and massacres, cover-ups, injustices, crimes that shocked "
-         "countries, and the people who survived them. American audience.")
+NICHE = ("Midnight Archive produces the highest-standard cinematic documentaries on the dark side of real history: "
+         "what was done to people, to nations, and especially to women. Kidnappings, disappearances, cults, wars, "
+         "massacres, cover-ups, state crimes, and the survivors. The finished film must feel researched and cut by a team "
+         "with unlimited time and archival access. American audience. Calm, precise, devastating.")
 
 STYLE_RULES = """VOICE OF THE STORY (this is what makes people stay)
 - Narrated by "Saim": calm, low, mysterious, like a late-night storyteller. Never shouting, never hype words ("insane", "crazy").
@@ -5460,11 +5462,11 @@ Answer ONLY JSON:
 Use 7 to 9 chapters: cold open -> who/where -> how it started -> it gets worse -> the turning point -> the truth comes out -> what happened after -> why it still matters (2-3 short lessons) -> a one-line ending.
 If this is NOT a real, documented story, say so in "unsure" and keep "facts" empty.""", system, temperature=0.5, max_tokens=4096)
     facts = outline.get("facts") or []
-    if len(facts) < 8:
-        raise RuntimeError("The AI couldn't find enough real facts about this topic. Choose a better documented topic.")
+    if len(facts) < 12:
+        raise RuntimeError("Not enough hard, checkable facts. This topic is too thin for elite standard. Choose a better-documented story.")
     chapters = [c for c in outline.get("chapters") or [] if isinstance(c, dict) and c.get("name")][:10]
-    if len(chapters) < 5:
-        raise RuntimeError("The AI's outline was too short. Try again.")
+    if len(chapters) < 6:
+        raise RuntimeError("Outline too weak. Elite documentaries need clear escalation across 6-9 chapters. Try again.")
     used, scenes = set(), []
     for ci, ch in enumerate(chapters, 1):
         log(f"STEP 2/3 Writing chapter {ci}/{len(chapters)}: {ch['name']}")
@@ -5492,8 +5494,8 @@ EVERY image/video search must contain "{outline.get('region', '')}" or a real pl
             new[0]["chapter"] = ch["name"]
             new[0]["mood"] = ch.get("mood") or new[0].get("mood") or "mystery"
         scenes += new
-    if len(scenes) < 25:
-        raise RuntimeError("The script came out too short. Try again.")
+    if len(scenes) < 30:
+        raise RuntimeError("Script too thin for elite standard (need 30+ tight scenes). Try again.")
     log("STEP 3/3 Titles, thumbnails and Shorts")
     index = "\n".join(f"{i}: {sc['say'][:110]}" for i, sc in enumerate(scenes))
     meta = _ai_json(f"""Topic: {topic}
