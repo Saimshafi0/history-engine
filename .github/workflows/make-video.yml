@@ -19,6 +19,8 @@ jobs:
       PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
       PIXABAY_KEY: ${{ secrets.PIXABAY_KEY }}
       AI_KEY: ${{ secrets.AI_KEY }}
+      CF_ACCOUNT: ${{ secrets.CF_ACCOUNT }}
+      CF_TOKEN: ${{ secrets.CF_TOKEN }}
     steps:
       - name: Get the engine
         uses: actions/checkout@v4
@@ -27,7 +29,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Saved voice model and pictures
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
             models
@@ -40,6 +42,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install "rembg[cpu]" || pip install rembg || true
+          pip install onnxruntime || true
           mkdir -p images images-cache
           cp -n images-cache/* images/ 2>/dev/null || true
       - name: Unlock your files
@@ -58,6 +61,16 @@ jobs:
           rm -f output/*/narration.wav output/*/shorts/*.wav
           rm -rf voiceover/*.mp3 voiceover/*.m4a voiceover/*.wav clips_own/*.mp4 clips_own/*.mov clips_own/*.webm
           cp -u images/* images-cache/ 2>/dev/null || true
+      - name: Keep the painted pictures for next time (even if the video failed)
+        if: ${{ always() }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            models
+            images-cache
+            cache/voice
+            tools
+          key: engine-${{ github.run_id }}
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
