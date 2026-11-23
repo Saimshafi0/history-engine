@@ -1,1502 +1,1510 @@
 {
- "title": "Pablo Escobar Had So Much Cash, Rats Were Eating It",
- "description": "Pablo Escobar made so much money that his family wrote off ten percent of it every year to rats, water and rot. This is the story of how a tombstone thief from Medellin built one of the biggest criminal fortunes in history, why all that cash became his biggest problem, and how it all ended on a rooftop in 1993.",
- "tags": [
-  "Pablo Escobar",
-  "Medellin Cartel",
-  "Escobar money",
-  "history documentary",
-  "true crime documentary",
-  "Narcos true story",
-  "Forbes billionaires",
-  "cocaine hippos"
+ "title": "The Lake That Killed 1,746 People in One Night",
+ "titles": [
+  "The Lake That Killed 1,746 People in One Night",
+  "A Lake Exploded and Nobody Heard It",
+  "1,746 People Died in Their Sleep. The Killer Was a Lake."
  ],
- "voice": "am_liam",
- "speed": 1.0,
+ "description": "On 21 August 1986, Lake Nyos in Cameroon released a silent cloud of carbon dioxide that killed 1,746 people and 3,500 cattle in one night. Rumors blamed a bomb, poison and angry spirits. Scientists found something stranger: a lake that can explode. This is the full story of the night, the warning that was ignored two years earlier at Lake Monoun, how the mystery was solved, and how scientists are defusing the killer lakes.",
+ "tags": [
+  "Lake Nyos",
+  "Lake Nyos disaster",
+  "limnic eruption",
+  "Lake Monoun",
+  "Cameroon 1986",
+  "killer lake",
+  "carbon dioxide cloud",
+  "solved mystery",
+  "dark history",
+  "mystery documentary",
+  "Lake Kivu",
+  "natural disaster documentary",
+  "history documentary",
+  "unexplained deaths solved",
+  "science mystery"
+ ],
+ "hashtags": [
+  "#LakeNyos",
+  "#SolvedMystery",
+  "#DarkHistory"
+ ],
+ "sources": [
+  "Kling G. W. et al. (1987), The 1986 Lake Nyos gas disaster in Cameroon, West Africa, Science 236",
+  "Sigurdsson H. et al. (1987), Origin of the lethal gas burst from Lake Monoun, Cameroon, Journal of Volcanology and Geothermal Research",
+  "Baxter P. J. et al. (1989), Lake Nyos disaster, Cameroon, 1986: the medical effects of large scale emission of carbon dioxide, BMJ",
+  "Smithsonian Magazine: Defusing Africa's Killer Lakes",
+  "Britannica: Lake Nyos disaster",
+  "USGS Open-File Report 87-97 on the Lake Nyos gas release",
+  "Bärenbold F. et al. (2020), on gas in Lake Kivu, PLOS ONE"
+ ],
+ "pinned_comment": "If you lived near Lake Nyos today, would you stay or leave?",
+ "voice": "host",
+ "speed": 0.95,
+ "host": "vix",
  "thumbnail": {
-  "text": "RATS ATE\nHIS MONEY"
+  "text": "THE LAKE\nKILLED THEM"
+ },
+ "thumbnails": [
+  {
+   "text": "THE LAKE\nKILLED THEM",
+   "picture": "Lake Nyos Cameroon",
+   "style": "dark",
+   "red": "KILLED"
+  },
+  {
+   "text": "1,746 DEAD\nNO SOUND",
+   "picture": "Lake Nyos red water",
+   "style": "face",
+   "red": "1,746"
+  },
+  {
+   "text": "IT\nEXPLODED",
+   "picture": "Lake Nyos degassing pipe fountain",
+   "style": "circle",
+   "red": "EXPLODED"
+  }
+ ],
+ "summary_short": {
+  "hook": "A lake killed 1,746 people",
+  "say": "In 1986, in Cameroon, more than seventeen hundred people went to sleep and never woke up. No fire. No flood. No sound. The next morning, a nearby lake had turned blood red. People blamed a secret bomb, poison, even spirits. The truth was stranger. The bottom of Lake Nyos was full of carbon dioxide, like a shaken soda bottle. That night, it burst. A heavy invisible cloud rolled down into the valleys and pushed out all the air. And two years earlier, a scientist had warned about this. His paper was rejected. Full story on the channel.",
+  "title": "This Lake Killed 1,746 People in One Night #shorts",
+  "comment": "Would you live near this lake?"
  },
  "shorts": [
   {
-   "from_scene": 0,
-   "to_scene": 1,
-   "hook": "His cash was so huge rats ate it",
-   "title": "Rats ate Pablo Escobar's money #shorts"
-  },
-  {
-   "from_scene": 13,
-   "to_scene": 14,
-   "hook": "He spent $2,500 a month on rubber bands",
-   "title": "Escobar's rubber band problem #shorts"
-  },
-  {
-   "from_scene": 21,
-   "to_scene": 23,
-   "hook": "He built his own prison. Then walked out.",
-   "title": "The prison Escobar built for himself #shorts"
-  },
-  {
-   "from_scene": 28,
-   "to_scene": 29,
-   "hook": "30 years later, his hippos are still a problem",
-   "title": "Pablo Escobar's hippos #shorts"
+   "from_scene": 36,
+   "to_scene": 43,
+   "hook": "How a lake explodes",
+   "title": "How a Lake Can Explode #shorts",
+   "comment": "Did you know lakes could do this?"
   }
+ ],
+ "facts_to_check": [
+  "Date: evening of 21 August 1986, around 9 pm; Lake Nyos, Northwest Region, Cameroon",
+  "Deaths: 1,746 people (often rounded to about 1,700-1,800), about 3,500 livestock, 845 injured (hospitalized figure)",
+  "CO2 released: estimates 100,000-300,000 tons (some older estimates higher); cloud about 1.2 cubic km, about 50 m thick",
+  "Cloud speed 20-50 km/h down the valleys; lethal up to about 25 km",
+  "Water/foam column about 100 m; wave at least 25 m; lake level dropped about 1 m; water turned red from iron",
+  "Lake Nyos depth about 208 m, roughly 1.8 km across",
+  "Villages: Nyos, Kam, Cha, Subum; survivors went to Wum; patients treated as far as Yaounde",
+  "Joseph Nkwain (Subum) quote: 'I could not speak. I became unconscious.'",
+  "Ephriam Che and Halima Suley (31 relatives) from Smithsonian Magazine 'Defusing Africa's Killer Lakes'",
+  "Lake Monoun: 15 August 1984, 37 dead; Haraldur Sigurdsson's paper rejected by Science in 1986 (Smithsonian)",
+  "George Kling sampled Nyos the year before; quote 'I was numb' (Smithsonian); Kling et al. Science 1987",
+  "Michel Halbwachs designed the degassing pipes; first permanent pipe January 2001; fountain about 45 m (148 ft); two more pipes in 2011",
+  "Natural dam (spillway) of Lake Nyos is weak; flood risk toward Nigeria reported by UN/experts",
+  "Lake Kivu about 2,000 times larger; about 2 million people near it; 2020 study found no increasing risk; methane power plant (KivuWatt)",
+  "Annual memorial on 21 August by survivors (verify)"
  ],
  "scenes": [
   {
-   "chapter": "Too much money",
-   "date": "1989",
-   "say": "At the height of his power, Pablo Escobar had a problem most people will never have. He had so much cash that he couldn't spend it, couldn't bank it, and couldn't even protect it. Every year, his family simply wrote off ten percent of it. Rats ate it. Water rotted it. Some of it was buried and never found again.",
-   "pops": [
+   "say": "On the night of August the twenty first, nineteen eighty six, in the hills of Cameroon, more than seventeen hundred people went to sleep... and never woke up.",
+   "visuals": [
     {
-     "text": "10% WRITTEN OFF",
-     "label": "every year",
-     "on": "ten percent"
+     "type": "date",
+     "text": "21 August 1986",
+     "sub": "Northwest Cameroon"
+    },
+    {
+     "type": "video",
+     "search": [
+      "dark hills night mist"
+     ],
+     "source": "stock"
     }
    ],
+   "chapter": "The Silent Night",
+   "mood": "mystery",
+   "date": "1986",
+   "pops": [
+    {
+     "text": "1,746",
+     "label": "people dead",
+     "on": "seventeen hundred",
+     "kind": "people"
+    }
+   ]
+  },
+  {
+   "say": "There was no fire. No flood. No gunshots. The houses were standing. The food was still on the tables. Even the flies were dead.",
    "visuals": [
     {
-     "type": "image",
+     "type": "video",
      "search": [
-      "Pablo Escobar mug shot 1976",
-      "Pablo Escobar 1976"
+      "abandoned village hut Africa"
      ],
-     "ai": "a 1970s police mugshot style portrait of a young Colombian man",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "stacks of US dollar bills",
-      "seized cash DEA"
-     ],
-     "ai": "huge stacks of hundred dollar bills in a dark room",
-     "zoom": "right"
+     "source": "stock"
     },
     {
      "type": "text",
      "lines": [
-      "Too much cash",
-      "to spend.",
-      "Too much to hide."
+      "No fire. No flood. No gunshots.",
+      "Even the flies were dead."
      ],
      "hit": true
-    },
-    {
-     "type": "image",
-     "search": [
-      "brown rat",
-      "Rattus norvegicus"
-     ],
-     "ai": "a rat in a dark storage room",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "water damaged banknotes",
-      "damaged dollar bills"
-     ],
-     "ai": "rotting wet dollar bills",
-     "zoom": "out"
-    },
-    {
-     "type": "image",
-     "search": [
-      "buried treasure barrel",
-      "old barrel buried"
-     ],
-     "ai": "a plastic barrel half buried in jungle soil",
-     "zoom": "in"
     }
    ]
   },
   {
-   "say": "That isn't a legend from a TV show. It comes from his own brother, the man who kept the cartel's books. And it tells you something strange about money. When you have too much of it, and none of it is clean, it stops being an advantage and becomes a problem.",
+   "say": "And the killer was sitting quietly in the middle of the hills, looking exactly like it always had. A beautiful blue lake.",
    "visuals": [
     {
      "type": "image",
      "search": [
-      "old accounting ledger book",
-      "ledger book handwritten"
-     ],
-     "ai": "an old handwritten accounting ledger with numbers",
-     "zoom": "right"
-    },
-    {
-     "type": "quote",
-     "text": "The rats would eat it in storage, or it would be damaged by water, or lost.",
-     "by": "Roberto Escobar, Pablo's brother and the cartel's accountant"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "Too much money",
-      "becomes a problem."
-     ]
-    }
-   ]
-  },
-  {
-   "say": "This is the story of how a small-time thief from Medellin became one of the richest criminals in history, how he spent his money, and how it all ended on a rooftop, the day after his forty fourth birthday.",
-   "visuals": [
-    {
-     "type": "title",
-     "kicker": "The rise and fall of",
-     "text": "Pablo Escobar",
-     "sub": "The money, the empire, the end"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Medellin Colombia panorama",
-      "Medellin skyline"
-     ],
-     "ai": "the city of Medellin in a mountain valley at dusk",
-     "zoom": "up"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Medellin rooftops",
-      "Medellin Los Olivos"
-     ],
-     "ai": "red tiled rooftops in a Colombian city",
-     "zoom": "in"
-    }
-   ]
-  },
-  {
-   "chapter": "The tombstone thief",
-   "date": "1949",
-   "say": "Pablo Emilio Escobar Gaviria was born on December first, 1949, in Rionegro, a small town in the green mountains of Colombia. His father was a farmer. His mother was a schoolteacher. The family was not rich, and young Pablo decided early that he would be.",
-   "visuals": [
-    {
-     "type": "map",
-     "from": [
-      -130,
-      -30,
-      -30,
-      50
-     ],
-     "to": [
-      -80,
-      1,
-      -70,
-      11
-     ],
-     "points": [
-      {
-       "name": "Colombia",
-       "at": [
-        -74.3,
-        4.6
-       ],
-       "at_time": 1.2,
-       "side": "right"
-      }
-     ],
-     "labels": [
-      {
-       "text": "United States",
-       "at": [
-        -98,
-        39
-       ],
-       "size": 34
-      },
-      {
-       "text": "Pacific Ocean",
-       "at": [
-        -110,
-        10
-       ],
-       "kind": "sea"
-      },
-      {
-       "text": "Caribbean Sea",
-       "at": [
-        -75,
-        14.5
-       ],
-       "kind": "sea",
-       "size": 26
-      }
+      "Lake Nyos Cameroon",
+      "Lake Nyos aerial"
      ]
     },
+    {
+     "type": "video",
+     "search": [
+      "calm crater lake aerial"
+     ],
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "Good evening. This is one of the strangest mass deaths of the twentieth century. For weeks, nobody knew what had happened. People blamed a volcano, poison gas, even a secret bomb test.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "The truth turned out to be stranger than all of them. And the most frightening part? It was natural. And it can happen again.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Lake Nyos degassing pipe fountain",
+      "Lake Nyos 2001 pipe"
+     ]
+    },
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "Lake Nyos sits high in the hills of northwest Cameroon, in West Africa. It fills the crater of an old volcano. It is small, less than two kilometers across... but more than two hundred meters deep.",
+   "visuals": [
     {
      "type": "map",
      "view": [
-      -77.5,
-      4.5,
-      -73.5,
-      7.8
+      8.0,
+      2.5,
+      15.5,
+      8.5
      ],
      "points": [
       {
-       "name": "Rionegro",
-       "note": "born here, 1949",
+       "name": "Lake Nyos",
        "at": [
-        -75.37,
-        6.15
+        10.298,
+        6.438
        ],
        "at_time": 0.3,
        "side": "right"
       },
       {
-       "name": "Medellin",
+       "name": "Yaounde",
+       "note": "capital",
        "at": [
-        -75.57,
-        6.25
+        11.52,
+        3.87
        ],
-       "at_time": 1.0,
-       "side": "left"
+       "at_time": 0.7,
+       "side": "bottom"
       }
      ]
     },
     {
      "type": "image",
      "search": [
-      "Rionegro Antioquia",
-      "Antioquia mountains"
-     ],
-     "ai": "green Andes mountains with small farms in Colombia",
-     "zoom": "right"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Colombian countryside 1950s",
-      "Antioquia farm"
-     ],
-     "ai": "a poor farm house in the Colombian mountains, 1950s",
-     "zoom": "in"
-    }
-   ]
-  },
-  {
-   "say": "As a teenager in Medellin, he started small. He sold fake diplomas. He smuggled stereo equipment. And according to many accounts, he stole tombstones from cemeteries, sanded off the names, and sold them again.",
-   "pops": [
-    {
-     "text": "STOLEN TOMBSTONES",
-     "label": "resold",
-     "on": "tombstones"
-    }
-   ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Medellin 1960s",
-      "Medellin old photograph"
-     ],
-     "ai": "an old street in Medellin in the 1960s",
-     "zoom": "left"
-    },
-    {
-     "type": "image",
-     "search": [
-      "old diploma certificate",
-      "vintage diploma"
-     ],
-     "ai": "an old fake diploma on a desk",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "old cemetery tombstones Colombia",
-      "cemetery Medellin"
-     ],
-     "ai": "old gravestones in a Latin American cemetery",
-     "zoom": "right"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "He stole tombstones.",
-      "And sold them again."
-     ],
-     "hit": true
-    }
-   ]
-  },
-  {
-   "say": "By the early 1970s he had moved on to stealing cars. In 1974 he was arrested for car theft. It was a small crime. But Colombia was about to become the center of a much bigger business.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Renault 4 Colombia",
-      "1970s car Colombia"
-     ],
-     "ai": "a 1970s car on a Colombian street",
-     "zoom": "right"
-    },
-    {
-     "type": "year",
-     "from": 1949,
-     "to": 1974,
-     "label": "First arrest: car theft"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Pablo Escobar mug shot 1976",
-      "Pablo Escobar 1976"
-     ],
-     "ai": "a black and white police mugshot of a young man",
-     "zoom": "in"
-    }
-   ]
-  },
-  {
-   "chapter": "The business",
-   "date": "1976",
-   "say": "In the 1970s, cocaine went from a rare drug to a booming market in the United States. The leaves were grown in Peru and Bolivia. The product was processed in Colombian jungle labs. And the customers were thousands of kilometres north.",
-   "visuals": [
-    {
-     "type": "map",
-     "from": [
-      -82,
-      -20,
-      -60,
-      10
-     ],
-     "to": [
-      -100,
-      -20,
-      -60,
-      35
-     ],
-     "regions": [
-      {
-       "points": [
-        [
-         -81,
-         -3.5
-        ],
-        [
-         -75,
-         -0.2
-        ],
-        [
-         -70,
-         -4
-        ],
-        [
-         -69,
-         -11
-        ],
-        [
-         -70.5,
-         -18
-        ],
-        [
-         -75,
-         -15
-        ],
-        [
-         -79,
-         -8
-        ]
-       ],
-       "label": "Peru",
-       "color": "#7fb35f",
-       "alpha": 0.35
-      },
-      {
-       "points": [
-        [
-         -69.5,
-         -11
-        ],
-        [
-         -65,
-         -10
-        ],
-        [
-         -58.5,
-         -16
-        ],
-        [
-         -62,
-         -22
-        ],
-        [
-         -68,
-         -22.5
-        ],
-        [
-         -69.5,
-         -17
-        ]
-       ],
-       "label": "Bolivia",
-       "color": "#7fb35f",
-       "alpha": 0.35
-      }
-     ],
-     "route": [
-      [
-       -72,
-       -12
-      ],
-      [
-       -74.5,
-       0
-      ],
-      [
-       -75.6,
-       6.2
-      ],
-      [
-       -80.2,
-       25.8
-      ]
-     ],
-     "route_start": 1.5,
-     "highlight_at": 0.3,
-     "points": [
-      {
-       "name": "Medellin",
-       "at": [
-        -75.57,
-        6.25
-       ],
-       "at_time": 2.5,
-       "side": "left"
-      },
-      {
-       "name": "Miami",
-       "at": [
-        -80.19,
-        25.76
-       ],
-       "at_time": 5.0,
-       "side": "right"
-      }
-     ]
-    },
-    {
-     "type": "image",
-     "search": [
-      "coca plantation Bolivia",
-      "coca leaves Peru"
-     ],
-     "ai": "green coca leaves drying in the sun",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Colombian jungle aerial",
-      "Amazon rainforest Colombia aerial"
-     ],
-     "ai": "thick jungle seen from above with a small clearing",
-     "zoom": "out"
-    }
-   ]
-  },
-  {
-   "say": "Escobar understood something the old smugglers didn't. The real money wasn't in growing it. It was in controlling the route. In the mid seventies, he and a group of partners built what the world would later call the Medellin Cartel.",
-   "pops": [
-    {
-     "text": "MEDELLIN CARTEL",
-     "label": "mid-1970s",
-     "on": "Medellin Cartel."
-    }
-   ],
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "Don't own the farm.",
-      "Own the route."
-     ]
-    },
-    {
-     "type": "image",
-     "search": [
-      "Cessna light aircraft 1970s",
-      "small propeller airplane"
-     ],
-     "ai": "a small propeller plane on a dirt airstrip",
-     "zoom": "right"
-    },
-    {
-     "type": "map",
-     "view": [
-      -85,
-      4,
-      -72,
-      28
-     ],
-     "route": [
-      [
-       -75.57,
-       6.25
-      ],
-      [
-       -76.82,
-       24.6
-      ],
-      [
-       -80.19,
-       25.76
-      ]
-     ],
-     "route_start": 0.3,
-     "route_end": 3.0,
-     "points": [
-      {
-       "name": "Medellin",
-       "at": [
-        -75.57,
-        6.25
-       ],
-       "at_time": 0.2,
-       "side": "right"
-      },
-      {
-       "name": "Norman's Cay",
-       "note": "island airstrip, Bahamas",
-       "at": [
-        -76.82,
-        24.6
-       ],
-       "at_time": 1.6,
-       "side": "right"
-      },
-      {
-       "name": "Miami",
-       "at": [
-        -80.19,
-        25.76
-       ],
-       "at_time": 2.8,
-       "side": "left"
-      }
-     ]
-    },
-    {
-     "type": "image",
-     "search": [
-      "Miami 1980s skyline",
-      "Miami 1985"
-     ],
-     "ai": "the Miami skyline in the 1980s at sunset",
-     "zoom": "in"
-    }
-   ]
-  },
-  {
-   "say": "Small planes flew from hidden airstrips to islands in the Bahamas, and from there into Florida. By the mid eighties, American officials were saying the cartel controlled as much as eighty percent of the cocaine coming into the United States. Historians still argue about that number. But nobody argues about the money.",
-   "pops": [
-    {
-     "text": "UP TO 80%",
-     "label": "US officials' estimate",
-     "on": "eighty percent"
-    }
-   ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Bahamas island aerial",
-      "Exuma cays aerial"
-     ],
-     "ai": "a small tropical island with a runway, aerial view",
-     "zoom": "out"
-    },
-    {
-     "type": "stat",
-     "number": 80,
-     "prefix": "UP TO ",
-     "suffix": "%",
-     "label": "Of the cocaine entering the US, according to US officials in the 1980s",
-     "note": "An official estimate, still debated by historians"
-    },
-    {
-     "type": "image",
-     "search": [
-      "US Customs 1980s Florida",
-      "Coast Guard 1980s"
-     ],
-     "ai": "a US Coast Guard boat on the sea, 1980s",
-     "zoom": "right"
-    },
-    {
-     "type": "image",
-     "search": [
-      "stacks of US dollar bills",
-      "seized cash DEA"
-     ],
-     "ai": "piles of cash on a table",
-     "zoom": "in"
-    }
-   ]
-  },
-  {
-   "chapter": "Billionaire",
-   "date": "1987",
-   "say": "In 1987, Forbes magazine did something it had never done before. It put a drug trafficker on its list of the world's billionaires. Escobar's fortune was estimated at around two billion dollars. Two years later, the estimate was three billion.",
-   "pops": [
-    {
-     "text": "FORBES LIST",
-     "label": "billionaires, 1987",
-     "on": "Forbes"
-    }
-   ],
-   "visuals": [
-    {
-     "type": "year",
-     "from": 1976,
-     "to": 1987,
-     "label": "On the billionaires list"
-    },
-    {
-     "type": "bars",
-     "title": "Escobar's estimated fortune (US dollars)",
-     "bars": [
-      [
-       "1987",
-       2
-      ],
-      [
-       "1989",
-       3
-      ]
-     ],
-     "unit": "B",
-     "note": "Forbes estimates, as reported at the time"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Wall Street 1987",
-      "New York Stock Exchange 1980s"
-     ],
-     "ai": "1980s New York business district",
-     "zoom": "right"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "A drug trafficker.",
-      "On the billionaires list."
-     ],
-     "hit": true
-    }
-   ]
-  },
-  {
-   "say": "You may have seen bigger numbers online. Thirty billion. Even fifty billion. Those figures are not from Forbes. They were added years later. The real number was never audited, because the money never touched a real bank.",
-   "visuals": [
-    {
-     "type": "stat",
-     "number": 30,
-     "prefix": "$",
-     "suffix": " BILLION?",
-     "label": "A number that spread online years later",
-     "note": "Not a Forbes figure"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "The real number?",
-      "Nobody ever counted it."
+      "Lake Nyos crater",
+      "Oku volcanic field"
      ]
     }
+   ],
+   "chapter": "The Lake Above the Villages",
+   "mood": "calm",
+   "pops": [
+    {
+     "text": "200+ M",
+     "label": "deep",
+     "on": "two hundred meters",
+     "kind": "place"
+    }
    ]
   },
   {
-   "say": "Escobar spent like a man who knew it might all end tomorrow. He built a huge ranch called Hacienda Napoles. Over the entrance gate, he mounted a small airplane. And inside, he built his own private zoo.",
-   "pops": [
-    {
-     "text": "HACIENDA NAPOLES",
-     "label": "his private estate",
-     "on": "Hacienda"
-    }
-   ],
+   "say": "Below the lake, the land falls away into green valleys. And in those valleys were villages. Nyos. Kam. Cha. Subum. Farmers grew maize and beans. Cattle herders, many of them Fulani families, grazed their animals on the slopes.",
    "visuals": [
     {
      "type": "map",
      "view": [
-      -76.8,
-      4.8,
-      -73.6,
-      7.2
+      9.9,
+      6.2,
+      10.6,
+      6.75
      ],
      "points": [
       {
-       "name": "Medellin",
+       "name": "Nyos",
        "at": [
-        -75.57,
-        6.25
+        10.3,
+        6.47
        ],
        "at_time": 0.2,
        "side": "left"
       },
       {
-       "name": "Hacienda Napoles",
-       "note": "his ranch and zoo",
+       "name": "Cha",
        "at": [
-        -74.73,
-        5.89
+        10.25,
+        6.5
+       ],
+       "at_time": 0.4,
+       "side": "top"
+      },
+      {
+       "name": "Subum",
+       "at": [
+        10.37,
+        6.5
+       ],
+       "at_time": 0.6,
+       "side": "right"
+      },
+      {
+       "name": "Wum",
+       "note": "nearest town",
+       "at": [
+        10.07,
+        6.38
        ],
        "at_time": 0.8,
-       "side": "right"
+       "side": "bottom"
       }
      ]
     },
     {
-     "type": "image",
+     "type": "video",
      "search": [
-      "Hacienda Napoles entrance airplane",
-      "Hacienda Napoles gate"
+      "cattle grazing green hills Africa"
      ],
-     "ai": "a ranch entrance gate with a small airplane mounted on top",
-     "zoom": "up"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Hacienda Napoles",
-      "Parque Tematico Hacienda Napoles"
-     ],
-     "ai": "a large tropical ranch with green hills",
-     "zoom": "right"
-    },
-    {
-     "type": "image",
-     "search": [
-      "giraffe zoo",
-      "zebra herd"
-     ],
-     "ai": "giraffes and zebras in a tropical ranch",
-     "zoom": "in"
+     "source": "stock"
     }
    ]
   },
   {
-   "say": "Giraffes. Zebras. Elephants. And four hippos, flown in from abroad. Remember the hippos. They come back at the end of this story.",
+   "say": "It was a peaceful place. But the local people had old stories about these crater lakes. Stories of lakes with spirits in them. Lakes that could rise up and kill. Some families had lived with those warnings for generations.",
    "visuals": [
     {
      "type": "image",
      "search": [
-      "hippopotamus Colombia",
-      "hippopotamus Hacienda Napoles"
-     ],
-     "ai": "a hippopotamus in a muddy tropical lake",
-     "zoom": "in"
-    },
-    {
-     "type": "stat",
-     "number": 4,
-     "suffix": " HIPPOS",
-     "label": "Flown in for his private zoo in the 1980s"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "Remember the hippos."
-     ]
-    }
-   ]
-  },
-  {
-   "chapter": "The cash problem",
-   "say": "But here is the strange part. Most of that money was paper. Hundred dollar bills, fifty dollar bills, twenty dollar bills, flown back from America in bricks.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "hundred dollar bill",
-      "100 US dollar banknote"
-     ],
-     "ai": "close up of old hundred dollar bills",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "stacks of US dollar bills",
-      "bundles of cash"
-     ],
-     "ai": "bricks of cash wrapped in plastic",
-     "zoom": "right"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "Billions.",
-      "In paper."
-     ]
-    }
-   ]
-  },
-  {
-   "say": "According to his brother Roberto, the cartel spent about two thousand five hundred dollars a month just on rubber bands, to hold the stacks of bills together. Counting the money by hand took too long, so they simply weighed it.",
-   "pops": [
-    {
-     "text": "$2,500 / MONTH",
-     "label": "on rubber bands",
-     "on": "two thousand"
-    }
-   ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "rubber bands",
-      "rubber band ball"
-     ],
-     "ai": "a pile of rubber bands on a table",
-     "zoom": "in"
-    },
-    {
-     "type": "stat",
-     "number": 2500,
-     "prefix": "$",
-     "suffix": " A MONTH",
-     "label": "Spent on rubber bands, according to Roberto Escobar"
-    },
-    {
-     "type": "image",
-     "search": [
-      "money counting machine",
-      "banknote counter"
-     ],
-     "ai": "an old money counting machine with cash",
-     "zoom": "right"
-    },
-    {
-     "type": "image",
-     "search": [
-      "weighing scale vintage",
-      "platform scale"
-     ],
-     "ai": "an industrial weighing scale with cash on it",
-     "zoom": "in"
-    }
-   ]
-  },
-  {
-   "say": "The cash was hidden everywhere. In walls, under floors, in farmhouses, in barrels buried in fields. And because it couldn't go into a bank, a part of it slowly disappeared. About ten percent a year, his brother said, lost to rats, to damp, or to places nobody could remember.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "old farmhouse Colombia",
-      "finca Antioquia"
-     ],
-     "ai": "an old farmhouse in the Colombian countryside",
-     "zoom": "left"
-    },
-    {
-     "type": "image",
-     "search": [
-      "hidden wall compartment",
-      "secret compartment wall"
-     ],
-     "ai": "cash hidden inside a broken wall",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "blue plastic barrel",
-      "plastic drum barrel"
-     ],
-     "ai": "a blue barrel buried in a field",
-     "zoom": "out"
-    },
-    {
-     "type": "image",
-     "search": [
-      "brown rat",
-      "rat closeup"
-     ],
-     "ai": "a rat chewing paper",
-     "zoom": "in"
-    },
-    {
-     "type": "stat",
-     "number": 10,
-     "suffix": "% A YEAR",
-     "label": "Of the stored cash lost, according to Roberto Escobar",
-     "note": "Rats, damp, and money that was never found again"
-    }
-   ]
-  },
-  {
-   "say": "Think about what that means. Ten percent a year is a loss most companies would never survive. For Escobar, it was just the cost of doing business. That is how much money was coming in.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "Losing 10% a year...",
-      "...and not caring."
-     ],
-     "hit": true
-    },
-    {
-     "type": "image",
-     "search": [
-      "stacks of US dollar bills",
-      "seized cash DEA"
-     ],
-     "ai": "an enormous pile of cash in a warehouse",
-     "zoom": "out"
-    }
-   ]
-  },
-  {
-   "chapter": "Power",
-   "date": "1982",
-   "say": "Money wasn't enough. Escobar wanted respect. He built football fields and paid for housing in the poor neighborhoods of Medellin, and many people there saw him as a hero. In 1982, he was even elected as an alternate member of Colombia's Congress.",
-   "pops": [
-    {
-     "text": "CONGRESS",
-     "label": "elected alternate, 1982",
-     "on": "Congress."
-    }
-   ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Barrio Pablo Escobar Medellin",
-      "Medellin comuna houses"
-     ],
-     "ai": "colorful small houses on a hillside in Medellin",
-     "zoom": "up"
-    },
-    {
-     "type": "image",
-     "search": [
-      "football pitch Medellin",
-      "soccer field Colombia"
-     ],
-     "ai": "a dusty neighborhood soccer field in Colombia",
-     "zoom": "right"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Capitolio Nacional Bogota",
-      "Congress of Colombia building"
-     ],
-     "ai": "the Colombian national capitol building in Bogota",
-     "zoom": "in"
-    },
-    {
-     "type": "map",
-     "view": [
-      -77.5,
-      3,
-      -72,
-      8
-     ],
-     "points": [
-      {
-       "name": "Medellin",
-       "at": [
-        -75.57,
-        6.25
-       ],
-       "at_time": 0.2,
-       "side": "left"
-      },
-      {
-       "name": "Bogota",
-       "note": "Congress",
-       "at": [
-        -74.07,
-        4.71
-       ],
-       "at_time": 0.8,
-       "side": "right"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "say": "It didn't last. Colombia's justice minister, Rodrigo Lara Bonilla, exposed where Escobar's money came from, and Escobar was forced out of politics. In 1984, the minister was assassinated. It was the beginning of a war between Escobar and the Colombian state.",
-   "pops": [
-    {
-     "text": "RODRIGO LARA BONILLA",
-     "label": "Justice Minister",
-     "on": "Rodrigo"
-    }
-   ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Rodrigo Lara Bonilla",
-      "Lara Bonilla"
-     ],
-     "ai": "a 1980s Colombian politician at a podium",
-     "zoom": "in"
-    },
-    {
-     "type": "year",
-     "from": 1982,
-     "to": 1984,
-     "label": "The justice minister is assassinated"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "A war",
-      "against the state."
-     ],
-     "hit": true
-    }
-   ]
-  },
-  {
-   "chapter": "The war",
-   "date": "1989",
-   "say": "His greatest fear was extradition. Being sent to an American prison, where his money and his men could not reach him. His group used a slogan: better a grave in Colombia than a prison cell in the United States.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "US federal courthouse",
-      "federal prison United States"
-     ],
-     "ai": "an American federal prison with high walls",
-     "zoom": "right"
-    },
-    {
-     "type": "quote",
-     "text": "Better a grave in Colombia than a prison cell in the United States.",
-     "by": "Slogan of 'Los Extraditables', Escobar's group"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Bogota 1980s",
-      "Bogota 1989"
-     ],
-     "ai": "a tense Bogota street in the late 1980s",
-     "zoom": "in"
-    }
-   ]
-  },
-  {
-   "say": "Cartel leaders even offered to pay off Colombia's foreign debt, around ten billion dollars at the time, in exchange for protection from extradition. The government refused. And the violence got worse. In November 1989, a bomb planted on an Avianca passenger jet killed more than one hundred people.",
-   "pops": [
-    {
-     "text": "≈ $10 BILLION",
-     "label": "Colombia's debt",
-     "on": "ten billion"
-    }
-   ],
-   "visuals": [
-    {
-     "type": "stat",
-     "number": 10,
-     "prefix": "$",
-     "suffix": " BILLION",
-     "label": "Colombia's foreign debt they offered to pay",
-     "note": "Reported at the time; the offer came with demands"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "The government said no."
+      "Cameroon grassfields village",
+      "Bamenda highlands"
      ]
     },
     {
-     "type": "image",
-     "search": [
-      "Avianca Boeing 727",
-      "Boeing 727 Avianca 1980s"
-     ],
-     "ai": "a 1980s passenger jet on a runway",
-     "zoom": "right"
+     "type": "type",
+     "text": "THE BAD LAKES"
+    }
+   ]
+  },
+  {
+   "say": "Scientists would later call these stories a kind of geomythology. Memories of real disasters, hidden inside legends. But in nineteen eighty six, almost nobody outside those hills took them seriously.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ],
+   "pops": [
+    {
+     "text": "GEOMYTHOLOGY",
+     "label": "real disasters inside legends",
+     "on": "geomythology",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Thursday, August the twenty first. It was the rainy season, and the evening was cool. Around nine at night, people living near the lake heard a sound. Some said it was like a rumble. Others said like a gunshot, or a series of loud bangs.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "21:00",
+     "sub": "21 August 1986"
     },
+    {
+     "type": "video",
+     "search": [
+      "night rain village dark"
+     ],
+     "source": "stock"
+    }
+   ],
+   "chapter": "Nine O'Clock",
+   "mood": "tense"
+  },
+  {
+   "say": "A few people looked toward the lake and saw something rise from the water. A white cloud. Some described a mist. Some, a column of water and foam, shooting high into the air.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "mist rising from lake night"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "video",
+     "search": [
+      "fog rolling over hill"
+     ],
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "Scientists later estimated that column of water and foam reached about one hundred meters high. It sent a wave crashing against one shore, at least twenty five meters tall. It stripped the trees and grass off the hillside.",
+   "visuals": [
     {
      "type": "stat",
      "number": 100,
-     "prefix": "MORE THAN ",
-     "label": "People killed on Avianca Flight 203, 1989"
+     "suffix": " M",
+     "label": "column of water and foam",
+     "note": "estimated by later surveys"
+    },
+    {
+     "type": "video",
+     "search": [
+      "big wave crashing rocks"
+     ],
+     "source": "stock"
     }
    ]
   },
   {
-   "chapter": "The prison he built",
-   "date": "1991",
-   "say": "Then, in 1991, Colombia changed its constitution and banned extradition. That same day, Escobar surrendered. But he didn't go to a normal prison. He went to La Catedral, a prison he was allowed to build himself, on a hill overlooking Medellin.",
-   "pops": [
-    {
-     "text": "LA CATEDRAL",
-     "label": "his own prison",
-     "on": "Catedral,"
-    }
-   ],
+   "say": "Then the cloud began to move. Not up into the sky, like smoke. Down. Down the hills, into the valleys, flowing along the ground like an invisible river.",
    "visuals": [
     {
-     "type": "year",
-     "from": 1989,
-     "to": 1991,
-     "label": "Escobar surrenders"
+     "type": "video",
+     "search": [
+      "low fog flowing valley"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "It didn't rise.",
+      "It flowed downhill."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "It moved at twenty, maybe fifty kilometers an hour. About fifty meters thick. You could not outrun it in the dark. Most people never even knew it was coming.",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      9.9,
+      6.2,
+      10.6,
+      6.75
+     ],
+     "route": [
+      [
+       10.298,
+       6.438
+      ],
+      [
+       10.3,
+       6.47
+      ],
+      [
+       10.25,
+       6.5
+      ],
+      [
+       10.37,
+       6.5
+      ]
+     ],
+     "route_start": 0.2,
+     "route_end": 2.5,
+     "points": [
+      {
+       "name": "Lake Nyos",
+       "at": [
+        10.298,
+        6.438
+       ],
+       "at_time": 0.1,
+       "side": "bottom"
+      }
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "20-50 KM/H",
+     "label": "speed of the cloud",
+     "on": "kilometers an hour",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "It reached Nyos village first, and then Kam, Cha and Subum. It killed people up to about twenty five kilometers away from the lake.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "misty valley dawn"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "stat",
+     "number": 25,
+     "suffix": " KM",
+     "label": "reach of the deadly cloud"
+    }
+   ]
+  },
+  {
+   "say": "Many died in their sleep. Some fell where they stood, in the middle of eating, or talking, or walking outside. It was quick. And it was completely silent.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "candle blown out dark"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "host"
+    }
+   ],
+   "mood": "sad"
+  },
+  {
+   "say": "When the sun rose the next morning, the valleys were quiet in a way no one had ever heard. No birds. No insects. No cattle calling.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "sunrise misty valley silent"
+     ],
+     "source": "stock"
+    }
+   ],
+   "chapter": "The Morning After",
+   "mood": "sad"
+  },
+  {
+   "say": "A farmer named Joseph Nkwain, from Subum, had fallen unconscious. He woke up hours later, confused, unable to speak properly. His family members were dead around him. He managed to get on his motorcycle and ride to the town of Wum for help.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "old motorcycle dirt road Africa"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "quote",
+     "text": "I could not speak. I became unconscious.",
+     "by": "Joseph Nkwain, survivor (as reported)"
+    }
+   ],
+   "pops": [
+    {
+     "text": "JOSEPH NKWAIN",
+     "label": "survivor, Subum",
+     "on": "Joseph Nkwain",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Others woke to the same horror. A farmer named Ephriam Che saw the mist rise from the lake. Later he found his family dead. In the years after, he raised his orphaned cousins himself.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Cameroon village family hut",
+      "rural Cameroon house"
+     ]
+    },
+    {
+     "type": "host"
+    }
+   ],
+   "pops": [
+    {
+     "text": "EPHRIAM CHE",
+     "label": "survivor",
+     "on": "Ephriam Che",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "A cattle herder named Halima Suley lost thirty one relatives, including her own children, in a single night. She survived. Her world did not.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "cattle herder Africa morning"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "One night.",
+      "Thirty one relatives."
+     ],
+     "hit": true
+    }
+   ],
+   "pops": [
+    {
+     "text": "HALIMA SULEY",
+     "label": "lost 31 relatives",
+     "on": "Halima Suley",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "The final count was one thousand seven hundred and forty six people dead. Around three thousand five hundred cattle. Hundreds more people were injured, with burns or blisters on their skin, breathing problems, and some could not move their arms or legs for a while.",
+   "visuals": [
+    {
+     "type": "bars",
+     "title": "Lake Nyos, one night",
+     "bars": [
+      [
+       "People killed",
+       1746
+      ],
+      [
+       "Livestock killed",
+       3500
+      ],
+      [
+       "People injured",
+       845
+      ]
+     ],
+     "note": "commonly reported figures"
+    }
+   ],
+   "pops": [
+    {
+     "text": "3,500",
+     "label": "cattle dead",
+     "on": "three thousand five hundred",
+     "kind": "money"
+    }
+   ]
+  },
+  {
+   "say": "About four thousand people fled the area. The injured were carried to hospitals, some as far as the capital, Yaounde.",
+   "visuals": [
+    {
+     "type": "reaction",
+     "search": "Lake Nyos disaster 1986 news report",
+     "source": "news report",
+     "quote": "the 1986 news coverage of Lake Nyos"
+    },
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "And the lake? The lake had changed color. The clear blue water was now a deep, rusty red. Its level had dropped by about a meter. As if something had come up from the bottom... and left.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Lake Nyos red water 1986",
+      "Lake Nyos after disaster"
+     ]
+    },
+    {
+     "type": "type",
+     "text": "THE LAKE TURNED RED"
+    }
+   ]
+  },
+  {
+   "say": "Reporters arrived. One wrote that the place looked like the aftermath of a neutron bomb. Buildings standing, everything living gone.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "empty village dust wind"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "quote",
+     "text": "Like the aftermath of a neutron bomb.",
+     "by": "1986 press description"
+    }
+   ],
+   "chapter": "Who Killed the Valley?",
+   "mood": "mystery"
+  },
+  {
+   "say": "And the rumors started. Some said a foreign government had secretly tested a bomb or chemical weapon in the lake. Others said the government had poisoned the people. Others said the spirits of the lake had finally risen.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "A secret bomb?",
+      "A chemical weapon?",
+      "An angry spirit?"
+     ]
+    },
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "Some survivors remembered a smell. Like gunpowder, or rotten eggs. That pointed to volcanic gases like hydrogen sulfide. So the first big scientific suspect was obvious. The volcano under the lake had erupted.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "volcanic gas fumarole"
+     ],
+     "source": "stock"
     },
     {
      "type": "image",
      "search": [
-      "La Catedral prison Envigado",
-      "La Catedral Escobar prison"
+      "volcanic crater lake",
+      "maar lake"
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "SUSPECT #1",
+     "label": "a volcanic eruption",
+     "on": "first big",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Teams of scientists flew in from France, Britain, the United States, Japan and more. And they started to find problems with the volcano theory.",
+   "visuals": [
+    {
+     "type": "reaction",
+     "search": "Lake Nyos scientists investigation documentary",
+     "source": "documentary footage",
+     "quote": "scientists arriving at Lake Nyos"
+    }
+   ]
+  },
+  {
+   "say": "There was no fresh lava. No hot ash. The water was not hot. And when they tested the air and the water for sulfur gases, they found almost nothing.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "No lava. No ash. No heat.",
+      "No sulfur."
+     ]
+    },
+    {
+     "type": "video",
+     "search": [
+      "scientist water sample lake boat"
      ],
-     "ai": "a prison complex on a green mountain above a city",
-     "zoom": "up"
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "What they found instead was in the deep water. When they pulled samples up from the bottom of the lake, the bottles fizzed. Some of them burst. Like shaking a bottle of soda and opening it.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "soda bottle fizzing opening"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "The bottom of Lake Nyos was full of dissolved carbon dioxide. The same gas you breathe out. The same gas in a fizzy drink.",
+   "visuals": [
+    {
+     "type": "type",
+     "text": "CO2"
+    },
+    {
+     "type": "video",
+     "search": [
+      "bubbles rising water dark"
+     ],
+     "source": "stock"
+    }
+   ],
+   "pops": [
+    {
+     "text": "CO2",
+     "label": "carbon dioxide",
+     "on": "carbon dioxide",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "And here is the part that makes this story darker. This had already happened before. Two years earlier. And almost nobody listened.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ],
+   "chapter": "The Warning Nobody Heard",
+   "mood": "tense"
+  },
+  {
+   "say": "On August the fifteenth, nineteen eighty four, at another crater lake called Lake Monoun, about a hundred kilometers away, thirty seven people were found dead along a road near the shore.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "15 August 1984",
+     "sub": "Lake Monoun"
     },
     {
      "type": "map",
      "view": [
-      -75.75,
-      6.05,
-      -75.4,
-      6.35
+      8.0,
+      2.5,
+      15.5,
+      8.5
      ],
      "points": [
       {
-       "name": "Medellin",
+       "name": "Lake Monoun",
+       "note": "37 dead, 1984",
        "at": [
-        -75.57,
-        6.25
+        10.59,
+        5.58
        ],
-       "at_time": 0.2,
-       "side": "left"
+       "at_time": 0.3,
+       "side": "right"
       },
       {
-       "name": "La Catedral",
-       "note": "his prison",
+       "name": "Lake Nyos",
        "at": [
-        -75.56,
-        6.13
+        10.298,
+        6.438
        ],
-       "at_time": 0.8,
-       "side": "right"
+       "at_time": 0.6,
+       "side": "left"
       }
+     ]
+    }
+   ],
+   "date": "1984",
+   "pops": [
+    {
+     "text": "37",
+     "label": "dead at Lake Monoun",
+     "on": "thirty seven",
+     "kind": "people"
+    }
+   ]
+  },
+  {
+   "say": "A volcanologist named Haraldur Sigurdsson, from the University of Rhode Island, went to investigate. He found no sign of an eruption. What he found was deep water loaded with carbon dioxide.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Haraldur Sigurdsson volcanologist",
+      "volcanologist field"
+     ]
+    },
+    {
+     "type": "video",
+     "search": [
+      "researcher boat lake sampling"
+     ],
+     "source": "stock"
+    }
+   ],
+   "pops": [
+    {
+     "text": "SIGURDSSON",
+     "label": "volcanologist",
+     "on": "Haraldur Sigurdsson",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "He wrote a paper describing what he called a hitherto unknown natural hazard. A lake that could release a deadly cloud of gas. In nineteen eighty six, he sent it to one of the most famous science journals in the world.",
+   "visuals": [
+    {
+     "type": "quote",
+     "text": "A hitherto unknown natural hazard.",
+     "by": "Haraldur Sigurdsson, on Lake Monoun"
+    },
+    {
+     "type": "image",
+     "search": [
+      "scientific journal pages",
+      "research paper 1980s"
      ]
     }
    ]
   },
   {
-   "say": "The guards were reportedly chosen with his approval. Inside, there were comfortable rooms, a football pitch and a view of the city. He kept running his business from behind its walls.",
+   "say": "The journal rejected it.",
    "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "La Catedral ruins Envigado",
-      "La Catedral monastery Envigado"
-     ],
-     "ai": "the ruins of a mountain prison with a city view",
-     "zoom": "right"
-    },
     {
      "type": "text",
      "lines": [
-      "A prison",
-      "he designed himself."
+      "Rejected."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Months later, Lake Nyos erupted. Nobody can say that one paper would have saved those villages. But the warning was there. Written down. Before the disaster.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ],
+   "mood": "sad"
+  },
+  {
+   "say": "So how does a lake kill seventeen hundred people? The answer is a disaster so rare that it needed a new name. A limnic eruption. A lake eruption.",
+   "visuals": [
+    {
+     "type": "type",
+     "text": "LIMNIC ERUPTION"
+    }
+   ],
+   "chapter": "How a Lake Explodes",
+   "mood": "mystery"
+  },
+  {
+   "say": "Deep under Lake Nyos, there is still volcanic activity. Magma, far below, releases carbon dioxide. That gas seeps up through the rock and into springs at the bottom of the lake.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "magma lava underground glowing"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "video",
+     "search": [
+      "underwater bubbles deep"
+     ],
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "In most lakes, the water mixes. Warm and cold water swap places with the seasons, and any gas escapes slowly into the air. But Lake Nyos is deep, in the tropics, and protected by its crater walls. Its water barely mixes. The bottom layer stays at the bottom.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Most lakes mix.",
+      "Nyos does not."
+     ]
+    },
+    {
+     "type": "video",
+     "search": [
+      "calm still lake no wind"
+     ],
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "Down there, under the pressure of two hundred meters of water, carbon dioxide dissolves and stays dissolved. Year after year, the deep water absorbs more and more gas. Like a bottle of soda being filled... with the cap on tight.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "pressure soda bottle closeup"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "Then something disturbs it. Nobody knows exactly what, on that night. Maybe a rockslide into the lake. Maybe cold rain cooling one side. Maybe strong wind. Some scientists think the lake was so unstable that it did not need any trigger at all.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "A rockslide?",
+      "Cold rain?",
+      "Wind?",
+      "Or nothing at all?"
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "THE TRIGGER",
+     "label": "still debated",
+     "on": "Nobody knows",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Whatever it was, some deep water got pushed upward. As it rose, the pressure dropped. The gas came out as bubbles. The bubbles made the water lighter, so it rose faster, and released even more gas. A chain reaction. The whole lake opened like a shaken bottle.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "bottle explosion slow motion foam"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "video",
+     "search": [
+      "champagne opening slow motion"
+     ],
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "Scientists estimate that between one hundred thousand and three hundred thousand tons of carbon dioxide escaped in a very short time. As a cloud, more than a cubic kilometer of gas.",
+   "visuals": [
+    {
+     "type": "stat",
+     "number": 300000,
+     "suffix": " TONS",
+     "label": "of CO2, at the upper estimate",
+     "note": "estimates range from 100,000 to 300,000 tons"
+    }
+   ]
+  },
+  {
+   "say": "And here is why it killed. Carbon dioxide is about fifty percent heavier than air. So it did not drift away. It sank. It poured into the valleys and pushed the breathable air out of the way.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Heavier than air.",
+      "It filled the valleys like water."
      ],
      "hit": true
     },
     {
-     "type": "image",
+     "type": "video",
      "search": [
-      "Medellin view from mountain",
-      "Medellin valley night"
+      "dry ice fog flowing floor"
      ],
-     "ai": "Medellin at night seen from a mountain",
-     "zoom": "out"
+     "source": "stock"
     }
    ]
   },
   {
-   "say": "In July 1992, when the government tried to move him to a real prison, Escobar walked out. He escaped. And this time, everyone was hunting him.",
+   "say": "At low levels, carbon dioxide is harmless. You breathe it out right now. But at very high concentrations, a person loses consciousness within breaths. Without fresh air, they never wake up.",
    "visuals": [
     {
-     "type": "year",
-     "from": 1991,
-     "to": 1992,
-     "label": "Escobar escapes"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Colombian National Police 1990s",
-      "Policia Nacional Colombia"
-     ],
-     "ai": "Colombian police officers in the early 1990s",
-     "zoom": "in"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "He walked out."
-     ]
+     "type": "host"
     }
    ]
   },
   {
-   "chapter": "The hunt",
-   "date": "1993",
-   "say": "A special police unit called the Search Bloc tracked him, with help from the United States. His rivals formed a group called Los Pepes to destroy his network. One by one, his men, his money and his hiding places disappeared.",
-   "pops": [
+   "say": "And the red water? Deep water at Nyos is rich in iron. When it rose to the surface and touched the air, the iron rusted. The whole lake turned the color of rust. The lake had turned itself inside out.",
+   "visuals": [
     {
-     "text": "SEARCH BLOC",
-     "label": "special police unit",
-     "on": "Search"
+     "type": "image",
+     "search": [
+      "Lake Nyos red",
+      "iron oxide water red"
+     ]
+    },
+    {
+     "type": "type",
+     "text": "INSIDE OUT"
+    }
+   ]
+  },
+  {
+   "say": "A young American scientist, George Kling, from the University of Michigan, had actually sampled Lake Nyos the year before the disaster. He came back after it. Later he remembered, I was numb.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "George Kling limnologist",
+      "University of Michigan Kling"
+     ]
+    },
+    {
+     "type": "quote",
+     "text": "I was numb.",
+     "by": "George Kling, limnologist"
     }
    ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "radio direction finding antenna",
-      "radio triangulation"
-     ],
-     "ai": "1990s radio tracking equipment in a van",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Colombian police helicopter",
-      "UH-1 helicopter Colombia"
-     ],
-     "ai": "a police helicopter over a city",
-     "zoom": "right"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Medellin streets 1990s",
-      "Medellin Los Olivos neighborhood"
-     ],
-     "ai": "a quiet Medellin street with houses",
-     "zoom": "left"
-    }
-   ]
-  },
-  {
-   "say": "He was running out of the one thing his money could never buy. Time. Some stories say that while hiding in the mountains, he burned around two million dollars in cash just to keep his daughter warm. That story comes from his son, and nobody can prove it.",
+   "chapter": "Case Solved",
+   "mood": "hopeful",
    "pops": [
     {
-     "text": "$2 MILLION BURNED?",
-     "label": "his son's story",
-     "on": "two million"
+     "text": "GEORGE KLING",
+     "label": "limnologist, Univ. of Michigan",
+     "on": "George Kling",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Kling, Bill Evans of the U.S. Geological Survey and other teams published their findings in nineteen eighty seven. The mystery was solved. Not a bomb. Not poison. Not a spirit. The lake had suffocated its own valley.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "1987",
+     "sub": "Science journal"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "Not a bomb. Not poison.",
+      "The lake itself."
+     ],
+     "hit": true
     }
    ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "campfire night",
-      "fire burning in fireplace"
-     ],
-     "ai": "a small fire burning at night in the mountains",
-     "zoom": "in"
-    },
-    {
-     "type": "stat",
-     "number": 2000000,
-     "prefix": "$",
-     "label": "Burned to keep his daughter warm, according to his son",
-     "note": "Not independently confirmed"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "Money he couldn't use.",
-      "So he burned it."
-     ]
-    }
-   ]
+   "date": "1987"
   },
   {
-   "date": "December 2, 1993",
-   "say": "On December second, 1993, one day after his forty fourth birthday, police traced a phone call to a house in Medellin. Escobar ran across the rooftops. He was shot and killed. His family has always said he took his own life. Investigators concluded he was killed by police fire.",
+   "say": "And the case of Lake Monoun was solved with it. Two killer lakes, two years apart, same cause. Only two limnic eruptions have ever been recorded in history. Both in Cameroon. Both in the nineteen eighties.",
    "visuals": [
     {
-     "type": "image",
-     "search": [
-      "telephone 1990s",
-      "old landline telephone"
-     ],
-     "ai": "an old 1990s telephone in a dark room",
-     "zoom": "in"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Medellin rooftops",
-      "Medellin Los Olivos"
-     ],
-     "ai": "red tiled rooftops in Medellin",
-     "zoom": "right"
-    },
-    {
-     "type": "year",
-     "from": 1949,
-     "to": 1993,
-     "label": "Pablo Escobar, 1949 to 1993"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Pablo Escobar grave Montesacro",
-      "Cementerio Montesacro Itagui"
-     ],
-     "ai": "a grave in a green Colombian cemetery",
-     "zoom": "out"
-    }
-   ]
-  },
-  {
-   "chapter": "What it teaches about money",
-   "date": "Today",
-   "say": "So what does Pablo Escobar's fortune teach us about money? First, money you can't use isn't wealth. It's storage, and storage rots. Second, the more you have to hide, the more it costs you. And third, every fortune built on fear has an expiry date.",
-   "visuals": [
-    {
-     "type": "title",
-     "kicker": "What it teaches",
-     "text": "3 Lessons",
-     "sub": "about money, from Pablo Escobar's fortune"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "1.",
-      "Money you can't use",
-      "isn't wealth."
-     ]
-    },
-    {
-     "type": "text",
-     "lines": [
-      "2.",
-      "The more you hide,",
-      "the more it costs."
-     ]
-    },
-    {
-     "type": "text",
-     "lines": [
-      "3.",
-      "A fortune built on fear",
-      "has an expiry date."
-     ]
-    }
-   ]
-  },
-  {
-   "say": "And the hippos? Escobar brought four of them to Colombia. After his death, nobody took them away. They escaped into the rivers and kept breeding. Scientists now estimate there are well over one hundred and fifty of them, and in 2026, Colombia approved a plan to cull up to eighty.",
-   "pops": [
-    {
-     "text": "150+ HIPPOS",
-     "label": "from the original 4",
-     "on": "one hundred"
-    }
-   ],
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "hippopotamus Magdalena River Colombia",
-      "hippos Colombia river"
-     ],
-     "ai": "hippos in a brown tropical river",
-     "zoom": "in"
-    },
-    {
-     "type": "bars",
-     "title": "Escobar's hippos",
-     "bars": [
+     "type": "timeline",
+     "events": [
       [
-       "1980s",
-       4
+       1984,
+       "Lake Monoun: 37 dead"
       ],
       [
-       "Today",
-       150
+       1986,
+       "Lake Nyos: 1,746 dead"
+      ],
+      [
+       1987,
+       "cause published"
+      ],
+      [
+       2001,
+       "first pipe at Nyos"
+      ],
+      [
+       2011,
+       "two more pipes"
       ]
+     ]
+    }
+   ]
+  },
+  {
+   "say": "But solving the mystery raised a terrifying question. The gas was still coming. The lake was already filling up again.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ],
+   "mood": "tense"
+  },
+  {
+   "say": "If the lake is a bottle of soda with the cap on, the solution sounds simple. Open the cap. Slowly.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "opening soda bottle slowly"
      ],
-     "note": "Estimates from Colombian scientists; 2022 study: about 170"
+     "source": "stock"
+    }
+   ],
+   "chapter": "Defusing the Lake",
+   "mood": "hopeful"
+  },
+  {
+   "say": "A French engineer named Michel Halbwachs had an idea. Put a long pipe from the bottom of the lake to the surface. Pump a little water up to start it. Then, as gas bubbles out in the pipe, the water inside becomes lighter, and it keeps rising on its own. A self-powered fountain. Forever.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Lake Nyos degassing pipe",
+      "Lake Nyos fountain"
+     ]
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A pipe to the bottom.",
+      "The gas pumps itself out."
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "HALBWACHS",
+     "label": "French engineer",
+     "on": "Michel Halbwachs",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Not everyone believed it would work. Some scientists feared that disturbing the lake might trigger the very disaster they were trying to prevent. They tested small pipes in the early nineteen nineties. Then money ran out.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "In January two thousand one, the first permanent pipe was switched on at Lake Nyos. It reached about two hundred meters deep. And it sent a fountain of water and gas shooting about forty five meters into the air.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "January 2001",
+     "sub": "Lake Nyos"
+    },
+    {
+     "type": "reaction",
+     "search": "Lake Nyos degassing pipe fountain",
+     "source": "documentary footage",
+     "quote": "the degassing fountain at Lake Nyos"
+    }
+   ],
+   "date": "2001",
+   "pops": [
+    {
+     "text": "45 M",
+     "label": "height of the fountain",
+     "on": "forty five meters",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "But one pipe was too slow. The lake was still taking in gas every year. In twenty eleven, two more pipes were added. Today, scientists say a large part of the dangerous gas has been removed, and the pipes can keep running without outside power.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "2011",
+     "sub": "two more pipes"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Lake Nyos three pipes",
+      "Lake Nyos degassing 2011"
+     ]
+    }
+   ],
+   "date": "2011"
+  },
+  {
+   "say": "Lake Monoun got pipes too. Two killer lakes. Defused, slowly, by a few scientists and a lot of patience.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "But Nyos has another weakness. The natural wall that holds the lake in is made of loose volcanic rock, and it has been wearing away. If it ever collapsed, experts warned, it could send a flood into the valleys below, possibly as far as Nigeria.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Lake Nyos natural dam",
+      "Lake Nyos spillway"
+     ]
     },
     {
      "type": "map",
      "view": [
-      -76.5,
-      4.5,
-      -73.5,
-      7.5
+      8.0,
+      2.5,
+      15.5,
+      8.5
      ],
      "points": [
       {
-       "name": "Hacienda Napoles",
+       "name": "Lake Nyos",
        "at": [
-        -74.73,
-        5.89
+        10.298,
+        6.438
        ],
        "at_time": 0.3,
+       "side": "right"
+      },
+      {
+       "name": "Nigeria",
+       "at": [
+        9.0,
+        7.2
+       ],
+       "at_time": 0.6,
        "side": "left"
       }
-     ],
-     "labels": [
-      {
-       "text": "Magdalena River",
-       "at": [
-        -74.3,
-        6.6
-       ],
-       "size": 26
-      }
      ]
-    },
+    }
+   ],
+   "chapter": "The Wall and the Giant",
+   "mood": "tense"
+  },
+  {
+   "say": "Work has been done to strengthen that wall. But it is a reminder. Nyos was never just a story about gas. It is a story about how little we watch the places that can hurt us.",
+   "visuals": [
     {
-     "type": "image",
-     "search": [
-      "hippopotamus yawning",
-      "hippopotamus open mouth"
-     ],
-     "ai": "a hippo opening its huge mouth",
-     "zoom": "in"
+     "type": "host"
     }
    ]
   },
   {
-   "say": "Thirty years after his death, the most visible thing Pablo Escobar left behind is not his money. Most of it rotted, burned or was never found. It's a herd of hippos in a Colombian river. If you want more stories about the richest, strangest fortunes in history, how they were made and how they fell apart, subscribe. The next one is coming soon.",
+   "say": "And there is a much bigger lake that scientists watch very carefully. Lake Kivu, on the border of Rwanda and the Democratic Republic of the Congo.",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      -5,
+      -12,
+      42,
+      16
+     ],
+     "points": [
+      {
+       "name": "Lake Kivu",
+       "at": [
+        29.2,
+        -2.0
+       ],
+       "at_time": 0.4,
+       "side": "right"
+      },
+      {
+       "name": "Lake Nyos",
+       "at": [
+        10.298,
+        6.438
+       ],
+       "at_time": 0.7,
+       "side": "left"
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "search": [
+      "Lake Kivu aerial"
+     ],
+     "source": "stock"
+    }
+   ],
+   "pops": [
+    {
+     "text": "LAKE KIVU",
+     "label": "Rwanda / DR Congo",
+     "on": "Lake Kivu",
+     "kind": "place"
+    }
+   ]
+  },
+  {
+   "say": "Lake Kivu is about two thousand times bigger than Nyos. Its deep water holds huge amounts of dissolved carbon dioxide and methane. And around two million people live near its shores.",
+   "visuals": [
+    {
+     "type": "bars",
+     "title": "Size compared to Lake Nyos",
+     "bars": [
+      [
+       "Lake Nyos",
+       1
+      ],
+      [
+       "Lake Kivu",
+       2000
+      ]
+     ],
+     "note": "Kivu is about 2,000 times larger"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Goma Gisenyi Lake Kivu",
+      "Lake Kivu shore town"
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Some studies once warned the gas was building up. A newer study, published in twenty twenty, corrected that and found no growing risk over time. Today, Rwanda actually pumps methane from Lake Kivu to make electricity, which also slowly removes gas from the lake.",
    "visuals": [
     {
      "type": "image",
      "search": [
-      "Medellin Colombia panorama",
-      "Medellin skyline"
+      "KivuWatt methane platform",
+      "Lake Kivu gas extraction platform"
+     ]
+    },
+    {
+     "type": "host"
+    }
+   ],
+   "pops": [
+    {
+     "text": "METHANE",
+     "label": "now used for electricity",
+     "on": "methane",
+     "kind": "money"
+    }
+   ]
+  },
+  {
+   "say": "And the survivors? Many were moved to new settlements away from the lake. Their land, their cattle, their homes were left behind. For years, the area around the lake was closed.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "resettlement camp Africa"
      ],
-     "ai": "Medellin city at sunset",
-     "zoom": "out"
+     "source": "stock"
     },
     {
      "type": "image",
      "search": [
-      "hippopotamus Colombia",
-      "hippopotamus sunset"
+      "Lake Nyos survivors",
+      "Lake Nyos resettlement"
+     ]
+    }
+   ],
+   "chapter": "The People Left Behind",
+   "mood": "sad"
+  },
+  {
+   "say": "Some families slowly returned to farm near the valleys again. Others never went back. And many said the same thing. When the scientists leave, we live in fear.",
+   "visuals": [
+    {
+     "type": "quote",
+     "text": "When they leave, we live in fear.",
+     "by": "a resident near the lakes (as reported)"
+    }
+   ]
+  },
+  {
+   "say": "Halima Suley, who lost thirty one relatives that night, rebuilt her life. She and her husband had more children. Life went on, because it had to.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "sunrise over African hills"
      ],
-     "ai": "a hippo in a river at sunset",
-     "zoom": "in"
+     "source": "stock"
     },
     {
-     "type": "title",
-     "text": "Pablo Escobar",
-     "sub": "1949 – 1993 · Subscribe for the next story"
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "Every year, survivors gather to remember the people who died on August the twenty first. The lake is still there. Blue again. Quiet again.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Lake Nyos today",
+      "Lake Nyos blue"
+     ]
+    },
+    {
+     "type": "date",
+     "text": "21 August",
+     "sub": "every year, they remember"
+    }
+   ]
+  },
+  {
+   "say": "So what does Lake Nyos teach us? First. The most dangerous things are not always loud. The deadliest cloud of the twentieth century was invisible and made no sound.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "1. The deadliest things",
+      "can be silent."
+     ]
+    }
+   ],
+   "chapter": "What the Lake Teaches",
+   "mood": "hopeful"
+  },
+  {
+   "say": "Second. Old stories are sometimes data. The people around these lakes had warned about killer lakes for generations. The legends were right. The science just had not caught up.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "2. Old legends",
+      "can be old warnings."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And third. A warning only works if someone listens. In nineteen eighty four, the lake gave a warning. A scientist wrote it down. And it was rejected.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "3. A warning only works",
+      "if someone listens."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "I'm Vix, and this case is closed. If you want more dark mysteries that science finally solved... you know what to do. Stay curious. And stay away from quiet lakes.",
+   "visuals": [
+    {
+     "type": "host"
     }
    ]
   }
