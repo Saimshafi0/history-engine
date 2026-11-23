@@ -6,3 +6,5 @@ imageio-ffmpeg
 edge-tts
 opencv-python-headless
 pynacl
+yt-dlp[default]
+deno
