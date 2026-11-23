@@ -1,963 +1,989 @@
 {
- "title": "The Lake That Killed 1,746 People in One Night",
+ "title": "Genghis Khan: From Starving Outcast to Ruler of Half the World",
  "titles": [
-  "The Lake That Killed 1,746 People in One Night",
-  "A Lake Exploded and Nobody Heard It",
-  "1,746 People Died in Their Sleep. The Killer Was a Lake."
+  "Genghis Khan: From Starving Outcast to Ruler of Half the World",
+  "The Rise and Fall of Genghis Khan",
+  "How an Abandoned Boy Built the Largest Empire on Earth"
  ],
- "description": "On 21 August 1986, Lake Nyos in Cameroon released a silent cloud of carbon dioxide that killed 1,746 people and 3,500 cattle in one night. Rumors blamed a bomb, poison and angry spirits. Scientists found something stranger: a lake that can explode. This is the full story of the night, the warning that was ignored two years earlier at Lake Monoun, how the mystery was solved, and how scientists are defusing the killer lakes.",
+ "description": "His father was poisoned, his clan abandoned his family to starve, and he was once a prisoner with a wooden collar around his neck. Within forty years, Temujin became Genghis Khan and ruled from China to the Caspian Sea. This is the true story of his rise, the insult that destroyed an empire, his search for immortality, his death, and the tomb no one has ever found.",
  "tags": [
-  "Lake Nyos",
-  "Lake Nyos disaster",
-  "limnic eruption",
-  "Lake Monoun",
-  "Cameroon 1986",
-  "killer lake",
-  "carbon dioxide cloud",
-  "solved mystery",
-  "dark history",
-  "mystery documentary",
-  "Lake Kivu",
-  "natural disaster documentary",
+  "Genghis Khan",
+  "Genghis Khan documentary",
+  "rise and fall of Genghis Khan",
+  "Mongol Empire",
+  "Temujin",
+  "Chinggis Khan",
   "history documentary",
-  "unexplained deaths solved",
-  "science mystery"
+  "Mongols",
+  "Khwarazmian Empire",
+  "Secret History of the Mongols",
+  "Genghis Khan tomb",
+  "dark history",
+  "medieval history",
+  "Jamukha",
+  "Borte"
  ],
  "hashtags": [
-  "#LakeNyos",
-  "#SolvedMystery",
-  "#DarkHistory"
+  "#GenghisKhan",
+  "#History",
+  "#MongolEmpire"
  ],
  "sources": [
-  "Kling G. W. et al. (1987), The 1986 Lake Nyos gas disaster in Cameroon, West Africa, Science 236",
-  "Sigurdsson H. et al. (1987), Origin of the lethal gas burst from Lake Monoun, Cameroon, Journal of Volcanology and Geothermal Research",
-  "Baxter P. J. et al. (1989), Lake Nyos disaster, Cameroon, 1986: the medical effects of large scale emission of carbon dioxide, BMJ",
-  "Smithsonian Magazine: Defusing Africa's Killer Lakes",
-  "Britannica: Lake Nyos disaster",
-  "USGS Open-File Report 87-97 on the Lake Nyos gas release",
-  "Bärenbold F. et al. (2020), on gas in Lake Kivu, PLOS ONE"
+  "The Secret History of the Mongols (13th century), trans. Igor de Rachewiltz",
+  "Ata-Malik Juvaini, History of the World Conqueror (13th century)",
+  "Jack Weatherford, Genghis Khan and the Making of the Modern World (2004)",
+  "Frank McLynn, Genghis Khan: His Conquests, His Empire, His Legacy (2015)",
+  "Li Zhichang, Travels of an Alchemist (account of Changchun's journey)",
+  "Zerjal T. et al. (2003), The Genetic Legacy of the Mongols, American Journal of Human Genetics"
  ],
- "pinned_comment": "If you lived near Lake Nyos today, would you stay or leave?",
+ "pinned_comment": "Hero or destroyer? What do you think Genghis Khan was?",
  "voice": "host",
- "speed": 0.95,
- "host": "vix",
+ "speed": 0.96,
+ "host": "hoot",
+ "era": [
+  1162,
+  1279
+ ],
  "thumbnail": {
-  "text": "THE LAKE\nKILLED THEM"
+  "text": "FROM NOTHING\nTO EVERYTHING"
  },
  "thumbnails": [
   {
-   "text": "THE LAKE\nKILLED THEM",
-   "picture": "Lake Nyos Cameroon",
-   "style": "dark",
-   "red": "KILLED"
-  },
-  {
-   "text": "1,746 DEAD\nNO SOUND",
-   "picture": "Lake Nyos red water",
+   "text": "FROM NOTHING\nTO EVERYTHING",
+   "picture": "Genghis Khan portrait National Palace Museum Taipei",
    "style": "face",
-   "red": "1,746"
+   "red": "EVERYTHING"
   },
   {
-   "text": "IT\nEXPLODED",
-   "picture": "Lake Nyos degassing pipe fountain",
+   "text": "THEY LEFT\nHIM TO DIE",
+   "picture": "lonely yurt snow steppe",
+   "style": "dark",
+   "red": "DIE"
+  },
+  {
+   "text": "TOMB\nNEVER FOUND",
+   "picture": "Burkhan Khaldun mountain",
    "style": "circle",
-   "red": "EXPLODED"
+   "red": "NEVER"
   }
  ],
  "summary_short": {
-  "hook": "A lake killed 1,746 people",
-  "say": "In 1986, in Cameroon, more than seventeen hundred people went to sleep and never woke up. No fire. No flood. No sound. The next morning, a nearby lake had turned blood red. People blamed a secret bomb, poison, even spirits. The truth was stranger. The bottom of Lake Nyos was full of carbon dioxide, like a shaken soda bottle. That night, it burst. A heavy invisible cloud rolled down into the valleys and pushed out all the air. And two years earlier, a scientist had warned about this. His paper was rejected. Full story on the channel.",
-  "title": "This Lake Killed 1,746 People in One Night #shorts",
-  "comment": "Would you live near this lake?"
+  "hook": "Abandoned boy to world ruler",
+  "say": "His father was poisoned. His own clan left his family to starve. He was captured and locked in a wooden collar. He escaped by hiding in a river with only his face above the water. Forty years later, the clans named him Genghis Khan. His armies ruled from China to the Caspian Sea. Then he fell from his horse, died on campaign, and was buried in a place no one has found to this day. Full story on the channel.",
+  "title": "From Starving Outcast to Genghis Khan #shorts",
+  "comment": "Hero or destroyer?"
  },
  "shorts": [
   {
-   "from_scene": 36,
-   "to_scene": 43,
-   "hook": "How a lake explodes",
-   "title": "How a Lake Can Explode #shorts",
-   "comment": "Did you know lakes could do this?"
+   "from_scene": 30,
+   "to_scene": 33,
+   "hook": "The insult that destroyed an empire",
+   "title": "The Insult That Destroyed an Empire #shorts",
+   "comment": "Was the Shah's mistake the worst in history?"
   }
  ],
  "facts_to_check": [
-  "Date: evening of 21 August 1986, around 9 pm; Lake Nyos, Northwest Region, Cameroon",
-  "Deaths: 1,746 people (often rounded to about 1,700-1,800), about 3,500 livestock, 845 injured (hospitalized figure)",
-  "CO2 released: estimates 100,000-300,000 tons (some older estimates higher); cloud about 1.2 cubic km, about 50 m thick",
-  "Cloud speed 20-50 km/h down the valleys; lethal up to about 25 km",
-  "Water/foam column about 100 m; wave at least 25 m; lake level dropped about 1 m; water turned red from iron",
-  "Lake Nyos depth about 208 m, roughly 1.8 km across",
-  "Villages: Nyos, Kam, Cha, Subum; survivors went to Wum; patients treated as far as Yaounde",
-  "Joseph Nkwain (Subum) quote: 'I could not speak. I became unconscious.'",
-  "Ephriam Che and Halima Suley (31 relatives) from Smithsonian Magazine 'Defusing Africa's Killer Lakes'",
-  "Lake Monoun: 15 August 1984, 37 dead; Haraldur Sigurdsson's paper rejected by Science in 1986 (Smithsonian)",
-  "George Kling sampled Nyos the year before; quote 'I was numb' (Smithsonian); Kling et al. Science 1987",
-  "Michel Halbwachs designed the degassing pipes; first permanent pipe January 2001; fountain about 45 m (148 ft); two more pipes in 2011",
-  "Natural dam (spillway) of Lake Nyos is weak; flood risk toward Nigeria reported by UN/experts",
-  "Lake Kivu about 2,000 times larger; about 2 million people near it; 2020 study found no increasing risk; methane power plant (KivuWatt)",
-  "Annual memorial on 21 August by survivors (verify)"
+  "Birth year uncertain: c. 1155-1167 (1162 most cited); born near the Onon River",
+  "Father Yesugei poisoned by Tatars when Temujin was about 9; clan abandoned Hoelun and children",
+  "Captured by the Tayichiud, wore a cangue (wooden collar); escaped, hid in river; helped by Sorkhan-Shira who hid him in a wool cart",
+  "Borte kidnapped by Merkits; rescued with help of Toghrul (Ong Khan) and Jamukha (dates approximate, c. 1180s)",
+  "Toghrul turned on him in 1203; Baljuna Covenant 1203 (followers of several religions)",
+  "Naimans defeated 1204; Jamukha handed over by his own men c. 1205-1206; men who betrayed Jamukha executed",
+  "1206 kurultai on the Onon: title Chinggis Khan",
+  "Decimal army: arban 10, jaghun 100, mingghan 1000, tumen 10,000; Yam relay; Yassa law code; religious tolerance and tax exemptions for clergy",
+  "Western Xia campaigns from 1209; Jin war from 1211; Zhongdu (Beijing) fell 1215",
+  "Otrar incident 1218: caravan of about 450 merchants killed; envoy executed by Shah Muhammad II",
+  "Invasion 1219-1221: Bukhara, Samarkand, Urgench, Merv, Nishapur; casualty figures from chroniclers likely exaggerated",
+  "Story of praying on a mountain for 3 days before war (Juvaini / tradition)",
+  "Shah Muhammad II died on an island in the Caspian Sea (c. 1220-1221)",
+  "Changchun met Genghis Khan in 1222 (Hindu Kush); quote paraphrased",
+  "Fall from horse while hunting in 1226 (Secret History); died August 1227 during Western Xia campaign, cause uncertain",
+  "Burial place unknown; legends of killing witnesses are not confirmed",
+  "Empire split into four khanates around 1260 (Toluid civil war); Yuan expelled from China 1368",
+  "Genghis Khan on Mongolian banknotes (higher-value tugrik notes)",
+  "Zerjal 2003: ~8% of men in a large region of Asia, ~16 million (0.5% of men worldwide); link to Genghis debated"
  ],
  "scenes": [
   {
-   "say": "On the night of August the twenty first, nineteen eighty six, in the hills of Cameroon, more than seventeen hundred people went to sleep... and never woke up.",
+   "say": "He was born on a freezing river in the middle of nowhere. His father was poisoned. His own clan left his family to starve. Nobody wrote down the year he was born.",
    "visuals": [
-    {
-     "type": "date",
-     "text": "21 August 1986",
-     "sub": "Northwest Cameroon"
-    },
     {
      "type": "video",
      "search": [
-      "dark hills night mist"
+      "frozen river steppe winter"
      ],
      "source": "stock"
+    },
+    {
+     "type": "date",
+     "text": "c. 1162",
+     "sub": "Onon River, Mongolia"
     }
    ],
-   "chapter": "The Silent Night",
+   "chapter": "The Boy Nobody Wanted",
    "mood": "mystery",
-   "date": "1986",
-   "pops": [
+   "date": "1162"
+  },
+  {
+   "say": "Sixty years later, his armies ruled from the Pacific Ocean to the Caspian Sea. Kings sent him gold just to be left alone. Whole cities disappeared when they said no.",
+   "visuals": [
     {
-     "text": "1,746",
-     "label": "people dead",
-     "on": "seventeen hundred",
-     "kind": "people"
+     "type": "map",
+     "from": [
+      88,
+      38,
+      128,
+      55
+     ],
+     "to": [
+      35,
+      18,
+      135,
+      60
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         75,
+         35
+        ],
+        [
+         90,
+         30
+        ],
+        [
+         110,
+         33
+        ],
+        [
+         125,
+         40
+        ],
+        [
+         128,
+         52
+        ],
+        [
+         105,
+         54
+        ],
+        [
+         85,
+         52
+        ],
+        [
+         60,
+         48
+        ],
+        [
+         50,
+         42
+        ],
+        [
+         55,
+         35
+        ]
+       ],
+       "label": "MONGOL EMPIRE, 1227",
+       "color": "#c0392b"
+      }
+     ]
     }
    ]
   },
   {
-   "say": "There was no fire. No flood. No gunshots. The houses were standing. The food was still on the tables. Even the flies were dead.",
+   "say": "His name was Temujin. The world remembers him by his title. Genghis Khan. And the strangest part of his story is not how he conquered... it's how close he came to dying a nobody.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Genghis Khan portrait National Palace Museum Taipei"
+     ],
+     "caption": "Portrait made after his death, 14th century"
+    },
+    {
+     "type": "host"
+    }
+   ],
+   "pops": [
+    {
+     "text": "TEMUJIN",
+     "label": "his birth name",
+     "on": "Temujin",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "The Mongols of the twelfth century were not an empire. They were dozens of feuding clans on the grasslands north of China, raiding each other for horses, cattle and wives.",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      88,
+      38,
+      128,
+      55
+     ],
+     "points": [
+      {
+       "name": "Onon River",
+       "note": "Temujin's birthplace",
+       "at": [
+        110.5,
+        48.8
+       ],
+       "at_time": 0.4,
+       "side": "right"
+      }
+     ],
+     "labels": [
+      {
+       "text": "GOBI DESERT",
+       "at": [
+        105,
+        43
+       ]
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "search": [
+      "mongolian steppe horses herd"
+     ],
+     "source": "stock"
+    }
+   ],
+   "chapter": "The Boy Nobody Wanted",
+   "mood": "tense"
+  },
+  {
+   "say": "Temujin's father, Yesugei, was a minor chief. One day, riding home, he stopped to eat with a group of Tatars, old enemies of his clan. They recognized him. And they poisoned his food.",
    "visuals": [
     {
      "type": "video",
      "search": [
-      "abandoned village hut Africa"
+      "nomad campfire night steppe"
      ],
      "source": "stock"
     },
     {
      "type": "text",
      "lines": [
-      "No fire. No flood. No gunshots.",
-      "Even the flies were dead."
+      "A meal with his enemies.",
+      "Poison in the food."
      ],
      "hit": true
     }
    ]
   },
   {
-   "say": "And the killer was sitting quietly in the middle of the hills, looking exactly like it always had. A beautiful blue lake.",
+   "say": "Yesugei died. And his followers did something that, on the steppe, was almost a death sentence. They packed up and left. His widow, Hoelun, and her children were abandoned with almost nothing.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "lonely yurt snow steppe"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Secret History of the Mongols manuscript"
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "HOELUN",
+     "label": "Temujin's mother",
+     "on": "Hoelun",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Almost everything we know about this comes from one book, written by the Mongols themselves after his death. The Secret History of the Mongols. And it tells us the family survived on roots, wild onions and fish from the river.",
    "visuals": [
     {
      "type": "image",
      "search": [
-      "Lake Nyos Cameroon",
-      "Lake Nyos aerial"
+      "Secret History of the Mongols",
+      "Mongolian script manuscript"
      ]
+    },
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "Think about that. The man who would rule more land than anyone in history grew up digging roots out of frozen ground.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "Years later, a rival clan, the Tayichiud, hunted Temujin down. They saw the son of Yesugei as a threat. They captured him and locked a heavy wooden collar around his neck, a portable prison.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "mongolian horsemen riding fast"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "A wooden collar.",
+      "A prisoner on display."
+     ]
+    }
+   ],
+   "chapter": "Escape",
+   "mood": "tense"
+  },
+  {
+   "say": "One night, during a feast, he knocked out his guard and ran. He hid in a river, with only his face above the water, while men searched the banks.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "river at night moonlight reeds"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "type",
+     "text": "HE RAN"
+    }
+   ]
+  },
+  {
+   "say": "A stranger spotted him. And instead of shouting, the man whispered: stay down. Later, he hid Temujin in a cart full of wool, while soldiers searched his tent. If they had pulled out one more bag, the story would have ended there.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "wool bales cart old"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "host"
+    }
+   ],
+   "pops": [
+    {
+     "text": "SORKHAN-SHIRA",
+     "label": "the man who hid him",
+     "on": "stranger",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "This is the pattern of his whole life. He remembered who helped him. And he remembered who betrayed him. Later, both would be repaid.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "He never forgot a favour.",
+      "He never forgot a betrayal."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Temujin married a girl he had been promised to since childhood, Borte. Soon after the wedding, raiders from the Merkit tribe attacked his camp. Temujin escaped. Borte did not. She was carried away.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "mongolian wedding traditional"
+     ],
+     "source": "stock"
     },
     {
      "type": "video",
      "search": [
-      "calm crater lake aerial"
+      "horse raid dust steppe"
+     ],
+     "source": "stock"
+    }
+   ],
+   "chapter": "Friends and Rivals",
+   "mood": "tense",
+   "pops": [
+    {
+     "text": "BORTE",
+     "label": "his wife",
+     "on": "Borte",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "He had no army. So he did the one thing that would define him. He asked for help. From Toghrul, a powerful khan who had been his father's sworn brother. And from Jamukha, his own childhood friend and blood brother.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "mongolian warriors gathering"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "timeline",
+     "events": [
+      [
+       1180,
+       "Borte taken"
+      ],
+      [
+       1181,
+       "Toghrul and Jamukha join him"
+      ],
+      [
+       1182,
+       "Borte rescued"
+      ]
+     ]
+    }
+   ],
+   "pops": [
+    {
+     "text": "JAMUKHA",
+     "label": "his blood brother",
+     "on": "Jamukha",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "Together they crushed the Merkits and brought Borte home. Temujin was no longer a hunted boy. He was a leader people wanted to follow.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "cavalry charge historical"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "But on the steppe, two leaders can't share one throne. And slowly, Temujin and Jamukha became enemies.",
+   "visuals": [
+    {
+     "type": "text",
+     "lines": [
+      "Two brothers.",
+      "One throne."
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Here's the difference between them. Jamukha favoured the old aristocracy, the noble families. Temujin promoted ordinary men, herders and even former enemies, if they were loyal and good at their job.",
+   "visuals": [
+    {
+     "type": "host"
+    },
+    {
+     "type": "video",
+     "search": [
+      "mongolian herder portrait"
+     ],
+     "source": "stock"
+    }
+   ],
+   "mood": "calm"
+  },
+  {
+   "say": "That idea, rank by talent, not by birth, would become his secret weapon. Common men had a reason to fight for him. Their own future.",
+   "visuals": [
+    {
+     "type": "type",
+     "text": "TALENT, NOT BIRTH"
+    }
+   ]
+  },
+  {
+   "say": "In twelve oh three, his old ally Toghrul turned on him. A surprise attack scattered Temujin's army. He fled east with only a handful of men, to a muddy lake called Baljuna.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "1203",
+     "sub": "Baljuna"
+    },
+    {
+     "type": "video",
+     "search": [
+      "muddy lake sunset grassland"
+     ],
+     "source": "stock"
+    }
+   ],
+   "chapter": "The Muddy Water Oath",
+   "mood": "sad",
+   "date": "1203"
+  },
+  {
+   "say": "There, with almost nothing left, they drank the muddy water together and swore to share everything, good or bad, until the end. The men who stood with him that day were Mongols, Muslims, Christians and Buddhists.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "hands water cupped drinking"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "quote",
+     "text": "If I complete this great work, I will share with you the sweet and the bitter.",
+     "by": "Temujin at Baljuna, as later recorded (paraphrased)"
+    }
+   ]
+  },
+  {
+   "say": "It was his lowest point. And within a year, he struck back. He defeated Toghrul. Then he defeated the Naimans. Then, finally, Jamukha himself was handed over by his own men.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "battle cavalry dust"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "timeline",
+     "events": [
+      [
+       1203,
+       "Toghrul defeated"
+      ],
+      [
+       1204,
+       "Naimans defeated"
+      ],
+      [
+       1205,
+       "Jamukha captured"
+      ]
+     ]
+    }
+   ],
+   "mood": "epic"
+  },
+  {
+   "say": "Remember the pattern. Temujin executed the men who had betrayed their own master. Loyalty, even to his enemy, mattered more to him than anything.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ]
+  },
+  {
+   "say": "In twelve oh six, at a great gathering on the Onon River, the same river where he was born, the clans named him Chinggis Khan. Universal ruler. The outcast now ruled every tribe on the steppe.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "1206",
+     "sub": "the Great Assembly"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Genghis Khan statue complex Tsonjin Boldog",
+      "Chinggis Khan statue Mongolia"
+     ]
+    }
+   ],
+   "chapter": "Universal Ruler",
+   "mood": "epic",
+   "date": "1206",
+   "pops": [
+    {
+     "text": "CHINGGIS KHAN",
+     "label": "'universal ruler'",
+     "on": "Chinggis",
+     "kind": "person"
+    }
+   ]
+  },
+  {
+   "say": "What he built next was not just an army. It was a machine. Soldiers were organized in units of ten, a hundred, a thousand and ten thousand. And he broke up the old tribes, mixing their men together, so no clan could rise against him.",
+   "visuals": [
+    {
+     "type": "bars",
+     "title": "The Mongol army",
+     "bars": [
+      [
+       "Arban",
+       10
+      ],
+      [
+       "Jaghun",
+       100
+      ],
+      [
+       "Mingghan",
+       1000
+      ],
+      [
+       "Tumen",
+       10000
+      ]
+     ],
+     "note": "units of men"
+    },
+    {
+     "type": "video",
+     "search": [
+      "horse archers riding"
+     ],
+     "source": "stock"
+    }
+   ],
+   "chapter": "The War Machine",
+   "mood": "tense"
+  },
+  {
+   "say": "Every man was a horse archer. Each rider brought several horses, switching between them, so an army could cover huge distances in days. Enemies often didn't know the Mongols were coming until they arrived.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "horse archer shooting gallop"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "video",
+     "search": [
+      "herd of horses running"
      ],
      "source": "stock"
     }
    ]
   },
   {
-   "say": "Good evening. This is one of the strangest mass deaths of the twentieth century. For weeks, nobody knew what had happened. People blamed a volcano, poison gas, even a secret bomb test.",
+   "say": "He created a relay of messenger stations across the land, called the Yam, so news could travel hundreds of kilometres a day. And a law code, the Yassa, that applied even to the powerful.",
    "visuals": [
     {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "The truth turned out to be stranger than all of them. And the most frightening part? It was natural. And it can happen again.",
-   "visuals": [
-    {
-     "type": "image",
+     "type": "video",
      "search": [
-      "Lake Nyos degassing pipe fountain",
-      "Lake Nyos 2001 pipe"
-     ]
+      "rider galloping steppe sunset"
+     ],
+     "source": "stock"
     },
     {
-     "type": "host"
+     "type": "type",
+     "text": "THE YAM"
+    }
+   ],
+   "pops": [
+    {
+     "text": "YASSA",
+     "label": "Mongol law",
+     "on": "Yassa",
+     "kind": "person"
     }
    ]
   },
   {
-   "say": "Lake Nyos sits high in the hills of northwest Cameroon, in West Africa. It fills the crater of an old volcano. It is small, less than two kilometers across... but more than two hundred meters deep.",
+   "say": "And he did something surprising for a conqueror. He let people keep their religion. Priests, monks and imams were often freed from taxes. He didn't care what you prayed to. He cared whether you obeyed.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ],
+   "mood": "calm"
+  },
+  {
+   "say": "Then he turned south. First the kingdom of Western Xia. Then the great Jin dynasty of northern China, an empire with walled cities and millions of people.",
    "visuals": [
     {
      "type": "map",
      "view": [
-      8.0,
-      2.5,
-      15.5,
-      8.5
+      95,
+      30,
+      125,
+      50
      ],
      "points": [
       {
-       "name": "Lake Nyos",
+       "name": "Western Xia",
        "at": [
-        10.298,
-        6.438
+        106.2,
+        38.5
+       ],
+       "at_time": 0.3,
+       "side": "left"
+      },
+      {
+       "name": "Zhongdu",
+       "note": "today Beijing",
+       "at": [
+        116.4,
+        39.9
+       ],
+       "at_time": 0.7,
+       "side": "right"
+      }
+     ]
+    }
+   ],
+   "chapter": "The Wall Was Not Enough",
+   "mood": "epic",
+   "date": "1211"
+  },
+  {
+   "say": "The Mongols had never attacked a walled city before. So they learned. They captured Chinese engineers and used their siege machines against China itself.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "ancient chinese city wall"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "video",
+     "search": [
+      "medieval catapult"
+     ],
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "In twelve fifteen, the Jin capital, Zhongdu, today's Beijing, fell. Parts of the city burned for weeks.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "1215",
+     "sub": "Zhongdu falls"
+    },
+    {
+     "type": "video",
+     "search": [
+      "city burning night fire"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "reaction",
+     "search": "Genghis Khan siege of Zhongdu documentary",
+     "source": "documentary footage",
+     "quote": "the fall of Zhongdu"
+    }
+   ],
+   "date": "1215"
+  },
+  {
+   "say": "And then came the mistake that changed history. Not his mistake. Someone else's.",
+   "visuals": [
+    {
+     "type": "host"
+    }
+   ],
+   "chapter": "The Insult",
+   "mood": "mystery"
+  },
+  {
+   "say": "To the west lay the Khwarazmian Empire, a rich Muslim empire stretching across today's Iran, Uzbekistan and Afghanistan. Genghis Khan sent a trade caravan of around four hundred and fifty merchants, offering peace and trade.",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      45,
+      30,
+      80,
+      48
+     ],
+     "points": [
+      {
+       "name": "Otrar",
+       "at": [
+        68.3,
+        42.85
        ],
        "at_time": 0.3,
        "side": "right"
       },
       {
-       "name": "Yaounde",
-       "note": "capital",
+       "name": "Samarkand",
        "at": [
-        11.52,
-        3.87
+        66.97,
+        39.65
        ],
-       "at_time": 0.7,
+       "at_time": 0.5,
        "side": "bottom"
+      },
+      {
+       "name": "Bukhara",
+       "at": [
+        64.4,
+        39.77
+       ],
+       "at_time": 0.6,
+       "side": "left"
       }
      ]
     },
     {
-     "type": "image",
+     "type": "video",
      "search": [
-      "Lake Nyos crater",
-      "Oku volcanic field"
-     ]
+      "camel caravan silk road desert"
+     ],
+     "source": "stock"
     }
    ],
-   "chapter": "The Lake Above the Villages",
-   "mood": "calm",
+   "date": "1218",
    "pops": [
     {
-     "text": "200+ M",
-     "label": "deep",
-     "on": "two hundred meters",
-     "kind": "place"
+     "text": "450",
+     "label": "merchants in the caravan",
+     "on": "four hundred",
+     "kind": "people"
     }
    ]
   },
   {
-   "say": "Below the lake, the land falls away into green valleys. And in those valleys were villages. Nyos. Kam. Cha. Subum. Farmers grew maize and beans. Cattle herders, many of them Fulani families, grazed their animals on the slopes.",
+   "say": "At the border city of Otrar, the governor accused them of being spies. And the merchants were killed. Genghis Khan sent ambassadors to demand justice. The Shah had one of them executed and sent the others back humiliated.",
+   "visuals": [
+    {
+     "type": "date",
+     "text": "1218",
+     "sub": "Otrar"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "He offered trade.",
+      "They killed his merchants."
+     ],
+     "hit": true
+    }
+   ]
+  },
+  {
+   "say": "Genghis Khan went up a mountain, alone, for three days, to pray. When he came down, he had made his decision.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "lone figure mountain top fog"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "host"
+    }
+   ],
+   "mood": "tense"
+  },
+  {
+   "say": "In twelve nineteen, the Mongols invaded. Bukhara. Samarkand. Urgench. Merv. Nishapur. Some of the greatest cities of the Islamic world were destroyed one after another.",
    "visuals": [
     {
      "type": "map",
      "view": [
-      9.9,
-      6.2,
-      10.6,
-      6.75
+      45,
+      30,
+      80,
+      48
      ],
      "points": [
       {
-       "name": "Nyos",
+       "name": "Bukhara",
        "at": [
-        10.3,
-        6.47
+        64.4,
+        39.77
        ],
        "at_time": 0.2,
        "side": "left"
       },
       {
-       "name": "Cha",
+       "name": "Samarkand",
        "at": [
-        10.25,
-        6.5
+        66.97,
+        39.65
        ],
        "at_time": 0.4,
+       "side": "right"
+      },
+      {
+       "name": "Urgench",
+       "at": [
+        59.15,
+        42.3
+       ],
+       "at_time": 0.6,
        "side": "top"
       },
       {
-       "name": "Subum",
+       "name": "Merv",
        "at": [
-        10.37,
-        6.5
+        61.85,
+        37.66
        ],
-       "at_time": 0.6,
-       "side": "right"
+       "at_time": 0.75,
+       "side": "bottom"
       },
       {
-       "name": "Wum",
-       "note": "nearest town",
+       "name": "Nishapur",
        "at": [
-        10.07,
-        6.38
+        58.8,
+        36.2
        ],
-       "at_time": 0.8,
-       "side": "bottom"
-      }
-     ]
-    },
-    {
-     "type": "video",
-     "search": [
-      "cattle grazing green hills Africa"
-     ],
-     "source": "stock"
-    }
-   ]
-  },
-  {
-   "say": "It was a peaceful place. But the local people had old stories about these crater lakes. Stories of lakes with spirits in them. Lakes that could rise up and kill. Some families had lived with those warnings for generations.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Cameroon grassfields village",
-      "Bamenda highlands"
-     ]
-    },
-    {
-     "type": "type",
-     "text": "THE BAD LAKES"
-    }
-   ]
-  },
-  {
-   "say": "Scientists would later call these stories a kind of geomythology. Memories of real disasters, hidden inside legends. But in nineteen eighty six, almost nobody outside those hills took them seriously.",
-   "visuals": [
-    {
-     "type": "host"
-    }
-   ],
-   "pops": [
-    {
-     "text": "GEOMYTHOLOGY",
-     "label": "real disasters inside legends",
-     "on": "geomythology",
-     "kind": "place"
-    }
-   ]
-  },
-  {
-   "say": "Thursday, August the twenty first. It was the rainy season, and the evening was cool. Around nine at night, people living near the lake heard a sound. Some said it was like a rumble. Others said like a gunshot, or a series of loud bangs.",
-   "visuals": [
-    {
-     "type": "date",
-     "text": "21:00",
-     "sub": "21 August 1986"
-    },
-    {
-     "type": "video",
-     "search": [
-      "night rain village dark"
-     ],
-     "source": "stock"
-    }
-   ],
-   "chapter": "Nine O'Clock",
-   "mood": "tense"
-  },
-  {
-   "say": "A few people looked toward the lake and saw something rise from the water. A white cloud. Some described a mist. Some, a column of water and foam, shooting high into the air.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "mist rising from lake night"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "video",
-     "search": [
-      "fog rolling over hill"
-     ],
-     "source": "stock"
-    }
-   ]
-  },
-  {
-   "say": "Scientists later estimated that column of water and foam reached about one hundred meters high. It sent a wave crashing against one shore, at least twenty five meters tall. It stripped the trees and grass off the hillside.",
-   "visuals": [
-    {
-     "type": "stat",
-     "number": 100,
-     "suffix": " M",
-     "label": "column of water and foam",
-     "note": "estimated by later surveys"
-    },
-    {
-     "type": "video",
-     "search": [
-      "big wave crashing rocks"
-     ],
-     "source": "stock"
-    }
-   ]
-  },
-  {
-   "say": "Then the cloud began to move. Not up into the sky, like smoke. Down. Down the hills, into the valleys, flowing along the ground like an invisible river.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "low fog flowing valley"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "It didn't rise.",
-      "It flowed downhill."
-     ],
-     "hit": true
-    }
-   ]
-  },
-  {
-   "say": "It moved at twenty, maybe fifty kilometers an hour. About fifty meters thick. You could not outrun it in the dark. Most people never even knew it was coming.",
-   "visuals": [
-    {
-     "type": "map",
-     "view": [
-      9.9,
-      6.2,
-      10.6,
-      6.75
-     ],
-     "route": [
-      [
-       10.298,
-       6.438
-      ],
-      [
-       10.3,
-       6.47
-      ],
-      [
-       10.25,
-       6.5
-      ],
-      [
-       10.37,
-       6.5
-      ]
-     ],
-     "route_start": 0.2,
-     "route_end": 2.5,
-     "points": [
-      {
-       "name": "Lake Nyos",
-       "at": [
-        10.298,
-        6.438
-       ],
-       "at_time": 0.1,
-       "side": "bottom"
-      }
-     ]
-    }
-   ],
-   "pops": [
-    {
-     "text": "20-50 KM/H",
-     "label": "speed of the cloud",
-     "on": "kilometers an hour",
-     "kind": "place"
-    }
-   ]
-  },
-  {
-   "say": "It reached Nyos village first, and then Kam, Cha and Subum. It killed people up to about twenty five kilometers away from the lake.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "misty valley dawn"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "stat",
-     "number": 25,
-     "suffix": " KM",
-     "label": "reach of the deadly cloud"
-    }
-   ]
-  },
-  {
-   "say": "Many died in their sleep. Some fell where they stood, in the middle of eating, or talking, or walking outside. It was quick. And it was completely silent.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "candle blown out dark"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "host"
-    }
-   ],
-   "mood": "sad"
-  },
-  {
-   "say": "When the sun rose the next morning, the valleys were quiet in a way no one had ever heard. No birds. No insects. No cattle calling.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "sunrise misty valley silent"
-     ],
-     "source": "stock"
-    }
-   ],
-   "chapter": "The Morning After",
-   "mood": "sad"
-  },
-  {
-   "say": "A farmer named Joseph Nkwain, from Subum, had fallen unconscious. He woke up hours later, confused, unable to speak properly. His family members were dead around him. He managed to get on his motorcycle and ride to the town of Wum for help.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "old motorcycle dirt road Africa"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "quote",
-     "text": "I could not speak. I became unconscious.",
-     "by": "Joseph Nkwain, survivor (as reported)"
-    }
-   ],
-   "pops": [
-    {
-     "text": "JOSEPH NKWAIN",
-     "label": "survivor, Subum",
-     "on": "Joseph Nkwain",
-     "kind": "person"
-    }
-   ]
-  },
-  {
-   "say": "Others woke to the same horror. A farmer named Ephriam Che saw the mist rise from the lake. Later he found his family dead. In the years after, he raised his orphaned cousins himself.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Cameroon village family hut",
-      "rural Cameroon house"
-     ]
-    },
-    {
-     "type": "host"
-    }
-   ],
-   "pops": [
-    {
-     "text": "EPHRIAM CHE",
-     "label": "survivor",
-     "on": "Ephriam Che",
-     "kind": "person"
-    }
-   ]
-  },
-  {
-   "say": "A cattle herder named Halima Suley lost thirty one relatives, including her own children, in a single night. She survived. Her world did not.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "cattle herder Africa morning"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "text",
-     "lines": [
-      "One night.",
-      "Thirty one relatives."
-     ],
-     "hit": true
-    }
-   ],
-   "pops": [
-    {
-     "text": "HALIMA SULEY",
-     "label": "lost 31 relatives",
-     "on": "Halima Suley",
-     "kind": "person"
-    }
-   ]
-  },
-  {
-   "say": "The final count was one thousand seven hundred and forty six people dead. Around three thousand five hundred cattle. Hundreds more people were injured, with burns or blisters on their skin, breathing problems, and some could not move their arms or legs for a while.",
-   "visuals": [
-    {
-     "type": "bars",
-     "title": "Lake Nyos, one night",
-     "bars": [
-      [
-       "People killed",
-       1746
-      ],
-      [
-       "Livestock killed",
-       3500
-      ],
-      [
-       "People injured",
-       845
-      ]
-     ],
-     "note": "commonly reported figures"
-    }
-   ],
-   "pops": [
-    {
-     "text": "3,500",
-     "label": "cattle dead",
-     "on": "three thousand five hundred",
-     "kind": "money"
-    }
-   ]
-  },
-  {
-   "say": "About four thousand people fled the area. The injured were carried to hospitals, some as far as the capital, Yaounde.",
-   "visuals": [
-    {
-     "type": "reaction",
-     "search": "Lake Nyos disaster 1986 news report",
-     "source": "news report",
-     "quote": "the 1986 news coverage of Lake Nyos"
-    },
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "And the lake? The lake had changed color. The clear blue water was now a deep, rusty red. Its level had dropped by about a meter. As if something had come up from the bottom... and left.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Lake Nyos red water 1986",
-      "Lake Nyos after disaster"
-     ]
-    },
-    {
-     "type": "type",
-     "text": "THE LAKE TURNED RED"
-    }
-   ]
-  },
-  {
-   "say": "Reporters arrived. One wrote that the place looked like the aftermath of a neutron bomb. Buildings standing, everything living gone.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "empty village dust wind"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "quote",
-     "text": "Like the aftermath of a neutron bomb.",
-     "by": "1986 press description"
-    }
-   ],
-   "chapter": "Who Killed the Valley?",
-   "mood": "mystery"
-  },
-  {
-   "say": "And the rumors started. Some said a foreign government had secretly tested a bomb or chemical weapon in the lake. Others said the government had poisoned the people. Others said the spirits of the lake had finally risen.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "A secret bomb?",
-      "A chemical weapon?",
-      "An angry spirit?"
-     ]
-    },
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "Some survivors remembered a smell. Like gunpowder, or rotten eggs. That pointed to volcanic gases like hydrogen sulfide. So the first big scientific suspect was obvious. The volcano under the lake had erupted.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "volcanic gas fumarole"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "image",
-     "search": [
-      "volcanic crater lake",
-      "maar lake"
-     ]
-    }
-   ],
-   "pops": [
-    {
-     "text": "SUSPECT #1",
-     "label": "a volcanic eruption",
-     "on": "first big",
-     "kind": "person"
-    }
-   ]
-  },
-  {
-   "say": "Teams of scientists flew in from France, Britain, the United States, Japan and more. And they started to find problems with the volcano theory.",
-   "visuals": [
-    {
-     "type": "reaction",
-     "search": "Lake Nyos scientists investigation documentary",
-     "source": "documentary footage",
-     "quote": "scientists arriving at Lake Nyos"
-    }
-   ]
-  },
-  {
-   "say": "There was no fresh lava. No hot ash. The water was not hot. And when they tested the air and the water for sulfur gases, they found almost nothing.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "No lava. No ash. No heat.",
-      "No sulfur."
-     ]
-    },
-    {
-     "type": "video",
-     "search": [
-      "scientist water sample lake boat"
-     ],
-     "source": "stock"
-    }
-   ]
-  },
-  {
-   "say": "What they found instead was in the deep water. When they pulled samples up from the bottom of the lake, the bottles fizzed. Some of them burst. Like shaking a bottle of soda and opening it.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "soda bottle fizzing opening"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "The bottom of Lake Nyos was full of dissolved carbon dioxide. The same gas you breathe out. The same gas in a fizzy drink.",
-   "visuals": [
-    {
-     "type": "type",
-     "text": "CO2"
-    },
-    {
-     "type": "video",
-     "search": [
-      "bubbles rising water dark"
-     ],
-     "source": "stock"
-    }
-   ],
-   "pops": [
-    {
-     "text": "CO2",
-     "label": "carbon dioxide",
-     "on": "carbon dioxide",
-     "kind": "place"
-    }
-   ]
-  },
-  {
-   "say": "And here is the part that makes this story darker. This had already happened before. Two years earlier. And almost nobody listened.",
-   "visuals": [
-    {
-     "type": "host"
-    }
-   ],
-   "chapter": "The Warning Nobody Heard",
-   "mood": "tense"
-  },
-  {
-   "say": "On August the fifteenth, nineteen eighty four, at another crater lake called Lake Monoun, about a hundred kilometers away, thirty seven people were found dead along a road near the shore.",
-   "visuals": [
-    {
-     "type": "date",
-     "text": "15 August 1984",
-     "sub": "Lake Monoun"
-    },
-    {
-     "type": "map",
-     "view": [
-      8.0,
-      2.5,
-      15.5,
-      8.5
-     ],
-     "points": [
-      {
-       "name": "Lake Monoun",
-       "note": "37 dead, 1984",
-       "at": [
-        10.59,
-        5.58
-       ],
-       "at_time": 0.3,
-       "side": "right"
-      },
-      {
-       "name": "Lake Nyos",
-       "at": [
-        10.298,
-        6.438
-       ],
-       "at_time": 0.6,
+       "at_time": 0.9,
        "side": "left"
       }
      ]
     }
    ],
-   "date": "1984",
-   "pops": [
-    {
-     "text": "37",
-     "label": "dead at Lake Monoun",
-     "on": "thirty seven",
-     "kind": "people"
-    }
-   ]
-  },
-  {
-   "say": "A volcanologist named Haraldur Sigurdsson, from the University of Rhode Island, went to investigate. He found no sign of an eruption. What he found was deep water loaded with carbon dioxide.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Haraldur Sigurdsson volcanologist",
-      "volcanologist field"
-     ]
-    },
-    {
-     "type": "video",
-     "search": [
-      "researcher boat lake sampling"
-     ],
-     "source": "stock"
-    }
-   ],
-   "pops": [
-    {
-     "text": "SIGURDSSON",
-     "label": "volcanologist",
-     "on": "Haraldur Sigurdsson",
-     "kind": "person"
-    }
-   ]
-  },
-  {
-   "say": "He wrote a paper describing what he called a hitherto unknown natural hazard. A lake that could release a deadly cloud of gas. In nineteen eighty six, he sent it to one of the most famous science journals in the world.",
-   "visuals": [
-    {
-     "type": "quote",
-     "text": "A hitherto unknown natural hazard.",
-     "by": "Haraldur Sigurdsson, on Lake Monoun"
-    },
-    {
-     "type": "image",
-     "search": [
-      "scientific journal pages",
-      "research paper 1980s"
-     ]
-    }
-   ]
-  },
-  {
-   "say": "The journal rejected it.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "Rejected."
-     ],
-     "hit": true
-    }
-   ]
-  },
-  {
-   "say": "Months later, Lake Nyos erupted. Nobody can say that one paper would have saved those villages. But the warning was there. Written down. Before the disaster.",
-   "visuals": [
-    {
-     "type": "host"
-    }
-   ],
+   "date": "1219",
    "mood": "sad"
   },
   {
-   "say": "So how does a lake kill seventeen hundred people? The answer is a disaster so rare that it needed a new name. A limnic eruption. A lake eruption.",
-   "visuals": [
-    {
-     "type": "type",
-     "text": "LIMNIC ERUPTION"
-    }
-   ],
-   "chapter": "How a Lake Explodes",
-   "mood": "mystery"
-  },
-  {
-   "say": "Deep under Lake Nyos, there is still volcanic activity. Magma, far below, releases carbon dioxide. That gas seeps up through the rock and into springs at the bottom of the lake.",
+   "say": "Chroniclers of the time wrote numbers so huge they are hard to believe. Hundreds of thousands killed in a single city. Historians think many are exaggerated. But they all agree on this. Cities that resisted were wiped out, as a message to the next city.",
    "visuals": [
     {
      "type": "video",
      "search": [
-      "magma lava underground glowing"
+      "ruins ancient city desert"
      ],
      "source": "stock"
     },
     {
-     "type": "video",
+     "type": "image",
      "search": [
-      "underwater bubbles deep"
-     ],
-     "source": "stock"
-    }
-   ]
-  },
-  {
-   "say": "In most lakes, the water mixes. Warm and cold water swap places with the seasons, and any gas escapes slowly into the air. But Lake Nyos is deep, in the tropics, and protected by its crater walls. Its water barely mixes. The bottom layer stays at the bottom.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "Most lakes mix.",
-      "Nyos does not."
+      "Merv ruins Turkmenistan",
+      "ancient Merv"
      ]
-    },
-    {
-     "type": "video",
-     "search": [
-      "calm still lake no wind"
-     ],
-     "source": "stock"
     }
    ]
   },
   {
-   "say": "Down there, under the pressure of two hundred meters of water, carbon dioxide dissolves and stays dissolved. Year after year, the deep water absorbs more and more gas. Like a bottle of soda being filled... with the cap on tight.",
+   "say": "The Shah ran. He died on a small island in the Caspian Sea, abandoned, the way Temujin's family had once been abandoned on the steppe.",
    "visuals": [
     {
      "type": "video",
      "search": [
-      "pressure soda bottle closeup"
+      "small island sea storm"
      ],
      "source": "stock"
     },
@@ -967,541 +993,254 @@
    ]
   },
   {
-   "say": "Then something disturbs it. Nobody knows exactly what, on that night. Maybe a rockslide into the lake. Maybe cold rain cooling one side. Maybe strong wind. Some scientists think the lake was so unstable that it did not need any trigger at all.",
+   "say": "By then Genghis Khan was in his sixties. He had conquered more land than any man before him. And he began to think about death.",
    "visuals": [
     {
-     "type": "text",
-     "lines": [
-      "A rockslide?",
-      "Cold rain?",
-      "Wind?",
-      "Or nothing at all?"
-     ]
+     "type": "video",
+     "search": [
+      "old man silhouette sunset steppe"
+     ],
+     "source": "stock"
     }
    ],
-   "pops": [
-    {
-     "text": "THE TRIGGER",
-     "label": "still debated",
-     "on": "Nobody knows",
-     "kind": "person"
-    }
-   ]
+   "chapter": "The Fall",
+   "mood": "sad"
   },
   {
-   "say": "Whatever it was, some deep water got pushed upward. As it rose, the pressure dropped. The gas came out as bubbles. The bubbles made the water lighter, so it rose faster, and released even more gas. A chain reaction. The whole lake opened like a shaken bottle.",
+   "say": "He even invited a famous Taoist monk, Changchun, all the way from China, hoping he knew the secret of eternal life. The monk told him the truth. There is no medicine for immortality. Only ways to protect life.",
    "visuals": [
     {
      "type": "video",
      "search": [
-      "bottle explosion slow motion foam"
+      "taoist temple mountain mist"
      ],
      "source": "stock"
-    },
-    {
-     "type": "video",
-     "search": [
-      "champagne opening slow motion"
-     ],
-     "source": "stock"
-    }
-   ]
-  },
-  {
-   "say": "Scientists estimate that between one hundred thousand and three hundred thousand tons of carbon dioxide escaped in a very short time. As a cloud, more than a cubic kilometer of gas.",
-   "visuals": [
-    {
-     "type": "stat",
-     "number": 300000,
-     "suffix": " TONS",
-     "label": "of CO2, at the upper estimate",
-     "note": "estimates range from 100,000 to 300,000 tons"
-    }
-   ]
-  },
-  {
-   "say": "And here is why it killed. Carbon dioxide is about fifty percent heavier than air. So it did not drift away. It sank. It poured into the valleys and pushed the breathable air out of the way.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "Heavier than air.",
-      "It filled the valleys like water."
-     ],
-     "hit": true
-    },
-    {
-     "type": "video",
-     "search": [
-      "dry ice fog flowing floor"
-     ],
-     "source": "stock"
-    }
-   ]
-  },
-  {
-   "say": "At low levels, carbon dioxide is harmless. You breathe it out right now. But at very high concentrations, a person loses consciousness within breaths. Without fresh air, they never wake up.",
-   "visuals": [
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "And the red water? Deep water at Nyos is rich in iron. When it rose to the surface and touched the air, the iron rusted. The whole lake turned the color of rust. The lake had turned itself inside out.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Lake Nyos red",
-      "iron oxide water red"
-     ]
-    },
-    {
-     "type": "type",
-     "text": "INSIDE OUT"
-    }
-   ]
-  },
-  {
-   "say": "A young American scientist, George Kling, from the University of Michigan, had actually sampled Lake Nyos the year before the disaster. He came back after it. Later he remembered, I was numb.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "George Kling limnologist",
-      "University of Michigan Kling"
-     ]
     },
     {
      "type": "quote",
-     "text": "I was numb.",
-     "by": "George Kling, limnologist"
+     "text": "There are means of protecting life, but no medicine for immortality.",
+     "by": "Changchun to Genghis Khan, as recorded (paraphrased)"
     }
    ],
-   "chapter": "Case Solved",
-   "mood": "hopeful",
+   "date": "1222",
    "pops": [
     {
-     "text": "GEORGE KLING",
-     "label": "limnologist, Univ. of Michigan",
-     "on": "George Kling",
+     "text": "CHANGCHUN",
+     "label": "Taoist master",
+     "on": "Changchun",
      "kind": "person"
     }
    ]
   },
   {
-   "say": "Kling, Bill Evans of the U.S. Geological Survey and other teams published their findings in nineteen eighty seven. The mystery was solved. Not a bomb. Not poison. Not a spirit. The lake had suffocated its own valley.",
+   "say": "In twelve twenty six, while hunting wild horses, he fell from his horse and was badly hurt. He refused to go home. He went to war against Western Xia anyway, because they had refused to send him troops.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "wild horses running"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "date",
+     "text": "1226",
+     "sub": "the fall"
+    }
+   ]
+  },
+  {
+   "say": "In August twelve twenty seven, during that campaign, Genghis Khan died. Fall injuries, illness, nobody knows for sure. The Secret History simply says he ascended to heaven.",
    "visuals": [
     {
      "type": "date",
-     "text": "1987",
-     "sub": "Science journal"
+     "text": "August 1227",
+     "sub": "Genghis Khan dies"
     },
+    {
+     "type": "video",
+     "search": [
+      "candle flame dark"
+     ],
+     "source": "stock"
+    }
+   ],
+   "date": "1227"
+  },
+  {
+   "say": "And then came his last mystery. His body was carried back to Mongolia and buried in a secret place. Legend says the funeral party killed anyone who saw them, and horses trampled the ground so no one could find it.",
+   "visuals": [
+    {
+     "type": "video",
+     "search": [
+      "mongolian mountains mist"
+     ],
+     "source": "stock"
+    },
+    {
+     "type": "image",
+     "search": [
+      "Burkhan Khaldun mountain"
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Nearly eight hundred years later, his tomb has never been found.",
+   "visuals": [
     {
      "type": "text",
      "lines": [
-      "Not a bomb. Not poison.",
-      "The lake itself."
+      "800 years.",
+      "No tomb."
      ],
      "hit": true
+    },
+    {
+     "type": "host"
     }
-   ],
-   "date": "1987"
+   ]
   },
   {
-   "say": "And the case of Lake Monoun was solved with it. Two killer lakes, two years apart, same cause. Only two limnic eruptions have ever been recorded in history. Both in Cameroon. Both in the nineteen eighties.",
+   "say": "His sons and grandsons kept going. Under them, the Mongol Empire became the largest connected land empire in history. China, Persia, Russia, all under one family.",
+   "visuals": [
+    {
+     "type": "map",
+     "view": [
+      20,
+      15,
+      140,
+      62
+     ],
+     "regions": [
+      {
+       "points": [
+        [
+         25,
+         45
+        ],
+        [
+         40,
+         55
+        ],
+        [
+         70,
+         58
+        ],
+        [
+         100,
+         55
+        ],
+        [
+         135,
+         50
+        ],
+        [
+         125,
+         25
+        ],
+        [
+         100,
+         20
+        ],
+        [
+         70,
+         28
+        ],
+        [
+         45,
+         30
+        ],
+        [
+         30,
+         38
+        ]
+       ],
+       "label": "MONGOL EMPIRE, 1279",
+       "color": "#c0392b"
+      }
+     ]
+    }
+   ],
+   "chapter": "What He Left Behind",
+   "mood": "epic",
+   "date": "1279"
+  },
+  {
+   "say": "But an empire built on one man's will doesn't survive without him. Within about fifty years of his death, his grandsons were fighting each other, and the empire split into four rival khanates.",
    "visuals": [
     {
      "type": "timeline",
      "events": [
       [
-       1984,
-       "Lake Monoun: 37 dead"
+       1227,
+       "Genghis dies"
       ],
       [
-       1986,
-       "Lake Nyos: 1,746 dead"
+       1260,
+       "grandsons at war, empire splits"
       ],
       [
-       1987,
-       "cause published"
-      ],
-      [
-       2001,
-       "first pipe at Nyos"
-      ],
-      [
-       2011,
-       "two more pipes"
+       1368,
+       "Mongols driven from China"
       ]
+     ]
+    },
+    {
+     "type": "video",
+     "search": [
+      "broken chess pieces"
+     ],
+     "source": "stock"
+    }
+   ]
+  },
+  {
+   "say": "Today, Mongolia sees him as the father of the nation. His face is on their money. Much of Iran, Iraq and Central Asia remembers him as a destroyer. Both are true.",
+   "visuals": [
+    {
+     "type": "image",
+     "search": [
+      "Mongolian tugrik banknote Genghis Khan"
+     ]
+    },
+    {
+     "type": "image",
+     "search": [
+      "Genghis Khan statue Ulaanbaatar Sukhbaatar Square"
      ]
     }
    ]
   },
   {
-   "say": "But solving the mystery raised a terrifying question. The gas was still coming. The lake was already filling up again.",
+   "say": "A study in two thousand three even suggested that millions of men alive today may share a single male ancestor from that time, possibly his family. Whether it's really him is still debated.",
    "visuals": [
     {
-     "type": "host"
+     "type": "stat",
+     "number": 16,
+     "suffix": " MILLION",
+     "label": "men with the same Y-chromosome line",
+     "note": "Zerjal et al., 2003; link to Genghis is debated"
     }
-   ],
-   "mood": "tense"
+   ]
   },
   {
-   "say": "If the lake is a bottle of soda with the cap on, the solution sounds simple. Open the cap. Slowly.",
+   "say": "So what's the lesson of the boy left to starve on the steppe? Loyalty built him. Talent over birth made him unstoppable. And fear held his empire together, until the man who held it was gone.",
    "visuals": [
     {
-     "type": "video",
-     "search": [
-      "opening soda bottle slowly"
-     ],
-     "source": "stock"
+     "type": "text",
+     "lines": [
+      "Loyalty built him.",
+      "Talent made him unstoppable.",
+      "Fear held it together."
+     ]
     }
    ],
-   "chapter": "Defusing the Lake",
+   "chapter": "The Lesson",
    "mood": "hopeful"
   },
   {
-   "say": "A French engineer named Michel Halbwachs had an idea. Put a long pipe from the bottom of the lake to the surface. Pump a little water up to start it. Then, as gas bubbles out in the pipe, the water inside becomes lighter, and it keeps rising on its own. A self-powered fountain. Forever.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Lake Nyos degassing pipe",
-      "Lake Nyos fountain"
-     ]
-    },
-    {
-     "type": "text",
-     "lines": [
-      "A pipe to the bottom.",
-      "The gas pumps itself out."
-     ]
-    }
-   ],
-   "pops": [
-    {
-     "text": "HALBWACHS",
-     "label": "French engineer",
-     "on": "Michel Halbwachs",
-     "kind": "person"
-    }
-   ]
-  },
-  {
-   "say": "Not everyone believed it would work. Some scientists feared that disturbing the lake might trigger the very disaster they were trying to prevent. They tested small pipes in the early nineteen nineties. Then money ran out.",
-   "visuals": [
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "In January two thousand one, the first permanent pipe was switched on at Lake Nyos. It reached about two hundred meters deep. And it sent a fountain of water and gas shooting about forty five meters into the air.",
-   "visuals": [
-    {
-     "type": "date",
-     "text": "January 2001",
-     "sub": "Lake Nyos"
-    },
-    {
-     "type": "reaction",
-     "search": "Lake Nyos degassing pipe fountain",
-     "source": "documentary footage",
-     "quote": "the degassing fountain at Lake Nyos"
-    }
-   ],
-   "date": "2001",
-   "pops": [
-    {
-     "text": "45 M",
-     "label": "height of the fountain",
-     "on": "forty five meters",
-     "kind": "place"
-    }
-   ]
-  },
-  {
-   "say": "But one pipe was too slow. The lake was still taking in gas every year. In twenty eleven, two more pipes were added. Today, scientists say a large part of the dangerous gas has been removed, and the pipes can keep running without outside power.",
-   "visuals": [
-    {
-     "type": "date",
-     "text": "2011",
-     "sub": "two more pipes"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Lake Nyos three pipes",
-      "Lake Nyos degassing 2011"
-     ]
-    }
-   ],
-   "date": "2011"
-  },
-  {
-   "say": "Lake Monoun got pipes too. Two killer lakes. Defused, slowly, by a few scientists and a lot of patience.",
-   "visuals": [
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "But Nyos has another weakness. The natural wall that holds the lake in is made of loose volcanic rock, and it has been wearing away. If it ever collapsed, experts warned, it could send a flood into the valleys below, possibly as far as Nigeria.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Lake Nyos natural dam",
-      "Lake Nyos spillway"
-     ]
-    },
-    {
-     "type": "map",
-     "view": [
-      8.0,
-      2.5,
-      15.5,
-      8.5
-     ],
-     "points": [
-      {
-       "name": "Lake Nyos",
-       "at": [
-        10.298,
-        6.438
-       ],
-       "at_time": 0.3,
-       "side": "right"
-      },
-      {
-       "name": "Nigeria",
-       "at": [
-        9.0,
-        7.2
-       ],
-       "at_time": 0.6,
-       "side": "left"
-      }
-     ]
-    }
-   ],
-   "chapter": "The Wall and the Giant",
-   "mood": "tense"
-  },
-  {
-   "say": "Work has been done to strengthen that wall. But it is a reminder. Nyos was never just a story about gas. It is a story about how little we watch the places that can hurt us.",
-   "visuals": [
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "And there is a much bigger lake that scientists watch very carefully. Lake Kivu, on the border of Rwanda and the Democratic Republic of the Congo.",
-   "visuals": [
-    {
-     "type": "map",
-     "view": [
-      -5,
-      -12,
-      42,
-      16
-     ],
-     "points": [
-      {
-       "name": "Lake Kivu",
-       "at": [
-        29.2,
-        -2.0
-       ],
-       "at_time": 0.4,
-       "side": "right"
-      },
-      {
-       "name": "Lake Nyos",
-       "at": [
-        10.298,
-        6.438
-       ],
-       "at_time": 0.7,
-       "side": "left"
-      }
-     ]
-    },
-    {
-     "type": "video",
-     "search": [
-      "Lake Kivu aerial"
-     ],
-     "source": "stock"
-    }
-   ],
-   "pops": [
-    {
-     "text": "LAKE KIVU",
-     "label": "Rwanda / DR Congo",
-     "on": "Lake Kivu",
-     "kind": "place"
-    }
-   ]
-  },
-  {
-   "say": "Lake Kivu is about two thousand times bigger than Nyos. Its deep water holds huge amounts of dissolved carbon dioxide and methane. And around two million people live near its shores.",
-   "visuals": [
-    {
-     "type": "bars",
-     "title": "Size compared to Lake Nyos",
-     "bars": [
-      [
-       "Lake Nyos",
-       1
-      ],
-      [
-       "Lake Kivu",
-       2000
-      ]
-     ],
-     "note": "Kivu is about 2,000 times larger"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Goma Gisenyi Lake Kivu",
-      "Lake Kivu shore town"
-     ]
-    }
-   ]
-  },
-  {
-   "say": "Some studies once warned the gas was building up. A newer study, published in twenty twenty, corrected that and found no growing risk over time. Today, Rwanda actually pumps methane from Lake Kivu to make electricity, which also slowly removes gas from the lake.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "KivuWatt methane platform",
-      "Lake Kivu gas extraction platform"
-     ]
-    },
-    {
-     "type": "host"
-    }
-   ],
-   "pops": [
-    {
-     "text": "METHANE",
-     "label": "now used for electricity",
-     "on": "methane",
-     "kind": "money"
-    }
-   ]
-  },
-  {
-   "say": "And the survivors? Many were moved to new settlements away from the lake. Their land, their cattle, their homes were left behind. For years, the area around the lake was closed.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "resettlement camp Africa"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "image",
-     "search": [
-      "Lake Nyos survivors",
-      "Lake Nyos resettlement"
-     ]
-    }
-   ],
-   "chapter": "The People Left Behind",
-   "mood": "sad"
-  },
-  {
-   "say": "Some families slowly returned to farm near the valleys again. Others never went back. And many said the same thing. When the scientists leave, we live in fear.",
-   "visuals": [
-    {
-     "type": "quote",
-     "text": "When they leave, we live in fear.",
-     "by": "a resident near the lakes (as reported)"
-    }
-   ]
-  },
-  {
-   "say": "Halima Suley, who lost thirty one relatives that night, rebuilt her life. She and her husband had more children. Life went on, because it had to.",
-   "visuals": [
-    {
-     "type": "video",
-     "search": [
-      "sunrise over African hills"
-     ],
-     "source": "stock"
-    },
-    {
-     "type": "host"
-    }
-   ]
-  },
-  {
-   "say": "Every year, survivors gather to remember the people who died on August the twenty first. The lake is still there. Blue again. Quiet again.",
-   "visuals": [
-    {
-     "type": "image",
-     "search": [
-      "Lake Nyos today",
-      "Lake Nyos blue"
-     ]
-    },
-    {
-     "type": "date",
-     "text": "21 August",
-     "sub": "every year, they remember"
-    }
-   ]
-  },
-  {
-   "say": "So what does Lake Nyos teach us? First. The most dangerous things are not always loud. The deadliest cloud of the twentieth century was invisible and made no sound.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "1. The deadliest things",
-      "can be silent."
-     ]
-    }
-   ],
-   "chapter": "What the Lake Teaches",
-   "mood": "hopeful"
-  },
-  {
-   "say": "Second. Old stories are sometimes data. The people around these lakes had warned about killer lakes for generations. The legends were right. The science just had not caught up.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "2. Old legends",
-      "can be old warnings."
-     ]
-    }
-   ]
-  },
-  {
-   "say": "And third. A warning only works if someone listens. In nineteen eighty four, the lake gave a warning. A scientist wrote it down. And it was rejected.",
-   "visuals": [
-    {
-     "type": "text",
-     "lines": [
-      "3. A warning only works",
-      "if someone listens."
-     ],
-     "hit": true
-    }
-   ]
-  },
-  {
-   "say": "I'm Vix, and this case is closed. If you want more dark mysteries that science finally solved... you know what to do. Stay curious. And stay away from quiet lakes.",
+   "say": "I'm Professor Hoot. If you want to know how his grandsons almost conquered Europe... that story is next. Subscribe, so you don't miss it.",
    "visuals": [
     {
      "type": "host"
