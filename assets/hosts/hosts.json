@@ -1,0 +1,82 @@
+{
+ "raffe": {
+  "name": "Raffe",
+  "species": "giraffe",
+  "tagline": "Long neck, longer memory.",
+  "voice": [
+   [
+    "am_onyx",
+    0.5
+   ],
+   [
+    "am_michael",
+    0.5
+   ]
+  ],
+  "pivot": [
+   400.0,
+   640.0
+  ],
+  "scale": 0.8
+ },
+ "momo": {
+  "name": "Momo",
+  "species": "monkey",
+  "tagline": "Curious about everything. Scared of nothing.",
+  "voice": [
+   [
+    "am_michael",
+    0.6
+   ],
+   [
+    "am_puck",
+    0.4
+   ]
+  ],
+  "pivot": [
+   400.0,
+   716.0
+  ],
+  "scale": 0.8
+ },
+ "hoot": {
+  "name": "Professor Hoot",
+  "species": "owl",
+  "tagline": "I read every file. Twice.",
+  "voice": [
+   [
+    "bm_george",
+    0.6
+   ],
+   [
+    "am_onyx",
+    0.4
+   ]
+  ],
+  "pivot": [
+   400.0,
+   700.0
+  ],
+  "scale": 0.8
+ },
+ "vix": {
+  "name": "Vix",
+  "species": "fox",
+  "tagline": "Every case has a loose thread.",
+  "voice": [
+   [
+    "am_onyx",
+    0.7
+   ],
+   [
+    "am_fenrir",
+    0.3
+   ]
+  ],
+  "pivot": [
+   400.0,
+   708.0
+  ],
+  "scale": 0.8
+ }
+}
