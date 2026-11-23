@@ -685,6 +685,13 @@ class ImageScene(Scene):
                 self.img = None
         self.recut = int(self.v.get("recut") or 0)
         self.move = self.v.get("zoom") or self.MOVES[(self.idx + self.recut * 3) % len(self.MOVES)]
+        self.depth = None
+        dp = self.v.get("depth")
+        if self.img is not None and dp and os.path.exists(A("images", dp)):
+            try:
+                self.depth = Image.open(A("images", dp)).convert("L").resize(self.img.size, Image.BILINEAR)
+            except Exception:
+                self.depth = None
         self.fb = None
         if self.img is not None:
             iw, ih = self.img.size
@@ -733,7 +740,7 @@ class ImageScene(Scene):
         sc = max(W / iw, H / ih)
         m = self.move
         detail = self.recut > 0
-        if dur > 5.2 and not self.recut:  # long shot: cut to a closer detail of the same picture halfway
+        if dur > 5.2 and not self.recut and self.depth is None:  # long shot: cut to a closer detail of the same picture halfway
             half = dur / 2
             if t >= half:
                 t, dur, detail = t - half, dur - half, True
@@ -779,8 +786,30 @@ class ImageScene(Scene):
         x1, y1 = min(float(iw), x0 + vw), min(float(ih), y0 + vh)
         self.last_box = (x0, y0, x1, y1)
         frame = im.resize((W, H), Image.BILINEAR, box=(x0, y0, x1, y1))
+        if self.depth is not None:
+            frame = self._parallax(frame, self.depth.resize((W, H), Image.BILINEAR, box=(x0, y0, x1, y1)), p, m)
         frame = vignette(frame, 0.62)
         return self._caption(frame, t)
+
+    _GRID = {}
+
+    def _parallax(self, frame, dep, p, m):
+        """2.5D camera: near things (white in the depth map) slide and grow more than far things, like real footage."""
+        import cv2
+        W, H = self.W, self.H
+        if (W, H) not in self._GRID:
+            ys, xs = np.mgrid[0:H, 0:W].astype(np.float32)
+            self._GRID[(W, H)] = (xs, ys)
+        xs, ys = self._GRID[(W, H)]
+        d = np.asarray(dep, np.float32) / 255.0 - 0.35
+        q = p - 0.5
+        sx = {"left": 1.0, "right": -1.0}.get(m, 0.45 if self.idx % 2 else -0.45)
+        sy = -0.35 if m == "up" else 0.12
+        zoom = {"in": 0.055, "out": -0.055}.get(m, 0.03) * p
+        mx = W / 2 + (xs - W / 2) * (1 - zoom * d) - sx * 0.028 * W * q * d
+        my = H * 0.45 + (ys - H * 0.45) * (1 - zoom * d) - sy * 0.028 * H * q * d
+        out = cv2.remap(np.asarray(frame), mx.astype(np.float32), my.astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+        return Image.fromarray(out)
 
     def _portrait_frame(self, t, dur):
         W, H = self.W, self.H
@@ -887,8 +916,15 @@ class MapScene(Scene):
         super().__init__(*a)
         v = self.v
         aspect = self.W / self.H
-        self.b0 = fit_bbox(v.get("from") or v.get("view") or [-20, 0, 40, 40], aspect)
-        self.b1 = fit_bbox(v.get("to") or v.get("view") or v.get("from") or [-20, 0, 40, 40], aspect)
+        def _wide(b):
+            b = list(b)
+            if b[2] - b[0] < 3.2:
+                cx, cy, hw = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2, 1.6
+                hh = max((b[3] - b[1]) / 2, hw * 0.6)
+                b = [cx - hw, cy - hh, cx + hw, cy + hh]
+            return b
+        self.b0 = fit_bbox(_wide(v.get("from") or v.get("view") or [-20, 0, 40, 40]), aspect)
+        self.b1 = fit_bbox(_wide(v.get("to") or v.get("view") or v.get("from") or [-20, 0, 40, 40]), aspect)
         self.cl = math.cos(math.radians((self.b1[1] + self.b1[3]) / 2))
         self.regions = []
         for r in v.get("regions") or []:
@@ -1093,6 +1129,10 @@ def master_voice(a):
     return out * (0.95 / pk) if pk > 0.95 else out
 
 
+HOST_NEURAL = {"raffe": ("en-US-AndrewMultilingualNeural", "-2Hz"), "momo": ("en-US-BrianMultilingualNeural", "+0Hz"),
+               "hoot": ("en-GB-RyanNeural", "-2Hz"), "vix": ("en-US-ChristopherNeural", "-3Hz")}
+
+
 class Voice:
     def __init__(self, cfg):
         self.voice = cfg.get("voice", "saim")
@@ -1117,12 +1157,21 @@ class Voice:
             return np.zeros(int(SR * (0.35 + n_words / (2.4 * max(0.6, self.speed)))), np.float32)
         t = tts_text(text)
         mix = json.dumps(SAIM_MIX.get(self.voice, "")) + SAIM_CHAIN if self.voice.startswith(("saim", "host_")) else ""
+        if self.voice.startswith("host_") and settings().get("neural_voice", True) is not False:
+            mix += "|neural1"
         cache = A("cache", "voice", hashlib.sha1(f"{self.voice}|{self.speed}|{mix}|{t}".encode()).hexdigest() + ".npy")
         if os.path.exists(cache):
             return np.load(cache)
         a = None
         errors = []
-        if self.voice == "saim_neural":  # Microsoft's natural online voice, slowed and lowered, then mastered
+        if self.voice.startswith("host_") and settings().get("neural_voice", True) is not False and HOST_NEURAL.get(self.voice[5:]):
+            nm, pitch = HOST_NEURAL[self.voice[5:]]
+            try:
+                a = master_voice(self._edge(t, nm, rate=f"{int((self.speed * 0.97 - 1) * 100):+d}%", pitch=pitch))
+                self.kind = "neural"
+            except Exception as e:
+                errors.append(f"neural voice: {e}")
+        if a is None and self.voice == "saim_neural":  # Microsoft's natural online voice, slowed and lowered, then mastered
             try:
                 a = master_voice(self._edge(t, "en-US-AndrewMultilingualNeural", rate=f"{int((self.speed * 0.92 - 1) * 100):+d}%", pitch="-3Hz"))
                 self.kind = "saim_neural"
@@ -2550,7 +2599,14 @@ UA = {"User-Agent": "SaimShafiHistoryEngine/4.0 (https://github.com/Saimshafi0; 
 
 
 def http_json(url, data=None, headers=None, timeout=25):
-    req = urllib.request.Request(url, data=data, headers={**UA, **(headers or {})})
+    headers = dict(headers or {})
+    if "generativelanguage.googleapis.com" in url and "key=" in url:  # Google key in a header (works for AIza... and the new AQ. keys)
+        u = urllib.parse.urlsplit(url)
+        qs = urllib.parse.parse_qsl(u.query)
+        k = next((v for n, v in qs if n == "key"), "")
+        url = urllib.parse.urlunsplit(u._replace(query=urllib.parse.urlencode([(n, v) for n, v in qs if n != "key"])))
+        headers["x-goog-api-key"] = k
+    req = urllib.request.Request(url, data=data, headers={**UA, **headers})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.loads(r.read().decode())
 
@@ -2757,6 +2813,8 @@ SOURCES = [("commons", commons_candidates), ("openverse", openverse_candidates),
 def ai_painting(prompt, path):
     """Backup when no real picture exists: an AI illustration (Gemini if you have a key, otherwise a free service).
     It is marked "AI ILLUSTRATION" on screen and in the credits."""
+    if not gemini_key():
+        raise RuntimeError("402 no image AI")
     if gemini_key():
         gemini_image("A realistic, historically accurate documentary illustration, cinematic lighting, muted colours, no text, no logos, "
                      "no recognisable real person's face: " + prompt, [], path, "16:9")
@@ -2987,6 +3045,447 @@ def set_era(script):
                         v["search"] = [q[0] + " " + region] + q[1:]
 
 
+# ================================================================== AI EYES: every picture and clip is LOOKED AT before it goes in
+#
+# Stock sites answer "lake" with Swiss fountains and "cattle" with Dutch cows. Gemini (free key) looks at each
+# candidate next to the narration and the story's place and era, and throws out anything that does not belong:
+# wrong country, wrong era, cartoons / anime / fantasy / AI art, coins and objects that only match a word.
+
+VISION_CTX = {"title": "", "region": "", "era": ""}
+_VIS_LOCK = threading.Lock()
+_VIS_LAST = [0.0]
+
+
+def vision_ready():
+    return bool(gemini_key()) and settings().get("vision_check", True) is not False
+
+
+def set_vision_context(script):
+    ys = script.get("era") or []
+    if not ys:
+        ys = sorted({int(y) for sc in script["scenes"] for y in re.findall(r"\b(1[0-9]{3}|20[0-2][0-9])\b", str(sc.get("date", "")))})
+    VISION_CTX.update(title=script.get("title", ""), region=script.get("region", ""),
+                      era=(f"{min(ys)}-{max(ys)}" if ys else ""))
+
+
+def _vis_cache():
+    return _json_read(A("images", "_vision.json"), {})
+
+
+def vision_check(paths, say="", query=""):
+    """[True/False per picture]. True = it fits this moment of the story. None = could not check (then nothing is rejected)."""
+    import base64
+    if not paths or not vision_ready():
+        return None
+    ids = []
+    for pth in paths:
+        try:
+            ids.append(hashlib.sha1(open(pth, "rb").read(200_000)).hexdigest()[:16] + "|" + hashlib.sha1((say + query).encode()).hexdigest()[:8])
+        except OSError:
+            ids.append(None)
+    cache = _vis_cache()
+    todo = [i for i, k in enumerate(ids) if k and k not in cache]
+    if todo:
+        parts = [{"text": (
+            "You are the picture editor of a serious history documentary. Judge each picture below for ONE shot.\n"
+            f"Documentary: {VISION_CTX['title']}\nWhere the story happens: {VISION_CTX['region'] or 'see narration'}\n"
+            f"When: {VISION_CTX['era'] or 'see narration'}\nNarration over this shot: \"{say[:400]}\"\nSearch used: \"{query}\"\n\n"
+            "Say ok=true only if a viewer would accept the picture as showing this story, this place or this kind of thing. "
+            "A neutral mood shot (night sky, desert, water, fog, fire, old paper) is ok if nothing in it contradicts the place or era.\n"
+            "ok=false if ANY of these: it is clearly another country or landmark (Alps, European farms or towns, a famous fountain, "
+            "American or Canadian lakes and mountains for an African or Asian story); a modern thing in an old story; a coin, stamp, "
+            "logo, poster or text that only matches a word or a year; cartoon, anime, video game, fantasy, obvious AI art; "
+            "a posed stock-photo model; a watermark; a blurry or empty picture; a map in an unreadable script.\n"
+            f"There are {len(todo)} pictures, in order. Answer only JSON: {{\"ok\": [true or false for each picture], \"why\": [3-6 words each]}}")}]
+        for i in todo:
+            im = Image.open(paths[i]).convert("RGB")
+            im.thumbnail((512, 512))
+            b = __import__("io").BytesIO()
+            im.save(b, "JPEG", quality=80)
+            parts.append({"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(b.getvalue()).decode()}})
+        body = {"contents": [{"parts": parts}], "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
+        ans = None
+        for attempt in range(6):
+            with _VIS_LOCK:  # free key: stay under about 9 requests a minute
+                wait = _VIS_LAST[0] + 6.8 - time.time()
+                if wait > 0:
+                    time.sleep(wait)
+                _VIS_LAST[0] = time.time()
+            for model in (settings().get("vision_model") or "gemini-2.5-flash", "gemini-2.5-flash-lite"):
+                try:
+                    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={urllib.parse.quote(gemini_key())}"
+                    d = http_json(url, json.dumps(body).encode(), {"Content-Type": "application/json"}, timeout=90)
+                    txt = "".join(x.get("text", "") for x in ((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
+                    j = json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
+                    ok = [bool(x) for x in j.get("ok") or []]
+                    if len(ok) == len(todo):
+                        ans = (ok, j.get("why") or [])
+                        break
+                except Exception as e:
+                    if "429" in str(e) or "503" in str(e):
+                        time.sleep(15 * (attempt + 1))
+                    continue
+            if ans:
+                break
+        if not ans:
+            return None
+        cache = _vis_cache()
+        for n, i in enumerate(todo):
+            cache[ids[i]] = [ans[0][n], (ans[1][n] if n < len(ans[1]) else "")[:60]]
+        _json_write(A("images", "_vision.json"), cache)
+    return [bool(cache.get(k, [True])[0]) if k else True for k in ids]
+
+
+# ================================================================== v6 SHOTS: every 3-4 seconds a picture made FOR that exact line
+#
+# Big documentary channels don't find their pictures, they MAKE them: an AI picture for every line of narration, all in
+# one film look, then moved in 3D (parallax) so stills feel like footage. Free:
+#   1. Gemini (free key) plans the shots: one exact picture description for every 3-4 seconds of narration.
+#   2. Cloudflare Workers AI (free account, 10,000 "neurons" a day = about 150 pictures) paints them with FLUX.2.
+#   3. A small depth model (MiDaS, runs on the cloud computer) gives every picture depth, and the camera moves into it.
+# Real photos / archive footage the script asks for by name are kept (and checked by the AI eyes).
+
+SHOT_SEC = 3.6
+SHOT_VER = 2
+FILM_LOOK = ("cinematic documentary film still, photorealistic, shot on 35mm film, natural dramatic light, deep shadows, "
+             "rich but muted colours, fine film grain, high detail, sharp focus, 16:9 widescreen composition. "
+             "No text, no letters, no writing, no logo, no watermark, no border, no frame")
+FIXED_TYPES = ("map", "date", "type", "text", "stat", "quote", "bars", "timeline", "host", "reaction", "casefile", "title", "count", "year")
+
+
+def cf_ready():
+    return bool(secret("cf_account") and secret("cf_token"))
+
+
+def shots_ready():
+    return cf_ready() or bool(gemini_key() and settings().get("gemini_images"))
+
+
+class QuotaOver(Exception):
+    pass
+
+
+_CF_DEAD = {}
+
+
+def _cf_run(model, prompt, out):
+    import base64
+    import uuid
+    acc, tok = secret("cf_account"), secret("cf_token")
+    url = f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/black-forest-labs/{model}"
+    if model.startswith("flux-2"):
+        bd = "----docengine" + uuid.uuid4().hex
+        body = b""
+        for k, v in (("prompt", prompt), ("width", "1024"), ("height", "576")):
+            body += f"--{bd}\r\nContent-Disposition: form-data; name=\"{k}\"\r\n\r\n{v}\r\n".encode()
+        body += f"--{bd}--\r\n".encode()
+        hdr = {"Authorization": f"Bearer {tok}", "Content-Type": f"multipart/form-data; boundary={bd}"}
+    else:
+        body = json.dumps({"prompt": prompt[:2000], "steps": 6}).encode()
+        hdr = {"Authorization": f"Bearer {tok}", "Content-Type": "application/json"}
+    req = urllib.request.Request(url, data=body, headers={**UA, **hdr})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            raw, ctype = r.read(), r.headers.get("Content-Type", "")
+    except urllib.error.HTTPError as e:
+        msg = e.read().decode("utf-8", "replace")[:300]
+        if e.code == 429 or "4006" in msg or "allocation" in msg.lower() or "neurons" in msg.lower():
+            raise QuotaOver(msg)
+        raise RuntimeError(f"{e.code} {msg}")
+    if ctype.startswith("image/"):
+        data = raw
+    else:
+        j = json.loads(raw.decode())
+        res = j.get("result") or {}
+        b64 = res.get("image") if isinstance(res, dict) else None
+        if not b64:
+            raise RuntimeError("no picture in the answer: " + raw.decode()[:200])
+        data = base64.b64decode(b64)
+    im = Image.open(__import__("io").BytesIO(data)).convert("RGB")
+    tw_, th_ = 1920, 1080
+    sc = max(tw_ / im.width, th_ / im.height)
+    im = im.resize((int(im.width * sc + 0.5), int(im.height * sc + 0.5)), Image.LANCZOS)
+    x0, y0 = (im.width - tw_) // 2, int((im.height - th_) * 0.4)
+    im = im.crop((x0, y0, x0 + tw_, y0 + th_)).filter(ImageFilter.UnsharpMask(2, 60, 2))
+    im.save(out, quality=92)
+    return out
+
+
+def gen_image(prompt, out):
+    """One picture for one shot. Cloudflare FLUX.2 first (free daily quota), then FLUX.1, then Gemini (only if billing is on)."""
+    full = prompt.strip().rstrip(".") + ". " + FILM_LOOK
+    errs = []
+    if cf_ready():
+        for model in ("flux-2-klein-4b", "flux-1-schnell"):
+            if _CF_DEAD.get(model):
+                continue
+            for attempt in range(3):
+                try:
+                    return _cf_run(model, full, out)
+                except QuotaOver as e:
+                    _CF_DEAD[model] = str(e)[:120]
+                    errs.append(f"{model}: daily free pictures used up")
+                    break
+                except Exception as e:
+                    errs.append(f"{model}: {str(e)[:120]}")
+                    time.sleep(3 * (attempt + 1))
+    if gemini_key() and settings().get("gemini_images"):
+        try:
+            return gemini_image(full, [], out, "16:9")
+        except Exception as e:
+            errs.append(f"gemini: {str(e)[:120]}")
+    raise RuntimeError(" | ".join(errs) or "no picture AI set up")
+
+
+def _scene_secs(say):
+    return 0.4 + len(say.split()) / 2.35 + 0.45 * max(1, len(split_sentences(say)))
+
+
+def _vis_label(v):
+    t = v.get("type")
+    if t in ("image", "video"):
+        return f"{t} (search: {' / '.join(_queries(v))[:80]}{', archive' if v.get('source') == 'archive' else ''})"
+    if t == "reaction":
+        return f"reaction clip ({v.get('search', '')})"
+    if t == "map":
+        return "map"
+    if t == "host":
+        return "the narrator on screen"
+    return f"{t} card ({' '.join(str(x) for x in (v.get('lines') or [v.get('text') or v.get('number') or v.get('title') or '']))[:60]})"
+
+
+def _ai_call_json(prompt):
+    """Gemini text answer as JSON (free key), spaced out to stay under the free limit."""
+    key = gemini_key()
+    body = {"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.7, "responseMimeType": "application/json"}}
+    last = ""
+    for attempt in range(6):
+        with _VIS_LOCK:
+            wait = _VIS_LAST[0] + 6.8 - time.time()
+            if wait > 0:
+                time.sleep(wait)
+            _VIS_LAST[0] = time.time()
+        for model in (settings().get("gemini_model") or "gemini-2.5-flash", "gemini-2.5-flash-lite"):
+            try:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={urllib.parse.quote(key)}"
+                d = http_json(url, json.dumps(body).encode(), {"Content-Type": "application/json"}, timeout=180)
+                txt = "".join(x.get("text", "") for x in ((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
+                return json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
+            except Exception as e:
+                last = str(e)[:160]
+                if "429" in last or "503" in last:
+                    time.sleep(12 * (attempt + 1))
+    raise RuntimeError("shot planner: " + last)
+
+
+SHOT_RULES = """You are the director and picture editor of a top history/mystery documentary channel (like the best on YouTube).
+For each scene you get the narration and the visuals already planned. Make the full SHOT LIST for the scene: one shot every 3-4 seconds,
+in the order the words are spoken, so the picture always shows exactly what the narrator is saying at that moment.
+
+Return JSON: {"scenes": [{"n": <scene number>, "order": [ ... ]}, ...]}
+"order" items are either an INTEGER = keep that planned visual at this point, or a STRING = a new picture to paint (its description).
+- Keep EVERY planned visual that is not an image/video (maps, cards, the narrator, reaction clips): put their numbers where they fit.
+- Keep a planned image/video ONLY if it names a real, famous thing that has real photos or archive footage (a named landmark,
+  a famous artwork, the real place, historic news footage). Replace generic stock searches ("lake aerial", "cattle grazing") by new pictures.
+- The total number of items must be about the number of shots asked for that scene.
+
+How to write each new picture (40-70 words, English):
+- ONE concrete moment: who/what, doing what, where, when. Name the exact place and era details: landscape, buildings, clothing,
+  tools, vehicles, skin tones and dress of the local people, weather, time of day. Example quality: "Night, 1986, a small farming village
+  of mud-brick huts with rusted tin roofs on a green hillside in northwest Cameroon, a thin white mist creeping between the huts at ground
+  level, a single kerosene lamp glowing in a doorway, wide low-angle shot".
+- Vary the camera like a film: wide establishing shot, aerial drone view, medium shot, close-up of hands or objects, over-the-shoulder,
+  low angle, cross-section cutaway diagram-style (realistic) for science, underwater, macro. Never two similar shots in a row.
+- Keep recurring people consistent: describe them the same way every time (age, clothes).
+- A REAL named person (a king, a scientist, a survivor): never show their face. Show them from behind, in silhouette, their hands,
+  or the room they were in. Unnamed generic people are fine.
+- No text, signs, documents with writing, maps or logos in the picture (the engine draws those itself).
+- No blood, no gore, no visible dead human bodies; show loss through empty places, objects left behind, light and mood.
+- Nothing modern in an old story, nothing from the wrong country.
+"""
+
+
+def plan_shots(script):
+    """Turns every scene into a shot list: kept visuals + new AI pictures, one every ~3.6 s. Cached, so the same script
+    always gets the same pictures (and the free picture quota is never spent twice)."""
+    if not (gemini_key() and shots_ready()):
+        return 0
+    os.makedirs(A("images"), exist_ok=True)
+    cache_p = A("images", "_shots.json")
+    cache = _json_read(cache_p, {})
+    region = script.get("region") or ""
+    head = f"Documentary: {script.get('title', '')}\nWhere: {region or 'see narration'}\n"
+    jobs = []
+    for i, sc in enumerate(script["scenes"]):
+        vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
+        sc["visuals"] = vis
+        sc.pop("visual", None)
+        say = sc.get("say") or ""
+        need = max(1, round(_scene_secs(say) / SHOT_SEC))
+        if vis and all(v.get("type") in ("host", "reaction") for v in vis) and need <= 3:
+            continue  # a short narrator moment stays on the narrator
+        k = hashlib.sha1(json.dumps([SHOT_VER, script.get("title"), say, [_vis_label(v) for v in vis], need]).encode()).hexdigest()[:20]
+        jobs.append((i, sc, vis, need, k))
+    todo = [j for j in jobs if j[4] not in cache]
+    log(f"  shot list: {sum(j[3] for j in jobs)} shots for {len(jobs)} scenes ({len(todo)} scenes to plan)")
+    for b in range(0, len(todo), 6):
+        part = todo[b:b + 6]
+        txt = head + "\n".join(
+            f"\nSCENE {i}: shots asked: {need}\nNarration: \"{sc.get('say', '')}\"\nPlanned visuals: "
+            + "; ".join(f"[{n}] {_vis_label(v)}" for n, v in enumerate(vis))
+            for i, sc, vis, need, k in part)
+        try:
+            ans = _ai_call_json(SHOT_RULES + "\n\n" + txt)
+        except Exception as e:
+            log(f"  shot planner failed ({str(e)[:90]}); those scenes keep the old way")
+            continue
+        got = {int(x.get("n", -1)): x.get("order") or [] for x in ans.get("scenes") or [] if isinstance(x, dict)}
+        for i, sc, vis, need, k in part:
+            order = got.get(i)
+            if not order:
+                continue
+            fixed = {n for n, v in enumerate(vis) if v.get("type") in FIXED_TYPES}
+            seen, clean = set(), []
+            for it in order:
+                if isinstance(it, int) and 0 <= it < len(vis) and it not in seen:
+                    seen.add(it)
+                    clean.append(it)
+                elif isinstance(it, str) and len(it.split()) >= 6:
+                    clean.append(it.strip())
+            for n in sorted(fixed - seen):  # a card the planner forgot: put it back where it was
+                clean.insert(min(len(clean), n), n)
+            if any(isinstance(x, str) for x in clean):
+                cache[k] = clean
+        _json_write(cache_p, cache)
+        print(f"\r   planning shots {min(b + 6, len(todo))}/{len(todo)} scenes", end="", flush=True)
+    if todo:
+        print()
+    n_new = 0
+    for i, sc, vis, need, k in jobs:
+        order = cache.get(k)
+        if not order:
+            continue
+        new = []
+        for it in order:
+            if isinstance(it, int):
+                if it < len(vis):
+                    new.append(vis[it])
+            else:
+                fb = next((v for v in vis if v.get("type") in ("image", "video") and _queries(v)), None)
+                new.append({"type": "image", "gen": it, "fill": True, "style": "full",
+                            "search": _queries(fb) if fb else [" ".join(it.split()[:6])]})
+                n_new += 1
+        sc["visuals"] = new
+        sc["planned"] = True
+    log(f"  {n_new} pictures will be painted for their exact line")
+    return n_new
+
+
+# ------------------------------------------------------------------ depth for the 3D camera move
+
+MIDAS_URL = "https://github.com/isl-org/MiDaS/releases/download/v2_1/model-small.onnx"
+_DEPTH = {}
+
+
+def _depth_session():
+    if "s" not in _DEPTH:
+        _DEPTH["s"] = None
+        try:
+            import onnxruntime as ort
+            p = A("models", "midas_small.onnx")
+            if not os.path.exists(p) or os.path.getsize(p) < 60_000_000:
+                os.makedirs(A("models"), exist_ok=True)
+                raw = http_bytes(MIDAS_URL, timeout=300)
+                with open(p + ".part", "wb") as f:
+                    f.write(raw)
+                os.replace(p + ".part", p)
+            _DEPTH["s"] = ort.InferenceSession(p, providers=["CPUExecutionProvider"])
+        except Exception as e:
+            log(f"  (3D camera move off: {str(e)[:80]})")
+    return _DEPTH["s"]
+
+
+def make_depth(img_path):
+    """images/<x>.jpg -> images/<x>.depth.png (white = near). Returns the path or None."""
+    out = os.path.splitext(img_path)[0] + ".depth.png"
+    if os.path.exists(out):
+        return out
+    sess = _depth_session()
+    if sess is None:
+        return None
+    im = Image.open(img_path).convert("RGB")
+    a = np.asarray(im.resize((256, 256), Image.BICUBIC), np.float32) / 255.0
+    a = (a - np.array([0.485, 0.456, 0.406], np.float32)) / np.array([0.229, 0.224, 0.225], np.float32)
+    d = sess.run(None, {sess.get_inputs()[0].name: a.transpose(2, 0, 1)[None].astype(np.float32)})[0][0]
+    lo, hi = np.percentile(d, 2), np.percentile(d, 98)
+    d = np.clip((d - lo) / max(1e-6, hi - lo), 0, 1)
+    dm = Image.fromarray((d * 255).astype(np.uint8)).resize((640, int(640 * im.height / im.width)), Image.BICUBIC)
+    dm = dm.filter(ImageFilter.GaussianBlur(6))
+    dm.save(out)
+    return out
+
+
+def generate_shots(script):
+    """Paints every planned picture (cached in images/), then makes its depth map. A picture that can't be painted
+    falls back to the normal real-picture search for that scene."""
+    from concurrent.futures import ThreadPoolExecutor
+    want = []
+    for sc in script["scenes"]:
+        for v in sc.get("visuals") or []:
+            if v.get("gen"):
+                fn = "g_" + hashlib.sha1(v["gen"].encode()).hexdigest()[:16] + ".jpg"
+                v["gen_file"] = fn
+                want.append(v)
+    if not want:
+        return 0
+    todo, seen_ = [], set()
+    for v in want:
+        if not os.path.exists(A("images", v["gen_file"])) and v["gen_file"] not in seen_:
+            seen_.add(v["gen_file"])
+            todo.append(v)
+    log(f"  painting {len(todo)} new pictures ({len(want) - len(todo)} already made)")
+    fails = []
+
+    def one(v):
+        try:
+            gen_image(v["gen"], A("images", v["gen_file"]))
+            return True
+        except Exception as e:
+            fails.append(str(e)[:160])
+            return False
+    done = 0
+    with ThreadPoolExecutor(3) as ex:
+        for i, ok in enumerate(ex.map(one, todo), 1):
+            done += ok
+            print(f"\r   painting pictures {i}/{len(todo)}", end="", flush=True)
+    if todo:
+        print()
+    if fails:
+        log(f"  {len(fails)} pictures could not be painted ({fails[-1][:120]}); real pictures are used there instead")
+    have = 0
+    for v in want:
+        if os.path.exists(A("images", v["gen_file"])):
+            v["file_fixed"] = v["file"] = v["gen_file"]
+            have += 1
+        else:
+            v.pop("gen", None)  # back to a normal picture search
+            v.pop("fill", None)
+            v.pop("style", None)
+    n = 0
+    for v in want:
+        if v.get("file_fixed"):
+            try:
+                if make_depth(A("images", v["file_fixed"])):
+                    v["depth"] = os.path.splitext(v["file_fixed"])[0] + ".depth.png"
+                    n += 1
+            except Exception:
+                pass
+            print(f"\r   depth for the 3D move {n}/{have}", end="", flush=True)
+    if have:
+        print()
+    return have
+
+
 def resolve_pictures(script, use_ai=True):
     """Finds a real picture for every image slide. The same picture is never used twice in one video:
     if a search repeats, the next picture for that search is used; copies of the same picture are detected by fingerprint."""
@@ -2998,6 +3497,7 @@ def resolve_pictures(script, use_ai=True):
             if v.get("type") != "image":
                 continue
             if v.get("file_fixed") and os.path.exists(A("images", v["file_fixed"])):
+                v["file"] = v["file_fixed"]
                 continue
             key = img_key(v)
             slides.append((key, v))
@@ -3068,6 +3568,29 @@ def resolve_pictures(script, use_ai=True):
                 print(f"\r   downloading pictures {i}/{len(jobs)}  ({50 + i * 50 // len(jobs)}%)", end="", flush=True)
         print()
 
+    if vision_ready():
+        set_vision_context(script)
+        say_of = {}
+        for key, v in slides:
+            si = scene_of.get(id(v), -1)
+            say_of.setdefault(key, script["scenes"][si].get("say", "") if si >= 0 else "")
+        n_bad, keys_ = 0, list(options)
+        for i, key in enumerate(keys_, 1):
+            opts, weak = options[key]
+            pool = [c for c in (opts + weak)[:need.get(key, 1) + 4] if not c["url"].startswith("own:") and os.path.exists(A("images", cand_file(key, c)))]
+            if pool:
+                res = vision_check([A("images", cand_file(key, c)) for c in pool], say_of.get(key, ""), key.replace("_", " "))
+                for c, ok in zip(pool, res or []):
+                    if not ok:
+                        c["bad"] = True
+                        c["unfit"] = True
+                        n_bad += 1
+            print(f"\r   AI is checking that every picture fits the story {i}/{len(keys_)}", end="", flush=True)
+        print()
+        log(f"  {n_bad} pictures thrown out by the AI check (wrong place, wrong era, cartoons, junk)")
+        for key, (opts, weak) in options.items():
+            options[key] = ([c for c in opts if not c.get("unfit")], [c for c in weak if not c.get("unfit")])
+
     used_urls, used_hash, credits, missing, last_in_scene = set(), [], [], [], []
     uses = {}  # file -> how many times it was used (only > 1 when there was truly no other picture)
     by_key = {}
@@ -3087,6 +3610,14 @@ def resolve_pictures(script, use_ai=True):
         if _same_picture(h, used_hash):
             used_urls.add(c["url"])
             return None
+        if vision_ready() and "checked" not in c and not c["url"].startswith("own:"):
+            c["checked"] = True
+            si = next((scene_of.get(id(v_)) for k_, v_ in slides if k_ == key), -1)
+            r = vision_check([path], script["scenes"][si].get("say", "") if si is not None and si >= 0 else "", key.replace("_", " "))
+            if r and not r[0]:
+                c["bad"] = True
+                used_urls.add(c["url"])
+                return None
         return fn, h
 
     def first_unused(key, pool):
@@ -3429,7 +3960,7 @@ def _video_candidates(key, v, state):
     return ranked
 
 
-MAX_SHOT = 4.6   # seconds one visual may stay on screen
+MAX_SHOT = 3.8   # seconds one visual may stay on screen
 MAX_USES = 2     # how often the same picture/clip moment may appear in one video
 
 
@@ -3442,6 +3973,9 @@ def expand_visuals(script):
     backups = [{"type": "image", "search": [q], "backup": True} for q in backup_searches(script)]
     bk = 0
     for sc in script["scenes"]:
+        if sc.get("planned"):
+            last_pool = [v for v in sc.get("visuals") or [] if v.get("type") in ("image", "video") and _queries(v)][-3:] or last_pool
+            continue
         say = sc.get("say") or ""
         est = 0.4 + len(say.split()) / 2.35 + 0.45 * max(1, len(split_sentences(say)))
         vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
@@ -3464,7 +3998,7 @@ def expand_visuals(script):
         sc.pop("visual", None)
         if pool:
             last_pool = [v for v in vis if v.get("type") in ("image", "video") and _queries(v)][-3:]
-    log(f"  {added} extra shots planned so no picture stays longer than about 4-5 seconds")
+    log(f"  {added} extra shots planned so no picture stays longer than about 4 seconds")
     return added
 
 
@@ -3484,6 +4018,12 @@ def resolve_videos(script, W, H, fps):
                 slides.append(("r_" + img_key(v), v))
     if not slides:
         return []
+    say_of = {}
+    for sc in script["scenes"]:
+        for v in (sc.get("visuals") or []):
+            say_of[id(v)] = sc.get("say", "")
+    if vision_ready():
+        set_vision_context(script)
     log(f"  {len(slides)} video slides")
     state = {"dead": set(), "lock": threading.Lock()}
     cands = {}
@@ -3520,6 +4060,14 @@ def resolve_videos(script, W, H, fps):
             try:
                 if not os.path.exists(os.path.join(d, "info.json")):
                     _cut_clip(c, d, W, H, fps, start=0.0 if c["src"] == "own" else None)
+                if vision_ready() and c.get("src") != "own":
+                    fr = sorted(f for f in os.listdir(d) if f.endswith(".jpg"))
+                    if fr:
+                        r = vision_check([os.path.join(d, fr[len(fr) // 2])], say_of.get(id(v), ""), " ".join(_queries(v)))
+                        if r and not r[0]:
+                            used.add(c["url"])
+                            why.append(f"{c.get('src')}: AI check said it does not fit")
+                            continue
                 done = (c, d)
                 break
             except Exception as e:
@@ -4083,18 +4631,12 @@ def host_room(hid, W, H):
                     d.rectangle([x, y + int(160 * s) - bh, x + bw, y + int(160 * s)], fill=col)
                     x += bw + int(rng.integers(2, 6) * s)
         glow, tint = (640 / 1280, 250 / 720), (60, 38, 14)
-    elif hid == "vix":  # detective office: window blinds, evidence board
-        for k in range(14):
-            y = int((80 + k * 46) * s)
-            d.rectangle([int(1180 * s), y, int(1820 * s), y + int(22 * s)], fill=(70, 74, 86))
-        d.rectangle([int(90 * s), int(140 * s), int(700 * s), int(640 * s)], fill=(74, 52, 34))
-        for k in range(9):
-            x, y = int((120 + rng.integers(0, 480)) * s), int((170 + rng.integers(0, 380)) * s)
-            d.rectangle([x, y, x + int(110 * s), y + int(80 * s)], fill=(214, 206, 186))
-            d.ellipse([x + int(48 * s), y - int(8 * s), x + int(62 * s), y + int(6 * s)], fill=(190, 30, 30))
-        pts = [(int((175 + rng.integers(0, 480)) * s), int((210 + rng.integers(0, 380)) * s)) for _ in range(6)]
-        d.line(pts, fill=(190, 30, 30), width=max(2, int(4 * s)))
-        glow, tint = (0.52, 0.4), (40, 46, 70)
+    elif hid == "vix":  # detective office at night: light through window blinds falling across the wall
+        for k in range(16):
+            y = int((40 + k * 62) * s)
+            d.polygon([(int(980 * s), y), (int(1920 * s), y - int(120 * s)), (int(1920 * s), y - int(92 * s)), (int(980 * s), y + int(20 * s))], fill=(58, 62, 80))
+        d.rectangle([0, int(880 * s), W, H], fill=(24, 18, 16))
+        glow, tint = (0.62, 0.35), (36, 42, 66)
     else:  # momo: a small studio with neon light
         for k in range(7):
             x = int((150 + k * 240) * s)
@@ -4922,6 +5464,8 @@ def write_texts(script, pl, credits, out_dir):
         lines += ["Sources: " + (src if isinstance(src, str) else "; ".join(src)), ""]
     if str(script.get("voice", "")).lower() not in ("none", "silent", "own", "own-recording"):
         lines += ["Narration uses an AI voice. Maps and graphics are made for this video."]
+    if any(v.get("gen") for sc in script["scenes"] for v in sc.get("visuals") or []):
+        lines += ["Many scenes are AI-generated recreations for illustration, not real photographs."]
     # short credit list (who must be named), the full list goes in credits.txt
     names, seen = [], set()
     for c in credits:
@@ -5043,6 +5587,14 @@ def build(script_path, preview=False, captions=None):
         log(f"  narrator: {hosts_meta().get(hid, {}).get('name', hid)}")
     log("STEP 1/4 Pictures and clips")
     set_era(script)
+    if shots_ready() and cfg.get("ai_shots", True) is not False:
+        try:
+            plan_shots(script)
+            generate_shots(script)
+        except Exception as e:
+            log(f"  AI shots skipped: {str(e)[:120]}")
+    elif not cf_ready():
+        log("  (no Cloudflare key: pictures come from real-picture searches only. Add the free key in Settings for a picture on every line.)")
     expand_visuals(script)
     vcredits = resolve_videos(script, W, H, fps)
     credits, missing = resolve_pictures(script, use_ai=cfg.get("ai_pictures", True))
@@ -5622,7 +6174,7 @@ def write_thumbnail_prompts(script, pl, out_dir):
 
 def gemini_key():
     k = (os.environ.get("AI_KEY") or os.environ.get("GEMINI_KEY") or settings().get("gemini_key") or settings().get("ai_key") or "").strip()
-    return k if k.startswith("AIza") else ""
+    return k if k.startswith(("AIza", "AQ.")) else ""
 
 
 def gemini_image(prompt, refs, out, aspect="16:9"):
@@ -5841,15 +6393,16 @@ def _ai_conf():
     cfg = settings()
     key = (cfg.get("ai_key") or cfg.get("gemini_key") or os.environ.get("AI_KEY") or "").strip()
     if not key:
-        raise RuntimeError("No AI key yet. Make a free Cerebras key (cloud.cerebras.ai) or Groq key (console.groq.com/keys) and paste it in the app (New script tab).")
+        raise RuntimeError("No AI key yet. Make a free Gemini key at aistudio.google.com/apikey and paste it in Settings.")
     for pre, (name, base, model) in AI_PROVIDERS.items():
         if key.startswith(pre):
             return name, cfg.get("ai_base") or base, cfg.get("ai_model") or model, key
-    if key.startswith("AIza"):
+    if key.startswith(("AIza", "AQ.")):
         return "Gemini", "gemini", cfg.get("gemini_model") or "gemini-2.5-flash", key
     if cfg.get("ai_base"):
         return "AI", cfg["ai_base"], cfg.get("ai_model") or "gpt-oss-120b", key
-    raise RuntimeError("This key isn't one I know. Use a Cerebras key (starts with csk-) or a Groq key (starts with gsk_).")
+    raise RuntimeError("The saved AI key is not a Gemini key (Gemini keys start with AIza or AQ.). The browser may have filled in a saved password. "
+                       "Open Settings > Gemini key, delete what is in the box, paste the key from aistudio.google.com/apikey and press Save.")
 
 
 AI_SOURCES = []  # web pages Google Search used while researching (Gemini)
