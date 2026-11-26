@@ -3560,6 +3560,7 @@ def _video_candidates(key, v, state):
 
 MAX_SHOT = 2.7   # seconds one visual may stay on screen (fast, "team-edited" pacing: a new picture every 2-3 s)
 MAX_USES = 2     # how often the same picture/clip moment may appear in one video
+MAX_CLIPS = 70   # different clips cut per video (each = 15 s of frames); more slots reuse other moments of these clips
 
 
 def expand_visuals(script):
@@ -3568,7 +3569,7 @@ def expand_visuals(script):
     so they are new, real and on topic. Scenes with no picture search borrow the previous scene's searches."""
     added = 0
     last_pool = []
-    backups = [{"type": "video" if i % 3 == 1 else "image", "search": [q], "source": "archive", "backup": True}
+    backups = [{"type": "video" if i % 5 == 2 else "image", "search": [q], "source": "archive", "backup": True}
                for i, q in enumerate(backup_searches(script))]
     bk = 0
     for sc in script["scenes"]:
@@ -3649,7 +3650,8 @@ def resolve_videos(script, W, H, fps):
                [c for c in cands.get(key, []) if not c.get("weak")] + [c for c in cands.get(key, []) if c.get("weak")][:1]
         done = None
         why = []
-        for c in pool[:8]:
+        cut_new = len(used) < MAX_CLIPS or (pool and pool[0].get("src") == "own")
+        for c in (pool[:8] if cut_new else []):  # past MAX_CLIPS: reuse later moments of clips already cut (disk + time on the cloud computer)
             if c["url"] in used:
                 continue
             d = _clip_dir(key, c, W, H, fps)
@@ -6463,7 +6465,7 @@ def _best_moment(info, want_text):
     if not subs:
         return None
     try:
-        raw = urllib.request.urlopen(urllib.request.Request(next(iter(subs.values())), headers=UA), timeout=30).read().decode("utf-8", "replace")
+        raw = urllib.request.urlopen(urllib.request.Request(next(iter(subs.values())), headers=UA), timeout=15).read().decode("utf-8", "replace")
     except Exception:
         return None
     cues = _vtt_cues(raw)
@@ -6479,10 +6481,16 @@ def _best_moment(info, want_text):
     return best_t if best >= 2 else None
 
 
-def fetch_reactions(script_path):
-    """Run on the PC: gets the short clips for all reaction slides of one script."""
+REACT_BUDGET = 20 * 60   # seconds for ALL reaction clips; whatever isn't found by then, the narrator tells himself
+
+
+def fetch_reactions(script_path, budget=None):
+    """Run on the PC: gets the short clips for all reaction slides of one script.
+    3 clips at a time, a time limit for each clip and for all of them together, so this step can never hang the video.
+    Clips already downloaded are kept, so running it again only fetches the missing ones."""
     import yt_dlp
     from yt_dlp.utils import download_range_func
+    from concurrent.futures import ThreadPoolExecutor
     script = load_script(script_path)
     os.makedirs(A("clips_react"), exist_ok=True)
     todo = []
@@ -6491,15 +6499,22 @@ def fetch_reactions(script_path):
             if v.get("type") == "reaction":
                 todo.append(("r_" + img_key(v), v, sc.get("say", "")))
     log(f"STEP Reaction clips: {len(todo)} to find")
-    got = 0
-    for i, (key, v, say) in enumerate(todo, 1):
-        if any(os.path.exists(A("clips_react", key + e)) for e in (".mp4", ".webm", ".mkv")):
-            got += 1
-            continue
+    deadline = time.time() + float(budget or REACT_BUDGET)
+    done_n = [0]
+    lock = threading.Lock()
+
+    def have(key):
+        return any(os.path.exists(A("clips_react", key + e)) for e in (".mp4", ".webm", ".mkv"))
+
+    def one(item):
+        key, v, say = item
+        if have(key):
+            return "ok"
         q = (_queries(v) or [say[:80]])[0]
-        print(f"\r   reaction clip {i}/{len(todo)}  ({i * 100 // max(1, len(todo))}%)", end="", flush=True)
+        if time.time() > deadline:
+            return "late"
         try:
-            with yt_dlp.YoutubeDL(_ydl_opts({"extract_flat": "in_playlist"})) as y:
+            with yt_dlp.YoutubeDL(_ydl_opts({"extract_flat": "in_playlist", "socket_timeout": 20})) as y:
                 res = y.extract_info(f"ytsearch8:{q}", download=False)
             want = _sig_words(q + " " + (v.get("quote") or ""))
             cands = []
@@ -6516,40 +6531,51 @@ def fetch_reactions(script_path):
                 src_ = (v.get("source") or "").lower()
                 if src_ and src_.split()[0] in ch_:
                     score += 3  # the outlet the script names
-                if re.search(r"news|archive|bbc|cbs|nbc|abc|cnn|ap\b|reuters|pbs|c-span|british pathe|pathe|newsreel|history|documentary", ch_ + " " + title):
+                if re.search(r"news|archive|bbc|cbs|nbc|abc|cnn|ap\b|reuters|pbs|c-span|british pathe|pathe|newsreel|history|documentary|museum", ch_ + " " + title):
                     score += 1
                 cands.append((score, e))
             cands.sort(key=lambda x: -x[0])
-            done = False
-            for score, e in cands[:3]:
+            for score, e in cands[:2]:
+                if time.time() > deadline:
+                    return "late"
                 url = f"https://www.youtube.com/watch?v={e['id']}"
-                with yt_dlp.YoutubeDL(_ydl_opts()) as y:
-                    info = y.extract_info(url, download=False)
-                dur = float(info.get("duration") or 0)
-                t0 = _best_moment(info, say + " " + (v.get("quote") or ""))
-                if t0 is None:
-                    t0 = dur * 0.35 if dur else 30
-                t0 = max(0.0, min(t0, max(0.0, dur - REACT_SEC[1] - 1)))
-                ln = REACT_SEC[1]
-                out = A("clips_react", key + ".%(ext)s")
-                opts = _ydl_opts({"format": "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720][ext=mp4]/b[height<=720]/b",
-                                  "download_ranges": download_range_func(None, [(t0, t0 + ln)]), "force_keyframes_at_cuts": True,
-                                  "outtmpl": out, "merge_output_format": "mp4"})
-                with yt_dlp.YoutubeDL(opts) as y:
-                    y.download([url])
-                f = next((A("clips_react", key + x) for x in (".mp4", ".webm", ".mkv") if os.path.exists(A("clips_react", key + x))), None)
-                if f and os.path.getsize(f) > 30_000:
-                    _json_write(A("clips_react", key + ".json"), {"title": info.get("title", ""), "channel": info.get("channel") or info.get("uploader") or "",
-                                                                 "url": f"{url}&t={int(t0)}s", "start": t0, "query": q})
-                    got += 1
-                    done = True
-                    break
-            if not done:
-                log(f"\n   no clip for '{q}' (the narrator will tell this part himself)")
+                try:
+                    with yt_dlp.YoutubeDL(_ydl_opts({"socket_timeout": 20})) as y:
+                        info = y.extract_info(url, download=False)
+                    dur = float(info.get("duration") or 0)
+                    t0 = _best_moment(info, say + " " + (v.get("quote") or ""))
+                    if t0 is None:
+                        t0 = dur * 0.35 if dur else 30
+                    t0 = max(0.0, min(t0, max(0.0, dur - REACT_SEC[1] - 1)))
+                    out = A("clips_react", key + ".%(ext)s")
+                    opts = _ydl_opts({"format": "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720][ext=mp4]/b[height<=720]/b",
+                                      "download_ranges": download_range_func(None, [(t0, t0 + REACT_SEC[1])]), "force_keyframes_at_cuts": True,
+                                      "outtmpl": out, "merge_output_format": "mp4", "socket_timeout": 20})
+                    with yt_dlp.YoutubeDL(opts) as y:
+                        y.download([url])
+                    f = next((A("clips_react", key + x) for x in (".mp4", ".webm", ".mkv") if os.path.exists(A("clips_react", key + x))), None)
+                    if f and os.path.getsize(f) > 30_000:
+                        _json_write(A("clips_react", key + ".json"), {"title": info.get("title", ""), "channel": info.get("channel") or info.get("uploader") or "",
+                                                                     "url": f"{url}&t={int(t0)}s", "start": t0, "query": q})
+                        return "ok"
+                except Exception as ex:
+                    log(f"\n   clip try failed for '{q}': {str(ex)[:100]}")
+            log(f"\n   no clip for '{q}' (the narrator will tell this part himself)")
+            return "none"
         except Exception as ex:
             log(f"\n   clip failed for '{q}': {str(ex)[:120]}")
+            return "none"
+        finally:
+            with lock:
+                done_n[0] += 1
+                print(f"\r   reaction clips {done_n[0]}/{len(todo)}", end="", flush=True)
+
+    with ThreadPoolExecutor(3) as ex:
+        res = list(ex.map(one, todo))
     print()
-    log(f"DONE reaction clips: {got} of {len(todo)}")
+    got = res.count("ok")
+    late = res.count("late")
+    log(f"DONE reaction clips: {got} of {len(todo)}" + (f" ({late} skipped: time limit; run again to fetch them)" if late else ""))
     return got
 
 
