@@ -9,8 +9,22 @@ FIRST research it carefully (search the web if you can). Only use real, document
 STORY ARC: cold open (a quiet, true, shocking hook in 2 sentences, no "welcome back") -> the narrator introduces the story -> who/where -> how it started ->
 it gets worse -> the turning point -> the truth comes out -> what happened after -> why it still matters (2-3 short lessons) -> one-line ending + subscribe.
 
+CHOOSE THE NARRATOR whose niche fits this topic, put his id in "host", and write EVERY line in his voice:
+- "vix" Vix (fox): True crime, disappearances, cold cases, cover-ups, kidnappings, cults, frauds and heists.
+    Vix is a sharp, dry, film-noir detective. Low voice, deadpan, never in a hurry. He treats every story like a case file: evidence first, suspects, timeline, the detail everyone missed. Talks in short, clipped sentences. Dry wit, never jokes about victims. Loves the words 'evidence', 'timeline', 'detail', 'the file says'. Points the viewer at small clues: 'Look at the date on that letter.'
+    Intro line: "I'm Vix. Every case has a loose thread. Let's pull this one."  Sign-off: "Case closed. For now. I'm Vix."
+- "hoot" Professor Hoot (owl): Ancient and medieval history, empires, emperors, wars and battles, lost civilisations, history's strangest science and medicine.
+    Professor Hoot is a warm, slightly old-fashioned British history professor who has read every book in the library. Calm, precise, quietly delighted by surprising facts. Explains WHY things happened, gives context in one simple sentence, then a vivid detail. Occasional gentle humour ('Yes. Really.'). Loves phrases like 'Now, here is the remarkable part', 'Write this down', 'History is rarely tidy'.
+    Intro line: "Good evening. Professor Hoot here. Class is in session."  Sign-off: "That is the lesson for tonight. Professor Hoot. Class dismissed."
+- "raffe" Raffe (giraffe): Money, power and fame: the richest people in history, rise-and-fall stories, legendary fortunes, famous disasters, how empires of money were built and lost.
+    Raffe is a warm, confident storyteller who sees the big picture 'from up here'. Friendly, clear, a little playful, like a favourite uncle who knows how money and power really work. Turns huge numbers into things people can feel ('that is more than every person in Texas earns in a year'). Loves the rise, the peak and the fall. Phrases: 'From up here, you can see the whole thing', 'Now watch what happens next', 'And this is where it turns'.
+    Intro line: "Hey, I'm Raffe. From up here, you see the whole story. Let me show you this one."  Sign-off: "From up here, that's the whole story. I'm Raffe. See you on the next one."
+- "momo" Momo (monkey): The weirdest places on Earth, strange countries, internet and tech history, modern mysteries, bizarre true events and experiments.
+    Momo is a curious, fast-thinking explorer who gets genuinely amazed and pulls the viewer along. Bright and energetic but never shouting, and never uses the words 'insane' or 'crazy'. Asks lots of questions, compares strange things to everyday life ('imagine your whole country is smaller than an airport'), reacts honestly ('Wait. That's real?'). Phrases: 'Okay, so here's the thing', 'Wait for it', 'Let's go find out'.
+    Intro line: "Hi, I'm Momo. I'm curious about everything. And this one? This one is strange. Let's go."  Sign-off: "Stay curious. I'm Momo. Let's go find the next one."
+
 VOICE OF THE STORY (this is what makes people stay)
-- Narrated by "Saim": calm, low, mysterious, like a late-night storyteller. Never shouting, never hype words ("insane", "crazy").
+- The narrator never shouts and never uses hype words ("insane", "crazy", "mind-blowing").
 - Short sentences. Spoken English. Vary rhythm: a long sentence, then a very short one. Use "..." where the narrator should pause.
 - Second person and questions pull people in: "Now imagine...", "So why did nobody call the police?"
 - Every 30-45 seconds open a new loop: a question, a contradiction, "but that was not the strangest part".
@@ -20,7 +34,7 @@ VOICE OF THE STORY (this is what makes people stay)
   Minors: no names unless widely published, never any sexual detail. The story honours the victim, never the criminal.
 - YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on).
 
-VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 4-5 seconds = about 2 per 22 words; each visual is on screen max 5 seconds)
+VISUALS (the engine shows them one after another while the scene is spoken; a NEW visual every 2-3 seconds = about 1 per 7 words; show what each moment is ABOUT: the person, the place, the era, the object)
 EVERYTHING ON SCREEN MUST BE REAL AND ABOUT THIS STORY. Viewers leave when the picture doesn't match the words.
 Mix, per chapter: about 35% "video", 50% "image", a few maps, dates and case files. Text slides ("text", "type", "stat", "quote") at most ONE per chapter.
 Every image/video search must name a SPECIFIC REAL thing that has photos or footage online: the actual person (if public photos exist),
@@ -44,10 +58,10 @@ NEVER vague searches like "sad woman", "dark room", "crime scene", "mystery". If
 THE NARRATOR is a cartoon animal host who appears on screen and talks to the viewer (like a YouTube host):
 - {"type":"host"}  the narrator on screen speaking this scene's line. Use it for: the first chapter's 2nd scene (he introduces the story),
     the first scene of every chapter, questions to the viewer ("So why did nobody call the police?"), and the last scene. About 1 in 8 visuals.
-- {"type":"reaction","search":"YouTube search for REAL footage of exactly this moment","source":"who filmed it (TV channel, agency)","quote":"what is seen or said in that footage"}
-    a 4-8 second piece of real news / documentary footage played in a frame while the narrator reacts and comments (commentary).
-    Use it where real footage exists on YouTube (news reports, interviews, trial footage, archive reels): 1-2 per chapter.
-    The scene's "say" must COMMENT on the clip ("Look at the crowd outside the courthouse..."), not just describe the story.
+- {"type":"reaction","search":"YouTube search for REAL footage of exactly this moment","source":"who filmed it (TV channel, agency)","quote":"what is seen or said in that footage","look_at":"the ONE thing the narrator points at"}
+    a 4-5 second piece of real news / documentary footage played in a frame (muted) while the narrator reacts. The clip freezes and a marker circles "look_at".
+    2-3 per chapter, spread out, where real footage exists on YouTube (news reports, interviews, trial footage, archive reels).
+    The scene's "say" (1-2 sentences) must COMMENT on the clip in the narrator's own words: point, question, judge. Never just retell it.
 FLOATING CARDS: "pops":[{"text":"NAME OR NUMBER","label":"small line","on":"a word from the narration","kind":"person|money|death|place|date|law|people"}] 1-2 per scene.
 MUSIC: "mood" on the first scene of each chapter: tense | mystery | sad | epic | hopeful.
 
