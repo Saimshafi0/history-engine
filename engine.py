@@ -685,13 +685,6 @@ class ImageScene(Scene):
                 self.img = None
         self.recut = int(self.v.get("recut") or 0)
         self.move = self.v.get("zoom") or self.MOVES[(self.idx + self.recut * 3) % len(self.MOVES)]
-        self.depth = None
-        dp = self.v.get("depth")
-        if self.img is not None and dp and os.path.exists(A("images", dp)):
-            try:
-                self.depth = Image.open(A("images", dp)).convert("L").resize(self.img.size, Image.BILINEAR)
-            except Exception:
-                self.depth = None
         self.fb = None
         if self.img is not None:
             iw, ih = self.img.size
@@ -740,7 +733,7 @@ class ImageScene(Scene):
         sc = max(W / iw, H / ih)
         m = self.move
         detail = self.recut > 0
-        if dur > 5.2 and not self.recut and self.depth is None:  # long shot: cut to a closer detail of the same picture halfway
+        if dur > 5.2 and not self.recut:  # long shot: cut to a closer detail of the same picture halfway
             half = dur / 2
             if t >= half:
                 t, dur, detail = t - half, dur - half, True
@@ -786,30 +779,8 @@ class ImageScene(Scene):
         x1, y1 = min(float(iw), x0 + vw), min(float(ih), y0 + vh)
         self.last_box = (x0, y0, x1, y1)
         frame = im.resize((W, H), Image.BILINEAR, box=(x0, y0, x1, y1))
-        if self.depth is not None:
-            frame = self._parallax(frame, self.depth.resize((W, H), Image.BILINEAR, box=(x0, y0, x1, y1)), p, m)
         frame = vignette(frame, 0.62)
         return self._caption(frame, t)
-
-    _GRID = {}
-
-    def _parallax(self, frame, dep, p, m):
-        """2.5D camera: near things (white in the depth map) slide and grow more than far things, like real footage."""
-        import cv2
-        W, H = self.W, self.H
-        if (W, H) not in self._GRID:
-            ys, xs = np.mgrid[0:H, 0:W].astype(np.float32)
-            self._GRID[(W, H)] = (xs, ys)
-        xs, ys = self._GRID[(W, H)]
-        d = np.asarray(dep, np.float32) / 255.0 - 0.35
-        q = p - 0.5
-        sx = {"left": 1.0, "right": -1.0}.get(m, 0.45 if self.idx % 2 else -0.45)
-        sy = -0.35 if m == "up" else 0.12
-        zoom = {"in": 0.055, "out": -0.055}.get(m, 0.03) * p
-        mx = W / 2 + (xs - W / 2) * (1 - zoom * d) - sx * 0.028 * W * q * d
-        my = H * 0.45 + (ys - H * 0.45) * (1 - zoom * d) - sy * 0.028 * H * q * d
-        out = cv2.remap(np.asarray(frame), mx.astype(np.float32), my.astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-        return Image.fromarray(out)
 
     def _portrait_frame(self, t, dur):
         W, H = self.W, self.H
@@ -916,15 +887,8 @@ class MapScene(Scene):
         super().__init__(*a)
         v = self.v
         aspect = self.W / self.H
-        def _wide(b):
-            b = list(b)
-            if b[2] - b[0] < 3.2:
-                cx, cy, hw = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2, 1.6
-                hh = max((b[3] - b[1]) / 2, hw * 0.6)
-                b = [cx - hw, cy - hh, cx + hw, cy + hh]
-            return b
-        self.b0 = fit_bbox(_wide(v.get("from") or v.get("view") or [-20, 0, 40, 40]), aspect)
-        self.b1 = fit_bbox(_wide(v.get("to") or v.get("view") or v.get("from") or [-20, 0, 40, 40]), aspect)
+        self.b0 = fit_bbox(v.get("from") or v.get("view") or [-20, 0, 40, 40], aspect)
+        self.b1 = fit_bbox(v.get("to") or v.get("view") or v.get("from") or [-20, 0, 40, 40], aspect)
         self.cl = math.cos(math.radians((self.b1[1] + self.b1[3]) / 2))
         self.regions = []
         for r in v.get("regions") or []:
@@ -1112,10 +1076,10 @@ SAIM_CHAIN = ("highpass=f=70,equalizer=f=160:t=q:w=0.9:g=3,equalizer=f=3500:t=q:
               "acompressor=threshold=-22dB:ratio=3:attack=6:release=140:makeup=2.5,aecho=0.85:0.5:23|41:0.10|0.06")
 
 
-def master_voice(a):
-    """Runs the narration through the Saim mastering chain (ffmpeg)."""
+def master_voice(a, chain=None):
+    """Runs the narration through a mastering chain (ffmpeg). Every narrator has his own chain = his own 'microphone'."""
     a = np.concatenate([np.asarray(a, np.float32), np.zeros(int(SR * 0.12), np.float32)])
-    p = subprocess.run([ffmpeg_exe(), "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-af", SAIM_CHAIN,
+    p = subprocess.run([ffmpeg_exe(), "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-af", chain or SAIM_CHAIN,
                         "-f", "f32le", "-ar", str(SR), "-ac", "1", "-"], input=a.tobytes(), capture_output=True)
     if p.returncode != 0 or not p.stdout:
         return a
@@ -1129,22 +1093,86 @@ def master_voice(a):
     return out * (0.95 / pk) if pk > 0.95 else out
 
 
-HOST_NEURAL = {"raffe": ("en-US-AndrewMultilingualNeural", "-2Hz"), "momo": ("en-US-BrianMultilingualNeural", "+0Hz"),
-               "hoot": ("en-GB-RyanNeural", "-2Hz"), "vix": ("en-US-ChristopherNeural", "-3Hz")}
-
-
 class Voice:
+    """Narration. Each narrator (host_<id>) has a full voice profile in assets/hosts/hosts.json:
+    a natural online voice (Microsoft neural, used in the cloud) + an offline Kokoro blend as backup, his own speed,
+    pitch, pauses and mastering chain. One engine is chosen for the WHOLE video (prepare), so a narrator never
+    changes voice in the middle of a video."""
+
     def __init__(self, cfg):
         self.voice = cfg.get("voice", "saim")
         self.speed = float(cfg.get("speed", 0.95))
         self.kind = None
         self.k = None
+        self.profile = hosts_meta().get(self.voice[5:], {}) if self.voice.startswith("host_") else {}
+        pref = str(cfg.get("voice_engine") or settings().get("voice_engine") or "auto").lower()
+        self.engine = "kokoro" if pref in ("offline", "kokoro") else None  # None = decide in prepare()
 
     def _kokoro(self):
         if self.k is None:
             from kokoro_onnx import Kokoro
             self.k = Kokoro(MODEL, VOICES)
         return self.k
+
+    def pause(self, sentence):
+        """Breath after a sentence: each narrator has his own rhythm, longer after questions, '...' and big lines."""
+        mult = float(self.profile.get("pause", 1.0))
+        s = sentence.rstrip()
+        g = 0.5 if s.endswith(("?", "...", "\u2026")) else 0.32
+        return g * mult
+
+    def _host_edge_args(self):
+        e = self.profile.get("edge") or {}
+        base = int(str(e.get("rate", "-5%")).rstrip("%") or 0)
+        rate = base + int(round((self.speed / 0.95 - 1) * 100))
+        return e.get("voice", "en-US-AndrewMultilingualNeural"), f"{rate:+d}%", e.get("pitch", "+0Hz")
+
+    def prepare(self, texts):
+        """Makes the narrator's lines before the video is built. Tries the natural voice for every line; if any line
+        fails, the whole video uses the offline voice instead (same narrator, same sound from start to end)."""
+        if not self.profile or self.engine == "kokoro":
+            self.engine = self.engine or "kokoro"
+            return
+        try:
+            import edge_tts  # noqa: F401
+        except Exception:
+            self.engine = "kokoro"
+            return
+        self.engine = "edge"
+        uniq = list(dict.fromkeys(t for t in texts if t.strip()))
+        bad = []
+        probe_ok = False
+        for k in range(3):  # quick check first: is the online voice reachable at all?
+            try:
+                self.say(uniq[0] if uniq else "Hello.")
+                probe_ok = True
+                break
+            except Exception:
+                time.sleep(2)
+        if not probe_ok:
+            log("  natural voice not reachable, using the offline voice for the whole video")
+            self.engine = "kokoro"
+            return
+
+        def one(t):
+            for k in range(4):
+                try:
+                    self.say(t)
+                    return True
+                except Exception:
+                    time.sleep(1.5 * (k + 1))
+            return False
+
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(4) as ex:
+            for t, ok in zip(uniq, ex.map(one, uniq)):
+                if not ok:
+                    bad.append(t)
+        if bad:
+            log(f"  natural voice failed on {len(bad)} lines, using the offline voice for the whole video")
+            self.engine = "kokoro"
+        else:
+            log(f"  voice: {self.profile.get('name', self.voice)} (natural voice)")
 
     def say(self, text):
         """Returns float32 mono audio at 24 kHz."""
@@ -1156,22 +1184,15 @@ class Voice:
             n_words = len(re.findall(r"\w+", text))
             return np.zeros(int(SR * (0.35 + n_words / (2.4 * max(0.6, self.speed)))), np.float32)
         t = tts_text(text)
+        if self.profile:
+            return self._say_host(t)
         mix = json.dumps(SAIM_MIX.get(self.voice, "")) + SAIM_CHAIN if self.voice.startswith(("saim", "host_")) else ""
-        if self.voice.startswith("host_") and settings().get("neural_voice", True) is not False:
-            mix += "|neural1"
         cache = A("cache", "voice", hashlib.sha1(f"{self.voice}|{self.speed}|{mix}|{t}".encode()).hexdigest() + ".npy")
         if os.path.exists(cache):
             return np.load(cache)
         a = None
         errors = []
-        if self.voice.startswith("host_") and settings().get("neural_voice", True) is not False and HOST_NEURAL.get(self.voice[5:]):
-            nm, pitch = HOST_NEURAL[self.voice[5:]]
-            try:
-                a = master_voice(self._edge(t, nm, rate=f"{int((self.speed * 0.97 - 1) * 100):+d}%", pitch=pitch))
-                self.kind = "neural"
-            except Exception as e:
-                errors.append(f"neural voice: {e}")
-        if a is None and self.voice == "saim_neural":  # Microsoft's natural online voice, slowed and lowered, then mastered
+        if self.voice == "saim_neural":  # Microsoft's natural online voice, slowed and lowered, then mastered
             try:
                 a = master_voice(self._edge(t, "en-US-AndrewMultilingualNeural", rate=f"{int((self.speed * 0.92 - 1) * 100):+d}%", pitch="-3Hz"))
                 self.kind = "saim_neural"
@@ -1204,11 +1225,42 @@ class Voice:
         np.save(cache, a)
         return a
 
+    def _say_host(self, t):
+        pr = self.profile
+        chain = pr.get("chain") or SAIM_CHAIN
+        eng = self.engine or "kokoro"
+        if eng == "edge":
+            name, rate, pitch = self._host_edge_args()
+            key = f"edge|{name}|{rate}|{pitch}|{chain}|{t}"
+        else:
+            key = f"kokoro|{json.dumps(pr.get('voice'))}|{pr.get('speed')}|{pr.get('kokoro_pitch')}|{self.speed}|{chain}|{t}"
+        cache = A("cache", "voice", hashlib.sha1(key.encode()).hexdigest() + ".npy")
+        if os.path.exists(cache):
+            self.kind = eng
+            return np.load(cache)
+        if eng == "edge":
+            a = master_voice(self._edge(t, name, rate=rate, pitch=pitch), chain)  # errors go up to prepare()
+        else:
+            k = self._kokoro()
+            mixv = [tuple(x) for x in pr.get("voice") or SAIM_MIX["saim"]]
+            style = sum(w * k.get_voice_style(n) for n, w in mixv).astype(np.float32)
+            lang = "en-gb" if mixv[0][0].startswith("b") else "en-us"
+            a, _ = k.create(t, voice=style, speed=float(pr.get("speed", 0.92)) * self.speed / 0.95, lang=lang)
+            ps = float(pr.get("kokoro_pitch") or 1.0)
+            if abs(ps - 1) > 0.005:  # his own pitch, same speed
+                chain = f"asetrate={int(SR * ps)},aresample={SR},atempo={1 / ps:.4f}," + chain
+            a = master_voice(a, chain)
+        a = np.asarray(a, np.float32)
+        self.kind = eng
+        os.makedirs(os.path.dirname(cache), exist_ok=True)
+        np.save(cache, a)
+        return a
+
     def _edge(self, t, name=None, rate=None, pitch="+0Hz"):
         import asyncio
         import edge_tts
         name = name or {"bm_george": "en-GB-RyanNeural", "bm_lewis": "en-GB-ThomasNeural", "am_onyx": "en-US-AndrewNeural"}.get(self.voice, "en-US-AndrewNeural")
-        tmp = A("cache", f"edge_{os.getpid()}_{threading.get_ident()}.mp3")
+        tmp = A("cache", f"edge_{os.getpid()}_{threading.get_ident()}_{random.randrange(1 << 30)}.mp3")
         os.makedirs(A("cache"), exist_ok=True)
         rate = rate or f"{int((self.speed - 1) * 100):+d}%"
         asyncio.run(edge_tts.Communicate(t, name, rate=rate, pitch=pitch).save(tmp))
@@ -1813,6 +1865,20 @@ def group_lines(words, max_chars=30, max_words=6):
     return lines
 
 
+def merge_short(sents, min_words=5):
+    """Very short lines are spoken together with the next one: alone, a TTS voice stretches them ('I'm... Vix.')."""
+    out = []
+    for s_ in sents:
+        if out and len(out[-1].split()) < min_words:
+            out[-1] = out[-1] + " " + s_
+        else:
+            out.append(s_)
+    if len(out) > 1 and len(out[-1].split()) < min_words:
+        last = out.pop()
+        out[-1] = out[-1] + " " + last
+    return out
+
+
 def plan(script):
     """Voice for every sentence, exact timings, beats (a new visual every few seconds) and floating callouts."""
     voice = Voice(script)
@@ -1827,6 +1893,8 @@ def plan(script):
         voice.clips = split_own_voice(rec, texts)
         voice.kind = "own"
         gap = 0.18
+    else:
+        voice.prepare([x for sc in script["scenes"] for x in merge_short(split_sentences(sc.get("say", "")))])
     beats, sentences, words, pops, audio, scene_starts = [], [], [], [], [], []
     t = 0.0
     chapter, date = "", ""
@@ -1834,6 +1902,8 @@ def plan(script):
     for si, sc in enumerate(script["scenes"]):
         log(f"  voice {si + 1}/{n}")
         sents = split_sentences(sc.get("say", ""))
+        if voice.profile and not script.get("_own_voice"):
+            sents = merge_short(sents)
         parts = [np.zeros(int(SR * lead), np.float32)]
         st = t + lead
         sw = []
@@ -1844,7 +1914,9 @@ def plan(script):
             sentences.append({"scene": si, "start": round(st, 3), "end": round(st + d, 3), "text": s})
             sw += wt
             g_ = gap
-            if str(script.get("voice", "")).startswith(("saim", "host_")):  # a storyteller breathes: longer after questions and "..."
+            if voice.profile:
+                g_ = voice.pause(s)
+            elif str(script.get("voice", "")).startswith(("saim", "host_")):  # a storyteller breathes: longer after questions and "..."
                 g_ = 0.62 if s.rstrip().endswith(("?", "...", "…", "!")) else 0.36
             parts += [a, np.zeros(int(SR * g_), np.float32)]
             st += d + g_
@@ -1922,7 +1994,7 @@ def plan(script):
         if v.get("type") == "image" and (not v.get("file") or uses.get(v["file"], 0) >= MAX_USES):
             out_b.append(b)
             continue
-        n_ = min(n_, 2) if v.get("type") == "image" else min(n_, 3)
+        n_ = min(n_, 2) if v.get("type") == "image" else min(n_, 5)
         part = b["dur"] / n_
         for j in range(n_):
             nb = dict(b)
@@ -2044,6 +2116,14 @@ def plan(script):
             if v.get("stamp"):
                 k = int((b["start"] + 0.55 + len(fields) * per) * SR)
                 im = impact_sound() * 0.45
+                if k + len(im) < len(track):
+                    track[k:k + len(im)] += im
+    for b in beats:  # reaction freeze: a short tape-stop thump when the clip pauses
+        if b["visual"].get("type") == "reaction" and b["visual"].get("clip"):
+            fz = reaction_freeze(b["dur"])
+            if fz:
+                k = int((b["start"] + fz[0]) * SR)
+                im = impact_sound() * 0.22 + 0
                 if k + len(im) < len(track):
                     track[k:k + len(im)] += im
     for b in beats:
@@ -2599,14 +2679,7 @@ UA = {"User-Agent": "SaimShafiHistoryEngine/4.0 (https://github.com/Saimshafi0; 
 
 
 def http_json(url, data=None, headers=None, timeout=25):
-    headers = dict(headers or {})
-    if "generativelanguage.googleapis.com" in url and "key=" in url:  # Google key in a header (works for AIza... and the new AQ. keys)
-        u = urllib.parse.urlsplit(url)
-        qs = urllib.parse.parse_qsl(u.query)
-        k = next((v for n, v in qs if n == "key"), "")
-        url = urllib.parse.urlunsplit(u._replace(query=urllib.parse.urlencode([(n, v) for n, v in qs if n != "key"])))
-        headers["x-goog-api-key"] = k
-    req = urllib.request.Request(url, data=data, headers={**UA, **headers})
+    req = urllib.request.Request(url, data=data, headers={**UA, **(headers or {})})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.loads(r.read().decode())
 
@@ -2813,8 +2886,6 @@ SOURCES = [("commons", commons_candidates), ("openverse", openverse_candidates),
 def ai_painting(prompt, path):
     """Backup when no real picture exists: an AI illustration (Gemini if you have a key, otherwise a free service).
     It is marked "AI ILLUSTRATION" on screen and in the credits."""
-    if not gemini_key():
-        raise RuntimeError("402 no image AI")
     if gemini_key():
         gemini_image("A realistic, historically accurate documentary illustration, cinematic lighting, muted colours, no text, no logos, "
                      "no recognisable real person's face: " + prompt, [], path, "16:9")
@@ -3045,447 +3116,6 @@ def set_era(script):
                         v["search"] = [q[0] + " " + region] + q[1:]
 
 
-# ================================================================== AI EYES: every picture and clip is LOOKED AT before it goes in
-#
-# Stock sites answer "lake" with Swiss fountains and "cattle" with Dutch cows. Gemini (free key) looks at each
-# candidate next to the narration and the story's place and era, and throws out anything that does not belong:
-# wrong country, wrong era, cartoons / anime / fantasy / AI art, coins and objects that only match a word.
-
-VISION_CTX = {"title": "", "region": "", "era": ""}
-_VIS_LOCK = threading.Lock()
-_VIS_LAST = [0.0]
-
-
-def vision_ready():
-    return bool(gemini_key()) and settings().get("vision_check", True) is not False
-
-
-def set_vision_context(script):
-    ys = script.get("era") or []
-    if not ys:
-        ys = sorted({int(y) for sc in script["scenes"] for y in re.findall(r"\b(1[0-9]{3}|20[0-2][0-9])\b", str(sc.get("date", "")))})
-    VISION_CTX.update(title=script.get("title", ""), region=script.get("region", ""),
-                      era=(f"{min(ys)}-{max(ys)}" if ys else ""))
-
-
-def _vis_cache():
-    return _json_read(A("images", "_vision.json"), {})
-
-
-def vision_check(paths, say="", query=""):
-    """[True/False per picture]. True = it fits this moment of the story. None = could not check (then nothing is rejected)."""
-    import base64
-    if not paths or not vision_ready():
-        return None
-    ids = []
-    for pth in paths:
-        try:
-            ids.append(hashlib.sha1(open(pth, "rb").read(200_000)).hexdigest()[:16] + "|" + hashlib.sha1((say + query).encode()).hexdigest()[:8])
-        except OSError:
-            ids.append(None)
-    cache = _vis_cache()
-    todo = [i for i, k in enumerate(ids) if k and k not in cache]
-    if todo:
-        parts = [{"text": (
-            "You are the picture editor of a serious history documentary. Judge each picture below for ONE shot.\n"
-            f"Documentary: {VISION_CTX['title']}\nWhere the story happens: {VISION_CTX['region'] or 'see narration'}\n"
-            f"When: {VISION_CTX['era'] or 'see narration'}\nNarration over this shot: \"{say[:400]}\"\nSearch used: \"{query}\"\n\n"
-            "Say ok=true only if a viewer would accept the picture as showing this story, this place or this kind of thing. "
-            "A neutral mood shot (night sky, desert, water, fog, fire, old paper) is ok if nothing in it contradicts the place or era.\n"
-            "ok=false if ANY of these: it is clearly another country or landmark (Alps, European farms or towns, a famous fountain, "
-            "American or Canadian lakes and mountains for an African or Asian story); a modern thing in an old story; a coin, stamp, "
-            "logo, poster or text that only matches a word or a year; cartoon, anime, video game, fantasy, obvious AI art; "
-            "a posed stock-photo model; a watermark; a blurry or empty picture; a map in an unreadable script.\n"
-            f"There are {len(todo)} pictures, in order. Answer only JSON: {{\"ok\": [true or false for each picture], \"why\": [3-6 words each]}}")}]
-        for i in todo:
-            im = Image.open(paths[i]).convert("RGB")
-            im.thumbnail((512, 512))
-            b = __import__("io").BytesIO()
-            im.save(b, "JPEG", quality=80)
-            parts.append({"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(b.getvalue()).decode()}})
-        body = {"contents": [{"parts": parts}], "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
-        ans = None
-        for attempt in range(6):
-            with _VIS_LOCK:  # free key: stay under about 9 requests a minute
-                wait = _VIS_LAST[0] + 6.8 - time.time()
-                if wait > 0:
-                    time.sleep(wait)
-                _VIS_LAST[0] = time.time()
-            for model in (settings().get("vision_model") or "gemini-2.5-flash", "gemini-2.5-flash-lite"):
-                try:
-                    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={urllib.parse.quote(gemini_key())}"
-                    d = http_json(url, json.dumps(body).encode(), {"Content-Type": "application/json"}, timeout=90)
-                    txt = "".join(x.get("text", "") for x in ((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
-                    j = json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
-                    ok = [bool(x) for x in j.get("ok") or []]
-                    if len(ok) == len(todo):
-                        ans = (ok, j.get("why") or [])
-                        break
-                except Exception as e:
-                    if "429" in str(e) or "503" in str(e):
-                        time.sleep(15 * (attempt + 1))
-                    continue
-            if ans:
-                break
-        if not ans:
-            return None
-        cache = _vis_cache()
-        for n, i in enumerate(todo):
-            cache[ids[i]] = [ans[0][n], (ans[1][n] if n < len(ans[1]) else "")[:60]]
-        _json_write(A("images", "_vision.json"), cache)
-    return [bool(cache.get(k, [True])[0]) if k else True for k in ids]
-
-
-# ================================================================== v6 SHOTS: every 3-4 seconds a picture made FOR that exact line
-#
-# Big documentary channels don't find their pictures, they MAKE them: an AI picture for every line of narration, all in
-# one film look, then moved in 3D (parallax) so stills feel like footage. Free:
-#   1. Gemini (free key) plans the shots: one exact picture description for every 3-4 seconds of narration.
-#   2. Cloudflare Workers AI (free account, 10,000 "neurons" a day = about 150 pictures) paints them with FLUX.2.
-#   3. A small depth model (MiDaS, runs on the cloud computer) gives every picture depth, and the camera moves into it.
-# Real photos / archive footage the script asks for by name are kept (and checked by the AI eyes).
-
-SHOT_SEC = 3.6
-SHOT_VER = 2
-FILM_LOOK = ("cinematic documentary film still, photorealistic, shot on 35mm film, natural dramatic light, deep shadows, "
-             "rich but muted colours, fine film grain, high detail, sharp focus, 16:9 widescreen composition. "
-             "No text, no letters, no writing, no logo, no watermark, no border, no frame")
-FIXED_TYPES = ("map", "date", "type", "text", "stat", "quote", "bars", "timeline", "host", "reaction", "casefile", "title", "count", "year")
-
-
-def cf_ready():
-    return bool(secret("cf_account") and secret("cf_token"))
-
-
-def shots_ready():
-    return cf_ready() or bool(gemini_key() and settings().get("gemini_images"))
-
-
-class QuotaOver(Exception):
-    pass
-
-
-_CF_DEAD = {}
-
-
-def _cf_run(model, prompt, out):
-    import base64
-    import uuid
-    acc, tok = secret("cf_account"), secret("cf_token")
-    url = f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/black-forest-labs/{model}"
-    if model.startswith("flux-2"):
-        bd = "----docengine" + uuid.uuid4().hex
-        body = b""
-        for k, v in (("prompt", prompt), ("width", "1024"), ("height", "576")):
-            body += f"--{bd}\r\nContent-Disposition: form-data; name=\"{k}\"\r\n\r\n{v}\r\n".encode()
-        body += f"--{bd}--\r\n".encode()
-        hdr = {"Authorization": f"Bearer {tok}", "Content-Type": f"multipart/form-data; boundary={bd}"}
-    else:
-        body = json.dumps({"prompt": prompt[:2000], "steps": 6}).encode()
-        hdr = {"Authorization": f"Bearer {tok}", "Content-Type": "application/json"}
-    req = urllib.request.Request(url, data=body, headers={**UA, **hdr})
-    try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            raw, ctype = r.read(), r.headers.get("Content-Type", "")
-    except urllib.error.HTTPError as e:
-        msg = e.read().decode("utf-8", "replace")[:300]
-        if e.code == 429 or "4006" in msg or "allocation" in msg.lower() or "neurons" in msg.lower():
-            raise QuotaOver(msg)
-        raise RuntimeError(f"{e.code} {msg}")
-    if ctype.startswith("image/"):
-        data = raw
-    else:
-        j = json.loads(raw.decode())
-        res = j.get("result") or {}
-        b64 = res.get("image") if isinstance(res, dict) else None
-        if not b64:
-            raise RuntimeError("no picture in the answer: " + raw.decode()[:200])
-        data = base64.b64decode(b64)
-    im = Image.open(__import__("io").BytesIO(data)).convert("RGB")
-    tw_, th_ = 1920, 1080
-    sc = max(tw_ / im.width, th_ / im.height)
-    im = im.resize((int(im.width * sc + 0.5), int(im.height * sc + 0.5)), Image.LANCZOS)
-    x0, y0 = (im.width - tw_) // 2, int((im.height - th_) * 0.4)
-    im = im.crop((x0, y0, x0 + tw_, y0 + th_)).filter(ImageFilter.UnsharpMask(2, 60, 2))
-    im.save(out, quality=92)
-    return out
-
-
-def gen_image(prompt, out):
-    """One picture for one shot. Cloudflare FLUX.2 first (free daily quota), then FLUX.1, then Gemini (only if billing is on)."""
-    full = prompt.strip().rstrip(".") + ". " + FILM_LOOK
-    errs = []
-    if cf_ready():
-        for model in ("flux-2-klein-4b", "flux-1-schnell"):
-            if _CF_DEAD.get(model):
-                continue
-            for attempt in range(3):
-                try:
-                    return _cf_run(model, full, out)
-                except QuotaOver as e:
-                    _CF_DEAD[model] = str(e)[:120]
-                    errs.append(f"{model}: daily free pictures used up")
-                    break
-                except Exception as e:
-                    errs.append(f"{model}: {str(e)[:120]}")
-                    time.sleep(3 * (attempt + 1))
-    if gemini_key() and settings().get("gemini_images"):
-        try:
-            return gemini_image(full, [], out, "16:9")
-        except Exception as e:
-            errs.append(f"gemini: {str(e)[:120]}")
-    raise RuntimeError(" | ".join(errs) or "no picture AI set up")
-
-
-def _scene_secs(say):
-    return 0.4 + len(say.split()) / 2.35 + 0.45 * max(1, len(split_sentences(say)))
-
-
-def _vis_label(v):
-    t = v.get("type")
-    if t in ("image", "video"):
-        return f"{t} (search: {' / '.join(_queries(v))[:80]}{', archive' if v.get('source') == 'archive' else ''})"
-    if t == "reaction":
-        return f"reaction clip ({v.get('search', '')})"
-    if t == "map":
-        return "map"
-    if t == "host":
-        return "the narrator on screen"
-    return f"{t} card ({' '.join(str(x) for x in (v.get('lines') or [v.get('text') or v.get('number') or v.get('title') or '']))[:60]})"
-
-
-def _ai_call_json(prompt):
-    """Gemini text answer as JSON (free key), spaced out to stay under the free limit."""
-    key = gemini_key()
-    body = {"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.7, "responseMimeType": "application/json"}}
-    last = ""
-    for attempt in range(6):
-        with _VIS_LOCK:
-            wait = _VIS_LAST[0] + 6.8 - time.time()
-            if wait > 0:
-                time.sleep(wait)
-            _VIS_LAST[0] = time.time()
-        for model in (settings().get("gemini_model") or "gemini-2.5-flash", "gemini-2.5-flash-lite"):
-            try:
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={urllib.parse.quote(key)}"
-                d = http_json(url, json.dumps(body).encode(), {"Content-Type": "application/json"}, timeout=180)
-                txt = "".join(x.get("text", "") for x in ((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
-                return json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
-            except Exception as e:
-                last = str(e)[:160]
-                if "429" in last or "503" in last:
-                    time.sleep(12 * (attempt + 1))
-    raise RuntimeError("shot planner: " + last)
-
-
-SHOT_RULES = """You are the director and picture editor of a top history/mystery documentary channel (like the best on YouTube).
-For each scene you get the narration and the visuals already planned. Make the full SHOT LIST for the scene: one shot every 3-4 seconds,
-in the order the words are spoken, so the picture always shows exactly what the narrator is saying at that moment.
-
-Return JSON: {"scenes": [{"n": <scene number>, "order": [ ... ]}, ...]}
-"order" items are either an INTEGER = keep that planned visual at this point, or a STRING = a new picture to paint (its description).
-- Keep EVERY planned visual that is not an image/video (maps, cards, the narrator, reaction clips): put their numbers where they fit.
-- Keep a planned image/video ONLY if it names a real, famous thing that has real photos or archive footage (a named landmark,
-  a famous artwork, the real place, historic news footage). Replace generic stock searches ("lake aerial", "cattle grazing") by new pictures.
-- The total number of items must be about the number of shots asked for that scene.
-
-How to write each new picture (40-70 words, English):
-- ONE concrete moment: who/what, doing what, where, when. Name the exact place and era details: landscape, buildings, clothing,
-  tools, vehicles, skin tones and dress of the local people, weather, time of day. Example quality: "Night, 1986, a small farming village
-  of mud-brick huts with rusted tin roofs on a green hillside in northwest Cameroon, a thin white mist creeping between the huts at ground
-  level, a single kerosene lamp glowing in a doorway, wide low-angle shot".
-- Vary the camera like a film: wide establishing shot, aerial drone view, medium shot, close-up of hands or objects, over-the-shoulder,
-  low angle, cross-section cutaway diagram-style (realistic) for science, underwater, macro. Never two similar shots in a row.
-- Keep recurring people consistent: describe them the same way every time (age, clothes).
-- A REAL named person (a king, a scientist, a survivor): never show their face. Show them from behind, in silhouette, their hands,
-  or the room they were in. Unnamed generic people are fine.
-- No text, signs, documents with writing, maps or logos in the picture (the engine draws those itself).
-- No blood, no gore, no visible dead human bodies; show loss through empty places, objects left behind, light and mood.
-- Nothing modern in an old story, nothing from the wrong country.
-"""
-
-
-def plan_shots(script):
-    """Turns every scene into a shot list: kept visuals + new AI pictures, one every ~3.6 s. Cached, so the same script
-    always gets the same pictures (and the free picture quota is never spent twice)."""
-    if not (gemini_key() and shots_ready()):
-        return 0
-    os.makedirs(A("images"), exist_ok=True)
-    cache_p = A("images", "_shots.json")
-    cache = _json_read(cache_p, {})
-    region = script.get("region") or ""
-    head = f"Documentary: {script.get('title', '')}\nWhere: {region or 'see narration'}\n"
-    jobs = []
-    for i, sc in enumerate(script["scenes"]):
-        vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
-        sc["visuals"] = vis
-        sc.pop("visual", None)
-        say = sc.get("say") or ""
-        need = max(1, round(_scene_secs(say) / SHOT_SEC))
-        if vis and all(v.get("type") in ("host", "reaction") for v in vis) and need <= 3:
-            continue  # a short narrator moment stays on the narrator
-        k = hashlib.sha1(json.dumps([SHOT_VER, script.get("title"), say, [_vis_label(v) for v in vis], need]).encode()).hexdigest()[:20]
-        jobs.append((i, sc, vis, need, k))
-    todo = [j for j in jobs if j[4] not in cache]
-    log(f"  shot list: {sum(j[3] for j in jobs)} shots for {len(jobs)} scenes ({len(todo)} scenes to plan)")
-    for b in range(0, len(todo), 6):
-        part = todo[b:b + 6]
-        txt = head + "\n".join(
-            f"\nSCENE {i}: shots asked: {need}\nNarration: \"{sc.get('say', '')}\"\nPlanned visuals: "
-            + "; ".join(f"[{n}] {_vis_label(v)}" for n, v in enumerate(vis))
-            for i, sc, vis, need, k in part)
-        try:
-            ans = _ai_call_json(SHOT_RULES + "\n\n" + txt)
-        except Exception as e:
-            log(f"  shot planner failed ({str(e)[:90]}); those scenes keep the old way")
-            continue
-        got = {int(x.get("n", -1)): x.get("order") or [] for x in ans.get("scenes") or [] if isinstance(x, dict)}
-        for i, sc, vis, need, k in part:
-            order = got.get(i)
-            if not order:
-                continue
-            fixed = {n for n, v in enumerate(vis) if v.get("type") in FIXED_TYPES}
-            seen, clean = set(), []
-            for it in order:
-                if isinstance(it, int) and 0 <= it < len(vis) and it not in seen:
-                    seen.add(it)
-                    clean.append(it)
-                elif isinstance(it, str) and len(it.split()) >= 6:
-                    clean.append(it.strip())
-            for n in sorted(fixed - seen):  # a card the planner forgot: put it back where it was
-                clean.insert(min(len(clean), n), n)
-            if any(isinstance(x, str) for x in clean):
-                cache[k] = clean
-        _json_write(cache_p, cache)
-        print(f"\r   planning shots {min(b + 6, len(todo))}/{len(todo)} scenes", end="", flush=True)
-    if todo:
-        print()
-    n_new = 0
-    for i, sc, vis, need, k in jobs:
-        order = cache.get(k)
-        if not order:
-            continue
-        new = []
-        for it in order:
-            if isinstance(it, int):
-                if it < len(vis):
-                    new.append(vis[it])
-            else:
-                fb = next((v for v in vis if v.get("type") in ("image", "video") and _queries(v)), None)
-                new.append({"type": "image", "gen": it, "fill": True, "style": "full",
-                            "search": _queries(fb) if fb else [" ".join(it.split()[:6])]})
-                n_new += 1
-        sc["visuals"] = new
-        sc["planned"] = True
-    log(f"  {n_new} pictures will be painted for their exact line")
-    return n_new
-
-
-# ------------------------------------------------------------------ depth for the 3D camera move
-
-MIDAS_URL = "https://github.com/isl-org/MiDaS/releases/download/v2_1/model-small.onnx"
-_DEPTH = {}
-
-
-def _depth_session():
-    if "s" not in _DEPTH:
-        _DEPTH["s"] = None
-        try:
-            import onnxruntime as ort
-            p = A("models", "midas_small.onnx")
-            if not os.path.exists(p) or os.path.getsize(p) < 60_000_000:
-                os.makedirs(A("models"), exist_ok=True)
-                raw = http_bytes(MIDAS_URL, timeout=300)
-                with open(p + ".part", "wb") as f:
-                    f.write(raw)
-                os.replace(p + ".part", p)
-            _DEPTH["s"] = ort.InferenceSession(p, providers=["CPUExecutionProvider"])
-        except Exception as e:
-            log(f"  (3D camera move off: {str(e)[:80]})")
-    return _DEPTH["s"]
-
-
-def make_depth(img_path):
-    """images/<x>.jpg -> images/<x>.depth.png (white = near). Returns the path or None."""
-    out = os.path.splitext(img_path)[0] + ".depth.png"
-    if os.path.exists(out):
-        return out
-    sess = _depth_session()
-    if sess is None:
-        return None
-    im = Image.open(img_path).convert("RGB")
-    a = np.asarray(im.resize((256, 256), Image.BICUBIC), np.float32) / 255.0
-    a = (a - np.array([0.485, 0.456, 0.406], np.float32)) / np.array([0.229, 0.224, 0.225], np.float32)
-    d = sess.run(None, {sess.get_inputs()[0].name: a.transpose(2, 0, 1)[None].astype(np.float32)})[0][0]
-    lo, hi = np.percentile(d, 2), np.percentile(d, 98)
-    d = np.clip((d - lo) / max(1e-6, hi - lo), 0, 1)
-    dm = Image.fromarray((d * 255).astype(np.uint8)).resize((640, int(640 * im.height / im.width)), Image.BICUBIC)
-    dm = dm.filter(ImageFilter.GaussianBlur(6))
-    dm.save(out)
-    return out
-
-
-def generate_shots(script):
-    """Paints every planned picture (cached in images/), then makes its depth map. A picture that can't be painted
-    falls back to the normal real-picture search for that scene."""
-    from concurrent.futures import ThreadPoolExecutor
-    want = []
-    for sc in script["scenes"]:
-        for v in sc.get("visuals") or []:
-            if v.get("gen"):
-                fn = "g_" + hashlib.sha1(v["gen"].encode()).hexdigest()[:16] + ".jpg"
-                v["gen_file"] = fn
-                want.append(v)
-    if not want:
-        return 0
-    todo, seen_ = [], set()
-    for v in want:
-        if not os.path.exists(A("images", v["gen_file"])) and v["gen_file"] not in seen_:
-            seen_.add(v["gen_file"])
-            todo.append(v)
-    log(f"  painting {len(todo)} new pictures ({len(want) - len(todo)} already made)")
-    fails = []
-
-    def one(v):
-        try:
-            gen_image(v["gen"], A("images", v["gen_file"]))
-            return True
-        except Exception as e:
-            fails.append(str(e)[:160])
-            return False
-    done = 0
-    with ThreadPoolExecutor(3) as ex:
-        for i, ok in enumerate(ex.map(one, todo), 1):
-            done += ok
-            print(f"\r   painting pictures {i}/{len(todo)}", end="", flush=True)
-    if todo:
-        print()
-    if fails:
-        log(f"  {len(fails)} pictures could not be painted ({fails[-1][:120]}); real pictures are used there instead")
-    have = 0
-    for v in want:
-        if os.path.exists(A("images", v["gen_file"])):
-            v["file_fixed"] = v["file"] = v["gen_file"]
-            have += 1
-        else:
-            v.pop("gen", None)  # back to a normal picture search
-            v.pop("fill", None)
-            v.pop("style", None)
-    n = 0
-    for v in want:
-        if v.get("file_fixed"):
-            try:
-                if make_depth(A("images", v["file_fixed"])):
-                    v["depth"] = os.path.splitext(v["file_fixed"])[0] + ".depth.png"
-                    n += 1
-            except Exception:
-                pass
-            print(f"\r   depth for the 3D move {n}/{have}", end="", flush=True)
-    if have:
-        print()
-    return have
-
-
 def resolve_pictures(script, use_ai=True):
     """Finds a real picture for every image slide. The same picture is never used twice in one video:
     if a search repeats, the next picture for that search is used; copies of the same picture are detected by fingerprint."""
@@ -3497,7 +3127,6 @@ def resolve_pictures(script, use_ai=True):
             if v.get("type") != "image":
                 continue
             if v.get("file_fixed") and os.path.exists(A("images", v["file_fixed"])):
-                v["file"] = v["file_fixed"]
                 continue
             key = img_key(v)
             slides.append((key, v))
@@ -3568,29 +3197,6 @@ def resolve_pictures(script, use_ai=True):
                 print(f"\r   downloading pictures {i}/{len(jobs)}  ({50 + i * 50 // len(jobs)}%)", end="", flush=True)
         print()
 
-    if vision_ready():
-        set_vision_context(script)
-        say_of = {}
-        for key, v in slides:
-            si = scene_of.get(id(v), -1)
-            say_of.setdefault(key, script["scenes"][si].get("say", "") if si >= 0 else "")
-        n_bad, keys_ = 0, list(options)
-        for i, key in enumerate(keys_, 1):
-            opts, weak = options[key]
-            pool = [c for c in (opts + weak)[:need.get(key, 1) + 4] if not c["url"].startswith("own:") and os.path.exists(A("images", cand_file(key, c)))]
-            if pool:
-                res = vision_check([A("images", cand_file(key, c)) for c in pool], say_of.get(key, ""), key.replace("_", " "))
-                for c, ok in zip(pool, res or []):
-                    if not ok:
-                        c["bad"] = True
-                        c["unfit"] = True
-                        n_bad += 1
-            print(f"\r   AI is checking that every picture fits the story {i}/{len(keys_)}", end="", flush=True)
-        print()
-        log(f"  {n_bad} pictures thrown out by the AI check (wrong place, wrong era, cartoons, junk)")
-        for key, (opts, weak) in options.items():
-            options[key] = ([c for c in opts if not c.get("unfit")], [c for c in weak if not c.get("unfit")])
-
     used_urls, used_hash, credits, missing, last_in_scene = set(), [], [], [], []
     uses = {}  # file -> how many times it was used (only > 1 when there was truly no other picture)
     by_key = {}
@@ -3610,14 +3216,6 @@ def resolve_pictures(script, use_ai=True):
         if _same_picture(h, used_hash):
             used_urls.add(c["url"])
             return None
-        if vision_ready() and "checked" not in c and not c["url"].startswith("own:"):
-            c["checked"] = True
-            si = next((scene_of.get(id(v_)) for k_, v_ in slides if k_ == key), -1)
-            r = vision_check([path], script["scenes"][si].get("say", "") if si is not None and si >= 0 else "", key.replace("_", " "))
-            if r and not r[0]:
-                c["bad"] = True
-                used_urls.add(c["url"])
-                return None
         return fn, h
 
     def first_unused(key, pool):
@@ -3960,7 +3558,7 @@ def _video_candidates(key, v, state):
     return ranked
 
 
-MAX_SHOT = 3.8   # seconds one visual may stay on screen
+MAX_SHOT = 2.7   # seconds one visual may stay on screen (fast, "team-edited" pacing: a new picture every 2-3 s)
 MAX_USES = 2     # how often the same picture/clip moment may appear in one video
 
 
@@ -3970,12 +3568,10 @@ def expand_visuals(script):
     so they are new, real and on topic. Scenes with no picture search borrow the previous scene's searches."""
     added = 0
     last_pool = []
-    backups = [{"type": "image", "search": [q], "backup": True} for q in backup_searches(script)]
+    backups = [{"type": "video" if i % 3 == 1 else "image", "search": [q], "source": "archive", "backup": True}
+               for i, q in enumerate(backup_searches(script))]
     bk = 0
     for sc in script["scenes"]:
-        if sc.get("planned"):
-            last_pool = [v for v in sc.get("visuals") or [] if v.get("type") in ("image", "video") and _queries(v)][-3:] or last_pool
-            continue
         say = sc.get("say") or ""
         est = 0.4 + len(say.split()) / 2.35 + 0.45 * max(1, len(split_sentences(say)))
         vis = sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else [])
@@ -3987,7 +3583,13 @@ def expand_visuals(script):
         pool = pool or last_pool
         k = 0
         while len(vis) < need and pool:
-            src = pool[k % len(pool)]
+            # every 3rd extra shot comes from the topic-wide pool (the story's people, places, era, objects):
+            # related footage keeps the video rich without searching for every single word
+            if backups and k % 3 == 2:
+                src = backups[bk % len(backups)]
+                bk += 1
+            else:
+                src = pool[k % len(pool)]
             nv = {kk: vv for kk, vv in src.items() if kk in ("type", "search", "source", "look", "year", "ai", "label", "backup")}
             nv["extra"] = True
             pos = min(len(vis), 1 + 2 * (k + 1))  # spread the new shots between the planned ones
@@ -3998,7 +3600,7 @@ def expand_visuals(script):
         sc.pop("visual", None)
         if pool:
             last_pool = [v for v in vis if v.get("type") in ("image", "video") and _queries(v)][-3:]
-    log(f"  {added} extra shots planned so no picture stays longer than about 4 seconds")
+    log(f"  {added} extra shots planned so no picture stays longer than about {int(MAX_SHOT)}-{int(MAX_SHOT) + 1} seconds")
     return added
 
 
@@ -4018,12 +3620,6 @@ def resolve_videos(script, W, H, fps):
                 slides.append(("r_" + img_key(v), v))
     if not slides:
         return []
-    say_of = {}
-    for sc in script["scenes"]:
-        for v in (sc.get("visuals") or []):
-            say_of[id(v)] = sc.get("say", "")
-    if vision_ready():
-        set_vision_context(script)
     log(f"  {len(slides)} video slides")
     state = {"dead": set(), "lock": threading.Lock()}
     cands = {}
@@ -4060,22 +3656,14 @@ def resolve_videos(script, W, H, fps):
             try:
                 if not os.path.exists(os.path.join(d, "info.json")):
                     _cut_clip(c, d, W, H, fps, start=0.0 if c["src"] == "own" else None)
-                if vision_ready() and c.get("src") != "own":
-                    fr = sorted(f for f in os.listdir(d) if f.endswith(".jpg"))
-                    if fr:
-                        r = vision_check([os.path.join(d, fr[len(fr) // 2])], say_of.get(id(v), ""), " ".join(_queries(v)))
-                        if r and not r[0]:
-                            used.add(c["url"])
-                            why.append(f"{c.get('src')}: AI check said it does not fit")
-                            continue
                 done = (c, d)
                 break
             except Exception as e:
                 c["bad"] = True
                 why.append(f"{c.get('src')}: {str(e)[:90]}")
-        if not done:  # nothing new: show a LATER moment of a clip already cut for this search (max 3 moments per clip)
+        if not done:  # nothing new: show a LATER moment of a clip already cut for this search (max 5 moments per clip)
             for (k2, d2), n_used in list(seg_uses.items()):
-                if k2 == key and n_used < 3:
+                if k2 == key and n_used < 5:
                     info2 = _json_read(os.path.join(d2, "info.json"), {})
                     if int(info2.get("n") or 0) >= (n_used + 1) * MAX_SHOT * fps:
                         seg_uses[(k2, d2)] = n_used + 1
@@ -4438,14 +4026,30 @@ def hosts_meta():
         return {}
 
 
+def host_for_topic(text, meta=None):
+    """The narrator whose niche fits this topic best (keyword match), or None."""
+    meta = meta or hosts_meta()
+    t = " " + re.sub(r"[^a-z0-9 ]+", " ", (text or "").lower()) + " "
+    best, score = None, 0
+    for hid, m in meta.items():
+        sc = sum(2 if " " + k + " " in t else (1 if k in t else 0) for k in (m.get("keywords") or []))
+        if sc > score:
+            best, score = hid, sc
+    return best
+
+
 def pick_host(script):
-    """The narrator of this video: the one the script asks for, otherwise a rotation so videos don't all look the same."""
+    """The narrator of this video: the one the script asks for, then the one whose niche fits the topic,
+    otherwise a rotation so videos don't all look the same."""
     meta = hosts_meta()
     if not meta:
         return None
     want = (script.get("host") or "").lower()
     if want in meta:
         return want
+    h = host_for_topic(" ".join([script.get("title") or "", script.get("description") or "", " ".join(script.get("tags") or [])]), meta)
+    if h:
+        return h
     order = sorted(meta)
     k = int(hashlib.sha1((script.get("title") or "").encode()).hexdigest(), 16) % len(order)
     return order[k]
@@ -4476,29 +4080,50 @@ class HostRig:
             cls._cache[hid] = cls(hid)
         return cls._cache[hid]
 
-    def frame(self, t, mouth="X", brows="neutral", talking=False, seed=1, look=None):
-        eyes = blink_state(t, seed)
-        if eyes == "open" and brows == "raised":
-            eyes = "wide"
-        if eyes in ("open", "wide") and look in ("l", "r") and f"eyes_{eyes}_{look}" in self.L:
-            eyes = f"{eyes}_{look}"
+    def _head(self, eyes, brows, mouth):
         key = (eyes, brows, mouth)
         if key not in self._hc:
             im = self.L["head"].copy()
             for part in (f"eyes_{eyes}", f"brows_{brows}", f"mouth_{mouth}"):
                 if part in self.L:
                     im.alpha_composite(self.L[part])
-            if len(self._hc) > 60:
+            if len(self._hc) > 80:
                 self._hc.clear()
             self._hc[key] = im
+        return self._hc[key]
+
+    def frame(self, t, mouth="X", brows="neutral", talking=False, seed=1, look=None, env=None, env_t=None, prev_mouth=None, mix=1.0):
+        """One pose. env = loudness of his voice (25 per second) for this shot: the head nods on stressed words,
+        brows lift on emphasis, the body breathes, and the mouth blends from the previous shape (no hard pops)."""
+        e_now, e_d = 0.0, 0.0
+        if env:
+            k = int((env_t if env_t is not None else t) * 25)
+            if 0 <= k < len(env):
+                e_now = env[k]
+                e_d = max(0.0, env[k] - (env[k - 3] if k >= 3 else 0))  # rising loudness = a stressed syllable
+        eyes = blink_state(t, seed)
+        if eyes == "open" and (brows == "raised" or e_d > 0.55):
+            eyes = "wide"
+        if brows == "neutral" and e_d > 0.6:
+            brows = "raised"  # emphasis
+        if eyes in ("open", "wide") and look in ("l", "r") and f"eyes_{eyes}_{look}" in self.L:
+            eyes = f"{eyes}_{look}"
+        head = self._head(eyes, brows, mouth)
+        if prev_mouth and prev_mouth != mouth and mix < 1.0:
+            head = Image.blend(self._head(eyes, brows, prev_mouth), head, clamp(mix))
         w, h = self.size
         canvas = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-        br = 1 + 0.008 * math.sin(t * 2 * math.pi / 3.6)
+        br = 1 + 0.010 * math.sin(t * 2 * math.pi / 3.6) + 0.006 * e_now  # breathing, chest lifts when he speaks louder
         bw, bh = int(w * br), int(h * br)
-        canvas.alpha_composite(self.L["body"].resize((bw, bh), Image.BILINEAR), ((w - bw) // 2, h - bh))
-        ang = 2.2 * math.sin(t * 2 * math.pi / 5.3 + seed) + (1.3 * math.sin(t * 2 * math.pi / 0.9) if talking else 0)
-        dy = 4 * math.sin(t * 2 * math.pi / 2.4) + (3 * abs(math.sin(t * 2 * math.pi / 0.7)) if talking else 0)
-        canvas.alpha_composite(self._hc[key].rotate(ang, resample=Image.BICUBIC, center=self.pivot, translate=(0, dy)))
+        sway = 3 * math.sin(t * 2 * math.pi / 6.1 + seed)
+        canvas.alpha_composite(self.L["body"].resize((bw, bh), Image.BILINEAR), (int((w - bw) // 2 + sway), h - bh))
+        if env:
+            ang = 2.0 * math.sin(t * 2 * math.pi / 5.3 + seed) + 2.4 * e_d * math.sin(t * 7.1 + seed) + 1.2 * e_now * math.sin(t * 2 * math.pi / 1.3)
+            dy = 3 * math.sin(t * 2 * math.pi / 2.4) + 9 * e_d - 2 * e_now
+        else:
+            ang = 2.2 * math.sin(t * 2 * math.pi / 5.3 + seed) + (1.3 * math.sin(t * 2 * math.pi / 0.9) if talking else 0)
+            dy = 4 * math.sin(t * 2 * math.pi / 2.4) + (3 * abs(math.sin(t * 2 * math.pi / 0.7)) if talking else 0)
+        canvas.alpha_composite(head.rotate(ang, resample=Image.BICUBIC, center=self.pivot, translate=(sway, dy)))
         return canvas
 
 
@@ -4522,6 +4147,19 @@ def cue_at(cues, t):
         if s <= t < e:
             return v
     return "X"
+
+
+def mouth_at(cues, t, lead=0.04, blend=0.05):
+    """Mouth shape a hair BEFORE the sound (animators' trick: the eye sees the shape as the ear hears it),
+    plus the previous shape and how far the change has gone, for a soft 50 ms blend."""
+    t = t + lead
+    prev = "X"
+    for s, e, v in cues or []:
+        if s <= t < e:
+            return v, prev, clamp((t - s) / blend)
+        if e <= t:
+            prev = v
+    return "X", prev, 1.0
 
 
 def emotion_of(text):
@@ -4602,6 +4240,10 @@ def lipsync_beats(pl, speech):
             except Exception as e:
                 log(f"    lip-sync fallback ({str(e)[:50]})")
         b["visual"]["cues"] = cues or _cues_from_loudness(seg)
+        hop = int(SR / 25)
+        envv = [float(np.sqrt(np.mean(seg[k:k + hop] ** 2))) for k in range(0, max(0, len(seg) - hop), hop)]
+        top = max(envv) if envv else 0
+        b["visual"]["env"] = [round(min(1.0, x / (top * 0.8)), 2) for x in envv] if top > 0 else []
         print(f"\r   lip-sync {i}/{len(beats)}", end="", flush=True)
     print()
 
@@ -4631,12 +4273,18 @@ def host_room(hid, W, H):
                     d.rectangle([x, y + int(160 * s) - bh, x + bw, y + int(160 * s)], fill=col)
                     x += bw + int(rng.integers(2, 6) * s)
         glow, tint = (640 / 1280, 250 / 720), (60, 38, 14)
-    elif hid == "vix":  # detective office at night: light through window blinds falling across the wall
-        for k in range(16):
-            y = int((40 + k * 62) * s)
-            d.polygon([(int(980 * s), y), (int(1920 * s), y - int(120 * s)), (int(1920 * s), y - int(92 * s)), (int(980 * s), y + int(20 * s))], fill=(58, 62, 80))
-        d.rectangle([0, int(880 * s), W, H], fill=(24, 18, 16))
-        glow, tint = (0.62, 0.35), (36, 42, 66)
+    elif hid == "vix":  # detective office: window blinds, evidence board
+        for k in range(14):
+            y = int((80 + k * 46) * s)
+            d.rectangle([int(1180 * s), y, int(1820 * s), y + int(22 * s)], fill=(70, 74, 86))
+        d.rectangle([int(90 * s), int(140 * s), int(700 * s), int(640 * s)], fill=(74, 52, 34))
+        for k in range(9):
+            x, y = int((120 + rng.integers(0, 480)) * s), int((170 + rng.integers(0, 380)) * s)
+            d.rectangle([x, y, x + int(110 * s), y + int(80 * s)], fill=(214, 206, 186))
+            d.ellipse([x + int(48 * s), y - int(8 * s), x + int(62 * s), y + int(6 * s)], fill=(190, 30, 30))
+        pts = [(int((175 + rng.integers(0, 480)) * s), int((210 + rng.integers(0, 380)) * s)) for _ in range(6)]
+        d.line(pts, fill=(190, 30, 30), width=max(2, int(4 * s)))
+        glow, tint = (0.52, 0.4), (40, 46, 70)
     else:  # momo: a small studio with neon light
         for k in range(7):
             x = int((150 + k * 240) * s)
@@ -4661,15 +4309,21 @@ class HostScene(Scene):
         W, H = self.W, self.H
         hid = self.v.get("host") or "raffe"
         rig = HostRig.get(hid)
-        m = cue_at(self.v.get("cues"), t)
+        m, pm, mix = mouth_at(self.v.get("cues"), t)
         g = rig.frame(t + self.idx * 1.7, m, self.v.get("emotion") or "neutral", m not in ("X", "A"), seed=self.idx + 3,
-                      look=self.v.get("look"))
+                      look=self.v.get("look"), env=self.v.get("env"), env_t=t, prev_mouth=pm, mix=mix)
         img = host_room(hid, W, H).copy()
-        k = H * 1.02 / g.height * (1 + 0.035 * clamp(t / max(1.0, dur)))
+        # framing changes every time he appears (wide / medium / close), like a real multi-camera edit
+        shot = ("medium", "close", "wide")[self.idx % 3] if not self.v.get("intro") else "wide"
+        zoom = {"wide": 1.0, "medium": 1.16, "close": 1.34}[shot]
+        envv = self.v.get("env") or []
+        kk = int(t * 25)
+        punch = 0.025 * (envv[kk] if 0 <= kk < len(envv) else 0)  # tiny push on loud words
+        k = H * 1.02 / g.height * zoom * (1 + 0.035 * clamp(t / max(1.0, dur)) + punch)
         g2 = g.resize((int(g.width * k), int(g.height * k)), Image.LANCZOS)
         side = self.v.get("side") or ("right" if self.idx % 2 else "center")
         x = {"right": int(W * 0.60 - g2.width / 2), "left": int(W * 0.38 - g2.width / 2)}.get(side, int((W - g2.width) / 2))
-        img.paste(g2, (x, int(H * 0.02)), g2)
+        img.paste(g2, (x, int(H * 0.02) - int((zoom - 1) * H * 0.05)), g2)
         if self.v.get("intro"):
             a = clamp((t - 0.6) / 0.4) * clamp((dur - 0.5 - t) / 0.4)
             if a > 0:
@@ -4683,8 +4337,33 @@ class HostScene(Scene):
         return img
 
 
+def reaction_freeze(dur):
+    """When the reaction clip freezes so the narrator can point at something: (start, length) or None."""
+    if dur < 3.0:
+        return None
+    fd = min(1.15, dur * 0.26)
+    return (round(min(max(1.3, dur * 0.42), dur - fd - 0.6), 3), round(fd, 3))
+
+
+def _hand_circle(d, box, prog, col, width, seed=0):
+    """A hand-drawn marker circle around box, drawn on over 'prog' (0-1)."""
+    x0, y0, x1, y1 = box
+    cx, cy, rx, ry = (x0 + x1) / 2, (y0 + y1) / 2, (x1 - x0) / 2 * 1.25, (y1 - y0) / 2 * 1.3
+    rnd = random.Random(seed)
+    p1, p2 = rnd.uniform(0, 6.28), rnd.uniform(0, 6.28)
+    n = max(2, int(96 * prog * 1.12))
+    pts = []
+    for k in range(n):
+        a = -2.2 + 2 * math.pi * 1.12 * k / 96
+        r = 1 + 0.035 * math.sin(2 * a + p1) + 0.025 * math.sin(3 * a + p2) + 0.07 * k / 96  # smooth marker wobble, overshoots the start
+        pts.append((cx + rx * r * math.cos(a), cy + ry * r * math.sin(a)))
+    if len(pts) > 1:
+        d.line(pts, fill=col, width=width, joint="curve")
+
+
 class ReactionScene(Scene):
-    """A real clip in a frame, the narrator reacting in the corner, the source written under it (commentary / fair-use style)."""
+    """A real clip in a frame (muted), the narrator reacting in the corner, the source written under it.
+    Commentary style: the clip FREEZES, the camera pushes in and a marker circles what the narrator points at."""
 
     def __init__(self, *a):
         super().__init__(*a)
@@ -4692,11 +4371,49 @@ class ReactionScene(Scene):
         if self.vid:
             self.vid.tag = ""
             self.vid.look = None
+        self.target = None
+
+    def _target(self, img):
+        """What to circle: the biggest face in the frozen frame, otherwise the centre."""
+        if self.target is None:
+            box = (0.38, 0.3, 0.62, 0.62)
+            try:
+                tmp = A("cache", f"react_{os.getpid()}_{self.idx}.jpg")
+                os.makedirs(A("cache"), exist_ok=True)
+                img.save(tmp, quality=85)
+                fs = detect_faces(tmp)
+                os.remove(tmp)
+                if fs:
+                    f_ = max(fs, key=lambda f: (f[2] - f[0]) * (f[3] - f[1]))
+                    box = tuple(f_[:4])
+            except Exception:
+                pass
+            self.target = box
+        return self.target
 
     def frame(self, t, dur):
         W, H = self.W, self.H
         s = W / 1920
-        clip = self.vid.frame(t, dur) if self.vid else dark_bg(W, H)
+        fz = reaction_freeze(dur)
+        tc, fk = t, 0.0  # clip time, freeze progress
+        if fz and self.vid:
+            f0, fd = fz
+            if t >= f0 + fd:
+                tc = t - fd
+            elif t >= f0:
+                tc, fk = f0, (t - f0) / fd
+        clip = self.vid.frame(tc, max(0.5, dur - (fz[1] if fz else 0))) if self.vid else dark_bg(W, H)
+        frozen = fz and self.vid and fk > 0
+        if frozen:  # push in toward what he points at, drain the colour a little
+            bx = self._target(clip)
+            z = 1 + 0.32 * ease_out(clamp(fk / 0.35))
+            cxp, cyp = (bx[0] + bx[2]) / 2 * W, (bx[1] + bx[3]) / 2 * H
+            cw_, ch_ = W / z, H / z
+            ox = min(max(0, cxp - cw_ / 2), W - cw_)
+            oy = min(max(0, cyp - ch_ / 2), H - ch_)
+            clip = clip.resize((W, H), Image.BILINEAR, box=(ox, oy, ox + cw_, oy + ch_))
+            clip = Image.blend(clip, ImageOps.grayscale(clip).convert("RGB"), 0.35)
+            zb = ((bx[0] * W - ox) * z, (bx[1] * H - oy) * z, (bx[2] * W - ox) * z, (bx[3] * H - oy) * z)
         bg = clip.resize((max(1, W // 10), max(1, H // 10))).filter(ImageFilter.GaussianBlur(2)).resize((W, H), Image.BILINEAR)
         img = Image.blend(bg, Image.new("RGB", (W, H), (8, 8, 10)), 0.62)
         e = ease_out(clamp(t / 0.45))
@@ -4710,21 +4427,49 @@ class ReactionScene(Scene):
         img.paste(sh, (cx - int(30 * s), cy - int(30 * s)), sh)
         mask = Image.new("L", (cw, ch), 0)
         ImageDraw.Draw(mask).rounded_rectangle([0, 0, cw - 1, ch - 1], r, fill=255)
-        img.paste(clip.resize((cw, ch), Image.BILINEAR), (cx, cy), mask)
+        inner = clip.resize((cw, ch), Image.BILINEAR)
+        if frozen:
+            di = ImageDraw.Draw(inner, "RGBA")
+            kx, ky = cw / W, ch / H
+            box = (zb[0] * kx, zb[1] * ky, zb[2] * kx, zb[3] * ky)
+            accent = tuple((hosts_meta().get(self.v.get("host") or "", {}).get("accent") or [226, 40, 30]))
+            _hand_circle(di, box, clamp((fk - 0.15) / 0.45), accent + (255,), max(4, int(9 * s)), seed=self.idx)
+            look = (self.v.get("look_at") or "").strip()
+            if look and fk > 0.45:
+                fa = int(255 * clamp((fk - 0.45) / 0.2))
+                f = font("Anton", int(46 * s))
+                txt = look.upper()[:34]
+                tx = min(max(int(20 * s), int(box[0])), cw - int(d_len := di.textlength(txt, font=f)) - int(40 * s))
+                ty = int(box[3] + 24 * s) if box[3] + 90 * s < ch else int(box[1] - 80 * s)
+                di.rectangle([tx - int(14 * s), ty - int(6 * s), tx + d_len + int(14 * s), ty + int(62 * s)], fill=accent + (int(fa * 0.92),))
+                di.text((tx, ty), txt, font=f, fill=(255, 255, 255, fa))
+            # pause badge
+            px, py = cw - int(110 * s), int(30 * s)
+            di.rounded_rectangle([px, py, px + int(80 * s), py + int(80 * s)], int(14 * s), fill=(0, 0, 0, 150))
+            di.rectangle([px + int(24 * s), py + int(20 * s), px + int(35 * s), py + int(60 * s)], fill=(255, 255, 255, 235))
+            di.rectangle([px + int(45 * s), py + int(20 * s), px + int(56 * s), py + int(60 * s)], fill=(255, 255, 255, 235))
+        img.paste(inner, (cx, cy), mask)
         d = ImageDraw.Draw(img, "RGBA")
         d.rounded_rectangle([cx, cy, cx + cw, cy + ch], r, outline=(255, 255, 255, int(190 * e)), width=max(2, int(4 * s)))
+        # playback bar: makes it read as "we are watching a clip together"
+        prog = clamp(tc / max(0.5, dur - (fz[1] if fz else 0)))
+        by = cy + ch - int(10 * s)
+        d.rectangle([cx + r, by, cx + cw - r, by + int(5 * s)], fill=(255, 255, 255, int(70 * e)))
+        d.rectangle([cx + r, by, cx + r + int((cw - 2 * r) * prog), by + int(5 * s)], fill=(226, 30, 24, int(230 * e)))
         src = (self.v.get("source") or self.v.get("clip_credit") or "").strip()
         if src:
             f = font("Inter", int(28 * s), "SemiBold")
             txt = "SOURCE: " + src[:60]
             tw_ = d.textlength(txt, font=f)
-            d.rectangle([cx + int(22 * s), cy + ch - int(66 * s), cx + int(50 * s) + tw_, cy + ch - int(20 * s)], fill=(0, 0, 0, int(175 * e)))
-            d.text((cx + int(36 * s), cy + ch - int(43 * s)), txt, font=f, fill=(255, 255, 255, int(235 * e)), anchor="lm")
+            d.rectangle([cx + int(22 * s), cy + ch - int(76 * s), cx + int(50 * s) + tw_, cy + ch - int(30 * s)], fill=(0, 0, 0, int(175 * e)))
+            d.text((cx + int(36 * s), cy + ch - int(53 * s)), txt, font=f, fill=(255, 255, 255, int(235 * e)), anchor="lm")
         hid = self.v.get("host") or "raffe"
         rig = HostRig.get(hid)
-        m = cue_at(self.v.get("cues"), t)
-        g = rig.frame(t + self.idx, m, self.v.get("emotion") or "raised", m not in ("X", "A"), seed=self.idx + 5, look="l")
-        k = H * 0.62 / g.height
+        m, pm, mix = mouth_at(self.v.get("cues"), t)
+        emo = "raised" if frozen else (self.v.get("emotion") or "raised")
+        g = rig.frame(t + self.idx, m, emo, m not in ("X", "A"), seed=self.idx + 5, look="l", env=self.v.get("env"), env_t=t, prev_mouth=pm, mix=mix)
+        lean = 1 + (0.06 * math.sin(math.pi * clamp(fk)) if frozen else 0)  # he leans in when he points
+        k = H * 0.62 / g.height * lean
         g2 = g.resize((int(g.width * k), int(g.height * k)), Image.LANCZOS)
         img.paste(g2, (int(W - g2.width * 0.78 + (1 - e) * W * 0.25), H - g2.height + int(20 * s)), g2)
         return img
@@ -5464,8 +5209,6 @@ def write_texts(script, pl, credits, out_dir):
         lines += ["Sources: " + (src if isinstance(src, str) else "; ".join(src)), ""]
     if str(script.get("voice", "")).lower() not in ("none", "silent", "own", "own-recording"):
         lines += ["Narration uses an AI voice. Maps and graphics are made for this video."]
-    if any(v.get("gen") for sc in script["scenes"] for v in sc.get("visuals") or []):
-        lines += ["Many scenes are AI-generated recreations for illustration, not real photographs."]
     # short credit list (who must be named), the full list goes in credits.txt
     names, seen = [], set()
     for c in credits:
@@ -5587,14 +5330,6 @@ def build(script_path, preview=False, captions=None):
         log(f"  narrator: {hosts_meta().get(hid, {}).get('name', hid)}")
     log("STEP 1/4 Pictures and clips")
     set_era(script)
-    if shots_ready() and cfg.get("ai_shots", True) is not False:
-        try:
-            plan_shots(script)
-            generate_shots(script)
-        except Exception as e:
-            log(f"  AI shots skipped: {str(e)[:120]}")
-    elif not cf_ready():
-        log("  (no Cloudflare key: pictures come from real-picture searches only. Add the free key in Settings for a picture on every line.)")
     expand_visuals(script)
     vcredits = resolve_videos(script, W, H, fps)
     credits, missing = resolve_pictures(script, use_ai=cfg.get("ai_pictures", True))
@@ -6174,7 +5909,7 @@ def write_thumbnail_prompts(script, pl, out_dir):
 
 def gemini_key():
     k = (os.environ.get("AI_KEY") or os.environ.get("GEMINI_KEY") or settings().get("gemini_key") or settings().get("ai_key") or "").strip()
-    return k if k.startswith(("AIza", "AQ.")) else ""
+    return k if k.startswith("AIza") else ""
 
 
 def gemini_image(prompt, refs, out, aspect="16:9"):
@@ -6346,8 +6081,22 @@ NICHE = ("Midnight Archive: cinematic documentaries about the DARK side of real 
          "and especially to women. Kidnappings, disappearances, cults, wars and massacres, cover-ups, injustices, crimes that shocked "
          "countries, and the people who survived them. American audience.")
 
+def host_style(hid):
+    """The narrator's own personality, written into every chapter so each narrator TELLS stories differently."""
+    m = hosts_meta().get(hid or "", {})
+    if not m:
+        return ""
+    return f"""THE NARRATOR OF THIS VIDEO: {m.get('name')} ({m.get('species')}). Niche: {m.get('niche', '')}.
+{m.get('persona', '')}
+Write EVERY line in {m.get('name')}'s own voice and rhythm, so a viewer could recognise him with eyes closed.
+{m.get('chapter_style', '')}
+His intro line (use it, or a close variation, when he first appears in chapter 1): "{m.get('intro_line', '')}"
+His sign-off (the very last line of the video): "{m.get('signoff', '')}"
+He speaks clearly and calmly-paced: no tongue-twisters, no sentence longer than 22 words, numbers written the way they are said."""
+
+
 STYLE_RULES = """VOICE OF THE STORY (this is what makes people stay)
-- Narrated by "Saim": calm, low, mysterious, like a late-night storyteller. Never shouting, never hype words ("insane", "crazy").
+- The narrator never shouts and never uses hype words ("insane", "crazy", "mind-blowing").
 - Short sentences. Spoken English. Vary rhythm: a long sentence, then a very short one. Use "..." where the narrator should pause.
 - Second person and questions pull people in: "Now imagine...", "So why did nobody call the police?"
 - Every 30-45 seconds open a new loop: a question, a contradiction, "but that was not the strangest part".
@@ -6355,9 +6104,17 @@ STYLE_RULES = """VOICE OF THE STORY (this is what makes people stay)
   For living people and unproven accusations use "police said", "she later told reporters", "allegedly".
 - RESPECT THE VICTIMS: say what happened, never describe sexual violence, wounds or bodies in detail. No details that sexualize anyone.
   Minors: no names unless widely published, never any sexual detail. The story honours the victim, never the criminal.
-- YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on)."""
+- YouTube-safe: no slurs, no gore, no glorifying violence (keeps ads on).
+STORYTELLING CRAFT (what the best documentary channels do)
+- Open every chapter IN a moment (a place, a time, a small physical detail), not with a summary.
+- Show, then tell: the concrete detail first ("the ledger had one page torn out"), the meaning after.
+- Stakes in human terms: who could lose what, and when.
+- Payoff every loop you open, later, and say so ("Remember that torn page? Here's why.").
+- Micro-cliffhanger at the end of every scene of 3+ sentences: a question, a reveal held back, or "and that's when it changed".
+- Specific beats generic: real names, real numbers, real places, real dates.
+- No filler: cut "in this video", "it's important to note", "interestingly", "let's dive in"."""
 
-VISUAL_RULES = """VISUALS (the engine shows them one after another while the scene is spoken; 1 visual every 4-5 seconds = about 2 per 22 words; each visual is on screen max 5 seconds)
+VISUAL_RULES = """VISUALS (the engine shows them one after another while the scene is spoken; a NEW visual every 2-3 seconds = about 1 per 7 words; the engine also fills gaps from a pool of related footage, so you don't need a picture for every word: show what this moment is ABOUT: the person, the place, the era, the object)
 EVERYTHING ON SCREEN MUST BE REAL AND ABOUT THIS STORY. Viewers leave when the picture doesn't match the words.
 Mix, per chapter: about 35% "video", 50% "image", a few maps, dates and case files. Text slides ("text", "type", "stat", "quote") at most ONE per chapter.
 Every image/video search must name a SPECIFIC REAL thing that has photos or footage online: the actual person (if public photos exist),
@@ -6381,10 +6138,12 @@ NEVER vague searches like "sad woman", "dark room", "crime scene", "mystery". If
 THE NARRATOR is a cartoon animal host who appears on screen and talks to the viewer (like a YouTube host):
 - {"type":"host"}  the narrator on screen speaking this scene's line. Use it for: the first chapter's 2nd scene (he introduces the story),
     the first scene of every chapter, questions to the viewer ("So why did nobody call the police?"), and the last scene. About 1 in 8 visuals.
-- {"type":"reaction","search":"YouTube search for REAL footage of exactly this moment","source":"who filmed it (TV channel, agency)","quote":"what is seen or said in that footage"}
-    a 4-8 second piece of real news / documentary footage played in a frame while the narrator reacts and comments (commentary).
-    Use it where real footage exists on YouTube (news reports, interviews, trial footage, archive reels): 1-2 per chapter.
-    The scene's "say" must COMMENT on the clip ("Look at the crowd outside the courthouse..."), not just describe the story.
+- {"type":"reaction","search":"YouTube search for REAL footage of exactly this moment","source":"who filmed it (TV channel, agency)","quote":"what is seen or said in that footage","look_at":"the ONE thing in the frame the narrator points at (e.g. 'the man in the grey coat', 'the headline')"}
+    a 4-5 second piece of real news / documentary footage played in a frame (muted) while the narrator reacts and comments over it.
+    The engine freezes the clip for a moment and circles what he points at: that is the commentary. 2-3 per chapter, spread out.
+    Use it where real footage exists on YouTube (news reports, interviews, trial footage, archive reels).
+    The scene's "say" must COMMENT on the clip in the narrator's own words: point, question, judge ("Look at his hands. He's not nervous. Why not?"),
+    never just retell what the clip says. One reaction per scene, and the scene's say for a reaction is 1-2 sentences.
 FLOATING CARDS: "pops":[{"text":"NAME OR NUMBER","label":"small line","on":"a word from the narration","kind":"person|money|death|place|date|law|people"}] 1-2 per scene.
 MUSIC: "mood" on the first scene of each chapter: tense | mystery | sad | epic | hopeful."""
 
@@ -6393,16 +6152,15 @@ def _ai_conf():
     cfg = settings()
     key = (cfg.get("ai_key") or cfg.get("gemini_key") or os.environ.get("AI_KEY") or "").strip()
     if not key:
-        raise RuntimeError("No AI key yet. Make a free Gemini key at aistudio.google.com/apikey and paste it in Settings.")
+        raise RuntimeError("No AI key yet. Make a free Cerebras key (cloud.cerebras.ai) or Groq key (console.groq.com/keys) and paste it in the app (New script tab).")
     for pre, (name, base, model) in AI_PROVIDERS.items():
         if key.startswith(pre):
             return name, cfg.get("ai_base") or base, cfg.get("ai_model") or model, key
-    if key.startswith(("AIza", "AQ.")):
+    if key.startswith("AIza"):
         return "Gemini", "gemini", cfg.get("gemini_model") or "gemini-2.5-flash", key
     if cfg.get("ai_base"):
         return "AI", cfg["ai_base"], cfg.get("ai_model") or "gpt-oss-120b", key
-    raise RuntimeError("The saved AI key is not a Gemini key (Gemini keys start with AIza or AQ.). The browser may have filled in a saved password. "
-                       "Open Settings > Gemini key, delete what is in the box, paste the key from aistudio.google.com/apikey and press Save.")
+    raise RuntimeError("This key isn't one I know. Use a Cerebras key (starts with csk-) or a Groq key (starts with gsk_).")
 
 
 AI_SOURCES = []  # web pages Google Search used while researching (Gemini)
@@ -6512,9 +6270,25 @@ def _clean_scenes(scenes, used_searches):
     return out
 
 
-def write_script(topic):
-    """Writes a full documentary in 3 steps: research + outline, then each chapter, then titles/thumbnails/Shorts."""
+def write_script(topic, host=None):
+    """Writes a full documentary in 3 steps: research + outline, then each chapter, then titles/thumbnails/Shorts.
+    The narrator is chosen first (his niche fits the topic), and the whole script is written in his voice."""
     name, base, model, _ = _ai_conf()
+    meta_h = hosts_meta()
+    host = (host or "").lower() if (host or "").lower() in meta_h else (host_for_topic(topic, meta_h) or "")
+    if not host and meta_h:
+        try:
+            pick = _ai_json("Pick the narrator whose niche fits this documentary topic best. Topic: " + topic + "\nNarrators: " +
+                            json.dumps({k: m.get("niche", "") for k, m in meta_h.items()}) + '\nAnswer ONLY JSON: {"narrator": "<id>"}',
+                            temperature=0.2, max_tokens=200)
+            host = str(pick.get("narrator", "")).lower()
+        except Exception:
+            host = ""
+        if host not in meta_h:
+            host = sorted(meta_h)[int(hashlib.sha1(topic.encode()).hexdigest(), 16) % len(meta_h)]
+    if host:
+        log(f"  narrator: {meta_h[host].get('name', host)} ({meta_h[host].get('niche', '')[:60]})")
+    persona = host_style(host)
     log(f"STEP 1/3 Research and story outline ({name})")
     system = "You are the head writer and researcher of a top documentary YouTube channel. " + NICHE
     outline = _ai_json(f"""Topic: {topic}
@@ -6526,7 +6300,7 @@ Answer ONLY JSON:
  "facts": ["20-35 short, checkable facts: names, dates, places, numbers, what happened, what happened after"],
  "unsure": ["things that are disputed or that you are not sure about (the script must not state these as fact)"],
  "sources": ["real books, court records, news outlets or reports this is based on"],
- "backup_searches": ["15 broad searches for REAL photos/footage of this story's places, people and era, e.g. 'Hangzhou old town', 'Edinburgh 1820s', 'Khmer Rouge soldiers 1975'"],
+ "backup_searches": ["35 searches for REAL photos/footage RELATED to this story (the b-roll pool): 8 about the main people, 8 about the places (city, streets, buildings) in that era, 8 about the era itself (daily life, news footage, vehicles, crowds, technology of that time), 6 about objects and documents (newspapers, letters, money, weapons of the time, maps), 5 about what happened after. e.g. 'Hangzhou old town', 'Edinburgh 1820s', 'Khmer Rouge soldiers 1975', 'Colombia 1980s street footage'"],
  "region": "the ONE country or city where this story happens, in English (e.g. 'Australia')",
  "era": [first year of the story, last year of the story],
  "hook": "the first 2 sentences: a true, shocking, quiet hook (no 'welcome back', no 'in this video')",
@@ -6554,6 +6328,8 @@ Write chapter {ci} of {len(chapters)}: "{ch['name']}" (mood: {ch.get('mood', 'my
 It covers: {ch.get('covers', '')}
 It ends on this open loop: {ch.get('open_loop', '')}
 About {int(ch.get('words') or 260)} spoken words in 5-9 scenes (each scene 1-4 sentences).
+
+{persona}
 
 {STYLE_RULES}
 
@@ -6587,7 +6363,7 @@ Answer ONLY JSON:
  "thumbnails": [{{"text": "2-4 WORDS\\nON TWO LINES", "picture": "the image search of the best picture for this", "style": "face", "red": "the ONE word to colour red"}},
                 {{"text": "...", "picture": "...", "style": "dark", "red": "..."}},
                 {{"text": "...", "picture": "...", "style": "circle", "red": "..."}}],
- "summary_short": {{"hook": "max 7 words on screen, the most shocking true fact", "say": "the WHOLE story told in 110-130 spoken words: a hook, what happened, the twist, how it ended. Short sentences, Saim's calm voice. Last sentence: 'The full story is on the channel.'", "title": "Short title under 60 characters #shorts", "comment": "pinned question"}},
+ "summary_short": {{"hook": "max 7 words on screen, the most shocking true fact", "say": "the WHOLE story told in 110-130 spoken words: a hook, what happened, the twist, how it ended. Short sentences, in the narrator's own voice. Last sentence: 'The full story is on the channel.'", "title": "Short title under 60 characters #shorts", "comment": "pinned question"}},
  "shorts": [1 x {{"from_scene": i, "to_scene": j, "hook": "short hook line", "title": "Short title #shorts", "comment": "pinned question"}}]
 }}
 Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\\nHIM", "11 DAYS\\nOF SILENCE").""",
@@ -6599,13 +6375,13 @@ Thumbnail words must NOT repeat the title; they add curiosity ("SHE KNEW\\nHIM",
     script = {"title": meta.get("title") or outline.get("working_title") or topic, "titles": (meta.get("titles") or [])[:3],
               "description": meta.get("description", ""), "tags": (meta.get("tags") or [])[:20], "hashtags": (meta.get("hashtags") or [])[:3],
               "sources": (outline.get("sources") or []) + [f"{x['title']} ({x['uri']})" for x in AI_SOURCES[:15]],
-              "pinned_comment": meta.get("pinned_comment", ""), "voice": "host", "speed": 0.95,
+              "pinned_comment": meta.get("pinned_comment", ""), "voice": "host", "speed": 0.95, "host": host,
               "thumbnail": {"text": thumbs[0]["text"] if thumbs else "THE TRUTH\nCAME OUT"}, "thumbnails": thumbs,
               "shorts": [s for s in (meta.get("shorts") or []) if isinstance(s, dict) and "from_scene" in s][:1],
               "summary_short": meta.get("summary_short") if isinstance(meta.get("summary_short"), dict) else {},
               "region": outline.get("region") or "", "era": outline.get("era") or [],
               "facts_to_check": facts, "unsure": outline.get("unsure") or [],
-              "backup_searches": [q for q in (outline.get("backup_searches") or []) if isinstance(q, str)][:20], "written_by": f"{name} {model}", "scenes": scenes}
+              "backup_searches": [q for q in (outline.get("backup_searches") or []) if isinstance(q, str)][:40], "written_by": f"{name} {model}", "scenes": scenes}
     slug = re.sub(r"[^a-z0-9]+", "_", topic.lower()).strip("_")[:40] or "new_video"
     path = A("scripts", slug + ".json")
     _json_write(path, script)
@@ -6646,7 +6422,7 @@ Answer ONLY JSON: {{"topics": [{{"t": "YouTube-style title under 60 characters",
 # the exact moment that matches what the narrator is saying, and cut 4-8 seconds from there into clips_react/<slide>.mp4.
 # Short, framed, with commentary over it and the source on screen: the commentary / fair-use way reaction channels work.
 
-REACT_SEC = (4.0, 8.0)
+REACT_SEC = (4.0, 5.0)   # short: 4-5 s of someone else's footage, always under commentary
 
 
 def _ydl_opts(extra=None):
@@ -6731,7 +6507,17 @@ def fetch_reactions(script_path):
                 dur = float(e.get("duration") or 0)
                 if not e.get("id") or (dur and (dur < 40 or dur > 3 * 3600)) or e.get("live_status") == "is_live":
                     continue
+                title = (e.get("title") or "").lower()
+                # never music, films or trailers: those are claimed fastest and aren't news/documentary footage
+                if re.search(r"official (music )?video|lyrics|\bsong\b|trailer|full movie|\bmovie\b|\bremix\b|\bamv\b|reaction|compilation|#shorts", title):
+                    continue
                 score = len(want & _sig_words(e.get("title", "")))
+                ch_ = (e.get("channel") or e.get("uploader") or "").lower()
+                src_ = (v.get("source") or "").lower()
+                if src_ and src_.split()[0] in ch_:
+                    score += 3  # the outlet the script names
+                if re.search(r"news|archive|bbc|cbs|nbc|abc|cnn|ap\b|reuters|pbs|c-span|british pathe|pathe|newsreel|history|documentary", ch_ + " " + title):
+                    score += 1
                 cands.append((score, e))
             cands.sort(key=lambda x: -x[0])
             done = False
